@@ -1,0 +1,3 @@
+[submodule "modules/secrets"]
+	path = modules/secrets
+	url = git@github.com:paulshorey/secrets.git
