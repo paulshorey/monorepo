@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Design Systems/atoms/Link External 1`] = `
+<a
+  className=" css-12jtorb-styles"
+  href="https://spiral.us"
+  hrefLang="en-us"
+  onClick={[Function]}
+  onMouseEnter={[Function]}
+>
+  Link to external website
+</a>
+`;
+
+exports[`Storyshots Design Systems/atoms/Link Internal 1`] = `
+<a
+  className=" css-12jtorb-styles"
+  href="/about"
+  hrefLang="en-us"
+  onClick={[Function]}
+  onMouseEnter={[Function]}
+>
+  Link to internal page/route in NextJS app
+</a>
+`;
+
+exports[`Storyshots Design Systems/atoms/Link With Button 1`] = `
+<a
+  className=" css-12jtorb-styles"
+  href="https://apps.apple.com/US/app/id1526316317"
+  hrefLang="en-us"
+  onClick={[Function]}
+  onMouseEnter={[Function]}
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  <button
+    className="css-1g4hkra-styles-styles-composeCSS-composeCSS"
+    onClick={[Function]}
+  >
+    Download our app
+  </button>
+</a>
+`;

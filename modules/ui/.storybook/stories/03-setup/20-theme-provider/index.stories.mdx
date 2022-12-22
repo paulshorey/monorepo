@@ -1,0 +1,253 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import Block from '@ps/ui/components/Block';
+import Inline from '@ps/ui/components/Inline';
+import CodeInline from '@ps/ui/components/CodeInline';
+import ThemeProvider from '@ps/ui/components/ThemeProvider';
+import Wrapper from '@ps/ui/.storybook/components/Wrapper';
+import {
+  Container,
+  ButtonCTA,
+  CanvasContainer,
+  CanvasContent,
+  Title,
+  Content,
+  Button,
+} from '@ps/ui/.storybook/components/Components';
+import Code from '@ps/ui/components/Code';
+
+<Meta title="Get started/Setup/Theme provider" />
+
+<ThemeProvider>
+<Wrapper>
+
+<Block as="h2" textgradient="accent">1. Install</Block>
+
+This is **not currently published as a standalone library**, but as part of a **mono-repo**. See ["Mono repo" in the stories panel](/docs/get-started-mono-repo--page).   
+
+This UI library `@ps/ui` by design only requires `@emotion/styled` as a peer dependency. NextJS is optional.  
+It also uses a couple modules `@ps/fn` and `@ps/contants` from the local mono-repo, but these be removed in a quick refactor.
+
+
+<Block as="h2" textgradient="accent" ss="margin-top:3rem;">2. Theme</Block>
+
+To get started instantly, with no configuration, import `@ps/ui/components/ThemeProvider` and wrap your app with it.
+
+Or to customize theme and settings, make a copy of `ThemeProvider.tsx`, `theme.ts` and `colors.css` files in your app directory and use that. Here are the files used to customize your colors, sizes, and variables:  
+
+<Code title="components/ThemeProvider.tsx" code={`import { ThemeProvider as EmotionThemeProvider } from '@emotion/react';
+  
+import theme from '@ps/ui/styles/theme'; // your custom JS variables
+  
+import 'styles/colors.css'; // your custom CSS variables
+  
+const ThemeProvider = ({ children }) => {
+  return (
+    <EmotionThemeProvider theme={theme}>
+      {children}
+    </EmotionThemeProvider>
+  );
+};
+  
+export default ThemeProvider;`} collapsed={true} ss="margin-bottom:0;" />
+
+<Code title="styles/theme.ts" code={`import mq from './mq';  // copy and customize these too if you want
+  
+const theme = {
+  RouterLink: null, // pass your choice router component, like from 'next/link'
+  mq, // this empowers the custom style props like ssMobile, ssDesktop, ssTablet
+  sizes: {
+    card: {
+      borderRadius: 0.4,
+    },
+    buttonsAndInputs: {
+      borderRadius: 0.4,
+      height: {
+        xs: 1.5,
+        sm: 1.95,
+        md: 2.33,
+        lg: 2.55,
+        xl: 3,
+      },
+      ...
+    },
+  },
+};
+  
+export default theme;`} collapsed={true} ss="margin-bottom:0;" />
+
+<Code title="styles/colors.css" code={`:root {
+  --font-family: 'Roboto', sans-serif;
+  --font-family-title: 'Roboto', sans-serif;
+  --font-family-code: 'Roboto Mono', monospace;
+  --color-error: #e30000;
+  --color-warning: #e38935;
+  --color-success: #27b30d;
+  --color-info: #1ea7fd;
+  --color-notice: #c336e5;
+}
+  
+/*
+ * (DEFAULT) Dark text on light background:
+ * <Block textcolor="dark"> or <Block bgcolor="light">
+ */
+:root,
+[data-colorscheme='light'] {
+  --color-bg: #efefef;
+  --color-bg-gradient: linear-gradient(
+    120deg,
+    hsl(205, 10%, 90%),
+    hsl(205, 5%, 99%)
+  );
+  
+  --color-text: hsla(0, 0%, 20%, 93%);
+  --color-text-gradient: radial-gradient(
+    50% 50% at top center,
+    hsla(257, 42%, 28%, 75%),
+    hsla(257, 42%, 28%, 95%)
+  );
+  --color-glow: hsla(272, 51%, 54%, 0.25);
+  --color-cta: hsl(194deg 94% 46%);
+}
+  
+/*
+ * Light text on dark background:
+ * <Block textcolor="light"> or <Block bgcolor="dark">
+ */
+[data-colorscheme='dark'] {
+  --color-bg: hsla(256, 29%, 29%, 0.85);
+  --color-bg-gradient: radial-gradient(
+    50% 50% at top center,
+    hsla(257, 42%, 28%, 75%),
+    hsla(257, 42%, 28%, 95%)
+  );
+  
+  --color-text: hsla(0, 0%, 94%, 94%);
+  --color-text-gradient: linear-gradient(
+    120deg,
+    hsl(205, 5%, 98%),
+    hsl(205, 10%, 80%)
+  );
+  
+  --color-glow: hsla(0deg, 0%, 100%, 0.125);
+  --color-cta: hsl(176deg 54% 50%);
+}
+  
+/*
+ * Define colors - light and dark versions of each. Then use them:
+ * <Block textcolor="accent"> or <b data-textcolor="accent">
+ */
+[data-textcolor='accent'] {
+  --color-accent: hsl(30deg 84% 53%);
+  --color-text-gradient: linear-gradient(#fecc4c, #ffac33);
+}
+[data-colorscheme='dark'] [data-textcolor='accent'] {
+  --color-accent: hsl(41deg 95% 65%);
+  --color-text-gradient: linear-gradient(#fecc4c, #ffac33);
+}
+  
+/*
+ * CTA
+ * <Button textcolor="cta" /> or <a data-textcolor="cta" href="">
+ * NOTICE: This sets the text color for all anchor tags in the site. 
+ * This is optional. Move that to a different stylesheet if you want.
+ */
+a,
+a:hover,
+a:visited,
+[data-textcolor='cta'] {
+  --color-text: var(--color-cta);
+  --color-text-gradient: linear-gradient(
+    90deg,
+    hsl(171, 76%, 39%),
+    hsl(171, 60%, 34%)
+  );
+}
+a,
+a:hover,
+a:visited,
+[data-bgcolor='cta'] {
+  --color-bg: var(--color-cta);
+  --color-bg-gradient: linear-gradient(
+    90deg,
+    hsl(171, 76%, 39%),
+    hsl(171, 60%, 34%)
+  );
+}
+[data-colorscheme='dark'] a,
+[data-colorscheme='dark'] a:hover,
+[data-colorscheme='dark'] a:focus,
+[data-colorscheme='dark'] [data-textcolor='cta'] {
+  --color-text: var(--color-cta);
+  --color-text-gradient: linear-gradient(
+    90deg,
+    hsl(39, 100%, 50%),
+    hsl(51, 100%, 50%),
+    hsl(51, 100%, 50%),
+    hsl(39, 100%, 50%)
+  );
+}
+[data-colorscheme='dark'] [data-bgcolor='cta'] {
+  --color-bg: var(--color-cta);
+  --color-bg-gradient: linear-gradient(
+    90deg,
+    hsl(39, 100%, 50%),
+    hsl(51, 100%, 50%),
+    hsl(51, 100%, 50%),
+    hsl(39, 100%, 50%)
+  );
+}
+  
+/*
+ * Use the colors defined in this file.
+ */
+[data-bgcolor] {
+  background-color: var(--color-bg);
+}
+[data-textcolor] {
+  color: var(--color-text);
+}
+[data-bggradient] {
+  color: var(--color-text);
+  background: var(--color-bg);
+  background-image: var(--color-bg-gradient);
+}
+[data-textgradient] {
+  background: initial;
+  background-color: var(--color-text);
+  background-image: var(--color-text-gradient);
+  background-size: 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}`} collapsed={true} ss="margin-bottom:0;" />
+
+<Code title="styles/mq.ts" code={`export default {
+  // by device type:
+  tinyPhone: \`@media (max-width: 360px)\`, // Too small for almost all phones. HOWEVER, Samsung foldable phones front display is 320px wide. Also smart watches, and very old iPhone 4/5.
+  smallPhone: \`@media (max-width: 400px)\`, // iPhone 8,X,SE,Mini = 375px, 11,12,13 Pro = 390px
+  tablet: \`@media (min-width: 601px) and (max-width: 1024px)\`,
+  largeTablet: \`@media (min-width: 931px) and (max-width: 1024px)\`,
+  largeDesktop: \`@media (min-width: 1440px)\`,
+  veryLargeDesktop: \`@media (min-width: 1920px)\`,
+  // pair phone or larger device:
+  phone: \`@media (max-width: 600px)\`, // most iPhones = 390-428px wide
+  notPhone: \`@media (min-width: 601px)\`, // anything bigger than phone
+  // pair desktop/mobile:
+  desktop: \`@media (min-width: 1025px)\`,
+  mobile: \`@media (max-width: 1024px)\`,
+  // pair sm/lg:
+  sm: \`@media (max-width: 930px)\`,
+  lg: \`@media (min-width: 931px)\`,
+  // could be useful:
+  portrait: \`@media (orientation: portrait)\`,
+  landscape: \`@media (orientation: landscape)\`,
+  // override other media queries without resorting to "!important":
+  all: \`@media (min-width: 0px), (min-height: 0px)\`,
+  // to style by device type, OS, iframe, or WebView, use inline ss props. 
+  // See component props in Storybook (generated from Typescript types).
+};`} collapsed={true} ss="margin-bottom:0;" />
+
+More documentation coming soon...
+
+</Wrapper>
+</ThemeProvider>

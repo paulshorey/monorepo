@@ -1,0 +1,22 @@
+{
+  "extends": "@ps/constants/config/typescript/base.json",
+  "include": ["."],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "umd",
+    "esm",
+    "out",
+    "test",
+    ".next",
+    ".backup",
+    "public",
+    "storybook-static",
+    "**/*.test.ts",
+    "**/*.test.js",
+    "**/*.stories.tsx"
+  ],
+  "compilerOptions": {
+    "outDir": "esm"
+  }
+}

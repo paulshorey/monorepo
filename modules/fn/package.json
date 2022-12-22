@@ -1,0 +1,67 @@
+{
+  "name": "@ps/fn",
+  "version": "0.0.2",
+  "type": "module",
+  "private": true,
+  "description": "Universal utility functions for both browser and node (like @lodash, but with more dashes). Mostly \"pure\" functions (sorting ones use [].sort()). Promises, filtering, sorting, combining, text analysis, math, curry, sleep, etc. See also platform specific functions twodashes-node and twodashes-browser. -- PLEASE NOTE -- This is meant to be imported from other Typescript ES6 modules in monorepo. It's not currently built/compiled/exported to be imported by CommonJS/ES5 modules.",
+  "scripts": {
+    "dev": "yarn run test:dev",
+    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest",
+    "test:dev": "NODE_OPTIONS=--experimental-vm-modules npx jest --watch",
+    "docs:build": "typedoc --out _docs ./io ./browser ./requests ./server --theme stacks && http-server _docs",
+    "docs:serve": "http-server _docs",
+    "build": "tsc",
+    "build:umd": "rm -rf .parcel-cache && rm -rf umd && mkdir umd && parcel build esm/*.js --dist-dir umd --target default"
+  },
+  "targets": {
+    "default": {
+      "includeNodeModules": true,
+      "engines": {
+        "browsers": "> 0.75%"
+      }
+    }
+  },
+  "typedoc": {
+    "entryPoint": "./index.ts",
+    "readmeFile": "./README.md",
+    "displayName": "Hope this works",
+    "tsconfig": "./tsconfig.json"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm version patch --no-git-tag-version && npm run test && git add ."
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/twodashes/node.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/twodashes/node/issues"
+  },
+  "homepage": "https://github.com/twodashes/node#readme",
+  "dependencies": {
+    "@ps/constants": "*",
+    "axios": "^0.27.2",
+    "cachios": "^4.0.0",
+    "http-server": "^14.1.1"
+  },
+  "devDependencies": {
+    "@babel/preset-typescript": "^7.18.6",
+    "@janniks/typedoc-theme-stacks": "^1.2.3",
+    "@ps/cconsole": "*",
+    "@types/jest": "^29.2.3",
+    "airtable": "^0.11.5",
+    "ava": "^4.3.3",
+    "eslint": "^8.23.1",
+    "husky": "^8.0.1",
+    "jest": "^29.0.3",
+    "parcel": "^2.7.0",
+    "snowpack": "^3.8.8",
+    "ts-jest": "^29.0.1",
+    "typedoc": "^0.23.21",
+    "typescript": "^4.8.3"
+  }
+}

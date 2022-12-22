@@ -1,0 +1,60 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import Block from '@ps/ui/components/Block';
+import Inline from '@ps/ui/components/Inline';
+import Code from '@ps/ui/components/Code';
+import CodeInline from '@ps/ui/components/CodeInline';
+import ThemeProvider from '@ps/ui/components/ThemeProvider';
+import Wrapper from '@ps/ui/.storybook/components/Wrapper';
+import MediaQueriesBlock from '@ps/ui/.storybook/components/MediaQueriesBlock';
+
+<Meta title="Get started/Styling/Media queries" />
+
+<ThemeProvider>
+  <Wrapper ss="margin-top:-0.5rem;">
+
+Components in this library introduce <CodeInline code={`props.ss`} /> which helps to access your component's props. Each component gets the site <code>theme</code> injected into its props. Call <CodeInline code={`(props) => `} />just once at the top, then use it multiple times.
+
+<Code
+  ss="font-size: 0.85rem;margin-bottom:1.5rem;"
+  code={`const style = ({theme}) => css\`
+      /* use media query mixins */
+      \${theme.mq.tinyPhone} {
+            /* and props/theme variables */
+            padding: 1rem \${theme.sizes.card.paddingX * 2};
+      }
+\`;
+<Button ss={style}>`} />
+
+If using <CodeInline code={`style\`\``}/> or <CodeInline code={`css\`\``} />, access your props/theme in the more familiar format, calling <CodeInline code={`props => `} />in each template literal:
+<Code
+  ss="font-size: 0.85rem;margin-bottom:1.5rem;"
+  code={`styled(Button)\`
+      /* use media query mixins */
+      \${(props) => props.theme.mq.tinyPhone} {
+            /* and props/theme variables */
+            padding: 1rem \${(props) => props.theme.sizes.card.paddingX * 2
+      }}
+\``} />
+
+There are various `ss` props. Each one injects your style into a media query. Each of these correspond to a `theme.mq` mixin:
+
+<MediaQueriesBlock />
+
+<Block bggradient="rainbow" ss="height:1px;margin:4.5rem 0 4rem 0;" />
+
+<Block as="h2">Every app needs to style for different screen sizes.</Block>
+
+Material UI gives us `sm`,`md`,`lg`,`xl` breakpoints which use `min-width` media queries to target increasingly larger screen sizes. 👍 But what if I need to style only `(min-width: 768px) and (max-width:1024px)` or another specific device that's not preconfigured? Sometimes I need to add fixes for extra-narrow phones. 🤔 Mobile-first is a great guideline, but edge cases will lead to messy code.
+
+Chakra UI's styled-system adds a shortcut to that approach - pass an array of css props to style all 4 breakpoints in one command. Like: `<Box p={['10px','12px','15px','30px']]}>`. 😎 Cool, but inconsistent because you'll very rarely actually style all breakpoints at the same time. And now I have to remember sizes by a few predefined index numbers. Plus all those clever style props pollute the namespace with all other React props that pass data/logic. <!--Developers have been working for decades to solve namespace pollution. Seems like a step backwards. 🤮-->
+
+**But such attempts at simplicity can make maintenance more difficult.** This library is very new and experimental. It's an attempt to make styling for multiple devices faster, easier, more maintainable, and more scalable.
+
+<br />
+<br />
+
+<Inline ssPhone="display:none;">👈 </Inline>
+  <Inline ssNotPhone="display:none;">👇 </Inline> <Inline textcolor="accent"> Explore the stories in this Storybook.</Inline> Below each component is an interactive <Inline textcolor="accent">table of props</Inline>. There you can see a more detailed description of each style prop.
+
+  </Wrapper>
+</ThemeProvider>

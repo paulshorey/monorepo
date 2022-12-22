@@ -1,0 +1,212 @@
+[data-bgcolor] {
+  background-color: var(--color-bg);
+}
+[data-textcolor] {
+  color: var(--color-text);
+}
+[data-bggradient] {
+  color: var(--color-text);
+  background: var(--color-bg);
+  background-image: var(--color-bg-gradient);
+}
+[data-textgradient] {
+  background: initial;
+  background-color: var(--color-text);
+  background-image: var(--color-text-gradient);
+  background-size: 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+:root {
+  --color-error: #e30000;
+  --color-warning: #e38935;
+  --color-success: #27b30d;
+  --color-info: #1ea7fd;
+  --color-notice: #c336e5;
+
+  --color-cta: hsl(176deg 54% 50%);
+  --color-accent: #fece5c;
+  --color-glow: hsla(0deg, 0%, 100%, 0.125);
+}
+:root,
+[data-bgcolor='dark'] {
+  --color-bg: #333;
+  --color-bg-gradient: radial-gradient(75% 75% at top center, #222, #333, #222);
+}
+:root,
+[data-textcolor='light'] {
+  --color-text: hsl(95deg 9% 95%);
+  --color-text-gradient: linear-gradient(
+    120deg,
+    hsl(95deg 9% 90%),
+    hsl(95deg 9% 97%)
+  );
+}
+
+/*
+ * 
+ * ⬆ ABOVE IS REQUIRED (but feel free to edit any of the values, or add your own)
+ * ⬇ BELOW IS OPTIONAL (ok to delete if you dont need more than one color scheme)
+ *
+ */
+
+/*
+ * Dark text on light background
+ * `<div data-bgcolor="light">` or `<div data-textcolor="dark">`
+ */
+[data-bgcolor='light'] {
+  --color-bg: hsl(95deg 9% 95%);
+  --color-bg-gradient: linear-gradient(
+    120deg,
+    hsl(95deg 9% 90%),
+    hsl(95deg 9% 97%)
+  );
+}
+[data-bgcolor='light'],
+[data-textcolor='dark'] {
+  --color-text: hsla(0, 0%, 20%, 93%);
+  --color-text-gradient: radial-gradient(
+    75% 75% at top center,
+    hsla(257, 42%, 28%, 75%),
+    hsla(257, 42%, 28%, 85%)
+  );
+  --color-glow: hsla(272, 51%, 54%, 0.25);
+  --color-cta: hsl(194deg 94% 46%);
+  --color-accent: #ffa500;
+}
+
+/*
+ * Purple
+ */
+[data-textcolor='purple'] {
+  --color-text: hsl(250, 40%, 45%); /* hsl(250, 60%, 60%);*/
+  --color-text-gradient: linear-gradient(
+    333deg,
+    hsl(270 50% 50%),
+    hsl(245, 75%, 67%)
+  );
+}
+[data-bgcolor='purple'] {
+  --color-bg: hsl(245deg 55% 55%); /* hsl(250, 60%, 60%);*/
+  --color-bg-gradient: linear-gradient(
+    333deg,
+    hsl(270 50% 50%),
+    hsl(245, 75%, 67%)
+  );
+}
+
+/*
+ * Accent
+ */
+[data-textcolor='accent'] {
+  --color-text: var(--color-accent);
+  --color-text-gradient: linear-gradient(#fece5c, #ffa500);
+}
+
+/*
+ * Rainbow
+ */
+[data-textcolor='rainbow'] {
+  --color-text: orange;
+  --color-text-gradient: linear-gradient(
+    55deg,
+    hsl(16, 90%, 68%) -20%,
+    hsl(36, 90%, 50%),
+    hsl(50, 88%, 53%),
+    hsl(50, 90%, 70%),
+    hsl(70, 85%, 57%),
+    hsl(167, 50%, 65%),
+    hsl(239, 100%, 79%) 106%
+  );
+}
+[data-bgcolor='rainbow'] {
+  --color-bg: orange;
+  --color-bg-gradient: linear-gradient(
+    55deg,
+    rgb(245, 139, 101) -12%,
+    rgba(255, 154, 0, 1),
+    rgb(245, 208, 23),
+    rgb(255, 236, 95),
+    rgb(205, 235, 55),
+    rgb(121, 210, 191),
+    rgb(146, 147, 255) 106%
+  );
+}
+[data-bgcolor='light'] [data-textcolor='rainbow'] {
+  --color-text: orange;
+  --color-text-gradient: linear-gradient(
+    160deg,
+    rgb(255, 75, 75),
+    rgb(252, 84, 84),
+    rgba(255, 154, 0, 1),
+    rgb(245, 208, 23),
+    rgba(208, 222, 33, 1),
+    rgb(185, 234, 27),
+    rgba(79, 220, 74, 1),
+    rgba(63, 218, 216, 1),
+    rgba(47, 201, 226, 1),
+    rgb(51, 146, 255),
+    rgb(210, 86, 255),
+    rgb(255, 87, 233)
+  );
+}
+[data-bgcolor='light'] [data-bgcolor='rainbow'] {
+  --color-bg: orange;
+  --color-bg-gradient: linear-gradient(
+    160deg,
+    rgb(255, 75, 75),
+    rgb(252, 84, 84),
+    rgba(255, 154, 0, 1),
+    rgb(245, 208, 23),
+    rgba(208, 222, 33, 1),
+    rgb(185, 234, 27),
+    rgba(79, 220, 74, 1),
+    rgba(63, 218, 216, 1),
+    rgba(47, 201, 226, 1),
+    rgb(51, 146, 255),
+    rgb(210, 86, 255),
+    rgb(255, 87, 233)
+  );
+}
+
+/*
+ * CTA buttons and banners
+ */
+[data-textcolor='cta'] {
+  --color-text: var(--color-cta);
+  --color-text-gradient: linear-gradient(
+    90deg,
+    hsl(39, 100%, 50%),
+    hsl(51, 100%, 50%),
+    hsl(51, 100%, 50%),
+    hsl(39, 100%, 50%)
+  );
+}
+[data-bgcolor='cta'] {
+  --color-bg: var(--color-cta);
+  --color-bg-gradient: linear-gradient(
+    90deg,
+    hsl(39, 100%, 50%),
+    hsl(51, 100%, 50%),
+    hsl(51, 100%, 50%),
+    hsl(39, 100%, 50%)
+  );
+}
+[data-bgcolor='light'] [data-textcolor='cta'] {
+  --color-text: var(--color-cta);
+  --color-text-gradient: linear-gradient(
+    90deg,
+    hsl(171, 76%, 39%),
+    hsl(171, 60%, 34%)
+  );
+}
+[data-bgcolor='light'] [data-bgcolor='cta'] {
+  --color-bg: var(--color-cta);
+  --color-bg-gradient: linear-gradient(
+    90deg,
+    hsl(171, 76%, 39%),
+    hsl(171, 60%, 34%)
+  );
+}

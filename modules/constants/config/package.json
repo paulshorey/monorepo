@@ -1,0 +1,25 @@
+{
+  "name": "@spiral/config",
+  "version": "0.0.0",
+  "license": "MIT",
+  "main": "index.js",
+  "files": [
+    "eslint-preset.js",
+    "jest-config.js",
+    "babel-preset.json",
+    "jest-setup.js",
+    "prettier-preset.js"
+  ],
+  "scripts": {
+    "format": "prettier --write \"**/*.{ts,tsx,md,js,jsx,json}\"",
+    "lint": "eslint . --fix --ext .tsx,.ts,.js --quiet",
+    "lint-staged": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint . --fix --ext .tsx,.ts,.js --quiet",
+      "prettier . -w"
+    ]
+  },
+  "dependencies": {}
+}

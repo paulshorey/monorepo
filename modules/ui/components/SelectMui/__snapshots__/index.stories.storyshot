@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Design Systems/Atoms/Button Default 1`] = `
+<button
+  className="css-1g4hkra-styles-styles-composeCSS-composeCSS"
+  onClick={[Function]}
+>
+  Submit
+</button>
+`;
+
+exports[`Storyshots Design Systems/Atoms/Button Variant Outline 1`] = `
+<button
+  className="css-1o6cndg-styles-styles-styles-composeCSS-composeCSS"
+  onClick={[Function]}
+>
+  Cancel
+</button>
+`;

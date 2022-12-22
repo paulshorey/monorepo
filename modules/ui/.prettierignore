@@ -1,0 +1,11 @@
+**/node_modules
+**/.next/*
+.out/*
+**/coverage
+**/.storybook
+**/storybook-static
+**/plop-templates
+CHANGELOG.md
+next-env.d.ts
+*.md
+*.hbs

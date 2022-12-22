@@ -1,0 +1,79 @@
+a {
+  color: inherit;
+}
+/*
+ * Default:
+ * To set a different default, move `:root,` to another block. But then write alternatives for light mode instead of for dark mode as it is done now.
+ */
+:root,
+[data-bgcolor='coolrainbow'] {
+  --color-fg: #f5f5f5;
+  --color-fg-gradient: linear-gradient(
+    111deg,
+    hsl(275deg 35% 30%),
+    hsl(200deg 40% 35%),
+    hsl(150deg 45% 35%)
+  );
+  --color-bg: hsl(200deg 40% 35%);
+  --color-bg-gradient: linear-gradient(
+    111deg,
+    hsl(275deg 35% 30%),
+    hsl(200deg 40% 35%),
+    hsl(150deg 45% 35%)
+  );
+}
+
+[data-bgcolor='transparentCard'] {
+  --color-fg: #fff;
+  --color-bg: hsla(0, 0%, 100%, 0.5);
+}
+
+[data-textcolor='rainbow'] {
+  --color-fg: #fff;
+  --color-fg-gradient: linear-gradient(
+    75deg,
+    hsl(5, 95%, 65%),
+    hsl(50, 90%, 60%),
+    hsl(205, 95%, 65%)
+  );
+}
+/* hsl(16, 88%, 68%),
+hsl(36, 100%, 50%),
+hsl(53, 100%, 69%),
+hsl(70, 82%, 57%),
+hsl(197, 50%, 65%) */
+/* --color-fg-gradient: linear-gradient(
+  75deg,
+  rgb(285, 139, 101),
+  rgb(245, 139, 101),
+  rgba(255, 154, 0, 1),
+  rgb(245, 208, 23),
+  rgb(255, 236, 95),
+  rgb(205, 235, 55),
+  rgb(121, 210, 191),
+  rgb(146, 147, 255)
+); */
+
+/*
+ * Use the colors defined in this file.
+ */
+[data-bgcolor] {
+  background-color: var(--color-bg);
+}
+[data-textcolor] {
+  color: var(--color-fg);
+}
+[data-bggradient] {
+  color: var(--color-fg);
+  background: var(--color-bg);
+  background-image: var(--color-bg-gradient);
+}
+[data-textgradient] {
+  background: initial;
+  background-color: var(--color-fg);
+  background-image: var(--color-fg-gradient);
+  background-size: 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

@@ -1,0 +1,31 @@
+{
+  "baseUrl": ".",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "api/*": [
+        "api/*"
+      ],
+      "app/*": [
+        "app/*"
+      ],
+      "common/*": [
+        "common/*"
+      ],
+      "data/*": [
+        "data/*"
+      ],
+      "docs/*": [
+        "docs/*"
+      ],
+      "modules/*": [
+        "modules/*"
+      ],
+      "tmp/*": [
+        "tmp/*"
+      ],
+    },
+    "module": "commonjs",
+    "target": "es6"
+  }
+}

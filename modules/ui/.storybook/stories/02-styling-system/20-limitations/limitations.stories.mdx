@@ -1,0 +1,62 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import Block from '@ps/ui/components/Block';
+import Inline from '@ps/ui/components/Inline';
+import CodeInline from '@ps/ui/components/CodeInline';
+import ThemeProvider from '@ps/ui/components/ThemeProvider';
+import Wrapper from '@ps/ui/.storybook/components/Wrapper';
+import {
+  Container,
+  ButtonCTA,
+  CanvasContainer,
+  CanvasContent,
+  Title,
+  Content,
+  Button,
+} from '@ps/ui/.storybook/components/Components';
+import Code from '@ps/ui/components/Code';
+
+<Meta title="Get started/Styling/Limitations" />
+
+<ThemeProvider>
+<Wrapper>
+
+<Block as="h1" ss="font-size: 2rem; font-weight: 600; margin: 0;">Limitations:</Block>
+
+This is the standard format used by `@emotion` and `styled-components`.  
+The `ss` props however do **NOT** accept this format for template literals:
+
+<Code
+  ss="font-size: 0.85rem;margin-bottom:0;"
+  code={`css\`
+  padding: 1rem \${(props) => props.theme.sizes.card.paddingX};
+  \${(props) => props.theme.mq.desktopLarge} {
+    padding: 1rem \${(props) => props.theme.sizes.card.paddingX * 2};
+  }
+\`;`} />
+
+
+<br />
+
+But you <strong>CAN</strong> pass this (a function) to any `ss` prop:  
+Different format than the regular `@emotion/styled`, but gets the job done.  
+
+<Code
+  ss="font-size: 0.85rem;margin-bottom:0;"
+  code={`(props) => \`
+  padding: 1rem \${props.theme.sizes.card.paddingX};
+  \${props.theme.mq.desktopLarge} {
+    padding: 1rem \${props.theme.sizes.card.paddingX * 2};
+  }
+\`;`} />
+
+
+<br />
+
+**It's actually better**, because you only need to add `(props) => ` once at the top instead of adding it multiple times any time you need to access a variable. So, the code is more concise and easier to read and write.
+
+<br />
+
+But if you know how to add support for functions inside template literals to a library like this, please reach out! Thank you!
+
+</Wrapper>
+</ThemeProvider>

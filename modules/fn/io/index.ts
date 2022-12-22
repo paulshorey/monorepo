@@ -1,0 +1,16 @@
+export * as arr from "./arr";
+export * as arrays from "./arrays";
+export * as curry from "./curry";
+export * as err from "./err";
+export * as html from "./html";
+export * as json from "./json";
+export * as num from "./num";
+export * as obj from "./obj";
+export * as objects from "./objects";
+export * as promises from "./promises";
+export * as req from "./req";
+export * as sort_objects from "./sort_objects";
+export * as sort_strings from "./sort_strings";
+export * as str from "./str";
+export * as strings from "./strings";
+export * as word from "./word";

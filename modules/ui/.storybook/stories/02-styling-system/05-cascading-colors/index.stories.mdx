@@ -1,0 +1,98 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import Block from '@ps/ui/components/Block';
+import Code from '@ps/ui/components/Code';
+import Inline from '@ps/ui/components/Inline';
+import Button from '@ps/ui/components/Button';
+import ThemeProvider from '@ps/ui/components/ThemeProvider';
+import { Buttons } from './_components';
+import Wrapper from '@ps/ui/.storybook/components/Wrapper';
+
+<Meta title="Get started/Styling/Cascading colors" />
+
+<ThemeProvider>
+  <Wrapper bgcolor="dark">
+
+## Here are 2 blocks with different color schemes:
+
+One is `<Block textcolor="light" bgcolor="purple">`, the other is `<Block textcolor="purple" bgcolor="light">`. Child components can utilize the ancestral text and background color. You don't have to specify the color of each element. The element's css-in-js stylesheet chooses to apply or ignore the parent color.
+
+<br />
+
+<Block textcolor="light" bggradient="purple" ss="padding: 1rem;">
+  <Block variant="articleX" ss="padding-top:1.25rem;">
+    <Buttons />
+    <Button size="sm" textcolor="rainbow" ss="margin: 0 0.875rem 0.875rem 0;">
+      Different color
+    </Button>
+    <Code
+      collapsed={true}
+      code={`// Setting the color scheme is easy...
+import Button from '@ps/ui/components/Button';
+  
+// Specifying textcolor and bgcolor separately allows for more combinations than just light/dark
+<Block textcolor="light" bgcolor="purple">
+   
+  <Button loading={true}>Loading</Button>
+  <Button variant="outlined">Outlined</Button>
+  <Button variant="text" icon={<FontAwesomeIcon icon={faUser} />}>
+    Text
+  </Button>
+  <Button round={true} icon={<FontAwesomeIcon icon={faUser} />}>
+    Round
+  </Button>
+  <Button
+    round={true}
+    variant="primary"
+    icon={<FontAwesomeIcon icon={faUser} />}
+  />
+  
+  {/* Specify a different textcolor. It will remember the bgcolor from its parents. */}
+  <Button textcolor="rainbow">
+    Different color
+  </Button>
+  
+</Block>`}
+    />
+  </Block>
+</Block>
+
+<Block textcolor="purple" bgcolor="light" ss="padding: 1rem;">
+  <Block variant="articleX">
+    <Block as="h3">Different color scheme:</Block>
+    <Buttons />
+    <Button size="sm" textcolor="cta" ss="margin: 0 0.875rem 0.875rem 0;">
+      Different color
+    </Button>
+    <Code
+      collapsed={true}
+      code={`// Exactly same code for buttons. Just change the wrapper colors:
+<Block textcolor="purple" bgcolor="light">
+  ...
+  <Button textcolor="cta">Different color</Button>
+</Block>`}
+    />
+  </Block>
+</Block>
+
+<br />
+
+Other styling systems only support setting a light/dark scheme once on the entire web page. But what if your app has a dark sidebar with light text while the main content is light background with dark text? What if you have several different sections like this? You'd have to style each individual element. This library allows styling sections with different color schemes more easily. Not just light/dark, but any background/text color combinations.  
+
+
+<br />
+
+<Block as="h2" textgradient="rainbow">Putting the "C" back into "CSS-in-JS"...</Block>
+
+Colors are managed in `colors.css`. So, they can cascade. All other variables are managed in `theme.ts`.   
+
+Set colors on any component or HTML element by passing `data-textcolor` or `data-bgcolor` attributes.  
+Make it a gradient by passing `data-textgradient` or `data-bggradient`.
+
+A stylesheet (colors.css) sets CSS properties based on the dataset attributes. It works the same way as using classNames. CSS colors are managed in a CSS stylesheet, not in a JS theme object. Because CSS naturally cascades, all children elements are able to use the set CSS variables to apply text color, background, border, gradient, etc. This is not possible with pure CSS-in-JS.
+
+<br />
+<br />
+
+More examples coming soon...
+</Wrapper>
+</ThemeProvider>

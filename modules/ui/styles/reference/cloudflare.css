@@ -1,0 +1,37 @@
+/*
+ * Copied from CloudFlare docs. Not used. Only for reference.
+ */
+:root {
+  --color-bg-darker: rgb(25, 27, 29); /* aside nav */
+  --color-bg: rgb(29, 31, 32); /* main article */
+  --color-bg-lighter: rgb(36, 38, 40); /* code block */
+  --color-bg-lighter2: rgb(41, 42, 43); /* code inline */
+  --color-bg-lighter3: rgb(40, 43, 45);
+  --color-bg-lighter4: rgb(51, 54, 55); /* hr */
+  --color-bg-lighter5: rgb(65, 68, 69); /* border, toggle switch */
+  --color-bg-lighter6: rgb(96, 99, 99); /* button outline */
+  --color-bg-lighter7: rgb(159, 163, 165);
+  --color-bg-lighter8: rgb(188, 188, 189); /* icon github logo */
+
+  --code-gray-ondark: #a7a7a3;
+  --code-red-ondark: #ed8978;
+  --code-orange-ondark: #fba056;
+  --code-gold-ondark: #fdda68;
+  --code-green-ondark: #57c78f;
+  --code-blue-ondark: #78c0ed;
+  --code-cyan-ondark: #71e4f4;
+  --code-indigo-ondark: #7b99ea;
+  --code-lilac-ondark: #d188dd;
+  --code-violet-ondark: #a68adb;
+
+  --code-gray-onlight: rgb(98, 103, 106);
+  --code-red-onlight: #8f1500;
+  --code-orange-onlight: #b35000;
+  --code-gold-onlight: #b35300;
+  --code-green-onlight: #007a3d;
+  --code-blue-onlight: #00588f;
+  --code-cyan-onlight: #006c7a;
+  --code-indigo-onlight: #00268f;
+  --code-lilac-onlight: #7c008f;
+  --code-violet-onlight: #32008f;
+}

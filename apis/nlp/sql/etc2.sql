@@ -1,0 +1,4 @@
+-- SELECT * FROM crawl.words WHERE attempts<3 AND timestamp IS NOT NULL ORDER BY timestamp ASC LIMIT 500;
+-- SELECT * FROM crawl.words WHERE vrsn>29 LIMIT 500;
+-- UPDATE crawl.words SET attempts = 10 WHERE attempts=3;
+-- SELECT * FROM crawl.words WHERE attempts=3;

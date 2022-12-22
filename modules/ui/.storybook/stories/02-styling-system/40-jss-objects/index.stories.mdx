@@ -1,0 +1,94 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import Block from '@ps/ui/components/Block';
+import Inline from '@ps/ui/components/Inline';
+import CodeInline from '@ps/ui/components/CodeInline';
+import ThemeProvider from '@ps/ui/components/ThemeProvider';
+import Wrapper from '@ps/ui/.storybook/components/Wrapper';
+import {
+  Container,
+  ButtonCTA,
+  CanvasContainer,
+  CanvasContent,
+  Title,
+  Content,
+  Button,
+} from '@ps/ui/.storybook/components/Components';
+import Code from '@ps/ui/components/Code';
+// background: #705CD6;
+// border-radius: 50%;
+// margin: 3px 5px 0 0;
+
+<Meta title="Get started/Styling/JSS Objects" />
+
+<ThemeProvider>
+<Wrapper>
+
+For convenience, this library introduces `ss` props which accept string type, or a function that takes props and returns a string.
+
+**But you may prefer to write styles in JavaScript object format.**  
+
+No problem. Just wrap your style object in Emotion's `css` function.
+
+<br />
+
+## 1. Simple example
+
+<Code 
+  ss="font-size: 0.85rem;"
+  code={`import Block from '@ps/ui/components/Block';
+import { css } from '@emotion/react';
+  
+{/* this library attempts to make protytyping faster by letting you pass SCSS as a simple string type. Best practice however is to separate the styles from markup, then pass to the component as a variable */}
+<Block
+  as="p"
+  ss="border: solid 1px red"
+>
+  
+{/* if you don't like writing selectors and keys as strings, use a JS object */}
+<Block
+  as="p"
+  ss={css({
+    border: 'solid 1px red',
+  })}
+>
+  
+{/* just like you would with the standard HTML style attribute */}
+
+<p
+  style={{
+    border: 'solid 1px red',
+  }}
+>
+  
+{/* or set up Emotion's css prop and use that */}
+<p
+  css={css({
+    border: 'solid 1px red',
+  })}
+>`} />
+
+## 2. Use props
+You can even combine functionality! This lets you use Emotion's props and theme functionality, but with JS Object syntax.
+
+When passing a style to any `ss` prop, you can pass a function that takes props and returns a string. But if you wrap that output in Emotion's `css` function, you can write it as an object instead of a string.
+
+<Code 
+  ss="font-size: 0.85rem;"
+  code={`import Block from '@ps/ui/components/Block';
+import { css } from '@emotion/react';
+  
+// use props and theme variables in your style object
+<Block
+  as="p"
+  ss={(props) => css({
+    border: 'solid 1px red',
+    color: props.theme.colors.primary,
+    padding: '1rem ' + props.theme.spacing[2],
+  })}
+>
+    above variables are just examples. You can use whatever you have set in your theme.ts
+</Block>`} />
+
+
+</Wrapper>
+</ThemeProvider>

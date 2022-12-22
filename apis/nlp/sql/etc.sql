@@ -1,0 +1,24 @@
+-- UPDATE crawl.words SET attempts = 50 WHERE word='';
+-- DELETE FROM crawl.words WHERE vrsn=12;
+-- DELETE FROM crawl.words WHERE word='joyousnesses';
+-- SELECT * FROM crawl.words WHERE attempts<3 AND results IS NULL AND error IS NULL OFFSET 0 LIMIT 1;
+-- SELECT * FROM crawl.words WHERE attempts<3 AND results IS NULL AND vrsn IS NOT NULL AND error IS NULL ORDER BY vrsn DESC OFFSET 0 LIMIT 1;
+-- SELECT word, root, singular, plural, alt, p1, p2, p3, vrsn, results, success_sources_count FROM crawl.words WHERE vrsn=14 AND timestamp IS NOT NULL ORDER BY timestamp DESC LIMIT 200;
+-- SELECT count(*) FROM crawl.words WHERE vrsn<15 AND attempts<3;
+-- SELECT * FROM crawl.words WHERE vrsn<15 AND attempts<3 AND timestamp IS NOT NULL ORDER BY timestamp DESC LIMIT 100;
+-- INSERT INTO crawl.words (word, attempts) VALUES ('trepidations', 0);
+-- UPDATE crawl.sources SET failed_count=0, words_affected='[]';
+SELECT * FROM crawl.sources ORDER BY name;
+-- SELECT * FROM crawl.words WHERE attempts<3 AND timestamp IS NOT NULL ORDER BY timestamp DESC LIMIT 500;
+-- SELECT * FROM crawl.stopwords ORDER BY occurrences DESC LIMIT 500;
+-- SELECT * FROM crawl.words WHERE attempts<2 LIMIT 1;
+-- SELECT * FROM crawl.words WHERE attempts<2 OFFSET 50 LIMIT 1; 
+-- SELECT * FROM crawl.words WHERE word='aim';
+-- INSERT INTO crawl.words (word, attempts, vrsn) VALUES ('asdfdfdsf', 0, null);
+-- SELECT * FROM crawl.words WHERE word='asdfdfdsf';
+
+-- CASE WHEN COLUMN1 = COLUMN2 
+--     THEN '1' 
+--     ELSE '0' 
+--   END 
+--   AS MyDesiredResult

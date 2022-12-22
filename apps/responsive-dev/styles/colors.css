@@ -1,0 +1,49 @@
+:root {
+  --color-error: #e30000;
+  --color-warning: #e38935;
+  --color-success: #27b30d;
+  --color-info: #1ea7fd;
+  --color-notice: #c336e5;
+}
+
+/*
+ * Default:
+ * To set a different default, move `:root,` to another block. But then write alternatives for light mode instead of for dark mode as it is done now.
+ */
+:root,
+[data-bgcolor='dark'] {
+  --color-bg: #333;
+  --color-bg-gradient: radial-gradient(75% 75% at top center, #222, #333, #222);
+  /* Extra colors, not part of core functionality, but also have dark/light/color variants: */
+  --color-glow: hsla(0deg, 0%, 100%, 0.125);
+  --color-cta: hsl(176deg 54% 50%);
+  --color-accent: #fece5c;
+}
+:root,
+[data-textcolor='light'] {
+  --color-text: #ccc;
+}
+
+/*
+ * Use the colors defined in this file.
+ */
+[data-bgcolor] {
+  background-color: var(--color-bg);
+}
+[data-textcolor] {
+  color: var(--color-text);
+}
+[data-bggradient] {
+  color: var(--color-text);
+  background: var(--color-bg);
+  background-image: var(--color-bg-gradient);
+}
+[data-textgradient] {
+  background: initial;
+  background-color: var(--color-text);
+  background-image: var(--color-text-gradient);
+  background-size: 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

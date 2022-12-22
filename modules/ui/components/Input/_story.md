@@ -1,0 +1,3 @@
+This is a restyled Ant design component: <a href="https://ant.design/components/input/" target="_blank">https://ant.design/components/input</a>. In the future, this component could be refactored to not rely on 3rd party code. Fortunately, because it's abstracted in our own library, any apps that use this component will not need to change their implementations. 
+
+Same props as Ant Design Input component, except: `props.size` expects `xs/sm/md/lg/xl` instead of `small/medium/large`.

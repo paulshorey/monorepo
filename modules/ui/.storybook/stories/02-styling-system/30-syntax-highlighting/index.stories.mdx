@@ -1,0 +1,54 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import Block from '@ps/ui/components/Block';
+import Inline from '@ps/ui/components/Inline';
+import CodeInline from '@ps/ui/components/CodeInline';
+import ThemeProvider from '@ps/ui/components/ThemeProvider';
+import Wrapper from '@ps/ui/.storybook/components/Wrapper';
+import {
+  Container,
+  ButtonCTA,
+  CanvasContainer,
+  CanvasContent,
+  Title,
+  Content,
+  Button,
+} from '@ps/ui/.storybook/components/Components';
+import Code from '@ps/ui/components/Code';
+// background: #705CD6;
+// border-radius: 50%;
+// margin: 3px 5px 0 0;
+
+<Meta title="Get started/Styling/Syntax Highlighting" />
+
+<ThemeProvider>
+<Wrapper>
+
+<Block as="h1" ss="font-size: 2rem; font-weight: 600; margin: 4rem 0 0 0;">Syntax highlighting:</Block>  
+
+**Install `vscode-@emotion/styled` extension** (or a similar one if you don't use VS Code).  Often an extension for `styled-components` will also work for `@emotion/styled`.  This library uses @emotion, but it's all the same concept.
+
+This library accepts `ss` props which are SCSS strings, but they work the same way as Emotion and StyledComponents. They all get compiled to a string. Pass a template literal to any `ss` prop to use variables and make it multi-line.
+
+Wrap any template literal in Emotion's <CodeInline code='css``' /> tag to get syntax highlighting:
+
+<Code 
+  ss="font-size: 0.85rem;"
+  code={`import styled, { css } from '@emotion/styled';
+
+<Block 
+    as="p" 
+    ss={css\`
+        /* 
+        Styles in this block will be syntax-highlighted
+        */
+    \`}
+>
+  Wrap any string in a css\`...\` template literal function to enable syntax-highlighting.
+</Block>`} />
+
+If you prefer, you can of course configure and use Emotion `props.css` instead of the built in `props.ss`. However the standard Emotion `props.css` requires that you wrap the value in the <CodeInline code='css``' /> function. The `ss` props don't need any configuration, and don't need to be wrapped in <CodeInline code='css``' /> if you don't care about the syntax-highlighting. They're happy to accept plain strings.
+
+BTW, another useful VS Code extension is `vscode-color-picker`. It adds a color preview and picker to JavaScript values.
+
+</Wrapper>
+</ThemeProvider>

@@ -1,0 +1,35 @@
+{
+  // base config - common to all apps and modules in the repository:
+  "extends": "@ps/constants/config/typescript/react-library.json",
+  // specific overrides - for this project only:
+  "include": ["components/**/*", "helpers/**/*", "hooks/**/*", "styles/**/*"],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "umd",
+    "esm",
+    "out",
+    "test",
+    ".next",
+    ".backup",
+    "public",
+    "storybook-static",
+    "**/*.test.ts",
+    "**/*.test.js",
+    "**/*.stories.tsx"
+  ],
+  "compilerOptions": {
+    "strict": false,
+    "baseUrl": ".",
+    "paths": {
+      "@ps/ui/*": ["./*"]
+    },
+    "noEmit": true,
+    "incremental": true,
+    "noImplicitAny": false,
+    "jsx": "preserve",
+    "allowJs": true
+  },
+  "typeRoots": ["node_modules/@types", "./types/typings.d.ts"],
+  "files": ["./types/typings.d.ts"]
+}

@@ -1,0 +1,42 @@
+{
+  "include": ["api/**/*"],
+  "exclude": [
+    "docs",
+    "node_modules",
+    "dist",
+    "umd",
+    "esm",
+    "out",
+    "test",
+    ".next",
+    ".backup",
+    "public",
+    "storybook-static",
+    "**/*.test.ts",
+    "**/*.test.js",
+    "**/*.stories.tsx"
+  ],
+  "compilerOptions": {
+    "lib": ["ESNext", "DOM"],
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "types": ["node"],
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "strictNullChecks": false,
+    "isolatedModules": false,
+    "resolveJsonModule": true,
+    "noImplicitAny": false,
+    "baseUrl": "./",
+    "paths": {
+      "@ps/nlp/*": ["./*"]
+    },
+    "rootDir": "api",
+    "outDir": "esm"
+  },
+  "ts-node": {
+    "require": ["tsconfig-paths/register"]
+  }
+}

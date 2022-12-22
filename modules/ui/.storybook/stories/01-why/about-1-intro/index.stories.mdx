@@ -1,0 +1,153 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import Block from '@ps/ui/components/Block';
+import Inline from '@ps/ui/components/Inline';
+import Code from '@ps/ui/components/Code';
+import CodeInline from '@ps/ui/components/CodeInline';
+import ThemeProvider from '@ps/ui/components/ThemeProvider';
+import Wrapper from '@ps/ui/.storybook/components/Wrapper';
+
+<Meta title="Get started/Why another UI library?" />
+
+<ThemeProvider>
+
+<Wrapper ssAll="a { color: white; }">
+
+<Block as="h1" textgradient="rainbow">
+This is a development kit
+</Block>
+
+for bootstrapping and maintaining a <Inline as="b" textgradient="rainbow"> custom branded component library</Inline>. 
+
+<Block ss="margin-bottom:0.75rem;line-height:1.33rem;">
+<Inline as="h2" textgradient="accent">1.</Inline> <Inline textcolor="accent" ss="font-size:1.125rem;">mono-repo configuration files</Inline> <Inline ss="font-size:1rem;"> - Typescript, testing, prettier, eslint, and babel presets shared by interdependent apps</Inline>
+</Block>
+
+<Block ss="margin-bottom:0.75rem;line-height:1.33rem;">
+<Inline as="h2" textgradient="accent">2.</Inline> <Inline textcolor="accent" ss="font-size:1.125rem;">responsive styling system to make branding easier</Inline> - prototyping and long-term maintenance for different devices
+</Block>
+
+<Block ss="margin-bottom:0.75rem;line-height:1.33rem;">
+<Inline as="h2" textgradient="accent">3.</Inline> <Inline textcolor="accent" ss="font-size:1.125rem;">and a few components to get started</Inline> - this isn't a finished library, but a system for maintaining custom components
+</Block>
+
+<br />
+
+---
+
+<Block as="h2" ss="margin-top:2rem;" textgradient="rainbow">
+For better DX and UX
+</Block>
+
+These components offer several useful features.
+
+<Code
+  variant="transparentDark"
+  code={`// Import the default component and use immediately. Or, optionally use a constructor to define reusable props and styles:
+import { withButton } from '@ps/ui/components/Button';
+  
+// Predefine some props that will be used by all instances
+const Button = withButton({
+  size: 'sm',
+  icon: <FA icon={faUser} />,
+  style: {
+    margin: '0 0.875rem 0.875rem 0;'
+  }
+  onClick: () => alert('clicked!'),
+});
+  
+// Then pass unique props per instance
+<Button loading>
+  Loading
+</Button>
+<Button variant="outlined">
+  Outlined
+</Button>
+<Button variant="text">
+  Text
+</Button>
+<Button round style={{ marginRight: '0' }} />`} />
+
+
+<p>
+  <a href="/docs/get-started-media-queries--page">Media query shortcuts</a> let you{' '}
+  <Inline as="b" textgradient="rainbow">
+    painlessly style for multiple devices!
+  </Inline>{' '}
+  You're not limited to just{' '}
+  <CodeInline variant="text" color="purple">
+    xs,sm,md,lg
+  </CodeInline>{' '}
+  or whatever you originally defined. Not limited to{' '}
+  <CodeInline variant="text" code={`min-width`} /> either. Instead, use semantic
+  prop names like <CodeInline variant="text" code={`ssTablet`} /> (or{' '}
+  <CodeInline variant="text" code={`theme.mq.tablet`} />) to style tablets
+  (between 601-1024px). Each media query prop can accept a{' '}
+  <CodeInline variant="text" code={`string`} />,{' '}
+  <CodeInline variant="text" code={`(props)=>string`} /> function, or any
+  EmotionCSS type.
+</p>
+
+<Code
+  variant="transparentDark"
+  code={`import { withBlock } from '@ps/ui/components/Block';
+const Demo = withBlock({ ss: 'display:none;' });
+// For convenience, ss props accept a simple string in addition to any EmotionCSS type. No configuration is required.
+<Demo ssWebview="display:block"> apply style only if rendered inside an in-app browser (like Gmail or Facebook) </Demo>
+<Demo ssIframe="display:block"> apply style only if rendered inside an iframe (like Storybook or website widget) </Demo>
+// You can adjust breakpoint sizes in your theme.
+<Demo ssPhone="display:block"> style only phones (<=600px) </Demo>
+<Demo ssSmallPhone="display:block"> style only small phones like the Mini or X (<=400) </Demo>
+<Demo ssLargeTablet="display:block"> style only larger tablets (768-1024px) </Demo>
+// People's desktop screens are very rarely <=1024px nowadays. Most iPads are 1024px wide. 
+<Demo ssDesktop="display:block"> only Desktop ( >1024px )</Demo>
+<Demo ssMobile="display:block"> only Mobile ( <=1024px )</Demo>
+<Demo ssLg="display:block"> "large" screens including larger tablets ( >930px )</Demo>
+<Demo ssSm="display:block"> "small" screens including smaller tablets ( <=930px )</Demo>
+// And many more. Each breakpoint is only included in the bundle if you use it. `}
+/>
+
+☝️ You don't have to use strings. All ss props also accept a function or (coming soon) JSS object.
+
+😱 The above ss props are just for convenience. Best practice is of course to separate styles from markup. Use media query <span className="noWrap">mixins such as</span> `props.theme.mq.tinyPhone` in any template literal.
+
+Pass a function that accepts the component props and returns a string of SCSS. Your site theme will be available as a prop.
+
+<Code
+  variant="transparentDark"
+  code={`<Block ss={(props) => css\` padding: 1rem \${props.theme.sizes.card.paddingX}; \`}>`} />
+
+Access props/theme variables from your styles. Components in this library let you pass a function to any `ss` prop. That enables you to call `(props) =>` only once, then reference props/theme multiple times. All `ss` props accept this function format. Alternatively, use the standard `emotion/styled-components` way to wrap a string in `css`&grave;&grave; or `styled`&grave;` and pass a function to every template literal.  
+
+There are also hooks to target specific devices and browsers.
+
+<br />
+<br />
+
+<Block as="h2" ss="margin-top:2rem;">
+  <Block as="span" textgradient="rainbow">
+    CSS-in-JS is no longer tedious!
+  </Block>
+</Block>
+
+<p>
+  <Inline ssPhone="display:none;">👈 </Inline>
+  <Inline ssNotPhone="display:none;">👇 </Inline>
+  <Inline textcolor="accent">&nbsp;Go ahead and explore the sidebar.&nbsp;</Inline>
+  Below each component's story is a documentation of all the props it accepts.
+</p>
+
+<p>
+  If you like this approach then <a>checkout the Github repo</a>. Please contribute
+  or open an issue to discuss. Thank you!
+  <br />
+  Please reach out with any questions or ideas. Let's collaborate! ~ <a
+    href="https://paulshorey.com"
+    target="_blank"
+  >
+    Paul Shorey
+  </a>
+</p>
+
+</Wrapper>
+
+</ThemeProvider>

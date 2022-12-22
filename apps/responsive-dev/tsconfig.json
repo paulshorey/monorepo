@@ -1,0 +1,52 @@
+{
+  "extends": "@ps/constants/config/typescript/react-library.json",
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.js",
+    "**/*.jsx",
+    "**/*.mdx",
+    ".next/types/**/*.ts",
+    "postcss.config.cjs",
+    "next.config.cjs",
+    "pages/_document.backup"
+  ],
+  "exclude": [
+    "docs",
+    "node_modules",
+    "dist",
+    "umd",
+    "esm",
+    "out",
+    "test",
+    ".next",
+    ".backup",
+    "public",
+    "storybook-static",
+    "**/*.test.ts",
+    "**/*.test.js",
+    "**/*.stories.tsx"
+  ],
+  "plugins": [
+    {
+      "name": "typescript-styled-plugin",
+      "tags": ["styled", "css", "sty"]
+    }
+  ],
+  "compilerOptions": {
+    "outDir": "esm",
+    "jsxImportSource": "@emotion/react",
+    "baseUrl": ".",
+    "paths": {},
+    "noEmit": true,
+    "incremental": true,
+    "noImplicitAny": false,
+    "jsx": "preserve",
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "allowJs": true
+  }
+}

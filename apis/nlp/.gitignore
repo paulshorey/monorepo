@@ -1,0 +1,12 @@
+
+package-lock.json
+node_modules
+node_persist
+thesaurus_data
+.idea
+*/package-lock.json
+.env.local
+log/*
+tmp/*
+esm
+dist

@@ -1,0 +1,26 @@
+{
+  "extends": "@ps/constants/config/typescript/base.json",
+  "include": ["browser/**/*", "io/**/*", "requests/**/*", "server/**/*"],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "umd",
+    "esm",
+    "out",
+    "test",
+    ".next",
+    ".backup",
+    "public",
+    "storybook-static",
+    "**/*.test.ts",
+    "**/*.test.js",
+    "**/*.stories.tsx"
+  ],
+  "compilerOptions": {
+    "outDir": "esm",
+    "module": "es6",
+    "target": "es6",
+    "baseUrl": ".",
+    "paths": {}
+  }
+}

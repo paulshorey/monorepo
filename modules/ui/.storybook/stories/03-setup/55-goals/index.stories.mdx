@@ -1,0 +1,43 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import Block from '@ps/ui/components/Block';
+import Inline from '@ps/ui/components/Inline';
+import CodeInline from '@ps/ui/components/CodeInline';
+import ThemeProvider from '@ps/ui/components/ThemeProvider';
+import Wrapper from '@ps/ui/.storybook/components/Wrapper';
+import {
+  Container,
+  ButtonCTA,
+  CanvasContainer,
+  CanvasContent,
+  Title,
+  Content,
+  Button,
+} from '@ps/ui/.storybook/components/Components';
+import Code from '@ps/ui/components/Code';
+
+<Meta title="Get started/Setup/Goals" />
+
+<ThemeProvider>
+<Wrapper>
+
+<Block as="h1" ss="padding-bottom:1rem;margin-top:0;">The goals of this project</Block>   
+    
+  
+
+### 1. Portability  
+Just import some components into any React project like a Chrome extension or anything (and in the future maybe even any library). This library avoids using any Babel/Webpack configuration (such as the Emotion "css prop").  There may be a couple references to NextJS or something but it's currently being cleaned up.  
+  
+### 2. Tree shaking
+This is meant to be used with a compiler/bundler like Webpack or NextJS's new Rust based compiler. This library (like all modern React/JavaScript projects) depends on many more NPM packages than are used by every component. So, it's important that your app is able to tree shake unused code. To make it more reliable, all components are written to be tree shakable. Import just one component at a time, not an index of multiple components. These components do the same thing - when importing anythign from another package, they import just the one individual variable, not an index of multiple variables. There may be a couple files that import a collection of variables, but that is currently being refactored.   
+
+### 3. Mono repo  
+This is not meant to be a complete collection like Mui.com or Ant.design. Instead this is meant as an ever-growing collection that you maintain alongside your apps. Add or edit a component whenever you need to make a new feature. If you need to add a unique feature just for the one app, keep it in your app. But if you're making a new feature or adjustment that could be used by other apps in the future, add it to this library.
+
+<br />
+<br />
+
+**More documentation coming soon...**
+
+
+</Wrapper>
+</ThemeProvider>

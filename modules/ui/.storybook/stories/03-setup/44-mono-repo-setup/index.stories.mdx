@@ -1,0 +1,160 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import Block from '@ps/ui/components/Block';
+import Inline from '@ps/ui/components/Inline';
+import CodeInline from '@ps/ui/components/CodeInline';
+import ThemeProvider from '@ps/ui/components/ThemeProvider';
+import Wrapper from '@ps/ui/.storybook/components/Wrapper';
+import {
+  Container,
+  ButtonCTA,
+  CanvasContainer,
+  CanvasContent,
+  Title,
+  Content,
+  Button,
+} from '@ps/ui/.storybook/components/Components';
+import Code from '@ps/ui/components/Code';
+
+<Meta title="Get started/Setup/Mono repo" />
+
+<ThemeProvider>
+<Wrapper>
+
+<Block as="h1" ss="padding-top:1rem;">Quick setup</Block>
+
+This is not meant to be used as a standalone library, but as part of a mono-repo. Here's how to set everything up.  
+
+The UI library (`@ps/ui`) requires these peer dependencies: `@emotion/core` and `@emotion/react`. 
+
+<br />
+
+<Block as="h2" textgradient="accent">1. Just use TurboRepo</Block>
+
+It makes everything much easier. [Read documentation](https://turbo.build/repo/docs/getting-started/add-to-project)    
+
+<Code title="package.json" code={`...
+"private": true,
+"workspaces": [
+  "apps/*",
+  "modules/*"
+  "apis/*", // whatever other modules you manage - perhaps back-end or command-line apps
+],
+"scripts": {
+  "build": "turbo run build",
+  "dev": "turbo run dev --parallel"
+},
+...`} collapsed={true} />
+
+
+<Block as="h2" textgradient="accent">2. Modules</Block>
+
+Utility libraries and custom packages to be included by your Apps.  
+
+`@ps/constants` package holds common variables. Useful to define all configuration files there.
+Also useful to define other data variables there such as theme, lists and dictionaries, 
+such as the 50 states with abbreviations, supported locales/languages, etc.  
+`@ps/fn` - universal pure functions  
+`@ps/ui` - React components and styles  
+`@ps/cconsole` - alternative to console.log with <Inline as="b" textgradient="rainbow">colors</Inline> and ability to broadcast to a cloud provider  
+
+<Code title="package.json" code={`
+// If you include a module that's not published to NPM, but is part of this mono-repo,
+// then instead of specifying a version number, specify "*". 
+// TurboRepo will find the correct directory and alias to it instead of installing from the internet.
+...
+"name": "@ps/ui",
+"private": true,
+"version": "0.0.1",
+"scripts": {...},
+"dependencies": {
+  ...
+  "@ps/cconsole": "*",
+  "@ps/contants": "*",
+  "@ps/fn": "*",
+  "@ps/ui": "*",
+  ...
+},
+"devDependencies": {...},
+...`} collapsed={true} ss="margin-bottom:0;" />
+
+<Code title="next.config.js" code={`
+// Requires next-transpile-modules to import files from outside its own directory
+const withTM = require('next-transpile-modules')([
+  '@ps/ui',
+  '@ps/fn',
+  '@ps/cconsole',
+  '@ps/constants',
+]);`} collapsed={true} ss="margin-bottom:0;" />
+
+<Code title="tsconfig.json" code={`
+{
+  // base configs - common to all apps and modules (react-library inherits from base):
+  "extends": "@ps/constants/config/typescript/react-library.json",
+  // specific overrides - for this project only:
+  "exclude": ["node_modules", "dist", "out", ".next", ".backup", "public"],
+  "compilerOptions": {
+    "strict": false,
+    "baseUrl": ".",
+    "paths": {},
+    "noEmit": true,
+    "incremental": true,
+    "noImplicitAny": false,
+    "jsx": "preserve"
+  }
+}`} collapsed={true} ss="margin-bottom:0;" />
+
+<Code title="babel.config.js" code={`
+// Use base config from @ps/constants, then override as needed
+module.exports = require('@ps/constants/config/babel-preset.json');`} collapsed={true} ss="margin-bottom:0;" />
+
+<Code title=".prettierrc.js" code={`
+// Use base config from @ps/constants, then override as needed
+module.exports = require('@ps/constants/config/prettier-preset');`} collapsed={true} />
+
+<Block as="h2" textgradient="accent">3. Apps</Block>
+
+Exactly the same as Modules. You can even keep all packages in the same folder. Turborepo/Yarn don't care.   
+
+Whether you're creating apps, modules, or back-end scripts, just give each package a unique name in package.json.  
+
+Whenever installing a local package, see `package.json` above. Instead of specifying the version number, specify "**\***" to use the local version. Later when you publish it, if you want to use a specific version from NPM, just change "**\***" to a version number.
+
+Depending on your version of Yarn, you may have to prefix the name of each local package with `@yourOrgName/`. That's why all these package names start with `@ps/`.
+
+<br />
+
+# Maintenance and development
+
+When developing a package (app, module, whatever) that's part of this monorepo, 
+
+1. At first, or after adding any new dependencies, run `yarn` from the **root** monorepo directory
+2. Then, `cd` into the package's own folder and run any of its scripts like `yarn dev`
+3. To install a new dependency of the package, do it **from the package's directory** with this command: `yarn add -W <package-name>`. Or `yarn add -W -D <package-name>` for a dev dependency.   
+
+That's it. No more managing version numbers, and having to publish/deploy each package separately. Whenever you deploy to your server, you can be sure that all dependency versions are correct.
+
+<br />
+
+# Deploying, publishing, and testing 
+
+👨‍💻 More instructions coming soon.
+
+Unit tests, typescript, and linting will have to run for each package in the monorepo when committing any changes, no matter how small. This is because when modifying one package, it may affect other apps and packages. That is one annoying thing about this setup. It does take longer. But, Turborepo makes this faster and easier than ever.  
+
+Committing changes to Github will also require stricter conventions. [Commit Lint](https://commitlint.js.org/#/) and [Comittizen](http://commitizen.github.io/cz-cli/) can help. Basically, every commit message will have to specify the package name, type of change, and the scope of the change - and it has to be readable by machine as well as by humans.
+  
+### You can use Commit Lint to generate a commit message in a standard format:
+<CodeInline language="bash" code={`type(scope): message (SW2-1234)`} collapsed={true} ss="margin:0;" />  
+
+Included yarn script will ask you to define type/scope/message/issue, then generate a commit message. Just run:
+<CodeInline language="bash" code={`yarn commit`} collapsed={true} ss="margin:0;" />
+
+<br />
+<br />
+<br />
+
+**More documentation coming soon...**
+
+
+</Wrapper>
+</ThemeProvider>

@@ -1,0 +1,20 @@
+{
+  "pipeline": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**", ".next/**"]
+    },
+    "lint": {},
+    "lint-staged": {
+      "cache": false
+    },
+    "format": {},
+    "dev": {
+      "cache": false
+    },
+    "storybook": {},
+    "test": {},
+    "test:ci": {},
+    "type-check": {}
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "extension": ["ts"],
+  "node-option": ["experimental-modules", "experimental-specifier-resolution=node", "loader=./loader.test.js"],
+  "spec": ["api/**/**/*.test.ts"]
+}

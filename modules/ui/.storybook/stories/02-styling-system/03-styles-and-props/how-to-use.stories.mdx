@@ -1,0 +1,130 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import Block from '@ps/ui/components/Block';
+import Inline from '@ps/ui/components/Inline';
+import CodeInline from '@ps/ui/components/CodeInline';
+import ThemeProvider from '@ps/ui/components/ThemeProvider';
+import Wrapper from '@ps/ui/.storybook/components/Wrapper';
+import {
+  Container,
+  ButtonCTA,
+  CanvasContainer,
+  CanvasContent,
+  Title,
+  Content,
+  Button,
+} from '@ps/ui/.storybook/components/Components';
+import Code from '@ps/ui/components/Code';
+
+<Meta title="Get started/Styling/How to style" />
+
+<ThemeProvider>
+<Wrapper>
+
+# There are multiple ways to style these components:
+
+<br />
+
+<Block as="h2" ss="margin-top: 1rem;">1. The default export is ready to use</Block>
+
+All components in this library accept `props.ss`, which accepts a string of SCSS or a function that takes props and returns a string.   
+Every component in this library gets the site `theme` object injected into its props.
+<Code
+  ss="font-size: 0.85rem;"
+  code={`import { css } from '@emotion/react'; // ⬅ optional, to add syntax highlighting
+import Button from "@ps/ui/components/content/Button";
+  
+<Button 
+  variant="outlined" 
+  onClick={console.log} 
+  ss={(props) => css\`
+      /* pass a function to any ss prop to access props and theme */
+      \${props.theme.mq.desktopLarge} {
+          /* use variables and mixins from your theme */
+          padding: 1rem \${props.theme.sizes.card.paddingX * 2};
+      }
+  \`}
+>
+  Click me
+</Button>`}
+/>
+
+<Block as="h2" ss="margin-top: 5rem;">2. Optionally use the provided HOC like Styled Components</Block>
+
+Just like <CodeInline code={`styled.button\`\``}/> or <CodeInline code={`styled.div\`\``}/>, you can use <CodeInline code={`withButton()`}/> or <CodeInline code={`withDiv()`}/>  
+
+**An added feature** — pre-define <CodeInline textcolor="accent">props</CodeInline> as well as styles. It's a great way to keep your code clean. Separate markup from styles, data-generated props from manually added ones.
+
+<Code
+  ss="font-size: 0.85rem;"
+  code={`import { withButton } from "@ps/ui/components/Button";
+  
+// Pre-define default props all instances will inherit. This way you don't have to copy/paste props to each instance.
+  
+export const MyButton = withButton({
+  size: 'small',
+  round: true,
+  ss: 'margin: 0 0.875rem 0.875rem 0; /* and other styles */ ',
+  ssDesktop: '&:hover { box-shadow: 1px 2px 1px var(--color-cta); } ',
+  trackPath: router.pathname,
+  trackFeature: form.title,
+});
+  
+// The markup remains legible, even though there are a many props and styles applied to each element:
+  
+<MyButton icon={<Icon name="arrow-left" />} href="/" variant="text"> back</MyButton>
+  
+<MyButton icon={<Icon name="stop-watch" />} onClick={handleSave} variant="outlined" loading={saving}>
+  Save draft
+</MyButton>
+  
+<MyButton
+  textcolor="cta"
+  icon={<Icon name="thumbs-up" />}
+  onClick={handleSubmit}
+  loading={saving || submitting}
+>
+  Submit changes
+</MyButton>
+`}
+/>
+
+🤓 The old and new props will be combined. Style strings and classNames will be added. Other props will be replaced.   
+
+<Block as="h2" ss="margin-top: 5rem;">3. Normal Styled Components</Block>
+
+This library uses `@emotion/styled` instead of `styled-components`. It's the same thing but with extra features. Both are great. Behind the scenes it simply adds a className to the component, then writes the CSS to a global stylesheet.
+
+<Code
+  ss="font-size: 0.85rem;"
+  code={`import styled from '@emotion/styled';
+import Button from '@ps/ui/components/Button';
+  
+const StyledButton = styled(Button)\`
+  /* your styles here */
+  
+  \${props => props.theme.mq.desktopLarge} {
+    /* use any props or theme variables inside your styled component template literal */
+  }
+\`;`} />
+
+**If you like method #2 above**, it works with styled components too: 
+
+<Code
+  ss="font-size: 0.85rem;"
+  code={`import styled from '@emotion/styled';
+import { withButton } from '@ps/ui/components/Button';
+  
+const MyButton = withButton({
+  ...myProps
+});
+  
+const StyledButton = styled(MyButton)\`
+  /* your styles here */
+  
+  \${props => props.theme.mq.desktopLarge} {
+    /* use any props or theme variables inside your styled component template literal */
+  }
+\`;`} />
+
+</Wrapper>
+</ThemeProvider>

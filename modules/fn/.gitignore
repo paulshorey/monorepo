@@ -1,0 +1,7 @@
+.idea
+.parcel-cache
+.DS_Store
+.cache
+node_modules
+.nyc_output
+out

@@ -1,0 +1,1 @@
+Groups children visually in a row with no border-radius and no margin. Does not add functionality. Each field is still controlled independently.
