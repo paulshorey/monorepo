@@ -8,7 +8,7 @@
     "dev": "yarn run test:dev",
     "test": "NODE_OPTIONS=--experimental-vm-modules npx jest",
     "test:dev": "NODE_OPTIONS=--experimental-vm-modules npx jest --watch",
-    "docs:build": "typedoc --out _docs ./io ./browser ./requests ./server --theme stacks && http-server _docs",
+    "docs:build": "typedoc --out _docs ./io ./browser ./requests ./server --theme stacks",
     "docs:serve": "http-server _docs",
     "build": "tsc",
     "build:umd": "rm -rf .parcel-cache && rm -rf umd && mkdir umd && parcel build esm/*.js --dist-dir umd --target default"

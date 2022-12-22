@@ -24,7 +24,8 @@
     "autoprefixer": "^10.4.12",
     "lerna": "^6.1.0",
     "postcss": "^8.4.17",
-    "turbo": "^1.6.3"
+    "turbo": "^1.6.3",
+    "@types/node": "^18.11.17"
   },
   "engines": {
     "node": ">=16.0.0",

@@ -19,7 +19,7 @@
     "**/*.stories.tsx"
   ],
   "compilerOptions": {
-    "lib": ["DOM"],
+    "lib": ["DOM", "ESNext"],
     "moduleResolution": "Node",
     "module": "ESNext",
     "target": "ESNext",
