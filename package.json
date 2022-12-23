@@ -13,6 +13,11 @@
     "build-lerna": "lerna run build",
     "dev-turbo": "turbo run dev --parallel"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "echo \"[Husky] pre-commit\""
+    }
+  },
   "dependencies": {
     "next": "^12.3.4",
     "next-transpile-modules": "^9.1.0",
