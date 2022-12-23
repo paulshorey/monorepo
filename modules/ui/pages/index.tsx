@@ -1,8 +1,8 @@
 import Head from 'next/head';
-import Block from '@ps/ui/components/Block';
-import Code from '@ps/ui/components/Code';
+import Block from '@techytools/ui/components/Block';
+import Code from '@techytools/ui/components/Code';
 import styled from '@emotion/styled';
-import cconsole from '@ps/cconsole';
+import cconsole from '@techytools/cc';
 
 export default function Home() {
   const H1 = styled.h1`

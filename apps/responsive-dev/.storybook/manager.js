@@ -1,2 +1,2 @@
-const manager = require('@ps/ui/.storybook/manager.js');
+const manager = require('@techytools/ui/.storybook/manager.js');
 module.exports = manager;

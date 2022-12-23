@@ -1,6 +1,6 @@
 import React from 'react';
-import CenterChildrenY from '@ps/ui/components/CenterChildrenY';
-import Block from '@ps/ui/components/Block';
+import CenterChildrenY from '@techytools/ui/components/CenterChildrenY';
+import Block from '@techytools/ui/components/Block';
 import HeaderLayout from 'components/layout/Logo';
 
 const FullpageLayout = ({ children }) => {

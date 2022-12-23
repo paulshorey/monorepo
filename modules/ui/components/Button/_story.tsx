@@ -1,10 +1,10 @@
 import React from 'react';
 import { withButton } from '.';
-import CanvasContainer from '@ps/ui/.storybook/components/CanvasContainer';
-import CanvasStoryPadding from '@ps/ui/.storybook/components/CanvasStoryPadding';
+import CanvasContainer from '@techytools/ui/.storybook/components/CanvasContainer';
+import CanvasStoryPadding from '@techytools/ui/.storybook/components/CanvasStoryPadding';
 import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
-import useShowStorybookCode from '@ps/ui/hooks/useShowStorybookCode';
+import useShowStorybookCode from '@techytools/ui/hooks/useShowStorybookCode';
 
 export const Buttons = (props) => {
   useShowStorybookCode();
@@ -49,7 +49,7 @@ export default (props) => (
   </>
 );
 
-export const code = `import { withButton } from '@ps/ui/components/Button'; // optional (you can also use default export as Button )
+export const code = `import { withButton } from '@techytools/ui/components/Button'; // optional (you can also use default export as Button )
   
 const Button = withButton({
   size: 'lg',

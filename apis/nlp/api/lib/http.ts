@@ -1,4 +1,4 @@
-import parse_error_message from "@ps/fn/io/err/parse_error_message"
+import parse_error_message from "@techytools/fn/io/err/parse_error_message"
 import authIndex from "@ps/nlp/api/lib/auth"
 
 const DEBUG1 = false

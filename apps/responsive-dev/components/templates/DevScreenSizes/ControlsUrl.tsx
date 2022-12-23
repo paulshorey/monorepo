@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { css } from '@emotion/react';
-import SelectAdd from '@ps/ui/components/SelectAdd';
-import InputGroup from '@ps/ui/components/InputGroup';
+import SelectAdd from '@techytools/ui/components/SelectAdd';
+import InputGroup from '@techytools/ui/components/InputGroup';
 import controlsState, { controlsStateType } from 'state/controlsState';
 
 const style = css`

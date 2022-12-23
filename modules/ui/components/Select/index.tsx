@@ -1,10 +1,10 @@
 import React, { forwardRef, memo } from 'react';
-import styleProps from '@ps/ui/types/styles';
-import variants from '@ps/ui/components/Select/styles';
+import styleProps from '@techytools/ui/types/styles';
+import variants from '@techytools/ui/components/Select/styles';
 import { OptionProps as AntOptionProps } from 'antd/es/select';
 import { Select as AntSelect, SelectProps as AntSelectProps } from 'antd';
-import withCombinedProps from '@ps/ui/hooks/withCombinedProps';
-import withStyles from '@ps/ui/hooks/withStyles';
+import withCombinedProps from '@techytools/ui/hooks/withCombinedProps';
+import withStyles from '@techytools/ui/hooks/withStyles';
 
 // Select props
 export type Props = {

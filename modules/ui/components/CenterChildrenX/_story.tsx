@@ -1,9 +1,9 @@
 import React from 'react';
 import CenterH from '.';
-import Block from '@ps/ui/components/Block';
-import CodeInline from '@ps/ui/components/CodeInline';
-import CanvasContainer from '@ps/ui/.storybook/components/CanvasContainer';
-import useShowStorybookCode from '@ps/ui/hooks/useShowStorybookCode';
+import Block from '@techytools/ui/components/Block';
+import CodeInline from '@techytools/ui/components/CodeInline';
+import CanvasContainer from '@techytools/ui/.storybook/components/CanvasContainer';
+import useShowStorybookCode from '@techytools/ui/hooks/useShowStorybookCode';
 
 const Story = (props) => {
   useShowStorybookCode();
@@ -47,7 +47,7 @@ const Story = (props) => {
 };
 export default Story;
 
-export const code = `import CenterH from '@ps/ui/components/CenterChildrenX';
+export const code = `import CenterH from '@techytools/ui/components/CenterChildrenX';
 
 <CanvasContainer ss="max-width:440px;">
   <p>

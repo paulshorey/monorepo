@@ -1,10 +1,10 @@
 import HCarousel from './AboutMeCarousel';
-import Block from '@ps/ui/components/Block';
+import Block from '@techytools/ui/components/Block';
 import LatestProjectsCarousel from './LatestProjectsCarousel';
 import { css } from '@emotion/react';
 import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome';
 import { regular, solid } from '@fortawesome/fontawesome-svg-core/import.macro';
-import Link from '@ps/ui/components/Link';
+import Link from '@techytools/ui/components/Link';
 import FlexHeader from './FlexHeader';
 
 const style = (props) => css`

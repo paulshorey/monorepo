@@ -1,6 +1,6 @@
 // import fws from "@ps/nlp/data/words/fw/fw"
 // import sort_preferences from "@ps/nlp/data/domains/sort_preferences"
-// import { sort_strings_by_rating_and_position } from "@ps/fn/io/sort_strings"
+// import { sort_strings_by_rating_and_position } from "@techytools/fn/io/sort_strings"
 import str_row from "../../../../data.words/promise/str_row"
 import tlds_all from "@ps/nlp/data/domains/all"
 

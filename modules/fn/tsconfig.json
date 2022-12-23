@@ -1,5 +1,5 @@
 {
-  "extends": "@ps/constants/config/typescript/base.json",
+  "extends": "./tsconfig.base.json",
   "include": ["browser/**/*", "io/**/*", "requests/**/*", "server/**/*"],
   "exclude": [
     "node_modules",

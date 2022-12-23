@@ -1,8 +1,8 @@
-import useShowStorybookCode from '@ps/ui/hooks/useShowStorybookCode';
-import CanvasContainer from '@ps/ui/.storybook/components/CanvasContainer';
-import Block from '@ps/ui/components/Block';
-import { withInline } from '@ps/ui/components/Inline';
-import CanvasStoryPadding from '@ps/ui/.storybook/components/CanvasStoryPadding';
+import useShowStorybookCode from '@techytools/ui/hooks/useShowStorybookCode';
+import CanvasContainer from '@techytools/ui/.storybook/components/CanvasContainer';
+import Block from '@techytools/ui/components/Block';
+import { withInline } from '@techytools/ui/components/Inline';
+import CanvasStoryPadding from '@techytools/ui/.storybook/components/CanvasStoryPadding';
 
 export default function (props) {
   useShowStorybookCode();
@@ -32,7 +32,7 @@ export default function (props) {
   );
 }
 
-export const code = `import Inline from '@ps/ui/components/Inline';
+export const code = `import Inline from '@techytools/ui/components/Inline';
 
 Text can be used <Inline as="h2" textgradient="purple"> as h2</Inline>, or <Inline as="code" textgradient="purple"> as &lt;code&gt;</Inline>, or as any other HTML container element. By default, it's a span.
 `;

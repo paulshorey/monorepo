@@ -1,7 +1,7 @@
-import CodeInline from '@ps/ui/components/CodeInline';
-import Block from '@ps/ui/components/Block';
-import CanvasContainer from '@ps/ui/.storybook/components/CanvasContainer';
-import useShowStorybookCode from '@ps/ui/hooks/useShowStorybookCode';
+import CodeInline from '@techytools/ui/components/CodeInline';
+import Block from '@techytools/ui/components/Block';
+import CanvasContainer from '@techytools/ui/.storybook/components/CanvasContainer';
+import useShowStorybookCode from '@techytools/ui/hooks/useShowStorybookCode';
 
 export default (props) => {
   useShowStorybookCode();
@@ -61,7 +61,7 @@ export default (props) => {
   );
 };
 
-export const code = `import CodeInline from '@ps/ui/components/CodeInline';
+export const code = `import CodeInline from '@techytools/ui/components/CodeInline';
 
 <p color="accent">
   Use <CodeInline code={\`<CodeInline {...props} code="!@#$%^&*()" />\`} {...props} /> to display

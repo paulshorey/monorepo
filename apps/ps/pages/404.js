@@ -1,8 +1,8 @@
 import HomeTemplate from 'components/templates/Home';
-import Link from '@ps/ui/components/Link';
-import CenterChildrenY from '@ps/ui/components/CenterChildrenY';
-import CenterChildrenX from '@ps/ui/components/CenterChildrenX';
-import { analytics_track_page } from '@ps/fn/browser/analytics';
+import Link from '@techytools/ui/components/Link';
+import CenterChildrenY from '@techytools/ui/components/CenterChildrenY';
+import CenterChildrenX from '@techytools/ui/components/CenterChildrenX';
+import { analytics_track_page } from '@techytools/fn/browser/analytics';
 import { useEffect } from 'react';
 
 export default function Home() {

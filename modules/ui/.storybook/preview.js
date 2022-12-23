@@ -1,8 +1,8 @@
-import ThemeProvider from '@ps/ui/components/ThemeProvider';
+import ThemeProvider from '@techytools/ui/components/ThemeProvider';
 import React, { useEffect } from 'react';
 import { themes } from '@storybook/theming';
-import Block from '@ps/ui/components/Block';
-import '@ps/ui/styles/colors.css';
+import Block from '@techytools/ui/components/Block';
+import '@techytools/ui/styles/colors.css';
 
 export const parameters = {
   docs: {

@@ -1,5 +1,5 @@
-import style_to_string from '@ps/ui/helpers/style_to_string';
-import { styleProps, ssProp } from '@ps/ui/types/styles';
+import style_to_string from '@techytools/ui/helpers/style_to_string';
+import { styleProps, ssProp } from '@techytools/ui/types/styles';
 
 type Props = {
   /**

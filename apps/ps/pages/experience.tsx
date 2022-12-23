@@ -1,6 +1,6 @@
 import WorkExperience from 'components/templates/WorkExperience';
 import { useEffect } from 'react';
-import { analytics_track_page } from '@ps/fn/browser/analytics';
+import { analytics_track_page } from '@techytools/fn/browser/analytics';
 
 const Page = (props) => {
   useEffect(() => {

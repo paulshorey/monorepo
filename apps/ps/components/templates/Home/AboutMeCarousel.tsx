@@ -1,4 +1,4 @@
-import HCarousel from '@ps/ui/components/HorizontalCarousel';
+import HCarousel from '@techytools/ui/components/HorizontalCarousel';
 import { css } from '@emotion/react';
 
 const style = css`

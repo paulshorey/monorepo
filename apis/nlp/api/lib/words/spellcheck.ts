@@ -2,7 +2,7 @@ import bing_spellcheck from "@ps/nlp/api/endpoints/3rdparty/promise/bing_spellch
 // import google_autocomplete from "@ps/nlp/api/3rdparty/promise/google_autocomplete"
 // import bing_autosuggest from "@ps/nlp/api/3rdparty/promise/bing_autosuggest"
 import stopwords_dict from "@ps/nlp/data/words/stopwords"
-import sort_objects_by_property from "@ps/fn/io/sort_objects/sort_objects_by_property"
+import sort_objects_by_property from "@techytools/fn/io/sort_objects/sort_objects_by_property"
 
 let DEBUG1 = false
 const mymodule = async function (string) {

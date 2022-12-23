@@ -1,6 +1,6 @@
 import ReactFullpage from '@fullpage/react-fullpage';
 import React, { useEffect } from 'react';
-import Block from '@ps/ui/components/Block';
+import Block from '@techytools/ui/components/Block';
 import style from './style';
 
 // const pluginWrapper = () => {

@@ -1,7 +1,7 @@
 /*
  * Dependencies
  */
-import json_parse from "@ps/fn/io/json/json_parse"
+import json_parse from "@techytools/fn/io/json/json_parse"
 // DB
 import { Pool } from "pg"
 import customEnv from "custom-env"

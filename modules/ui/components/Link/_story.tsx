@@ -1,8 +1,8 @@
-import Block from '@ps/ui/components/Block';
-import Link from '@ps/ui/components/Link';
-import useShowStorybookCode from '@ps/ui/hooks/useShowStorybookCode';
-import CanvasStoryPadding from '@ps/ui/.storybook/components/CanvasStoryPadding';
-import CanvasContainer from '@ps/ui/.storybook/components/CanvasContainer';
+import Block from '@techytools/ui/components/Block';
+import Link from '@techytools/ui/components/Link';
+import useShowStorybookCode from '@techytools/ui/hooks/useShowStorybookCode';
+import CanvasStoryPadding from '@techytools/ui/.storybook/components/CanvasStoryPadding';
+import CanvasContainer from '@techytools/ui/.storybook/components/CanvasContainer';
 
 export default function (props) {
   useShowStorybookCode();

@@ -44,38 +44,9 @@ module.exports = {
   presets: [
     // path.resolve('./.storybook/addons/scss-preset.js')
   ],
-  framework: '@storybook/react',
   staticDir: ['../public'],
   core: {
     builder: 'webpack5',
   },
   // features: { emotionAlias: false },
-  webpackFinal: async function supportCssModules(config) {
-    // console.log('config', JSON.stringify(config, null, 2));
-    config.resolve.enforceExtension = false;
-    config.resolve.extensions = ['.ts', '.mjs', '.js', '.jsx', '.json', '.tsx'];
-
-    config.module.rules.push({
-      test: /\.m?js/,
-      resolve: {
-        fullySpecified: false,
-      },
-    })
-
-    config.module.rules.push({
-      test: /\.md$/,
-      use: ['raw-loader'],
-    });
-
-    //   config.module.rules.find(
-    //     (rule) => rule.test.toString() === '/\\.css$/'
-    //   ).exclude = /\.module\.css$/;
-    // config.resolve.alias = {
-    //   ...config.resolve.alias,
-    //   '@emotion/styled': getPackageDir('@emotion/styled'),
-    //   'emotion-theming': getPackageDir('@emotion/react'),
-    // };
-
-    return config;
-  },
 };

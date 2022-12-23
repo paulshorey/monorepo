@@ -1,5 +1,5 @@
-// import { arrays_mix } from "@ps/fn/io/arrays"
-import syllable_count from "@ps/fn/io/str/str_syllables_count"
+// import { arrays_mix } from "@techytools/fn/io/arrays"
+import syllable_count from "@techytools/fn/io/str/str_syllables_count"
 /*
  * IDEAS to add:
  * un____

@@ -1,6 +1,6 @@
-import ThemeProvider from '@ps/ui/components/ThemeProvider';
+import ThemeProvider from '@techytools/ui/components/ThemeProvider';
 import { AppProps } from 'next/app';
-import '@ps/ui/styles/colors.css';
+import '@techytools/ui/styles/colors.css';
 
 const MyApp = ({ Component, pageProps }: AppProps): any => {
   return (

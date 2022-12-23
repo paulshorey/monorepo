@@ -1,7 +1,7 @@
 import { Component } from '.';
 import Template, { code } from './_story';
 import description from './_story.md';
-// import { argTypes } from '@ps/ui/helpers/storybook_args';
+// import { argTypes } from '@techytools/ui/helpers/storybook_args';
 // import variants from './styles';
 
 // const variantKeys = Object.keys(variants);

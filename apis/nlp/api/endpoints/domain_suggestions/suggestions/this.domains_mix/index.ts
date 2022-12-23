@@ -1,7 +1,7 @@
-import strings_shuffle_first_last_strict from "@ps/fn/io/strings/strings_shuffle_first_last2"
-import strings_shuffle_first3 from "@ps/fn/io/strings/strings_shuffle_first2"
-import sort_strings_by_rating_and_position from "@ps/fn/io/sort_strings/sort_strings_by_rating_and_position"
-// import sort_strings_by_length_and_position from "@ps/fn/io/sort_strings/sort_strings_by_length_and_position"
+import strings_shuffle_first_last_strict from "@techytools/fn/io/strings/strings_shuffle_first_last2"
+import strings_shuffle_first3 from "@techytools/fn/io/strings/strings_shuffle_first2"
+import sort_strings_by_rating_and_position from "@techytools/fn/io/sort_strings/sort_strings_by_rating_and_position"
+// import sort_strings_by_length_and_position from "@techytools/fn/io/sort_strings/sort_strings_by_length_and_position"
 
 /**
  * Sort list of domains

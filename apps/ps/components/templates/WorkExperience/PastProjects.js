@@ -1,6 +1,6 @@
 import React from 'react';
-import Div from '@ps/ui/components/Block';
-import Link from '@ps/ui/components/Link';
+import Div from '@techytools/ui/components/Block';
+import Link from '@techytools/ui/components/Link';
 import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome';
 import { faAngleLeft as faPrev } from '@fortawesome/pro-solid-svg-icons/faAngleLeft';
 import { faAngleRight as faNext } from '@fortawesome/pro-solid-svg-icons/faAngleRight';

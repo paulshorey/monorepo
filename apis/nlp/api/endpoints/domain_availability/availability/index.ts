@@ -6,7 +6,7 @@ import check_cli_host from "./promise_many/cli_host"
 import check_cli_whois from "./promise_many/cli_whois"
 // import tlds_name from "@ps/nlp/data/domains/availability/donuts"
 // import tlds_whoisxmlapi from "@ps/nlp/data/domains/availability/whoisxmlapi"
-// import is_number from "@ps/fn/io/num/is_number"
+// import is_number from "@techytools/fn/io/num/is_number"
 // import { data_word_get } from "../../data.words/pgdb"
 
 import import_localstorage from "node-localstorage"

@@ -2,15 +2,15 @@
  * Dependencies
  */
 import import_pg from "pg"
-import json_parse from "@ps/fn/io/json/json_parse"
-import is_number from "@ps/fn/io/num/is_number"
+import json_parse from "@techytools/fn/io/json/json_parse"
+import is_number from "@techytools/fn/io/num/is_number"
 import { phrase_capitalize } from "./functions/pos"
 import dict_info from "./function/dict_info"
 import str_row from "./promise/str_row"
 import row_meta from "./function/row_meta"
 import key_sanitized from "./function/key_sanitized"
 import { makeSQLString } from "@ps/nlp/api/lib/pgdb"
-import cconsole from "@ps/cconsole"
+import cconsole from "@techytools/cc"
 import customEnv from "custom-env"
 
 customEnv.env("local")

@@ -1,14 +1,14 @@
 import React from 'react';
-import InputGroup from '@ps/ui/components/InputGroup';
-import Input from '@ps/ui/components/Input';
-import InputMui from '@ps/ui/components/InputMui';
-import Button from '@ps/ui/components/Button';
-import CanvasContainer from '@ps/ui/.storybook/components/CanvasContainer';
-import CanvasStoryPadding from '@ps/ui/.storybook/components/CanvasStoryPadding';
+import InputGroup from '@techytools/ui/components/InputGroup';
+import Input from '@techytools/ui/components/Input';
+import InputMui from '@techytools/ui/components/InputMui';
+import Button from '@techytools/ui/components/Button';
+import CanvasContainer from '@techytools/ui/.storybook/components/CanvasContainer';
+import CanvasStoryPadding from '@techytools/ui/.storybook/components/CanvasStoryPadding';
 import { CopyOutlined } from '@ant-design/icons';
 import Tooltip from 'antd/es/tooltip';
 import Select, { Option } from '../Select';
-import useShowStorybookCode from '@ps/ui/hooks/useShowStorybookCode';
+import useShowStorybookCode from '@techytools/ui/hooks/useShowStorybookCode';
 import { SelectStory } from '../SelectMui/_story';
 
 const InputStory = (props) => {
@@ -117,7 +117,7 @@ export default (props) => (
   </CanvasContainer>
 );
 
-export const code = `import InputGroup from '@ps/ui/components/InputGroup';
+export const code = `import InputGroup from '@techytools/ui/components/InputGroup';
 
 <InputGroup>
 

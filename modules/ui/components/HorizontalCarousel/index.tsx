@@ -1,10 +1,10 @@
 // @ts-nocheck
 import React, { useEffect, forwardRef, memo } from 'react';
 import HorizontalCarousel from './script';
-import { Props as BlockProps } from '@ps/ui/components/Block';
+import { Props as BlockProps } from '@techytools/ui/components/Block';
 import variants from './styles';
-import withCombinedProps from '@ps/ui/hooks/withCombinedProps';
-import withStyles from '@ps/ui/hooks/withStyles';
+import withCombinedProps from '@techytools/ui/hooks/withCombinedProps';
+import withStyles from '@techytools/ui/hooks/withStyles';
 
 type Props = {
   /**

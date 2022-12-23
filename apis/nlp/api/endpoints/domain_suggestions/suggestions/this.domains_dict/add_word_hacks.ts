@@ -1,5 +1,5 @@
 import tlds from "@ps/nlp/data/domains/all"
-import is_vowel from "@ps/fn/io/word/is_vowel"
+import is_vowel from "@techytools/fn/io/word/is_vowel"
 let DEBUG1 = false
 export default function () {
   /*

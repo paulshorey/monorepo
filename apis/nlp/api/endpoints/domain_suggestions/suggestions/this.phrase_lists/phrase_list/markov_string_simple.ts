@@ -1,4 +1,4 @@
-import arr_from_value from "@ps/fn/io/arr/arr_from_value"
+import arr_from_value from "@techytools/fn/io/arr/arr_from_value"
 
 /**
  * Simple suggestions - using Markov Strings

@@ -10,9 +10,9 @@ import {
 import theme from 'styles/theme';
 
 // Optional - global styles:
-import fonts from '@ps/ui/styles/global/fonts';
-import html from '@ps/ui/styles/global/html';
-import classes from '@ps/ui/styles/global/classes';
+import fonts from '@techytools/ui/styles/global/fonts';
+import html from '@techytools/ui/styles/global/html';
+import classes from '@techytools/ui/styles/global/classes';
 import global from 'styles/global';
 
 const ThemeProvider = ({ children }) => {

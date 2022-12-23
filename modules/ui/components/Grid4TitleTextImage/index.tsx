@@ -1,9 +1,9 @@
 import React, { forwardRef, memo, HTMLAttributes, ReactElement } from 'react';
 import variants from './styles';
-import { Props as BlockProps } from '@ps/ui/components/Block';
-import withCombinedProps from '@ps/ui/hooks/withCombinedProps';
-import styleProps from '@ps/ui/types/styles';
-import withStyles from '@ps/ui/hooks/withStyles';
+import { Props as BlockProps } from '@techytools/ui/components/Block';
+import withCombinedProps from '@techytools/ui/hooks/withCombinedProps';
+import styleProps from '@techytools/ui/types/styles';
+import withStyles from '@techytools/ui/hooks/withStyles';
 
 export type Props = {
   image: ReactElement;

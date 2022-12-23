@@ -1,4 +1,4 @@
-import sort_strings_by_length from "@ps/fn/io/sort_strings/sort_strings_by_length"
+import sort_strings_by_length from "@techytools/fn/io/sort_strings/sort_strings_by_length"
 import { performance } from "perf_hooks"
 import axios from "axios"
 let base_url = "http://google.com/complete/search?output=toolbar&client=chrome&q="

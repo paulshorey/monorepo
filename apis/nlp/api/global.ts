@@ -33,7 +33,7 @@ global["DEVELOPMENT"] = global["hosttype"].toLowerCase().includes("darwin")
 //
 // Error reporting
 //
-import parse_error_message from "@ps/fn/io/err/parse_error_message"
+import parse_error_message from "@techytools/fn/io/err/parse_error_message"
 import * as Airbrake from "@airbrake/node"
 import { http_response } from "@ps/nlp/api/lib/http"
 const airbrake = new Airbrake.Notifier({
@@ -66,7 +66,7 @@ setInterval(function () {
 //
 // Console logging
 //
-import { cconsoleInit } from "@ps/cconsole"
+import { cconsoleInit } from "@techytools/cc"
 global.cconsole = cconsoleInit({
   useTrace: true,
   useColor: true,

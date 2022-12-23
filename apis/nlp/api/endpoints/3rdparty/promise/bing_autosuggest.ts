@@ -1,4 +1,4 @@
-import sort_strings_by_length from "@ps/fn/io/sort_strings/sort_strings_by_length"
+import sort_strings_by_length from "@techytools/fn/io/sort_strings/sort_strings_by_length"
 import { performance } from "perf_hooks"
 import axios from "axios"
 let bing_api_url = "https://api.cognitive.microsoft.com/bing/v7.0/Suggestions"

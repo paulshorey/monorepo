@@ -1,5 +1,5 @@
 import get_domains_availability from "./availability"
-import aggregate_req_body_query from "@ps/fn/io/req/aggregate_req_body_query_params"
+import aggregate_req_body_query from "@techytools/fn/io/req/aggregate_req_body_query_params"
 
 export default [
   {

@@ -1,9 +1,9 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
-import Block from '@ps/ui/components/Block';
-import Inline from '@ps/ui/components/Inline';
-import CodeInline from '@ps/ui/components/CodeInline';
-import ThemeProvider from '@ps/ui/components/ThemeProvider';
-import Wrapper from '@ps/ui/.storybook/components/Wrapper';
+import Block from '@techytools/ui/components/Block';
+import Inline from '@techytools/ui/components/Inline';
+import CodeInline from '@techytools/ui/components/CodeInline';
+import ThemeProvider from '@techytools/ui/components/ThemeProvider';
+import Wrapper from '@techytools/ui/.storybook/components/Wrapper';
 import {
   Container,
   ButtonCTA,
@@ -12,8 +12,8 @@ import {
   Title,
   Content,
   Button,
-} from '@ps/ui/.storybook/components/Components';
-import Code from '@ps/ui/components/Code';
+} from '@techytools/ui/.storybook/components/Components';
+import Code from '@techytools/ui/components/Code';
 
 <Meta title="Get started/Setup/Theme provider" />
 
@@ -24,19 +24,19 @@ import Code from '@ps/ui/components/Code';
 
 This is **not currently published as a standalone library**, but as part of a **mono-repo**. See ["Mono repo" in the stories panel](/docs/get-started-mono-repo--page).   
 
-This UI library `@ps/ui` by design only requires `@emotion/styled` as a peer dependency. NextJS is optional.  
-It also uses a couple modules `@ps/fn` and `@ps/contants` from the local mono-repo, but these be removed in a quick refactor.
+This UI library `@techytools/ui` by design only requires `@emotion/styled` as a peer dependency. NextJS is optional.  
+It also uses a couple modules `@techytools/fn` and `@ps/contants` from the local mono-repo, but these be removed in a quick refactor.
 
 
 <Block as="h2" textgradient="accent" ss="margin-top:3rem;">2. Theme</Block>
 
-To get started instantly, with no configuration, import `@ps/ui/components/ThemeProvider` and wrap your app with it.
+To get started instantly, with no configuration, import `@techytools/ui/components/ThemeProvider` and wrap your app with it.
 
 Or to customize theme and settings, make a copy of `ThemeProvider.tsx`, `theme.ts` and `colors.css` files in your app directory and use that. Here are the files used to customize your colors, sizes, and variables:  
 
 <Code title="components/ThemeProvider.tsx" code={`import { ThemeProvider as EmotionThemeProvider } from '@emotion/react';
   
-import theme from '@ps/ui/styles/theme'; // your custom JS variables
+import theme from '@techytools/ui/styles/theme'; // your custom JS variables
   
 import 'styles/colors.css'; // your custom CSS variables
   

@@ -12,9 +12,9 @@ const nextConfig = {
 
 // module.exports = nextConfig;
 const withTM = require('next-transpile-modules')([
-  '@ps/ui',
-  '@ps/fn',
-  '@ps/cconsole',
+  '@techytools/ui',
+  '@techytools/fn',
+  '@techytools/cc',
   '@ps/constants',
 ]);
 

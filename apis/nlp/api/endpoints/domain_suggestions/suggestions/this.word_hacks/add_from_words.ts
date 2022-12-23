@@ -1,7 +1,7 @@
-import syllable_count from "@ps/fn/io/word/syllable_count"
-// import { sort_strings_by_length_asc } from "@ps/fn/io/sort_strings"
+import syllable_count from "@techytools/fn/io/word/syllable_count"
+// import { sort_strings_by_length_asc } from "@techytools/fn/io/sort_strings"
 // import fws from "@ps/nlp/data/words/fw/fw"
-// import strings_shuffle_first_last_strict from "@ps/fn/io/strings/strings_shuffle_first_last2"
+// import strings_shuffle_first_last_strict from "@techytools/fn/io/strings/strings_shuffle_first_last2"
 
 /**
  * Lists

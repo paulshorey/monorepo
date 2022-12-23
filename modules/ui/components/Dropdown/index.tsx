@@ -1,10 +1,10 @@
 import React, { forwardRef, memo } from 'react';
 import CenterChildrenX from '../CenterChildrenX';
-import withCombinedProps from '@ps/ui/hooks/withCombinedProps';
+import withCombinedProps from '@techytools/ui/hooks/withCombinedProps';
 import variants from './styles';
-import blur from '@ps/ui/helpers/blur';
-import withStyles from '@ps/ui/hooks/withStyles';
-import styleProps from '@ps/ui/types/styles';
+import blur from '@techytools/ui/helpers/blur';
+import withStyles from '@techytools/ui/hooks/withStyles';
+import styleProps from '@techytools/ui/types/styles';
 
 export type Props = {
   /**

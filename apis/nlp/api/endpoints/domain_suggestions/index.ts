@@ -1,6 +1,6 @@
 import get_domains_suggestions from "./suggestions/index"
 import chunk_string from "@ps/nlp/api/lib/words/chunk_string"
-import aggregate_req_body_query from "@ps/fn/io/req/aggregate_req_body_query_params"
+import aggregate_req_body_query from "@techytools/fn/io/req/aggregate_req_body_query_params"
 
 export default [
   {

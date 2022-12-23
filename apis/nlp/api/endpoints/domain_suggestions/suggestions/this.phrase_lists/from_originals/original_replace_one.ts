@@ -1,5 +1,5 @@
-import arrays_mix from "@ps/fn/io/arrays/arrays_mix"
-// import { sort_strings_by_length } from "@ps/fn/io/sort_words"
+import arrays_mix from "@techytools/fn/io/arrays/arrays_mix"
+// import { sort_strings_by_length } from "@techytools/fn/io/sort_words"
 
 /**
  * Replace each word in a phrase, X timesover.

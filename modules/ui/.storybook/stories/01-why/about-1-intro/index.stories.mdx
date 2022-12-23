@@ -1,10 +1,10 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
-import Block from '@ps/ui/components/Block';
-import Inline from '@ps/ui/components/Inline';
-import Code from '@ps/ui/components/Code';
-import CodeInline from '@ps/ui/components/CodeInline';
-import ThemeProvider from '@ps/ui/components/ThemeProvider';
-import Wrapper from '@ps/ui/.storybook/components/Wrapper';
+import Block from '@techytools/ui/components/Block';
+import Inline from '@techytools/ui/components/Inline';
+import Code from '@techytools/ui/components/Code';
+import CodeInline from '@techytools/ui/components/CodeInline';
+import ThemeProvider from '@techytools/ui/components/ThemeProvider';
+import Wrapper from '@techytools/ui/.storybook/components/Wrapper';
 
 <Meta title="Get started/Why another UI library?" />
 
@@ -43,7 +43,7 @@ These components offer several useful features.
 <Code
   variant="transparentDark"
   code={`// Import the default component and use immediately. Or, optionally use a constructor to define reusable props and styles:
-import { withButton } from '@ps/ui/components/Button';
+import { withButton } from '@techytools/ui/components/Button';
   
 // Predefine some props that will be used by all instances
 const Button = withButton({
@@ -89,7 +89,7 @@ const Button = withButton({
 
 <Code
   variant="transparentDark"
-  code={`import { withBlock } from '@ps/ui/components/Block';
+  code={`import { withBlock } from '@techytools/ui/components/Block';
 const Demo = withBlock({ ss: 'display:none;' });
 // For convenience, ss props accept a simple string in addition to any EmotionCSS type. No configuration is required.
 <Demo ssWebview="display:block"> apply style only if rendered inside an in-app browser (like Gmail or Facebook) </Demo>

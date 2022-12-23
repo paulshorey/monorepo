@@ -1,6 +1,6 @@
 import React from 'react';
-import Block from '@ps/ui/components/Block';
-import { withBlock } from '@ps/ui/components/Block';
+import Block from '@techytools/ui/components/Block';
+import { withBlock } from '@techytools/ui/components/Block';
 
 const Container = withBlock({
   ss: `

@@ -1,6 +1,6 @@
 import str_row from "@ps/nlp/api/endpoints/data.words/promise/str_row"
 import wordbreak from "@ps/nlp/api/lib/words/wordbreak"
-import str_insert from "@ps/fn/io/str/str_insert"
+import str_insert from "@techytools/fn/io/str/str_insert"
 import spellcheck from "@ps/nlp/api/lib/words/spellcheck"
 
 /**

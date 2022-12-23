@@ -1,5 +1,5 @@
 import cli_host_many from "../../../domain_availability/availability/promise_many/cli_host"
-// import { sleep } from "@ps/fn/io/promises"
+// import { sleep } from "@techytools/fn/io/promises"
 
 // import import_localstorage from "node-localstorage"
 // let { LocalStorage } = import_localstorage

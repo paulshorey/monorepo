@@ -1,7 +1,7 @@
 // import { sleep } from 'pauls-pure-functions/functions/promises.js';
 import "../../global.js" // contains secret keys ~ never push to GIT!
 import { data_word_get, data_get_words, data_word_put } from "@ps/nlp/api/data.words/pgdb"
-import json_parse from "@ps/fn/io/json/json_parse"
+import json_parse from "@techytools/fn/io/json/json_parse"
 // import { arr_subtract } from 'pauls-pure-functions/functions/arrays.js';
 
 /*

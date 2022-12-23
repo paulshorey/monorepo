@@ -1,10 +1,10 @@
 import React from 'react';
 import SelectMui from '.';
-import CanvasContainer from '@ps/ui/.storybook/components/CanvasContainer';
-import CanvasStoryPadding from '@ps/ui/.storybook/components/CanvasStoryPadding';
+import CanvasContainer from '@techytools/ui/.storybook/components/CanvasContainer';
+import CanvasStoryPadding from '@techytools/ui/.storybook/components/CanvasStoryPadding';
 import { SelectChangeEvent } from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
-import useShowStorybookCode from '@ps/ui/hooks/useShowStorybookCode';
+import useShowStorybookCode from '@techytools/ui/hooks/useShowStorybookCode';
 
 export const SelectStory = (props) => {
   const [age, setAge] = React.useState('');
@@ -36,7 +36,7 @@ export default (props) => {
   );
 };
 
-export const code = `import SelectMui from '@ps/ui/components/SelectMui';
+export const code = `import SelectMui from '@techytools/ui/components/SelectMui';
 
 <SelectMui value={age} label="Age" onChange={handleChange}>
   <MenuItem value={10}>Ten</MenuItem>

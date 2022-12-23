@@ -1,4 +1,4 @@
-import css from '@ps/ui/helpers/css';
+import css from '@techytools/ui/helpers/css';
 
 export default {
   default: css`

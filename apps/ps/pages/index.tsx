@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import HomeTemplate from 'components/templates/Home';
 import PageContext from 'context/Page';
-import { analytics_track_page } from '@ps/fn/browser/analytics';
+import { analytics_track_page } from '@techytools/fn/browser/analytics';
 
 export default function HomePage() {
   const pageContext = {};

@@ -20,7 +20,7 @@ See the code: https://github.com/paulshorey/harmony/modules/fn. Clone the whole 
 Everything is tree-shakeable. Import only the function you need, not the entire collection.
 
 ```js
-import is_ios from "@ps/fn/browser/device/is_ios";
+import is_ios from "@techytools/fn/browser/device/is_ios";
 
 is_ios(); // true if client is iPhone, iPod, iPad, or emulator
 ```
@@ -29,7 +29,7 @@ is_ios(); // true if client is iPhone, iPod, iPad, or emulator
 
 ## Development:
 
-This package is part of a monorepo. It relies on a couple sibling packages `@ps/constants` and `@ps/cconsole`.
+This package is part of a monorepo. It relies on a couple sibling packages `@ps/constants` and `@techytools/cc`.
 
 1. Clone the entire monorepo: `git clone git@github.com:paulshorey/harmony.git mono`
 

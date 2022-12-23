@@ -1,14 +1,17 @@
 import React, { memo, useState, forwardRef } from 'react';
-import Select, { Props as SelectProps, Option } from '@ps/ui/components/Select';
+import Select, {
+  Props as SelectProps,
+  Option,
+} from '@techytools/ui/components/Select';
 import styles from './styles';
-import Button from '@ps/ui/components/Button';
-import Input from '@ps/ui/components/Input';
-import InputGroup from '@ps/ui/components/InputGroup';
+import Button from '@techytools/ui/components/Button';
+import Input from '@techytools/ui/components/Input';
+import InputGroup from '@techytools/ui/components/InputGroup';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClose, faAdd } from '@fortawesome/free-solid-svg-icons';
-import variants from '@ps/ui/components/InputGroup/styles';
-import withCombinedProps from '@ps/ui/hooks/withCombinedProps';
-import withStyles from '@ps/ui/hooks/withStyles';
+import variants from '@techytools/ui/components/InputGroup/styles';
+import withCombinedProps from '@techytools/ui/hooks/withCombinedProps';
+import withStyles from '@techytools/ui/hooks/withStyles';
 
 export type Props = {
   /**

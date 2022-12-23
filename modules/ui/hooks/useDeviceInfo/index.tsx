@@ -1,5 +1,5 @@
-import get_device from '@ps/fn/browser/device/get_device';
-import is_webview from '@ps/fn/browser/device/is_webview';
+import get_device from '@techytools/fn/esm/browser/device/get_device';
+import is_webview from '@techytools/fn/esm/browser/device/is_webview';
 import { useEffect, useState } from 'react';
 
 export type deviceInfoType = {

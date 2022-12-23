@@ -5,12 +5,12 @@ import React, {
   ButtonHTMLAttributes,
   ReactElement,
 } from 'react';
-import styleProps from '@ps/ui/types/styles';
-import variants from '@ps/ui/components/Button/styles';
+import styleProps from '@techytools/ui/types/styles';
+import variants from '@techytools/ui/components/Button/styles';
 import IconLoading from '@ant-design/icons/LoadingOutlined';
-import withCombinedProps from '@ps/ui/hooks/withCombinedProps';
+import withCombinedProps from '@techytools/ui/hooks/withCombinedProps';
 import withRipple from './withRipple';
-import withStyles from '@ps/ui/hooks/withStyles';
+import withStyles from '@techytools/ui/hooks/withStyles';
 
 export type Props = {
   /**

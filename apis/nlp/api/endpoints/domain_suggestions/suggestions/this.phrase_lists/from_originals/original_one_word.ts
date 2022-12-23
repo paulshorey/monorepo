@@ -1,6 +1,6 @@
-import sort_strings_by_rating_and_position from "@ps/fn/io/sort_strings/sort_strings_by_rating_and_position"
-// import { sort_strings_by_length } from "@ps/fn/io/sort_words"
-// import * as sh from "@ps/fn/io/sh"
+import sort_strings_by_rating_and_position from "@techytools/fn/io/sort_strings/sort_strings_by_rating_and_position"
+// import { sort_strings_by_length } from "@techytools/fn/io/sort_words"
+// import * as sh from "@techytools/fn/io/sh"
 
 /**
  * Replace each word in a phrase, X times

@@ -1,8 +1,8 @@
 // import original_replace_original from "@ps/nlp/api/endpoints/domain_suggestions/suggestions/this.phrase_lists/word_dict/original_replace_one"
 // import original_one_word from "@ps/nlp/api/endpoints/domain_suggestions/suggestions/this.phrase_lists/word_dict/original_one_word"
 // import self_before_after from "./phrase_list/self_before_after"
-import sort_strings_by_length from "@ps/fn/io/sort_strings/sort_strings_by_length"
-import matrix_flatten_to_strings from "@ps/fn/io/strings/matrix_horizontal_string_combinations"
+import sort_strings_by_length from "@techytools/fn/io/sort_strings/sort_strings_by_length"
+import matrix_flatten_to_strings from "@techytools/fn/io/strings/matrix_horizontal_string_combinations"
 /**
  * Replace each word in a phrase, X times
  *        X = 2/3 of the number of 1st POS synonyms of that word

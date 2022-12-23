@@ -1,5 +1,5 @@
 import add_from_words from "./add_from_words"
-// import { sort_strings_by_length_asc } from "@ps/fn/io/sort_strings"
+// import { sort_strings_by_length_asc } from "@techytools/fn/io/sort_strings"
 export default function (this: any) {
   // only enable if single word, with generic tld
   // if (this.keys_words.length > 1 || this.tld_chunk.list_count>50) {

@@ -1,6 +1,6 @@
 import React from 'react';
 import HorizontalCarousel from '.';
-import useShowStorybookCode from '@ps/ui/hooks/useShowStorybookCode';
+import useShowStorybookCode from '@techytools/ui/hooks/useShowStorybookCode';
 import CenterChildrenY from '../CenterChildrenY';
 
 const Story = (props) => {

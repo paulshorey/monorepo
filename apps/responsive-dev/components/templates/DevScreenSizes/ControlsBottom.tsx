@@ -1,6 +1,6 @@
 import React, { useEffect, memo } from 'react';
 import { css } from '@emotion/react';
-import debounce from '@ps/fn/io/curry/debounce';
+import debounce from '@techytools/fn/io/curry/debounce';
 
 const style = css`
   position: fixed;

@@ -1,8 +1,8 @@
 import SelectAdd, { Props as SelectAddProps } from '.';
 import React from 'react';
-import CanvasContainer from '@ps/ui/.storybook/components/CanvasContainer';
-import CanvasStoryPadding from '@ps/ui/.storybook/components/CanvasStoryPadding';
-import useShowStorybookCode from '@ps/ui/hooks/useShowStorybookCode';
+import CanvasContainer from '@techytools/ui/.storybook/components/CanvasContainer';
+import CanvasStoryPadding from '@techytools/ui/.storybook/components/CanvasStoryPadding';
+import useShowStorybookCode from '@techytools/ui/hooks/useShowStorybookCode';
 
 const style = {
   margin: '0 0.875rem 0.875rem 0',
@@ -58,7 +58,7 @@ export default (props) => {
   );
 };
 
-export const code = `import SelectAdd, { Props as SelectAddProps } from '@ps/ui/components/SelectAdd';
+export const code = `import SelectAdd, { Props as SelectAddProps } from '@techytools/ui/components/SelectAdd';
 
 const [values, setValues] = React.useState<string[]>(['Jack', 'Lucy', 'Tom']);
 const [value, setValue] = React.useState<string>(undefined);

@@ -1,9 +1,9 @@
 import React, { memo } from 'react';
 import { css } from '@emotion/react';
-import Select, { Option } from '@ps/ui/components/Select';
+import Select, { Option } from '@techytools/ui/components/Select';
 import controlsState, { controlsStateType } from 'state/controlsState';
-import InputGroup from '@ps/ui/components/InputGroup';
-import Block from '@ps/ui/components/Block';
+import InputGroup from '@techytools/ui/components/InputGroup';
+import Block from '@techytools/ui/components/Block';
 
 const styles = {
   wrapper: css`

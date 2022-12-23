@@ -1,13 +1,13 @@
 import React, { memo, AnchorHTMLAttributes, forwardRef } from 'react';
 // import PageContext from 'src/context/Page';
 // import ABTestContext from 'src/context/ABTest';
-// import { analytics_track_link } from '@ps/fn/browser/analytics';
+// import { analytics_track_link } from '@techytools/fn/esm/browser/analytics';
 import variants from './styles';
-import styleProps from '@ps/ui/types/styles';
+import styleProps from '@techytools/ui/types/styles';
 import { useTheme } from '@emotion/react';
-import withCombinedProps from '@ps/ui/hooks/withCombinedProps';
-import withStyles from '@ps/ui/hooks/withStyles';
-import { Theme } from '@ps/ui/styles/theme';
+import withCombinedProps from '@techytools/ui/hooks/withCombinedProps';
+import withStyles from '@techytools/ui/hooks/withStyles';
+import { Theme } from '@techytools/ui/styles/theme';
 
 export type Props = AnchorHTMLAttributes<HTMLAnchorElement> & {
   href?: string;

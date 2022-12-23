@@ -1,4 +1,4 @@
-import { cconsoleInit } from "@ps/cconsole";
+import { cconsoleInit } from "@techytools/cc";
 import requestText from "./src/lib/requestResponse/fetch/text.js";
 import { Router } from "itty-router";
 

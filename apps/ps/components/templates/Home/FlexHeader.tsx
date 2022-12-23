@@ -1,4 +1,4 @@
-import Block from '@ps/ui/components/Block';
+import Block from '@techytools/ui/components/Block';
 import { css } from '@emotion/react';
 import Nav from 'components/layout/Nav';
 import Logo from 'components/layout/Logo';

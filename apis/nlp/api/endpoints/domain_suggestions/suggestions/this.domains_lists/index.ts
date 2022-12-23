@@ -1,10 +1,10 @@
-// import { sort_objects_by_property_and_position } from "@ps/fn/io/sort_objects"
+// import { sort_objects_by_property_and_position } from "@techytools/fn/io/sort_objects"
 import rate_domain from "./function/rate_domain"
-import sort_strings_by_length_and_position from "@ps/fn/io/sort_strings/sort_strings_by_length_and_position"
-import sort_strings_by_rating_and_position from "@ps/fn/io/sort_strings/sort_strings_by_rating_and_position"
-import strings_shuffle_last from "@ps/fn/io/strings/strings_shuffle_last2"
-import strings_shuffle_first_last from "@ps/fn/io/strings/strings_shuffle_first_last2"
-// import { sort_strings_by_length } from "@ps/fn/io/sort_words"
+import sort_strings_by_length_and_position from "@techytools/fn/io/sort_strings/sort_strings_by_length_and_position"
+import sort_strings_by_rating_and_position from "@techytools/fn/io/sort_strings/sort_strings_by_rating_and_position"
+import strings_shuffle_last from "@techytools/fn/io/strings/strings_shuffle_last2"
+import strings_shuffle_first_last from "@techytools/fn/io/strings/strings_shuffle_first_last2"
+// import { sort_strings_by_length } from "@techytools/fn/io/sort_words"
 
 /**
  * Separate flat dict of { domname: listname } into dict of groups { listname: [ domname, ], }

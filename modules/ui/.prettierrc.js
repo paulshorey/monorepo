@@ -1,1 +1,7 @@
-module.exports = require('@ps/constants/config/prettier-preset');
+module.exports = {
+  arrowParens: 'always',
+  printWidth: 80,
+  quoteProps: 'consistent',
+  semi: true,
+  singleQuote: true,
+};

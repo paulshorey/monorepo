@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
-// import Block from '@ps/ui/components/Block';
-import { withButton } from '@ps/ui/components/Button';
+// import Block from '@techytools/ui/components/Block';
+import { withButton } from '@techytools/ui/components/Button';
 // import GithubFilled from '@ant-design/icons/GithubFilled';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';

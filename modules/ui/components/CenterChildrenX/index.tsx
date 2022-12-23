@@ -1,8 +1,8 @@
 import React, { forwardRef, memo, HTMLAttributes } from 'react';
 import variants from './styles';
-import styleProps from '@ps/ui/types/styles';
-import withCombinedProps from '@ps/ui/hooks/withCombinedProps';
-import withStyles from '@ps/ui/hooks/withStyles';
+import styleProps from '@techytools/ui/types/styles';
+import withCombinedProps from '@techytools/ui/hooks/withCombinedProps';
+import withStyles from '@techytools/ui/hooks/withStyles';
 
 export type Props = styleProps & HTMLAttributes<HTMLDivElement>;
 

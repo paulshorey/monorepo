@@ -1,8 +1,8 @@
 import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome';
 import { regular, solid } from '@fortawesome/fontawesome-svg-core/import.macro';
-import Button from '@ps/ui/components/Button';
-import Link from '@ps/ui/components/Link';
-import Block, { withBlock } from '@ps/ui/components/Block';
+import Button from '@techytools/ui/components/Button';
+import Link from '@techytools/ui/components/Link';
+import Block, { withBlock } from '@techytools/ui/components/Block';
 import styles from './styles';
 import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub';
 

@@ -1,11 +1,11 @@
 import React from 'react';
 import Modal from '.';
-import Block from '@ps/ui/components/Block';
-import Button from '@ps/ui/components/Button';
-import Input from '@ps/ui/components/Input';
-import CanvasContainer from '@ps/ui/.storybook/components/CanvasContainer';
-import useShowStorybookCode from '@ps/ui/hooks/useShowStorybookCode';
-import CanvasStoryPadding from '@ps/ui/.storybook/components/CanvasStoryPadding';
+import Block from '@techytools/ui/components/Block';
+import Button from '@techytools/ui/components/Button';
+import Input from '@techytools/ui/components/Input';
+import CanvasContainer from '@techytools/ui/.storybook/components/CanvasContainer';
+import useShowStorybookCode from '@techytools/ui/hooks/useShowStorybookCode';
+import CanvasStoryPadding from '@techytools/ui/.storybook/components/CanvasStoryPadding';
 
 export default (props: any) => {
   useShowStorybookCode();
@@ -56,7 +56,7 @@ export default (props: any) => {
   );
 };
 
-export const code = `import Modal from '@ps/ui/components/Modal';
+export const code = `import Modal from '@techytools/ui/components/Modal';
   
 const [isOpen, set_isOpen] = React.useState(false);
 const handleOpen = () => set_isOpen(true);

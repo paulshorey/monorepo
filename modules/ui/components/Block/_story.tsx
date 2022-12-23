@@ -1,7 +1,7 @@
 import React from 'react';
-import useShowStorybookCode from '@ps/ui/hooks/useShowStorybookCode';
-import CanvasContainer from '@ps/ui/.storybook/components/CanvasContainer';
-import CanvasStoryPadding from '@ps/ui/.storybook/components/CanvasStoryPadding';
+import useShowStorybookCode from '@techytools/ui/hooks/useShowStorybookCode';
+import CanvasContainer from '@techytools/ui/.storybook/components/CanvasContainer';
+import CanvasStoryPadding from '@techytools/ui/.storybook/components/CanvasStoryPadding';
 import Block from '.';
 import CodeInline from '../CodeInline';
 
@@ -59,7 +59,7 @@ export default function (props) {
   );
 }
 
-export const code = `import Block from '@ps/ui/components/Block';
+export const code = `import Block from '@techytools/ui/components/Block';
 
 const style = \`
   padding: 1px 1.25rem 0.25rem 1.5rem;

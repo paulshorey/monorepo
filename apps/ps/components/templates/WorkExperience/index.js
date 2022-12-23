@@ -5,8 +5,8 @@ import { LuminousGallery } from 'luminous-lightbox';
 import 'luminous-lightbox/dist/luminous-basic.css';
 import Wordio from 'components/templates/WorkExperience/Wordio';
 import dynamic from 'next/dynamic';
-import Block from '@ps/ui/components/Block';
-import HCarousel from '@ps/ui/components/HorizontalCarousel';
+import Block from '@techytools/ui/components/Block';
+import HCarousel from '@techytools/ui/components/HorizontalCarousel';
 
 const OpenSource = dynamic(
   () => import('components/templates/WorkExperience/OpenSource'),

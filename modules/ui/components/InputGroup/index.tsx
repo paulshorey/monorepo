@@ -1,10 +1,10 @@
 import React, { forwardRef, memo, HTMLAttributes } from 'react';
 import variants from './styles';
-// import { Props as ButtonProps } from '@ps/ui/components/Button';
-// import { Props as InputProps } from '@ps/ui/components/Input';
-import styleProps from '@ps/ui/types/styles';
-import withCombinedProps from '@ps/ui/hooks/withCombinedProps';
-import withStyles from '@ps/ui/hooks/withStyles';
+// import { Props as ButtonProps } from '@techytools/ui/components/Button';
+// import { Props as InputProps } from '@techytools/ui/components/Input';
+import styleProps from '@techytools/ui/types/styles';
+import withCombinedProps from '@techytools/ui/hooks/withCombinedProps';
+import withStyles from '@techytools/ui/hooks/withStyles';
 
 export type Props = styleProps & // ButtonProps & // InputProps & // TODO: would be nice to figure out how to forward props to children elements!
   HTMLAttributes<HTMLDivElement>;

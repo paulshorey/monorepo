@@ -1,9 +1,9 @@
 import React from 'react';
-import useShowStorybookCode from '@ps/ui/hooks/useShowStorybookCode';
-import CanvasContainer from '@ps/ui/.storybook/components/CanvasContainer';
-import { withBlock } from '@ps/ui/components/Block';
-import { withInline } from '@ps/ui/components/Inline';
-import CanvasStoryPadding from '@ps/ui/.storybook/components/CanvasStoryPadding';
+import useShowStorybookCode from '@techytools/ui/hooks/useShowStorybookCode';
+import CanvasContainer from '@techytools/ui/.storybook/components/CanvasContainer';
+import { withBlock } from '@techytools/ui/components/Block';
+import { withInline } from '@techytools/ui/components/Inline';
+import CanvasStoryPadding from '@techytools/ui/.storybook/components/CanvasStoryPadding';
 import Dropdown from '.';
 
 export default function () {
@@ -103,7 +103,7 @@ export default function () {
   );
 }
 
-export const code = `import Dropdown from '@ps/ui/components/Dropdown';
+export const code = `import Dropdown from '@techytools/ui/components/Dropdown';
   
 const ToggleMenu = withBlock({
   componentName: 'ToggleMenu', // for debugging in browser dev tools (otherwise it will be called "Block")

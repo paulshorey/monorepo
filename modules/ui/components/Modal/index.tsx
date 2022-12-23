@@ -1,9 +1,9 @@
 import React, { memo, forwardRef } from 'react';
 import MuiModal, { ModalProps } from '@mui/material/Modal';
 import variants from './styles';
-import withCombinedProps from '@ps/ui/hooks/withCombinedProps';
-import styleProps from '@ps/ui/types/styles';
-import withStyles from '@ps/ui/hooks/withStyles';
+import withCombinedProps from '@techytools/ui/hooks/withCombinedProps';
+import styleProps from '@techytools/ui/types/styles';
+import withStyles from '@techytools/ui/hooks/withStyles';
 
 export type Props = ModalProps & styleProps;
 

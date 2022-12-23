@@ -1,7 +1,7 @@
-import Block, { withBlock } from '@ps/ui/components/Block';
-import { withButton } from '@ps/ui/components/Button';
-import CanvasContainerImport from '@ps/ui/.storybook/components/CanvasContainer';
-import WrapperImport from '@ps/ui/.storybook/components/Wrapper';
+import Block, { withBlock } from '@techytools/ui/components/Block';
+import { withButton } from '@techytools/ui/components/Button';
+import CanvasContainerImport from '@techytools/ui/.storybook/components/CanvasContainer';
+import WrapperImport from '@techytools/ui/.storybook/components/Wrapper';
 
 export const Wrapper = WrapperImport;
 export const CanvasContainer = CanvasContainerImport;

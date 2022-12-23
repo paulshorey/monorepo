@@ -5,11 +5,11 @@ import React, {
   memo,
   useEffect,
 } from 'react';
-import styleProps from '@ps/ui/types/styles';
-import variants from '@ps/ui/components/Input/styles';
+import styleProps from '@techytools/ui/types/styles';
+import variants from '@techytools/ui/components/Input/styles';
 import { Input as AntInput, InputProps as AntInputProps } from 'antd';
-import withCombinedProps from '@ps/ui/hooks/withCombinedProps';
-import withStyles from '@ps/ui/hooks/withStyles';
+import withCombinedProps from '@techytools/ui/hooks/withCombinedProps';
+import withStyles from '@techytools/ui/hooks/withStyles';
 
 export type Props = {
   /**

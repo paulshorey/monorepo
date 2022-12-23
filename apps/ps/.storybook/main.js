@@ -1,2 +1,2 @@
-const main = require('@ps/ui/.storybook/main.js');
+const main = require('@techytools/ui/.storybook/main.js');
 module.exports = main;

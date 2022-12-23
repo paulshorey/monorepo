@@ -1,7 +1,7 @@
 // import {
 //   sort_strings_by_length_and_position,
 //   sort_strings_by_rating_and_position
-// } from "@ps/fn/io/sort_strings"
+// } from "@techytools/fn/io/sort_strings"
 // import dict_info from "@ps/nlp/api/endpoints/data.words/function/dict_info"
 /**
  * Generates new row.pos_short from row.dict

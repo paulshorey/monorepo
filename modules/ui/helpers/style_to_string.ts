@@ -1,5 +1,5 @@
-import obj_has_key from '@ps/fn/io/obj/obj_has_key';
-import { ssProp } from '@ps/ui/types/styles';
+import obj_has_key from '@techytools/fn/esm/io/obj/obj_has_key';
+import { ssProp } from '@techytools/ui/types/styles';
 
 /**
  * Accepts SCSS string, function that accepts props and returns string, or an array of either.

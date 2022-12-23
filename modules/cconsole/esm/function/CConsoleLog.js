@@ -1,5 +1,5 @@
 import destroyCircular from "./destroyCircular";
-import parse_error_message from "@ps/fn/io/err/parse_error_message";
+import parseErrorMessage from "./parseErrorMessage";
 // use different syntax if in front-end (dev tools) or NodeJS (console)
 let BROWSER = typeof window === "object";
 let DEFAULT_USE_COLOR = true;
@@ -45,7 +45,7 @@ export default function () {
     while (a < arguments.length) {
         if (typeof arguments[a] === "object") {
             if (arguments[a] instanceof Error) {
-                args[a] = parse_error_message(arguments[a]);
+                args[a] = parseErrorMessage(arguments[a]);
             }
             else {
                 args[a] = destroyCircular(arguments[a], []);

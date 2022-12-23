@@ -65,13 +65,13 @@ All shared packages must follow this naming syntax: `@ps/*package-name`
 Include it in your `package.json`:
 ```
 "dependencies": {
-    "@ps/ui": "*",
+    "@techytools/ui": "*",
     ...
  }
 ```
 Then import it like a normal NPM package. Local packages support (and encourage) tree shaking:
 ```
-import Button from '@ps/ui/component/Button'
+import Button from '@techytools/ui/component/Button'
 ```
 
 #### Sometimes, config files use CommonJS. It works there too:
@@ -119,7 +119,9 @@ yarn test -u
 
 <br />
 
-## Committing To The Repo
+## Contributing
+
+Here's a good standard for writing commit messages: https://github.com/greenkeeperio/monorepo-definitions/blob/master/CONTRIBUTING.md#examples
 
 This repo will use [Commit Lint](https://commitlint.js.org/#/) to enforce commit syntax in the following format:
 

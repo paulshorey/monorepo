@@ -1,7 +1,7 @@
 import Code from '.';
-import CanvasContainer from '@ps/ui/.storybook/components/CanvasContainer';
-import CanvasStoryPadding from '@ps/ui/.storybook/components/CanvasStoryPadding';
-import useShowStorybookCode from '@ps/ui/hooks/useShowStorybookCode';
+import CanvasContainer from '@techytools/ui/.storybook/components/CanvasContainer';
+import CanvasStoryPadding from '@techytools/ui/.storybook/components/CanvasStoryPadding';
+import useShowStorybookCode from '@techytools/ui/hooks/useShowStorybookCode';
 
 export default (props) => {
   useShowStorybookCode();
@@ -14,7 +14,7 @@ export default (props) => {
   );
 };
 
-export const code = `import Code from '@ps/ui/components/Code';
+export const code = `import Code from '@techytools/ui/components/Code';
 
 <Code 
   code={\`import React, { useState } from "react"; ...\`}

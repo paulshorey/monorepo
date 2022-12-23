@@ -9,8 +9,8 @@
   "dependencies": {
     "@airbrake/node": "^1.0.7",
     "@logdna/logger": "^2.6.6",
-    "@ps/cconsole": "*",
-    "@ps/fn": "*",
+    "@techytools/cc": "*",
+    "@techytools/fn": "*",
     "itty-router": "^2.6.6"
   },
   "scripts": {

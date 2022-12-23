@@ -1,9 +1,9 @@
 import React, { forwardRef } from 'react';
 import { useTheme, ClassNames } from '@emotion/react';
-import colorscheme_dataset from '@ps/ui/helpers/colorscheme_dataset';
-import { styleProps } from '@ps/ui/types/styles';
-import style_string_from_props from '@ps/ui/helpers/style_string_from_props';
-import style_string_from_variants from '@ps/ui/helpers/style_string_from_variants';
+import colorscheme_dataset from '@techytools/ui/helpers/colorscheme_dataset';
+import { styleProps } from '@techytools/ui/types/styles';
+import style_string_from_props from '@techytools/ui/helpers/style_string_from_props';
+import style_string_from_variants from '@techytools/ui/helpers/style_string_from_variants';
 
 export default (Component: any, componentName: string, variants: any) =>
   forwardRef(({ ...props }: styleProps, ref: any) => {

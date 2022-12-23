@@ -10,10 +10,10 @@ import {
 import theme from 'styles/theme';
 
 // Optional - global styles:
-import fonts from '@ps/ui/styles/global/fonts';
-import html from '@ps/ui/styles/global/html';
-import classes from '@ps/ui/styles/global/classes';
-import antd5 from '@ps/ui/styles/global/antd5';
+import fonts from '@techytools/ui/styles/global/fonts';
+import html from '@techytools/ui/styles/global/html';
+import classes from '@techytools/ui/styles/global/classes';
+import antd5 from '@techytools/ui/styles/global/antd5';
 import global from 'styles/global';
 
 const ThemeProvider = ({ children }) => {

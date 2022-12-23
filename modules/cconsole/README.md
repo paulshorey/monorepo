@@ -10,7 +10,7 @@ No dependencies. No setup required. Easily integrate with Cloud logging (LogDNA,
 
 Works on both Node.js and in Browser. Colors do not work inside IDEs like CodePen.io. Scroll down for browser usage. This is code still experimental and will change until `version 1`. Do **not** install `@latest`, but stick to a well-tested current version.
 
-[![npm package](https://img.shields.io/npm/v/@ps/cconsole.svg)](https://www.npmjs.com/package/@ps/cconsole)  ![testing in progress](coverage/badge-statements.svg)
+[![npm package](https://img.shields.io/npm/v/@techytools/cc.svg)](https://www.npmjs.com/package/@techytools/cc)  ![testing in progress](coverage/badge-statements.svg)
 
 
 ##
@@ -21,7 +21,7 @@ Works on both Node.js and in Browser. Colors do not work inside IDEs like CodePe
 
 ### 1. Import it:
 ```
-const cconsole = require('@ps/cconsole');
+const cconsole = require('@techytools/cc');
 ```
 Name it whatever you want (`konsole`, `consola`, `consolee`)
 
@@ -43,7 +43,7 @@ cconsole.timeEnd();
 ### 3. Advanced usage:
 
 ```
-const cconsoleInit = require('@ps/cconsole/cconsoleInit');
+const cconsoleInit = require('@techytools/cc/cconsoleInit');
 
 globals['cconsole'] = cconsoleInit({
   useTrace: true, // show file and line-number where the console was called from
@@ -69,7 +69,7 @@ globals['cconsole'] = cconsoleInit({
 
 ### 1. Import it:
 ```
-<script src="https://raw.githubusercontent.com/paulshorey/@ps/cconsole/main/dist/cconsole.js"></script>
+<script src="https://raw.githubusercontent.com/paulshorey/@techytools/cc/main/dist/cconsole.js"></script>
 <!-- this script will add window.cconsole variable to your webpage -->
 ```
 
@@ -83,7 +83,7 @@ cconcole.error('this message will have background red with yellow text')
 ### 3. Advanced usage:
 
 ```
-<script src="https://raw.githubusercontent.com/paulshorey/@ps/cconsole/main/dist/cconsoleInit.js"></script>
+<script src="https://raw.githubusercontent.com/paulshorey/@techytools/cc/main/dist/cconsoleInit.js"></script>
 <!-- this script will add window.cconsoleInit variable to your webpage -->
 
 const cconsole = cconsoleInit({

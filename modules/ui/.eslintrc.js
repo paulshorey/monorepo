@@ -1,4 +1,4 @@
-const preset = require('@ps/constants/config/eslint-preset')(__dirname);
+const preset = require('./.eslint.preset.cjs')(__dirname);
 
 preset.rules['no-console'] = 'off';
 preset.rules['react/display-name'] = 'off';

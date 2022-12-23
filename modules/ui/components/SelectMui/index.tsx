@@ -4,9 +4,9 @@ import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
 import SelectMuiImport from '@mui/material/Select';
 import type { SelectProps } from '@mui/material/Select/Select';
-import variants from '@ps/ui/components/SelectMui/styles';
-import withCombinedProps from '@ps/ui/hooks/withCombinedProps';
-import withStyles from '@ps/ui/hooks/withStyles';
+import variants from '@techytools/ui/components/SelectMui/styles';
+import withCombinedProps from '@techytools/ui/hooks/withCombinedProps';
+import withStyles from '@techytools/ui/hooks/withStyles';
 
 export type Props = {
   helperText?: string;

@@ -1,2 +1,2 @@
-const preview = require('@ps/ui/.storybook/preview.js');
+const preview = require('@techytools/ui/.storybook/preview.js');
 module.exports = preview;

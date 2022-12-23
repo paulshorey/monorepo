@@ -1,10 +1,10 @@
 import React from 'react';
-import Input, { Props as InputProps } from '@ps/ui/components/Input';
-import CanvasContainer from '@ps/ui/.storybook/components/CanvasContainer';
-import CanvasStoryPadding from '@ps/ui/.storybook/components/CanvasStoryPadding';
+import Input, { Props as InputProps } from '@techytools/ui/components/Input';
+import CanvasContainer from '@techytools/ui/.storybook/components/CanvasContainer';
+import CanvasStoryPadding from '@techytools/ui/.storybook/components/CanvasStoryPadding';
 import { InfoCircleOutlined, UserOutlined } from '@ant-design/icons';
 import Popover from 'antd/es/popover';
-import useShowStorybookCode from '@ps/ui/hooks/useShowStorybookCode';
+import useShowStorybookCode from '@techytools/ui/hooks/useShowStorybookCode';
 
 const InputStory = (props: InputProps) => {
   useShowStorybookCode();
@@ -56,7 +56,7 @@ export default (props) => (
   </CanvasContainer>
 );
 
-export const code = `import Input from '@ps/ui/components/Input';
+export const code = `import Input from '@techytools/ui/components/Input';
 
 <Input
   ss={style}

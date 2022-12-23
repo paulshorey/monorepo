@@ -1,6 +1,6 @@
 {
   // base config - common to all apps and modules in the repository:
-  "extends": "@ps/constants/config/typescript/react-library.json",
+  "extends": "./tsconfig.react-library.json",
   // specific overrides - for this project only:
   "include": ["components/**/*", "helpers/**/*", "hooks/**/*", "styles/**/*"],
   "exclude": [
@@ -22,7 +22,7 @@
     "strict": false,
     "baseUrl": ".",
     "paths": {
-      "@ps/ui/*": ["./*"]
+      "@techytools/ui/*": ["./*"]
     },
     "noEmit": true,
     "incremental": true,

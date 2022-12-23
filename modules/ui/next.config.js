@@ -1,8 +1,4 @@
-const withTM = require('next-transpile-modules')([
-  '@ps/fn',
-  '@ps/cconsole',
-  '@ps/constants',
-]);
+const withTM = require('next-transpile-modules')(['@techytools/fn']);
 const dotenvLoad = require('dotenv-load');
 const nextBuildId = require('next-build-id');
 
@@ -13,7 +9,6 @@ dotenvLoad();
 module.exports = withTM({
   env: {
     MIXPANEL_TOKEN: process.env.MIXPANEL_TOKEN,
-    NONPROFIT_API_BASE: process.env.NONPROFIT_API_BASE,
   },
   generateBuildId: () => nextBuildId({ describe: true, dir: __dirname }),
   async headers() {

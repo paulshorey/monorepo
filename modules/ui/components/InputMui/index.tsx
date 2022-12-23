@@ -1,9 +1,9 @@
 import React, { forwardRef, memo, ReactElement } from 'react';
-import { styleProps } from '@ps/ui/types/styles';
+import { styleProps } from '@techytools/ui/types/styles';
 import variants from './styles';
 import IconLoading from '@ant-design/icons/LoadingOutlined';
-import withCombinedProps from '@ps/ui/hooks/withCombinedProps';
-import withStyles from '@ps/ui/hooks/withStyles';
+import withCombinedProps from '@techytools/ui/hooks/withCombinedProps';
+import withStyles from '@techytools/ui/hooks/withStyles';
 import InputAdornment from '@mui/material/InputAdornment';
 import MuiInput, { InputProps as MuiInputProps } from '@mui/material/Input';
 import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome';

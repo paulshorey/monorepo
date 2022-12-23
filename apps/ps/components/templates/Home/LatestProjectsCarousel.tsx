@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import HorizontalCarousel from '@ps/ui/components/HorizontalCarousel';
+import HorizontalCarousel from '@techytools/ui/components/HorizontalCarousel';
 import { css } from '@emotion/react';
 import FeatureSlide from './FeatureSlide';
 

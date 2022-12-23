@@ -7,13 +7,13 @@ import {
 // JavaScript theme variables (like padding, height, font-size):
 // Set colors in colors.css so they can support "cascading" (inherit from parent)
 // Alternatively, it's possible to set colors in JavaScript, then generate CSS and pass to <Global/>
-import theme from '@ps/ui/styles/theme';
+import theme from '@techytools/ui/styles/theme';
 
 // Optional - global styles:
-import fonts from '@ps/ui/styles/global/fonts';
-import html from '@ps/ui/styles/global/html';
-import classes from '@ps/ui/styles/global/classes';
-import antd5 from '@ps/ui/styles/global/antd5';
+import fonts from '@techytools/ui/styles/global/fonts';
+import html from '@techytools/ui/styles/global/html';
+import classes from '@techytools/ui/styles/global/classes';
+import antd5 from '@techytools/ui/styles/global/antd5';
 
 // Optional - MaterialUI Theme (required if using MUI components)
 import { ThemeProvider as MuiThemeProvider, createTheme } from '@mui/material';

@@ -6,6 +6,6 @@ For example, if you were to make SOAP requests, the pure function to parse the X
 ## Dependencies
 * axios
 * cachios
-* @ps/cconsole
+* @techytools/cc
 * airtable
 

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import uiState, { uiStateType } from 'state/uiState';
-import Button from '@ps/ui/components/Button';
+import Button from '@techytools/ui/components/Button';
 
 const style = ({ theme }) => `
   margin-left: 0.875rem; cursor:pointer; user-select: none;

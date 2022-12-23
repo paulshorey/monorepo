@@ -1,7 +1,7 @@
 import React from 'react';
 import Grid from '.';
-import Block from '@ps/ui/components/Block';
-import useShowStorybookCode from '@ps/ui/hooks/useShowStorybookCode';
+import Block from '@techytools/ui/components/Block';
+import useShowStorybookCode from '@techytools/ui/hooks/useShowStorybookCode';
 
 const Story = (props) => {
   useShowStorybookCode();

@@ -1,6 +1,6 @@
 /**
  * Use to add syntax highlighting to SCSS strings:
- * import css from '@ps/ui/helpers/css';
+ * import css from '@techytools/ui/helpers/css';
  * <Block ss={(props)=> css`
  *  padding: 10px ${props.theme.padding}px;
  * `} />

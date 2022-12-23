@@ -1,4 +1,4 @@
-import arr_subtract from "@ps/fn/io/arrays/arrays_subtract"
+import arr_subtract from "@techytools/fn/io/arrays/arrays_subtract"
 
 export default function (row) {
   row.food = false

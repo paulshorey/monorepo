@@ -21,19 +21,19 @@ export type styleProps = {
    */
   variant?: string;
   /**
-   * Refers to [data-textcolor] groups you defined in your global css file. Import: @ps/ui/styles/colors.css
+   * Refers to [data-textcolor] groups you defined in your global css file. Import: @techytools/ui/styles/colors.css
    */
   textcolor?: string;
   /**
-   * Refers to [data-textcolor] groups you defined in your global css file. Import: @ps/ui/styles/colors.css - NOT RECOMMENDED for block-level elements or elements with children. Works best on simple inline text.
+   * Refers to [data-textcolor] groups you defined in your global css file. Import: @techytools/ui/styles/colors.css - NOT RECOMMENDED for block-level elements or elements with children. Works best on simple inline text.
    */
   textgradient?: string;
   /**
-   * Refers to [data-bgcolor] groups you defined in your global css file. Import: @ps/ui/styles/colors.css
+   * Refers to [data-bgcolor] groups you defined in your global css file. Import: @techytools/ui/styles/colors.css
    */
   bgcolor?: string;
   /**
-   * Refers to [data-bgcolor] groups you defined in your global css file. Import: @ps/ui/styles/colors.css
+   * Refers to [data-bgcolor] groups you defined in your global css file. Import: @techytools/ui/styles/colors.css
    */
   bggradient?: string;
   /**

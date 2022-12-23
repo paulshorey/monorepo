@@ -1,9 +1,9 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
-import Block from '@ps/ui/components/Block';
-import Inline from '@ps/ui/components/Inline';
-import CodeInline from '@ps/ui/components/CodeInline';
-import ThemeProvider from '@ps/ui/components/ThemeProvider';
-import Wrapper from '@ps/ui/.storybook/components/Wrapper';
+import Block from '@techytools/ui/components/Block';
+import Inline from '@techytools/ui/components/Inline';
+import CodeInline from '@techytools/ui/components/CodeInline';
+import ThemeProvider from '@techytools/ui/components/ThemeProvider';
+import Wrapper from '@techytools/ui/.storybook/components/Wrapper';
 import {
   Container,
   ButtonCTA,
@@ -12,8 +12,8 @@ import {
   Title,
   Content,
   Button,
-} from '@ps/ui/.storybook/components/Components';
-import Code from '@ps/ui/components/Code';
+} from '@techytools/ui/.storybook/components/Components';
+import Code from '@techytools/ui/components/Code';
 
 <Meta title="Get started/Setup/Mono repo" />
 
@@ -24,7 +24,7 @@ import Code from '@ps/ui/components/Code';
 
 This is not meant to be used as a standalone library, but as part of a mono-repo. Here's how to set everything up.  
 
-The UI library (`@ps/ui`) requires these peer dependencies: `@emotion/core` and `@emotion/react`. 
+The UI library (`@techytools/ui`) requires these peer dependencies: `@emotion/core` and `@emotion/react`. 
 
 <br />
 
@@ -53,25 +53,25 @@ Utility libraries and custom packages to be included by your Apps.
 `@ps/constants` package holds common variables. Useful to define all configuration files there.
 Also useful to define other data variables there such as theme, lists and dictionaries, 
 such as the 50 states with abbreviations, supported locales/languages, etc.  
-`@ps/fn` - universal pure functions  
-`@ps/ui` - React components and styles  
-`@ps/cconsole` - alternative to console.log with <Inline as="b" textgradient="rainbow">colors</Inline> and ability to broadcast to a cloud provider  
+`@techytools/fn` - universal pure functions  
+`@techytools/ui` - React components and styles  
+`@techytools/cc` - alternative to console.log with <Inline as="b" textgradient="rainbow">colors</Inline> and ability to broadcast to a cloud provider  
 
 <Code title="package.json" code={`
 // If you include a module that's not published to NPM, but is part of this mono-repo,
 // then instead of specifying a version number, specify "*". 
 // TurboRepo will find the correct directory and alias to it instead of installing from the internet.
 ...
-"name": "@ps/ui",
+"name": "@techytools/ui",
 "private": true,
 "version": "0.0.1",
 "scripts": {...},
 "dependencies": {
   ...
-  "@ps/cconsole": "*",
+  "@techytools/cc": "*",
   "@ps/contants": "*",
-  "@ps/fn": "*",
-  "@ps/ui": "*",
+  "@techytools/fn": "*",
+  "@techytools/ui": "*",
   ...
 },
 "devDependencies": {...},
@@ -80,9 +80,9 @@ such as the 50 states with abbreviations, supported locales/languages, etc.
 <Code title="next.config.js" code={`
 // Requires next-transpile-modules to import files from outside its own directory
 const withTM = require('next-transpile-modules')([
-  '@ps/ui',
-  '@ps/fn',
-  '@ps/cconsole',
+  '@techytools/ui',
+  '@techytools/fn',
+  '@techytools/cc',
   '@ps/constants',
 ]);`} collapsed={true} ss="margin-bottom:0;" />
 

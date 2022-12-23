@@ -1,5 +1,5 @@
-import Block from '@ps/ui/components/Block';
-import Link from '@ps/ui/components/Link';
+import Block from '@techytools/ui/components/Block';
+import Link from '@techytools/ui/components/Link';
 import style from './style';
 
 const HeaderLayout = () => {
