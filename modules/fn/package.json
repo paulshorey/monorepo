@@ -25,21 +25,8 @@
     "displayName": "Hope this works",
     "tsconfig": "./tsconfig.json"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm version patch --no-git-tag-version && npm run test && git add ."
-    }
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/twodashes/node.git"
-  },
   "author": "Paul Shorey <hello@paulshorey.com>",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/twodashes/node/issues"
-  },
-  "homepage": "https://github.com/twodashes/node#readme",
   "dependencies": {
     "axios": "^0.27.2",
     "cachios": "^4.0.0",

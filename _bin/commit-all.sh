@@ -20,11 +20,14 @@ rootdir=$cwd/../
 
 # Save changes to git
 function git_save {
-  git add .
-  git pull
-  git add .
-  git commit -m "$1"
-  git push
+  if [[ `git status --porcelain` ]]; then
+    npm version patch --no-git-tag-version
+    git add .
+    git pull
+    git add .
+    git commit -m "$1"
+    git push
+  fi
 }
 
 # Function to be called for each directory
@@ -58,5 +61,5 @@ for dir in $(find "$1" -maxdepth 2 -type d ! -path "*node_modules*" ! -path "*no
 done
 
 # Commit the root
-echo -e "\n\033[0;33mDONE. Committing changes in \033[0m" "\033[0;32mroot multi-repo\033[0m"
-git_save "$2"
+# echo -e "\n\033[0;33mDONE. Committing changes in \033[0m" "\033[0;32mroot multi-repo\033[0m"
+# git_save "$2"
