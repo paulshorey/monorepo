@@ -1,3 +1,6 @@
+/**
+ * @jest-environment jsdom
+ */
 import call_later from "./call_later";
 import throttle from "./throttle";
 import debounce from "./debounce";

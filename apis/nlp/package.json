@@ -13,7 +13,7 @@
     "stop": "bash _bash/_stop.sh",
     "build": "tsc",
     "test:next": "ts-node-test api/**/**/*.test.ts",
-    "test": "ava"
+    "test:ava": "ava"
   },
   "dependencies": {
     "@airbrake/node": "^1.0.7",

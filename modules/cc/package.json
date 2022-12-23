@@ -12,8 +12,7 @@
   "scripts": {
     "build": "tsc",
     "build:umd": "rm -rf .parcel-cache && rm -rf umd && mkdir umd && parcel build esm/*.js --dist-dir umd --public-url . --target default",
-    "dev": "bash _bash/_start_tsc_dev.sh && echo 'develop using Typescript (watch)'",
-    "test": "jest"
+    "dev": "bash _bash/_start_tsc_dev.sh && echo 'develop using Typescript (watch)'"
   },
   "husky": {
     "hooks": {

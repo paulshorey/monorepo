@@ -9,14 +9,9 @@
   ],
   "scripts": {
     "save": "bash _bin/commit-all.sh . ",
-    "build-turbo": "turbo run build",
-    "build-lerna": "lerna run build",
+    "build-turbo": "turbo run build && turbo run test",
+    "build-lerna": "lerna run build && lerna run test",
     "dev-turbo": "turbo run dev --parallel"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "echo \"[Husky] pre-commit\""
-    }
   },
   "dependencies": {
     "next": "^12.3.4",

@@ -21,6 +21,7 @@
     "sourceMap": false,
     "strictNullChecks": true,
     "jsx": "preserve",
-    "types": ["node"]
+    "lib": ["DOM"],
+    "types": ["node", "jest"]
   }
 }

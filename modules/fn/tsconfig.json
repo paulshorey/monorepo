@@ -1,6 +1,6 @@
 {
   "extends": "./tsconfig.base.json",
-  "include": ["browser/**/*", "io/**/*", "requests/**/*", "server/**/*"],
+  "include": ["browser/**/*", "io/**/*", "requests/**/*", "server/**/*", "**/*.spec.ts", "**/*.test.ts"],
   "exclude": [
     "node_modules",
     "dist",
@@ -21,6 +21,8 @@
     "module": "es6",
     "target": "es6",
     "baseUrl": ".",
-    "paths": {}
+    "paths": {},
+    "lib": ["DOM"],
+    "types": ["node", "jest"]
   }
 }
