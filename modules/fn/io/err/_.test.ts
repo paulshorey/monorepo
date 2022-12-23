@@ -22,8 +22,10 @@ describe("parse_error_message", () => {
     expect(str).toBe("simple text message");
   });
   it("JS error", () => {
-    let str = parse_error_message(new Error("JavaScript error"));
-    expect(str.substring(0, str.length - 7)).toBe("'Error: JavaScript error' at Object.<anonymous> (io/err/_.test.ts");
+    let str = parse_error_message(new Error("thrown error message"));
+    expect(str.substring(0, str.length - 7)).toBe(
+      "'Error: thrown error message' at Object.<anonymous> (io/err/_.test.ts"
+    );
   });
   it("network error", () => {
     let str = parse_error_message({ data: { error: { message: "invalid command" } } });
