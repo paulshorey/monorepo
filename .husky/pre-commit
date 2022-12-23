@@ -1,4 +1,5 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-npm run build-turbo
+echo $1 $2 $3
+# npm run build && bash ./_bin/commit-all.sh . "auto commit-all projects pre-commit monorepo"
