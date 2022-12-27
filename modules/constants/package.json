@@ -1,5 +1,6 @@
 {
-  "name": "@ps/constants",
+  "name": "@techytools/constants",
+  "private": true,
   "version": "0.0.0",
   "license": "MIT",
   "main": "index.js",
