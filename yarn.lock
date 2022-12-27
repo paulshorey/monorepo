@@ -5011,7 +5011,7 @@
     defer-to-connect "^2.0.0"
 
 "@techytools/cc@*", "@techytools/cc@file:/Users/user/w/m/modules/cc":
-  version "0.0.5"
+  version "0.0.6"
   resolved "file:modules/cc"
 
 "@techytools/constants@file:/Users/user/w/m/modules/constants":
@@ -5019,7 +5019,7 @@
   resolved "file:modules/constants"
 
 "@techytools/fn@*", "@techytools/fn@file:/Users/user/w/m/modules/fn":
-  version "0.0.5"
+  version "0.0.6"
   resolved "file:modules/fn"
   dependencies:
     axios "^0.27.2"
@@ -5027,7 +5027,7 @@
     http-server "^14.1.1"
 
 "@techytools/ui@*", "@techytools/ui@file:/Users/user/w/m/modules/ui":
-  version "0.0.5"
+  version "0.0.6"
   resolved "file:modules/ui"
   dependencies:
     "@ant-design/icons" "^4.7.0"
