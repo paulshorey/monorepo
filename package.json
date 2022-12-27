@@ -8,7 +8,7 @@
     "modules/*"
   ],
   "scripts": {
-    "save": "bash _bin/commit-all.sh . ",
+    "publish": "bash .husky/post-push",
     "build": "turbo run build && turbo run test",
     "build-lerna": "lerna run build && lerna run test",
     "dev": "turbo run dev --parallel"
