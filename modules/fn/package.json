@@ -1,6 +1,6 @@
 {
   "name": "@techytools/fn",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Universal utility functions for both browser and node (like @lodash, but with more dashes). Mostly \"pure\" functions (sorting ones use [].sort()). Promises, filtering, sorting, combining, text analysis, math, curry, sleep, etc. See also platform specific functions twodashes-node and twodashes-browser. -- PLEASE NOTE -- This is meant to be imported from other Typescript ES6 modules in monorepo. It's not currently built/compiled/exported to be imported by CommonJS/ES5 modules.",
   "scripts": {
     "dev": "yarn run test:dev",
