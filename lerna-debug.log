@@ -1,13 +1,88 @@
 0 silly argv {
-0 silly argv   _: [ 'run' ],
+0 silly argv   _: [ 'version' ],
+0 silly argv   private: false,
+0 silly argv   yes: true,
+0 silly argv   y: true,
 0 silly argv   lernaVersion: '6.1.0',
-0 silly argv   '$0': '/Users/user/www/m/node_modules/.bin/lerna',
-0 silly argv   script: 'build'
+0 silly argv   '$0': '/Users/user/w/m/node_modules/.bin/lerna',
+0 silly argv   bump: 'patch'
 0 silly argv }
 1 notice cli v6.1.0
-2 verbose rootPath /Users/user/www/m
-3 verbose run Nx target configuration was not found. Task dependencies will not be automatically included.
-4 error Error: No projects matching: @
-4 error     at projectsToRun (/Users/user/www/m/node_modules/nx/src/command-line/run-many.js:53:23)
-4 error     at /Users/user/www/m/node_modules/nx/src/command-line/run-many.js:24:26
-4 error     at Generator.next (<anonymous>)
+2 verbose rootPath /Users/user/w/m
+3 info current version 0.0.4
+4 silly isAnythingCommitted
+5 verbose isAnythingCommitted 1
+6 silly getCurrentBranch
+7 verbose currentBranch main
+8 silly remoteBranchExists
+9 silly isBehindUpstream
+10 silly isBehindUpstream main is behind origin/main by 0 commit(s) and ahead by 0
+11 silly hasTags
+12 verbose hasTags true
+13 silly git-describe.sync "v0.0.4-2-g92d0c31" => {"lastTagName":"v0.0.4","lastVersion":"v0.0.4","refCount":"2","sha":"92d0c31","isDirty":false}
+14 info Looking for changed packages since v0.0.4
+15 silly checking diff apis/nlp
+16 silly no diff found in @ps/nlp
+17 silly checking diff apis/web
+18 silly no diff found in web-scraper
+19 silly checking diff apps/ps
+20 silly no diff found in ps
+21 silly checking diff apps/responsive-dev
+22 silly no diff found in responsive-dev
+23 silly checking diff modules/cc
+24 silly found diff in modules/cc/package.json
+25 verbose filtered diff [ 'modules/cc/package.json' ]
+26 silly checking diff modules/constants
+27 silly no diff found in @techytools/constants
+28 silly checking diff modules/fn
+29 silly found diff in modules/fn/package.json
+30 verbose filtered diff [ 'modules/fn/package.json' ]
+31 silly checking diff modules/secrets
+32 silly no diff found in @ps/secrets
+33 silly checking diff modules/ui
+34 silly found diff in modules/ui/.storybook/components/Wrapper.tsx
+34 silly found diff in modules/ui/package.json
+35 verbose filtered diff [
+35 verbose filtered diff   'modules/ui/.storybook/components/Wrapper.tsx',
+35 verbose filtered diff   'modules/ui/package.json'
+35 verbose filtered diff ]
+36 verbose updated @ps/nlp
+37 verbose updated web-scraper
+38 verbose updated ps
+39 verbose updated responsive-dev
+40 verbose updated @techytools/cc
+41 verbose updated @techytools/fn
+42 verbose updated @techytools/ui
+43 verbose git-describe undefined => "v0.0.4-2-g92d0c31"
+44 silly git-describe parsed => {"lastTagName":"v0.0.4","lastVersion":"v0.0.4","refCount":"2","sha":"92d0c31","isDirty":false}
+45 info auto-confirmed
+46 info execute Skipping releases
+47 silly lifecycle No script for "preversion" in "ps-monorepo", continuing
+48 silly lifecycle No script for "preversion" in "@techytools/cc", continuing
+49 silly lifecycle No script for "preversion" in "@techytools/fn", continuing
+50 silly lifecycle No script for "preversion" in "@techytools/ui", continuing
+51 verbose version @techytools/cc has no lockfile. Skipping lockfile update.
+52 verbose version @techytools/fn has no lockfile. Skipping lockfile update.
+53 verbose version @techytools/ui has no lockfile. Skipping lockfile update.
+54 silly lifecycle No script for "version" in "@techytools/cc", continuing
+55 silly lifecycle No script for "version" in "@techytools/ui", continuing
+56 silly lifecycle No script for "version" in "@techytools/fn", continuing
+57 verbose version Updating root package-lock.json
+58 silly lifecycle No script for "version" in "ps-monorepo", continuing
+59 silly gitAdd [
+59 silly gitAdd   'modules/cc/package.json',
+59 silly gitAdd   'modules/ui/package.json',
+59 silly gitAdd   'modules/fn/package.json',
+59 silly gitAdd   'lerna.json',
+59 silly gitAdd   'package-lock.json'
+59 silly gitAdd ]
+60 error Error: Command failed with exit code 1: git add -- modules/cc/package.json modules/ui/package.json modules/fn/package.json lerna.json package-lock.json
+60 error The following paths are ignored by one of your .gitignore files:
+60 error package-lock.json
+60 error hint: Use -f if you really want to add them.
+60 error hint: Turn this message off by running
+60 error hint: "git config advice.addIgnoredFile false"
+60 error     at makeError (/Users/user/w/m/node_modules/execa/lib/error.js:60:11)
+60 error     at handlePromise (/Users/user/w/m/node_modules/execa/index.js:118:26)
+60 error     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+60 error     at async Promise.all (index 0)

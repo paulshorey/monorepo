@@ -1,13 +1,12 @@
 {
   "name": "@techytools/cc",
-  "version": "0.0.12",
+  "version": "0.0.5",
   "type": "module",
   "main": "src/index.ts",
   "module": "src/index.ts",
   "description": "No dependencies. No setup required. Easily integrate with Cloud logging (LogDNA, etc). Visually group similar types of logs in the terminal. Show a concise file/line trace for each message - so you can actually find where it's originating without looking through the entire codebase.",
   "author": "Paul Shorey <paulshorey.com>",
   "license": "ISC",
-  "devDependencies": {},
   "scripts": {
     "build": "tsc",
     "build:umd": "rm -rf .parcel-cache && rm -rf umd && mkdir umd && parcel build esm/*.js --dist-dir umd --public-url . --target default",

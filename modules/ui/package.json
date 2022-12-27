@@ -1,6 +1,6 @@
 {
   "name": "@techytools/ui",
-  "version": "0.0.7",
+  "version": "0.0.5",
   "description": "I believe CSS and JS can live in harmony. This is an experimental codebase to try out new and old techniques together. Built to use locally in a monorepo, but available from public npm registry. `yarn add @techytools/ui`",
   "scripts": {
     "patch": "npm version patch --no-git-tag-version",
