@@ -1,8 +1,9 @@
 {
   "name": "@techytools/fn",
-  "version": "0.0.4",
+  "version": "0.0.8",
   "description": "Universal utility functions for both browser and node (like @lodash, but with more dashes). Mostly \"pure\" functions (sorting ones use [].sort()). Promises, filtering, sorting, combining, text analysis, math, curry, sleep, etc. See also platform specific functions twodashes-node and twodashes-browser. -- PLEASE NOTE -- This is meant to be imported from other Typescript ES6 modules in monorepo. It's not currently built/compiled/exported to be imported by CommonJS/ES5 modules.",
   "scripts": {
+    "patch": "npm version patch --no-git-tag-version",
     "dev": "yarn run test:dev",
     "test": "npx jest",
     "test:dev": "NODE_OPTIONS=--experimental-vm-modules npx jest --watch",
@@ -25,8 +26,6 @@
     "displayName": "Hope this works",
     "tsconfig": "./tsconfig.json"
   },
-  "author": "Paul Shorey <hello@paulshorey.com>",
-  "license": "ISC",
   "dependencies": {
     "axios": "^0.27.2",
     "cachios": "^4.0.0",
@@ -61,5 +60,15 @@
     "utility",
     "functions"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/techytools/ui.git"
+  },
+  "homepage": "https://github.com/techytools/ui",
+  "author": "Paul Shorey <hello@paulshorey.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/techytools/ui/issues"
+  },
   "gitHead": "24a371b0b8a50732ea3ea99bb741a7b5b6974aec"
 }

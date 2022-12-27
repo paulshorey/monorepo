@@ -1,8 +1,9 @@
 {
   "name": "@techytools/ui",
-  "version": "0.0.4",
+  "version": "0.0.7",
   "description": "I believe CSS and JS can live in harmony. This is an experimental codebase to try out new and old techniques together. Built to use locally in a monorepo, but available from public npm registry. `yarn add @techytools/ui`",
   "scripts": {
+    "patch": "npm version patch --no-git-tag-version",
     "dev": "start-storybook -p 6006 -s public",
     "build": "build-storybook -s public",
     "start": "serve storybook-static",
@@ -57,10 +58,6 @@
   },
   "maybeDependencies": {},
   "main": "README.md",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/techytools/ui.git"
-  },
   "keywords": [
     "React",
     "ReactJS",
@@ -71,11 +68,15 @@
     "styling",
     "system"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/techytools/ui.git"
+  },
+  "homepage": "https://github.com/techytools/ui",
   "author": "Paul Shorey <hello@paulshorey.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/techytools/ui/issues"
   },
-  "homepage": "https://github.com/techytools/ui#readme",
   "gitHead": "24a371b0b8a50732ea3ea99bb741a7b5b6974aec"
 }

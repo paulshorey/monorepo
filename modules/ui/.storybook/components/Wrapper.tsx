@@ -37,6 +37,8 @@ const Wrapper = ({ children, ss, ...props }) => {
   top:0;
   left:0;
   width:100%;
+  min-height: calc(100vh - 125px);
+  max-height: 1500px;
   padding: 3.1rem 5vw 100px;
 
   &,
