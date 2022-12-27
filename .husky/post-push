@@ -1,4 +1,6 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
+echo -e "\n\033[0;33mHusky post-push hook\033[0m"
+
 npx lerna version --conventional-commits --yes --no-private && npx lerna publish --no-private --yes
