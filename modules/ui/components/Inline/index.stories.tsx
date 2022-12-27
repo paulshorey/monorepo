@@ -9,8 +9,7 @@ const variantKeys = Object.keys(variants);
 export const Inline = _story.bind({});
 Inline.argTypes = argTypes({ localVariants: variantKeys });
 Inline.args = {
-  'data-textcolor': 'purple',
-  'data-textgradient': true,
+  'data-textgradient': 'purple',
 };
 
 export default {

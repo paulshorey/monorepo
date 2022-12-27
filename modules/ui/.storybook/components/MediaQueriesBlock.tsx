@@ -139,19 +139,6 @@ const MediaQueriesDemo = () => (
   </Mq>
   </Border>
 
-<Block as="h2" ss="margin-top:4rem;">Too many keys? Just keep it simple. Use pairs... &nbsp;&nbsp;&nbsp;</Block>
-
-<p>
-<Block as="ul" ss="padding-left:1rem;li:not(:last-child) {margin-bottom: 0.75rem;}">
-  <li><><b>sm</b> / <b>lg</b> styles for min/max <b>930px</b> width</> <br />is the easiest strategy. Small tablets show the mobile design. Large tablets are treated as desktop.</li>
-  <li><><b>phone</b> / <b>tablet</b> / <b>desktop</b></> is perfect if you have separate designs for all 3 environments.</li>
-  <li><><b>mobile</b> vs <b>desktop</b> for min/max <b>1024px</b></> could work, but anyone using a tablet will get the mobile design.</li>
-  </Block>
-</p>
-<p>
-  You can occasionally use <b>largeDesktop</b>, <b>largeTablet</b>, <b>smallPhone</b>  or <b>tinyPhone</b> to adjust for edge cases. But you won't have to remember all the breakpoints for every style. Each is available only if you need it.
-  </p>
-
   </Container>
 );
 

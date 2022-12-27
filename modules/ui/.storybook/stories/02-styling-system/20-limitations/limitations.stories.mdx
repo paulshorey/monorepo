@@ -22,8 +22,7 @@ import Code from '@techytools/ui/components/Code';
 
 <Block as="h1" ss="font-size: 2rem; font-weight: 600; margin: 0;">Limitations:</Block>
 
-This is the standard format used by `@emotion` and `styled-components`.  
-The `ss` props however do **NOT** accept this format for template literals:
+The `ss` props do **NOT ❌** accept the standard `@emotion`/`styled-components` functions inside template literals:
 
 <Code
   ss="font-size: 0.85rem;margin-bottom:0;"
@@ -37,8 +36,7 @@ The `ss` props however do **NOT** accept this format for template literals:
 
 <br />
 
-But you <strong>CAN</strong> pass this (a function) to any `ss` prop:  
-Different format than the regular `@emotion/styled`, but gets the job done.  
+You <strong>CAN ✅</strong> however pass this a function to any `ss` prop and get the props/theme as the first argument:
 
 <Code
   ss="font-size: 0.85rem;margin-bottom:0;"

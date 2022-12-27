@@ -1,5 +1,5 @@
 import React from 'react';
-import objects_add_values from '@techytools/fn/esm/io/objects/objects_add_values';
+import objects_add_values from '@techytools/ui/helpers/io/objects_add_values';
 
 /**
  * Predefine default props for a component. Then, use the modified component normally, pass more unique props to the instanace. The predefined and instnace props will be combined. Use for any component from anywhere, even 3rd party libraries.

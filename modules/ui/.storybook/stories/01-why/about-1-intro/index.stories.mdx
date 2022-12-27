@@ -67,6 +67,14 @@ const Button = withButton({
 </Button>
 <Button round style={{ marginRight: '0' }} />`} />
 
+Use media query <span className="noWrap">mixins such as</span> `props.theme.mq.tinyPhone` in any template literal.
+
+Pass a function that accepts the component props and returns a string of SCSS. Your site theme will be available as a prop. This is very similar to the normal StyledComponents functionality. [Read more](/docs/get-started-styling-how-to-style--page)
+
+<Code
+  variant="transparentDark"
+  code={`<Block ss={(props) => css\` padding: 1rem \${props.theme.sizes.card.paddingX}; \`}>`} />
+
 
 <p>
   <a href="/docs/get-started-media-queries--page">Media query shortcuts</a> let you{' '}
@@ -76,8 +84,7 @@ const Button = withButton({
   You're not limited to just{' '}
   <CodeInline variant="text" color="purple">
     xs,sm,md,lg
-  </CodeInline>{' '}
-  or whatever you originally defined. Not limited to{' '}
+  </CodeInline>. Not limited to{' '}
   <CodeInline variant="text" code={`min-width`} /> either. Instead, use semantic
   prop names like <CodeInline variant="text" code={`ssTablet`} /> (or{' '}
   <CodeInline variant="text" code={`theme.mq.tablet`} />) to style tablets
@@ -106,17 +113,9 @@ const Demo = withBlock({ ss: 'display:none;' });
 // And many more. Each breakpoint is only included in the bundle if you use it. `}
 />
 
-☝️ You don't have to use strings. All ss props also accept a function or (coming soon) JSS object.
+☝️ You don't have to use strings. All ss props also accept a function or JSS object (coming soon).
 
-😱 The above ss props are just for convenience. Best practice is of course to separate styles from markup. Use media query <span className="noWrap">mixins such as</span> `props.theme.mq.tinyPhone` in any template literal.
-
-Pass a function that accepts the component props and returns a string of SCSS. Your site theme will be available as a prop.
-
-<Code
-  variant="transparentDark"
-  code={`<Block ss={(props) => css\` padding: 1rem \${props.theme.sizes.card.paddingX}; \`}>`} />
-
-Access props/theme variables from your styles. Components in this library let you pass a function to any `ss` prop. That enables you to call `(props) =>` only once, then reference props/theme multiple times. All `ss` props accept this function format. Alternatively, use the standard `emotion/styled-components` way to wrap a string in `css`&grave;&grave; or `styled`&grave;` and pass a function to every template literal.  
+😱 The above ss props are just for convenience. Best practice is of course to separate styles from markup. 
 
 There are also hooks to target specific devices and browsers.
 
@@ -138,9 +137,9 @@ There are also hooks to target specific devices and browsers.
 
 <p>
   If you like this approach then <a>checkout the Github repo</a>. Please contribute
-  or open an issue to discuss. Thank you!
-  <br />
-  Please reach out with any questions or ideas. Let's collaborate! ~ <a
+  or open an issue. Thank you! 
+  </p><p>
+  Curious what you think. Please reach out with any questions or ideas. Let's chat! ~ <a
     href="https://paulshorey.com"
     target="_blank"
   >

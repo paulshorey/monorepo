@@ -1,4 +1,4 @@
-import obj_has_key from '@techytools/fn/esm/io/obj/obj_has_key';
+import obj_has_key from '@techytools/ui/helpers/io/obj_has_key';
 import { ssProp } from '@techytools/ui/types/styles';
 
 /**

@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import Block from '../../components/Block';
+import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome';
+import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub';
 
 const Wrapper = ({ children, ss, ...props }) => {
   /**
@@ -138,6 +140,14 @@ const Wrapper = ({ children, ss, ...props }) => {
 
   return (
     <Block bgcolor="purple" textcolor="light" ss={[containerCSS, ss]} {...props}>
+      <a href="/?path=/docs/get-started-setup-theme--page" style={{color: 'var(--color-light)',}}>
+      <FA icon={faGithub} style={{
+        position: 'absolute',
+        top: '1.5rem',
+        right: '1.5rem',
+        fontSize: '1.5rem',
+      }} />
+      </a>
       <Block
         ss={`
         max-width: 1000px;

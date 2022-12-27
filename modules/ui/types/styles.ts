@@ -1,5 +1,4 @@
 import React from 'react';
-// import { styledTags } from './html'; // plain list for Storybook controls dropdown (really it's type React.ElementType<any>)
 export type styledTags = React.ElementType<any>;
 
 // tsFix: what types are returned by emotion' css`` template literal function? Interpolation | SerializedStyles
@@ -25,17 +24,17 @@ export type styleProps = {
    */
   textcolor?: string;
   /**
-   * Refers to [data-textcolor] groups you defined in your global css file. Import: @techytools/ui/styles/colors.css - NOT RECOMMENDED for block-level elements or elements with children. Works best on simple inline text.
-   */
-  textgradient?: string;
-  /**
    * Refers to [data-bgcolor] groups you defined in your global css file. Import: @techytools/ui/styles/colors.css
    */
   bgcolor?: string;
   /**
-   * Refers to [data-bgcolor] groups you defined in your global css file. Import: @techytools/ui/styles/colors.css
+   * Pass true to use the current textcolor, but as a gradient. Or specify any textcolor set in @techytools/ui/styles/colors.css
    */
-  bggradient?: string;
+  textgradient?: string | boolean;
+  /**
+   * Pass true to use the current bgcolor, but as a gradient. Or specify any bgcolor set in @techytools/ui/styles/colors.css
+   */
+  bggradient?: string | boolean;
   /**
    * SCSS as a simple string type. Or pass a function that accepts props and returns a string if you want to refer to any component props, or your site's theme. Or array of either. Same for other ssXxx props below.
    */

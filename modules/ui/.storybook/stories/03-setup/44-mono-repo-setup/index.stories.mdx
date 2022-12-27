@@ -20,17 +20,9 @@ import Code from '@techytools/ui/components/Code';
 <ThemeProvider>
 <Wrapper>
 
-<Block as="h1" ss="padding-top:1rem;">Quick setup</Block>
+<Block as="h2" textgradient="accent">Root directory</Block>
 
-This is not meant to be used as a standalone library, but as part of a mono-repo. Here's how to set everything up.  
-
-The UI library (`@techytools/ui`) requires these peer dependencies: `@emotion/core` and `@emotion/react`. 
-
-<br />
-
-<Block as="h2" textgradient="accent">1. Just use TurboRepo</Block>
-
-It makes everything much easier. [Read documentation](https://turbo.build/repo/docs/getting-started/add-to-project)    
+**TurboRepo or Lerna** (v5 with NX) makes setup much easier. For each npm package that is hosted in the same repository (monorepo), instead of publishign it and constantly updating the version number, add it to your package.json as version "*". Now, Turborepo or Lerna will keep it synced automatically. [Read documentation](https://turbo.build/repo/docs/getting-started/add-to-project)    
 
 <Code title="package.json" code={`...
 "private": true,
@@ -46,16 +38,16 @@ It makes everything much easier. [Read documentation](https://turbo.build/repo/d
 ...`} collapsed={true} />
 
 
-<Block as="h2" textgradient="accent">2. Modules</Block>
+<Block as="h2" textgradient="accent">Each project directory</Block>
 
 Utility libraries and custom packages to be included by your Apps.  
 
-`@ps/constants` package holds common variables. Useful to define all configuration files there.
+`@techytools/fn` - Universal pure functions  
+`@techytools/ui` - React components and styles  
+`@techytools/cc` - Alternative to console.log. Adds <Inline as="b" textgradient="rainbow">colors</Inline> and ability to send a copy to a cloud provider  
+`@techytools/constants` - Share variables, settings, and other data. Useful to define all configuration files there.
 Also useful to define other data variables there such as theme, lists and dictionaries, 
 such as the 50 states with abbreviations, supported locales/languages, etc.  
-`@techytools/fn` - universal pure functions  
-`@techytools/ui` - React components and styles  
-`@techytools/cc` - alternative to console.log with <Inline as="b" textgradient="rainbow">colors</Inline> and ability to broadcast to a cloud provider  
 
 <Code title="package.json" code={`
 // If you include a module that's not published to NPM, but is part of this mono-repo,
@@ -69,7 +61,7 @@ such as the 50 states with abbreviations, supported locales/languages, etc.
 "dependencies": {
   ...
   "@techytools/cc": "*",
-  "@ps/contants": "*",
+  "@techytools/constants": "*",
   "@techytools/fn": "*",
   "@techytools/ui": "*",
   ...
@@ -83,13 +75,13 @@ const withTM = require('next-transpile-modules')([
   '@techytools/ui',
   '@techytools/fn',
   '@techytools/cc',
-  '@ps/constants',
+  '@techytools/constants',
 ]);`} collapsed={true} ss="margin-bottom:0;" />
 
 <Code title="tsconfig.json" code={`
 {
   // base configs - common to all apps and modules (react-library inherits from base):
-  "extends": "@ps/constants/config/typescript/react-library.json",
+  "extends": "@techytools/constants/config/typescript/react-library.json",
   // specific overrides - for this project only:
   "exclude": ["node_modules", "dist", "out", ".next", ".backup", "public"],
   "compilerOptions": {
@@ -104,16 +96,16 @@ const withTM = require('next-transpile-modules')([
 }`} collapsed={true} ss="margin-bottom:0;" />
 
 <Code title="babel.config.js" code={`
-// Use base config from @ps/constants, then override as needed
-module.exports = require('@ps/constants/config/babel-preset.json');`} collapsed={true} ss="margin-bottom:0;" />
+// Use base config from @techytools/constants, then override as needed
+module.exports = require('@techytools/constants/config/babel-preset.json');`} collapsed={true} ss="margin-bottom:0;" />
 
 <Code title=".prettierrc.js" code={`
-// Use base config from @ps/constants, then override as needed
-module.exports = require('@ps/constants/config/prettier-preset');`} collapsed={true} />
+// Use base config from @techytools/constants, then override as needed
+module.exports = require('@techytools/constants/config/prettier-preset');`} collapsed={true} />
 
 <Block as="h2" textgradient="accent">3. Apps</Block>
 
-Exactly the same as Modules. You can even keep all packages in the same folder. Turborepo/Yarn don't care.   
+Exactly the same as Modules. You can even keep all packages in the same folder. Turborepo/Lerna/Yarn don't care.   
 
 Whether you're creating apps, modules, or back-end scripts, just give each package a unique name in package.json.  
 
@@ -123,7 +115,7 @@ Depending on your version of Yarn, you may have to prefix the name of each local
 
 <br />
 
-# Maintenance and development
+## Maintenance and development
 
 When developing a package (app, module, whatever) that's part of this monorepo, 
 
@@ -135,7 +127,7 @@ That's it. No more managing version numbers, and having to publish/deploy each p
 
 <br />
 
-# Deploying, publishing, and testing 
+## Deploying, publishing, and testing 
 
 👨‍💻 More instructions coming soon.
 

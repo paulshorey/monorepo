@@ -14,7 +14,13 @@ import Wrapper from '@techytools/ui/.storybook/components/Wrapper';
 
 ## Here are 2 blocks with different color schemes:
 
-One is `<Block textcolor="light" bgcolor="purple">`, the other is `<Block textcolor="purple" bgcolor="light">`. Child components can utilize the ancestral text and background color. You don't have to specify the color of each element. The element's css-in-js stylesheet chooses to apply or ignore the parent color.
+Below buttons are wrapped in a `<Block textcolor="light" bgcolor="purple">` and a `<Block textcolor="purple" bgcolor="light">`. All children components can read the colors of their ancestors. You don't have to apply unique rules to each element. Elements can inherit the light/dark or any other color scheme from its grandparent.
+
+
+Colors are managed in `colors.css`. So, they can cascade. All other variables are managed in `theme.ts`.   
+
+Set colors on any component or HTML element by passing <Inline textcolor="cta">textcolor</Inline> or <Inline bgcolor="cta">bgcolor</Inline> attributes. Make it a gradient by passing <Inline textgradient="rainbow">textgradient</Inline> or <Inline bggradient="rainbow">bggradient</Inline>. Pass these attributes to any parent. It will be read by all children and grandchildren.  
+
 
 <br />
 
@@ -83,12 +89,7 @@ Other styling systems only support setting a light/dark scheme once on the entir
 
 <Block as="h2" textgradient="rainbow">Putting the "C" back into "CSS-in-JS"...</Block>
 
-Colors are managed in `colors.css`. So, they can cascade. All other variables are managed in `theme.ts`.   
-
-Set colors on any component or HTML element by passing `data-textcolor` or `data-bgcolor` attributes.  
-Make it a gradient by passing `data-textgradient` or `data-bggradient`.
-
-A stylesheet (colors.css) sets CSS properties based on the dataset attributes. It works the same way as using classNames. CSS colors are managed in a CSS stylesheet, not in a JS theme object. Because CSS naturally cascades, all children elements are able to use the set CSS variables to apply text color, background, border, gradient, etc. This is not possible with pure CSS-in-JS.
+The child elements will be able to see what color background and text the parent/grandparent elements have. This is not possible with CSS-in-JS. A stylesheet (colors.css) sets CSS properties based on the dataset attributes. It works the same way as using classNames. CSS colors are managed in a CSS stylesheet, not in a JS theme object. Because CSS naturally cascades, all children elements are able to use the set CSS variables to apply text color, background, border, gradient, etc.
 
 <br />
 <br />

@@ -10,7 +10,14 @@ import MediaQueriesBlock from '@techytools/ui/.storybook/components/MediaQueries
 <Meta title="Get started/Styling/Media queries" />
 
 <ThemeProvider>
-  <Wrapper ss="margin-top:-0.5rem;">
+  <Wrapper ss="margin-top:-0.5rem; p code {font-size: 0.95em;}">
+
+There are various `ss` props. Each one injects your style into a media query. Each of these correspond to a `theme.mq` mixin:
+
+<MediaQueriesBlock />
+
+
+<Block as="h2" ss="margin-top:4rem;">How to use:</Block>
 
 Components in this library introduce <CodeInline code={`props.ss`} /> which helps to access your component's props. Each component gets the site <code>theme</code> injected into its props. Call <CodeInline code={`(props) => `} />just once at the top, then use it multiple times.
 
@@ -36,13 +43,21 @@ If using <CodeInline code={`style\`\``}/> or <CodeInline code={`css\`\``} />, ac
       }}
 \``} />
 
-There are various `ss` props. Each one injects your style into a media query. Each of these correspond to a `theme.mq` mixin:
 
-<MediaQueriesBlock />
+<Block as="h2" ss="margin-top:4rem;">Too many keys? Just keep it simple. Use pairs... &nbsp;&nbsp;&nbsp;</Block>
 
-<Block bggradient="rainbow" ss="height:1px;margin:4.5rem 0 4rem 0;" />
+<p>
+  <Block as="ul" ss="padding-left:1rem;li:not(:last-child) {margin-bottom: 0.75rem;} }">
+  <li><code>sm</code> / <code>lg</code> styles for min/max <code>930px</code> width <br />is the easiest strategy. Small tablets show the mobile design. Large tablets are treated as desktop.</li>
+  <li><code>phone</code> / <code>tablet</code> / <code>desktop</code> is perfect if you have separate designs for all 3 environments.</li>
+  <li><code>mobile</code> vs <code>desktop</code> for min/max <code>1024px</code> could work, but anyone using a tablet will get the mobile design.</li>
+  </Block>
+</p>
+<p>
+  You can occasionally use <code>largeDesktop</code>, <code>largeTablet</code>, <code>smallPhone</code>  or <code>tinyPhone</code> to adjust for edge cases. But you won't have to remember all the breakpoints for every style. Each is available only if you need it.
+  </p>
 
-<Block as="h2">Every app needs to style for different screen sizes.</Block>
+<Block as="h2" ss="margin-top:4rem;">Every app needs to style for different screen sizes.</Block>
 
 Material UI gives us `sm`,`md`,`lg`,`xl` breakpoints which use `min-width` media queries to target increasingly larger screen sizes. 👍 But what if I need to style only `(min-width: 768px) and (max-width:1024px)` or another specific device that's not preconfigured? Sometimes I need to add fixes for extra-narrow phones. 🤔 Mobile-first is a great guideline, but edge cases will lead to messy code.
 

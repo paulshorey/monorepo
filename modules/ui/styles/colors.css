@@ -4,12 +4,12 @@
 [data-textcolor] {
   color: var(--color-text);
 }
-[data-bggradient] {
+[data-bggradient='true'] {
   color: var(--color-text);
   background: var(--color-bg);
   background-image: var(--color-bg-gradient);
 }
-[data-textgradient] {
+[data-textgradient='true'] {
   background: initial;
   background-color: var(--color-text);
   background-image: var(--color-text-gradient);

@@ -27,6 +27,7 @@ import Code from '@techytools/ui/components/Code';
 <Block as="h2" ss="margin-top: 1rem;">1. The default export is ready to use</Block>
 
 All components in this library accept `props.ss`, which accepts a string of SCSS or a function that takes props and returns a string.   
+
 Every component in this library gets the site `theme` object injected into its props.
 <Code
   ss="font-size: 0.85rem;"
@@ -63,8 +64,12 @@ Just like <CodeInline code={`styled.button\`\``}/> or <CodeInline code={`styled.
 export const MyButton = withButton({
   size: 'small',
   round: true,
-  ss: 'margin: 0 0.875rem 0.875rem 0; /* and other styles */ ',
-  ssDesktop: '&:hover { box-shadow: 1px 2px 1px var(--color-cta); } ',
+  ss: \`
+    margin: 0 0.875rem 0.875rem 0;
+  \`,
+  ssDesktop: \`
+    &:hover { box-shadow: 1px 2px 1px var(--color-cta); }
+  \`,
   trackPath: router.pathname,
   trackFeature: form.title,
 });

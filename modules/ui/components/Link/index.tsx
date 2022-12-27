@@ -1,7 +1,7 @@
 import React, { memo, AnchorHTMLAttributes, forwardRef } from 'react';
 // import PageContext from 'src/context/Page';
 // import ABTestContext from 'src/context/ABTest';
-// import { analytics_track_link } from '@techytools/fn/esm/browser/analytics';
+// import { analytics_track_link } from '@techytools/fn/browser/analytics';
 import variants from './styles';
 import styleProps from '@techytools/ui/types/styles';
 import { useTheme } from '@emotion/react';
