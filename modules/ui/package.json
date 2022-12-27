@@ -76,5 +76,6 @@
   "bugs": {
     "url": "https://github.com/techytools/ui/issues"
   },
-  "homepage": "https://github.com/techytools/ui#readme"
+  "homepage": "https://github.com/techytools/ui#readme",
+  "gitHead": "041e0676a7c9f3b650f8c55aa0b1d9abdd97cc6d"
 }
