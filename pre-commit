@@ -1,7 +1,6 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-echo -e "\n\033[0;33mHusky pre-commit hook\033[0m"
+echo -e "\n\033[0;33mHusky pre-commit hook\033[0m" "HUSKY_GIT_PARAMS" $HUSKY_GIT_PARAMS $0 $1 $2 $3 $4 $5 $m
 
-# echo "HUSKY_GIT_PARAMS" $HUSKY_GIT_PARAMS $0 $1 $2 $3 $4 $5 $m
 npm run build && bash ./_bin/commit-all.sh . "auto commit-all projects pre-commit monorepo"
