@@ -13,8 +13,8 @@ cd $rootdir
 #
 # Start node process
 #
-pm2 stop all < "/dev/null";
-pm2 delete all < "/dev/null";
+pm2 stop all || true;
+pm2 delete all || true;
 echo $(pwd);
 # ts-node-esm does not support the --watch flag to restart on file changes, but pm2 does
 ts-node-esm --transpile-only --esm --experimental-specifier-resolution=node -r tsconfig-paths/register ./api;
