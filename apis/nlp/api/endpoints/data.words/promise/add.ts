@@ -1,10 +1,10 @@
 /*
  * Dependencies
  */
-import dict_info from "../../data.words/function/dict_info"
-import row_tlds from "../../data.words/promise/row_tlds"
-import row_poss from "../../data.words/promise/row_poss"
-import row_pos_short from "../../data.words/function/row_pos_short"
+import dict_info from "../function/dict_info"
+import row_tlds from "./row_tlds"
+import row_poss from "./row_poss"
+import row_pos_short from "../function/row_pos_short"
 // import { data_word_get_parsed } from "../../data.words/pgdb"
 import str_row from "./str_row"
 
