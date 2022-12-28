@@ -29,7 +29,7 @@ is_ios(); // true if client is iPhone, iPod, iPad, or emulator
 
 ## Development:
 
-This package is part of a monorepo. It relies on a couple sibling packages `@ps/constants` and `@techytools/cc`.
+This package is part of a monorepo. It relies on a couple sibling packages `@techytools/constants` and `@techytools/cc`.
 
 1. Clone the entire monorepo: `git clone git@github.com:paulshorey/harmony.git mono`
 

@@ -1,5 +1,5 @@
 // import path from "path"
-import "./global"
+import initGlobals from "./global"
 import * as fs from "fs"
 import * as http from "http"
 import * as https from "https"
@@ -12,6 +12,7 @@ import { endpointHandler } from "@ps/nlp/api/lib/http"
 import api_endpoints from "./endpoints"
 import customEnv from "custom-env"
 
+initGlobals()
 customEnv.env("local")
 customEnv.env()
 const { getClientIp } = RequestIp
@@ -76,6 +77,7 @@ expressApp.use(function (err, req, res, next) {
 /*
  * Handle each API endpoint
  */
+global.cconsole.success("Starting server environment: ", global["DEVELOPMENT"] ? "development" : "production")
 for (let endpoint of api_endpoints) {
   const { path, method, auth = [], response }: any = endpoint
   endpointHandler({

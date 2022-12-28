@@ -24,7 +24,7 @@
     "@fullpage/react-fullpage": "^0.1.29",
     "@headlessui/react": "^1.7.3",
     "@techytools/cc": "*",
-    "@ps/constants": "*",
+    "@techytools/constants": "*",
     "@techytools/fn": "*",
     "@techytools/ui": "*",
     "@radix-ui/react-popover": "^1.0.0",

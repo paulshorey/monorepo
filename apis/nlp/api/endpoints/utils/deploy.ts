@@ -5,12 +5,9 @@ export default [
     method: "all",
     path: "/_deploy",
     response: ({ req }) => {
-      global.cconsole.warn(
-        `bash ${global.__root}/_bash/_start_production.sh`,
-        `DEVELOPMENT ?= ${global["DEVELOPMENT"]}`
-      )
-      // ONLY enabled in production/staging
+      // ONLY RUN IF PRODUCTION/STAGING
       if (!global["DEVELOPMENT"]) {
+        global.cconsole?.warn(`DEPLOYING bash ${global.__root}/_bash/_start_production.sh`)
         child_process.exec(`bash ${global.__root}/_bash/_start_production.sh`)
       }
       return {

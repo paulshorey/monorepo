@@ -1,1 +1,1 @@
-module.exports = require('@ps/constants/config/eslint-preset')(__dirname);
+module.exports = require('@techytools/constants/config/eslint-preset')(__dirname);

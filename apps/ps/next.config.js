@@ -33,7 +33,7 @@ const withTM = require('next-transpile-modules')([
   '@techytools/ui',
   '@techytools/fn',
   '@techytools/cc',
-  '@ps/constants',
+  '@techytools/constants',
 ]);
 
 module.exports = withTM(nextConfig);
@@ -41,7 +41,7 @@ module.exports = withTM(nextConfig);
 // const dotenvLoad = require('dotenv-load');
 // const nextBuildId = require('next-build-id');
 
-// // const ContentSecurityPolicy = require('@ps/constants/config/auth/contentSecurityPolicy/index');
+// // const ContentSecurityPolicy = require('@techytools/constants/config/auth/contentSecurityPolicy/index');
 
 // dotenvLoad();
 

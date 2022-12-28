@@ -76,7 +76,7 @@ import Button from '@techytools/ui/component/Button'
 
 #### Sometimes, config files use CommonJS. It works there too:
 ```
-module.exports = require('@ps/constants/prettier-preset');
+module.exports = require('@techytools/constants/prettier-preset');
 ```
 
 <br />
