@@ -7,8 +7,8 @@ import {
   data_word_add_poswords,
   data_word_remove_words,
   data_word_add_to_others
-} from "./pgdb"
-import key_syns from "./promise/key_tlds"
+} from "@ps/nlp/lib/pgdb/data.words"
+import key_syns from "@ps/nlp/lib/words/promise/key_tlds"
 
 export default [
   {

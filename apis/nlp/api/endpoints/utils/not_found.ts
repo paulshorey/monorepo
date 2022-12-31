@@ -8,7 +8,7 @@ export default [
     response: ({ res }) => {
       res.status(404)
       let err = "Could not find API"
-      global.cconsole.error(`*`, err)
+      global.cconsole?.error(`*`, err)
       return err
     }
   }

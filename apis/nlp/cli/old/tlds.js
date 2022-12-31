@@ -1,9 +1,9 @@
 // import { sleep } from "pauls-pure-functions/functions/promises"
 import "dotenv/config" // contains secret keys ~ never push to GIT!
 import "common/global.js" // contains secret keys ~ never push to GIT!
-import { data_domains_get_parsed, data_domain_put } from "@ps/nlp/api/data.domains/pgdb"
-// import domain_syns_of_syns from "@ps/nlp/api/data.domains/promise/key_syns_of_syns"
-// import str_row from "@ps/nlp/api/data.words/promise/str_row"
+import { data_domains_get_parsed, data_domain_put } from "@api/data.domains/pgdb"
+// import domain_syns_of_syns from "@api/data.domains/promise/key_syns_of_syns"
+// import str_row from "@api/data.words/promise/str_row"
 
 /*
  *
@@ -11,7 +11,7 @@ import { data_domains_get_parsed, data_domain_put } from "@ps/nlp/api/data.domai
  *
  */
 let DEBUG2 = false
-import domain_row_update from "@ps/nlp/api/data.domains/promise/row_update"
+import domain_row_update from "@api/data.domains/promise/row_update"
 ;(async function () {
   /*
    * Rows to loop through and fix

@@ -1,8 +1,8 @@
-import spellcheck from "@ps/nlp/api/lib/words/spellcheck"
-import wordbreak from "@ps/nlp/api/lib/words/wordbreak"
-import spellcheck_wordbreak from "@ps/nlp/api/lib/words/spellcheck-wordbreak"
-import spellcheck_wordbreak_wordchunk from "@ps/nlp/api/lib/words/spellcheck-wordbreak-wordchunk"
-import wordchunk_tokenize from "@ps/nlp/api/lib/words/wordchunk-tokenize"
+import spellcheck from "@ps/nlp/lib/words/spellcheck"
+import wordbreak from "@ps/nlp/lib/words/wordbreak"
+import spellcheck_wordbreak from "@ps/nlp/lib/words/spellcheck-wordbreak"
+import spellcheck_wordbreak_wordchunk from "@ps/nlp/lib/words/spellcheck-wordbreak-wordchunk"
+import wordchunk_tokenize from "@ps/nlp/lib/words/wordchunk-tokenize"
 
 export default [
   {

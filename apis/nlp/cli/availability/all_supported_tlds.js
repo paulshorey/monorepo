@@ -6,15 +6,15 @@
 import { sleep } from "pauls-pure-functions/functions/promises"
 import "dotenv/config" // contains secret keys ~ never push to GIT!
 import "common/global.js" // contains secret keys ~ never push to GIT!
-import tlds_all from "@ps/nlp/data/domains/all"
-import tlds_name from "@ps/nlp/data/domains/availability/name"
-import many_domainr from "@ps/nlp/api/domains/availability/promise_many/domainr"
-import many_name from "@ps/nlp/api/domains/availability/promise_many/name"
-import one_domainr from "@ps/nlp/api/domains/availability/promise_one/domainr"
-import one_name from "@ps/nlp/api/domains/availability/promise_one/name"
-import many_whois from "@ps/nlp/api/domains/availability/promise_many/cli_whois"
-import many_host from "@ps/nlp/api/domains/availability/promise_many/cli_host"
-import one_host from "@ps/nlp/api/domains/availability/promise_one/cli_host"
+import tlds_all from "@techytools/constants/data/domains/all"
+import tlds_name from "@techytools/constants/data/domains/availability/name"
+import many_domainr from "@api/domains/availability/promise_many/domainr"
+import many_name from "@api/domains/availability/promise_many/name"
+import one_domainr from "@api/domains/availability/promise_one/domainr"
+import one_name from "@api/domains/availability/promise_one/name"
+import many_whois from "@api/domains/availability/promise_many/cli_whois"
+import many_host from "@api/domains/availability/promise_many/cli_host"
+import one_host from "@api/domains/availability/promise_one/cli_host"
 import { performance } from "perf_hooks"
 
 const myArgs = process.argv.slice(2)

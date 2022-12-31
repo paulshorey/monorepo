@@ -3,8 +3,8 @@
  */
 
 // import all_domains from 'universal-wordsalad-scripts/data/domains/all';
-import { data_word_get_parsed, data_word_get } from "../../data.words/pgdb"
-import { data_domain_get_parsed } from "../pgdb"
+import { data_word_get_parsed, data_word_get } from "@ps/nlp/lib/pgdb/data.words"
+import { data_domain_get_parsed } from "@ps/nlp/lib/pgdb/data.domains"
 
 /**
  * Get dictionary of domains (values) and syns1 manually entered synonyms (keys)

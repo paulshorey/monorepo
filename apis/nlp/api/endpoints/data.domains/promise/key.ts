@@ -1,7 +1,7 @@
 /*
  * Dependencies
  */
-import { data_domain_get, data_domain_get_parsed } from "@ps/nlp/api/endpoints/data.domains/pgdb"
+import { data_domain_get, data_domain_get_parsed } from "@ps/nlp/lib/pgdb/data.domains"
 
 /**
  * Get DB row

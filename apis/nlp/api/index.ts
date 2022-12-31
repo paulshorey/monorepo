@@ -1,93 +1,37 @@
-// import path from "path"
-import initGlobals from "./global"
+import initGlobal from "@ps/nlp/lib/global" // also used by unit tests
+import initApp from "./app" // also used by unit tests
 import * as fs from "fs"
 import * as http from "http"
 import * as https from "https"
-import bodyParser from "body-parser/index"
-import import_expressApp from "express/index"
-import cors from "cors"
-import { serverStartError } from "@ps/nlp/api/lib/process"
-import * as RequestIp from "@supercharge/request-ip"
-import { endpointHandler } from "@ps/nlp/api/lib/http"
-import api_endpoints from "./endpoints"
-import customEnv from "custom-env"
 
-initGlobals()
-customEnv.env("local")
-customEnv.env()
-const { getClientIp } = RequestIp
-const expressApp = import_expressApp()
-const PORT = "1080"
-const DEBUG1 = false
-
-// Headers
-if (DEBUG1) {
-  // app.use(... is same as app.all('/*',...
-  expressApp.use(function (req, res, next) {
-    global.cconsole.warn(`"${req.method}"`, req.path)
-    global.cconsole.log("headers", req.headers)
-    global.cconsole.log("query", req.query)
-    global.cconsole.log("body", req.body)
-    next()
-  })
-}
-
-// CORS
-expressApp.use(cors())
-
-// detect real IP address of request
-expressApp.use(function (req, res, next) {
-  req.client_ip = getClientIp(req)
-  req.host_is_dev = global["DEVELOPMENT"]
-  next()
-})
-
-// Intercept input/output
-expressApp.use(bodyParser.urlencoded({ extended: false }))
-expressApp.use(bodyParser.json())
-
-// Error logs
-// expressApp.use(airbrakeExpress.makeMiddleware(global["airbrake"]))
-// expressApp.use(airbrakeExpress.makeErrorHandler(global["airbrake"]))
-
-// // Modify output
-// const responseInterceptor = function (req, res, next) {
-//   const originalSend = res.send
-
-//   res.send = function () {
-//     console.log("arguments", arguments)
-//     arguments[0] = "TEST " + arguments[0]
-//     originalSend.apply(res, arguments)
-//   }
-//   next()
-// }
-// expressApp.use(responseInterceptor)
-
-/*
- * Show error
- */
-expressApp.use(function (err, req, res, next) {
-  if (res.headersSent) {
-    return next(err)
+const serverStartError = function (error) {
+  if (error.syscall !== "listen") {
+    throw error
   }
-  res.status(500)
-  res.render("error", { error: err })
-})
-
-/*
- * Handle each API endpoint
- */
-global.cconsole.success("Starting server environment: ", global["DEVELOPMENT"] ? "development" : "production")
-for (let endpoint of api_endpoints) {
-  const { path, method, auth = [], response }: any = endpoint
-  endpointHandler({
-    expressApp,
-    path,
-    method,
-    auth,
-    response
-  })
+  const bind = typeof global.PORT === "string" ? "Pipe " + global.PORT : "Port " + global.PORT
+  switch (error.code) {
+    case "EACCES":
+      global.cconsole.error(bind + " requires elevated privileges")
+      process.exit(1)
+    case "EADDRINUSE":
+      global.cconsole.error(bind + " is already in use")
+      process.exit(1)
+    default:
+      throw error
+  }
 }
+
+initGlobal()
+const PORT = "1080"
+const expressApp = initApp()
+// LogDNA stops listening after a while, then starts again AFTER it receives a message.
+// Unfortunately, it drops the first 1 or 2 messages after a long silence!
+// So, ping it every 60 seconds, to keep its listener alive.
+let nlogged = 0
+setInterval(function () {
+  nlogged++
+  global.cconsole.log(nlogged + "")
+}, 60000)
 
 /*
  * SERVE
@@ -99,7 +43,7 @@ httpServer.listen(PORT, () => {
   global.cconsole.log("HTTP Server running on port " + PORT)
 })
 // HTTPS
-if (!global["DEVELOPMENT"]) {
+if (global["DEVELOPMENT"]) {
   try {
     const ssl_key = fs.readFileSync(
       global.__root + `/_certs/api${process.env.PRODUCTION ? "" : "-staging"}.wordio.co.key`,
@@ -110,7 +54,6 @@ if (!global["DEVELOPMENT"]) {
       "utf8"
     )
     const ssl_credentials = { key: ssl_key, cert: ssl_crt }
-    console.log("ssl_credentials", ssl_credentials)
     const httpsServer = https.createServer(ssl_credentials, expressApp)
     httpsServer.on("error", serverStartError)
     httpsServer.listen(1443, () => {

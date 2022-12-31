@@ -3,9 +3,9 @@ import "common/global.js" // contains secret keys ~ never push to GIT!
 import { parse_cli_args } from "pauls-pure-functions/functions/cli"
 import fs from "fs"
 // variables
-import all_tlds from "@ps/nlp/data/domains/all_tlds_first_level"
+import all_tlds from "@techytools/constants/data/domains/all_tlds_first_level"
 // functions
-import check_cli_whois from "@ps/nlp/api/domain_availability/availability/promise_one/cli_whois"
+import check_cli_whois from "@api/domain_availability/availability/promise_one/cli_whois"
 // fs
 const fsPromises = fs.promises
 const args = parse_cli_args()

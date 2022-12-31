@@ -1,10 +1,10 @@
 // import { sleep } from 'pauls-pure-functions/functions/promises.js';
 import "../../process.js" // contains secret keys ~ never push to GIT!
 import "common/global.js"
-// import { data_word_get, data_get_words, data_word_put } from '@ps/nlp/api/data.words/pgdb.js'
+// import { data_word_get, data_get_words, data_word_put } from '@api/data.words/pgdb.js'
 // import { json_parse } from 'pauls-pure-functions/functions/objects.js'
-import { data_domains_get_all } from "@ps/nlp/api/data.domains/pgdb"
-import domain_row_update from "@ps/nlp/api/data.domains/promise/row_update"
+import { data_domains_get_all } from "@api/data.domains/pgdb"
+import domain_row_update from "@api/data.domains/promise/row_update"
 
 /*
  *

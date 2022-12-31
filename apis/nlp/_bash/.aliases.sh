@@ -1,25 +1,7 @@
 #!/usr/bin/env bash
-alias sublime='open -a /Applications/Sublime\ Text.app/Contents/MacOS/Sublime\ Text';
-alias vscode='open -a /Applications/Visual\ Studio\ Code.app/Contents/MacOS/Electron';
-alias vs='open -a /Applications/Visual\ Studio\ Code.app/Contents/MacOS/Electron';
-alias webstorm='open -a /Applications/WebStorm.app/Contents/MacOS/webstorm';
-alias ws='open -a /Applications/WebStorm.app/Contents/MacOS/webstorm';
-
 eval "$(ssh-agent -s)"; 
 ssh-add ~/.ssh/2022;
 ssh-add ~/.ssh/newssh;
-
-function push_live() {
-  curl -X POST -d {} "https://webhooks.amplify.us-east-2.amazonaws.com/prod/webhooks?id=a588ef23-bac9-41c2-9017-c95ea9fc2f58&token=vF1Bf0pZlS6yZ7eYfspaIH191pjokvgnIbFBwXVlZB0&operation=startbuild" -H "Content-Type:application/json"
-}
-function push_staging() {
-  echo "NEED UPDATED CLI COMMAND - COPY FROM AMPLIFY";
-}
-function push_dev() {
-  npm run build && 
-  npm run export && 
-  aws s3 cp ./out s3://dev-webcontent-sp --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers --recursive
-}
 
 #############################################################
 # NOTES
@@ -30,7 +12,7 @@ function push_dev() {
 # $0 = name of the script
 
 ### Caution: 
-## You may want to perform find/replace to rename "function y" to "function git_" or something, 
+## You may want to perform find/replace to rename "function y" to "function git-" or something, 
 # if you are afraid of a 2-letter functions like "yx" conflicting with your other shell scripts.
 
 #############################################################
@@ -55,6 +37,7 @@ alias chmodme='sudo chmod -R u+w .';
 
 ## Cleanup NPM modules, including lock files:
 function yclean() {
+  npm cache clean --force && 
   find . \( -name "out" -o -name ".next" -o -name "node_modules" \) -type d -prune -exec rm -rf '{}' +
   find . \( -name "package-lock.json" -o -name "yarn.lock" -o -name "yarn-error.log" \) -type f -prune -exec rm -rf '{}' +
 }
@@ -80,18 +63,19 @@ alias yname='git remote get-url origin'
 # GIT 
 #############################################################
 
-## Convert between ssh<->https GIT connections
+## Convert betweeb ssh<->https GIT connections
 alias git-url-ssh='git remote set-url origin "$(git remote get-url origin | sed -E '\''s,^https://([^/]*)/(.*)$,git@\1:\2,'\'')"'
 alias git-url-https='git remote set-url origin "$(git remote get-url origin | sed -E '\''s,^git@([^:]*):/*(.*)$,https://\1/\2,'\'')"'
 alias git-url='git remote get-url origin'
 
-function git-force-ssh() {
+function private-git-force-ssh() {
   compare1=$(git remote get-url origin)
   compare2=$(git remote get-url origin | sed -E 's,^https://([^/]*)/(.*)$,git@\1:\2,')
   if [ $compare1 = $compare2 ]; then
-    echo "Already using ssh for Git"
+    # echo "Already using ssh"
   else
-    echo "Converting all Git https remotes to ssh..."
+    # echo "Forcing ssh for all git remotes..."
+    echo "Converting to use ssh..."
     git-url-ssh
   fi
 }
@@ -112,7 +96,7 @@ function yx() {
   git reset --hard origin/$branch # reset to remote
   git pull
   # log
-  ystatus
+  yy
 }
 
 ## RESET TO SPECIFIC COMMIT HASH (ON REMOTE AS WELL AS IN LOCAL)
@@ -146,7 +130,7 @@ function yzz() {
 }
 
 ## Shortcut for other functions here
-function ystatus() {
+function yy() {
   echo "\n\n"
   echo "STATUS:"
   git status
@@ -163,7 +147,7 @@ function ymx() {
 function yd() {
   echo DELETING LOCAL $1
   git branch -D $1
-  ystatus 
+  yy 
 }
 
 ## DELETE LOCAL AND REMOTE
@@ -193,7 +177,7 @@ function ya() {
     git pull
   fi
   # Log
-  ystatus
+  yy
 }
 
 # UPDATE (WITH GIT STASH / POP) - USE WHEN COLLABORATION
@@ -205,7 +189,7 @@ function yaa() {
   git pull
   git stash pop
   # Log
-  ystatus
+  yy
 }
 
 ## FIX MARKDOWN for GitHub flavor
@@ -218,28 +202,11 @@ function ymd() {
   # 	perl -pi -e 's/[\s]*?\n/\ \ \n/g' */*/*/*.md;
 }
 
-# COMMIT
-function yc() {
-  echo COMMITTING $1
+# PUSH
+function private-push() {
   echo "\n\n"
-  # First, go through and fix markdown files to be GitHub compatible
-  gitmd
-  # Validate
-  # if [ $1 = main ]
-  # then
-  #   echo "CANNOT MERGE TO MAIN";
-  #   return 1
-  # fi
-  # Pull
-  git add .
-  git pull
-  # Experimental:
-  # git stash;
-  # git pull;
-  # git stash pop;
-  # Save
-  git add .
-  git commit -m $1
+  echo PUSHING TO $branch
+  git push
 }
 
 # SAVE
@@ -262,15 +229,22 @@ function ys() {
   #   echo "CANNOT PUSH TO MAIN";
   #   return 1
   # fi
-  git-force-ssh
-  # Commit
-  yc $1
-  # push
+  private-git-force-ssh
+  echo COMMITTING $1
   echo "\n\n"
-  echo PUSHING TO $branch
-  git push
-  # log
-  ystatus
+  # First, go through and fix markdown files to be GitHub compatible
+  gitmd
+  # Pull, to make sure commit will not have problems because of untracked files
+  git add .
+  git pull
+  # Experimental
+  # git stash;
+  # git pull;
+  # git stash pop;
+  # Save
+  git add .
+  # Commit && Push (if no pre-commit errors)
+  git commit -m $1 && private-push && yy
 }
 
 # SAVE
@@ -282,7 +256,7 @@ function ysm() {
     echo "CANNOT PUSH TO $branch";
     return 1
   fi
-  git-force-ssh
+  private-git-force-ssh
   # Commit
   message="feat(cms): $1 --- squash this"
   echo "COMMITTING $branch with message\n\n$message"
@@ -300,7 +274,7 @@ function ysm() {
   echo PUSHING TO $branch
   git push
   # log
-  ystatus
+  yy
 }
 
 # MERGE to $1, and stay on that branch
@@ -329,7 +303,7 @@ function ym() {
   fi
   git push
   # Log
-  ystatus
+  yy
 }
 
 # MERGE $1 to $2, then go back go original branch you were on
@@ -354,7 +328,7 @@ function ym2() {
   ym $2
   ya $original_branch # apparently bash variables are not scoped to their function block like in JavaScript
   # Log
-  ystatus
+  yy
 }
 
 # MERGE to $1, THEN GO BACK TO ORIGINAL BRANCH
@@ -379,7 +353,7 @@ function yma() {
   git merge $branch -m "merged from $branch"
   git push
   # Log
-  ystatus && 
+  yy && 
   # Go back to original branch
   ya $branch
 }
@@ -408,7 +382,7 @@ function ymv() {
     echo DELETING LOCAL $1
     git checkout $1
     
-    ystatus
+    yy
 
   else
     echo "missing argument: name"

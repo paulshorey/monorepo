@@ -1,7 +1,7 @@
 import "dotenv/config" // contains secret keys ~ never push to GIT!
 import "common/global.js" // contains secret keys ~ never push to GIT!
 import import_localstorage from "node-localstorage"
-import all_tlds from "@ps/nlp/data/domains/all"
+import all_tlds from "@techytools/constants/data/domains/all"
 
 let { LocalStorage } = import_localstorage
 let localStorageSupported = new LocalStorage("tmp/localStorage-supportedTLDs")

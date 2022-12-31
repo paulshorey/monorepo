@@ -6,9 +6,9 @@
 import { sleep } from "pauls-pure-functions/functions/promises"
 import "dotenv/config" // contains secret keys ~ never push to GIT!
 import "common/global.js" // contains secret keys ~ never push to GIT!
-import all_tlds from "@ps/nlp/data/domains/all"
-import cli_whois from "@ps/nlp/api/domain_availability/availability/promise_one/cli_whois"
-// import cli_whois_many from "@ps/nlp/api/domain_availability/availability/promise_many/cli_whois"
+import all_tlds from "@techytools/constants/data/domains/all"
+import cli_whois from "@api/domain_availability/availability/promise_one/cli_whois"
+// import cli_whois_many from "@api/domain_availability/availability/promise_many/cli_whois"
 import { performance } from "perf_hooks"
 
 import import_localstorage from "node-localstorage"

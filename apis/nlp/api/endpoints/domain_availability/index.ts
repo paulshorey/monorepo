@@ -1,4 +1,4 @@
-import get_domains_availability from "@ps/nlp/api/lib/availability"
+import get_domains_availability from "@ps/nlp/lib/availability"
 import aggregate_req_body_query from "@techytools/fn/io/req/aggregate_req_body_query_params"
 
 export default [

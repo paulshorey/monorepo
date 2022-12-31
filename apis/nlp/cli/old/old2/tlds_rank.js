@@ -1,8 +1,8 @@
 // import { sleep } from 'pauls-pure-functions/functions/promises.js';
 import "../../process.js" // contains secret keys ~ never push to GIT!
 import "common/global.js"
-import tlds_all from "@ps/nlp/data/domains/all"
-import { data_domain_put } from "@ps/nlp/api/data.domains/pgdb"
+import tlds_all from "@techytools/constants/data/domains/all"
+import { data_domain_put } from "@api/data.domains/pgdb"
 
 /*
  *

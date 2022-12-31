@@ -1,8 +1,8 @@
 /*
  * Dependencies
  */
-import { data_word_get_parsed } from "../../data.words/pgdb"
-import { data_domain_get_parsed, data_domain_put } from "../pgdb"
+import { data_word_get_parsed } from "@ps/nlp/lib/pgdb/data.words"
+import { data_domain_get_parsed, data_domain_put } from "@ps/nlp/lib/pgdb/data.domains"
 import domain_syns_of_syns from "./key_syns_of_syns"
 
 /**

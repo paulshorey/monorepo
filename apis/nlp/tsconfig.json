@@ -1,5 +1,5 @@
 {
-  "include": ["api/**/*"],
+  "include": ["api/**/*", "lib/**/*"],
   "exclude": [
     "docs",
     "node_modules",
@@ -33,7 +33,7 @@
     "paths": {
       "@ps/nlp/*": ["./*"]
     },
-    "rootDir": "api",
+    "rootDirs": ["api", "lib"],
     "outDir": "esm"
   },
   "ts-node": {

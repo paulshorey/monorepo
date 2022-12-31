@@ -1,4 +1,4 @@
-import cli_whois from "@ps/nlp/api/lib/availability/promise_one/cli_whois"
+import cli_whois from "@ps/nlp/lib/availability/promise_one/cli_whois"
 
 export default [
   {

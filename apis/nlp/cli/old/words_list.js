@@ -1,9 +1,9 @@
 // import { sleep } from 'pauls-pure-functions/functions/promises.js';
 import "dotenv/config" // contains secret keys ~ never push to GIT!
 import "common/global.js" // contains secret keys ~ never push to GIT!
-import { data_word_put } from "@ps/nlp/api/data.words/pgdb"
-import str_row from "@ps/nlp/api/data.words/promise/str_row"
-import words from "@ps/nlp/data/words/dict/contractions"
+import { data_word_put } from "@api/data.words/pgdb"
+import str_row from "@api/data.words/promise/str_row"
+import words from "@techytools/constants/data/words/dict/contractions"
 // let names: any = {"haq":1,"pon":1,"aly":1}
 
 /*

@@ -1,7 +1,7 @@
-import initGlobals from "@ps/nlp/api/global"
+import initGlobal from "@ps/nlp/lib/global"
 
-describe("*", () => {
-  it("import and instantiate /api/global constants and services without error", async () => {
-    initGlobals({ disableAsync: true })
+describe("global", () => {
+  it("import and instantiate global constants and services without errors", async () => {
+    await initGlobal({ NO_ASYNC: true })
   })
 })

@@ -1,5 +1,5 @@
-import get_domains_suggestions from "@ps/nlp/api/lib/suggestions/index"
-import chunk_string from "@ps/nlp/api/lib/words/chunk_string"
+import get_domains_suggestions from "@ps/nlp/lib/suggestions/index"
+import chunk_string from "@ps/nlp/lib/words/chunk_string"
 import aggregate_req_body_query from "@techytools/fn/io/req/aggregate_req_body_query_params"
 
 export default [

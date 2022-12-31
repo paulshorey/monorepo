@@ -1,4 +1,4 @@
-import { data_domains_get_all } from "./pgdb"
+import { data_domains_get_all } from "@ps/nlp/lib/pgdb/data.domains"
 import domain_key from "./promise/key" // get one domain (from key)
 import domain_row_update from "./promise/row_update" // get row (from row), but update synonyms first
 import domain_syns_of_syns from "./promise/key_syns_of_syns" // get dictionary of syns1:syns2

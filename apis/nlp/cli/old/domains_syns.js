@@ -1,7 +1,7 @@
 // import { sleep } from 'pauls-pure-functions/functions/promises.js';
 import "dotenv/config" // contains secret keys ~ never push to GIT!
 import "common/global.js" // contains secret keys ~ never push to GIT!
-import { data_domains_get, data_domain_put } from "@ps/nlp/api/data.domains/pgdb"
+import { data_domains_get, data_domain_put } from "@api/data.domains/pgdb"
 
 /*
  *

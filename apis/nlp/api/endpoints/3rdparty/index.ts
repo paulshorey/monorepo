@@ -1,4 +1,4 @@
-import { dictionary_definition } from "./promises/oxford.js"
+import { dictionary_definition } from "./promises/oxford"
 
 export default [
   {

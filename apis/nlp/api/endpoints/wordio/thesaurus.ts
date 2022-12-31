@@ -1,5 +1,5 @@
-import str_row from "@ps/nlp/api/endpoints/data.words/promise/str_row"
-import { data_word_get_parsed } from "@ps/nlp/api/endpoints/data.words/pgdb"
+import str_row from "@ps/nlp/lib/words/promise/str_row"
+import { data_word_get_parsed } from "@ps/nlp/lib/pgdb/data.words"
 import aggregate_req_body_query from "@techytools/fn/io/req/aggregate_req_body_query_params"
 
 let DEBUG1 = false

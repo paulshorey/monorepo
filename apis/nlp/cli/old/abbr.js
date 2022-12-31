@@ -3,9 +3,9 @@ import { sleep } from "pauls-pure-functions/functions/promises"
 import { anonFunction } from "pauls-pure-functions/functions/functions"
 import "dotenv/config" // contains secret keys ~ never push to GIT!
 import "common/global.js" // contains secret keys ~ never push to GIT!
-import { data_word_get_parsed, data_word_put } from "@ps/nlp/api/data.words/pgdb"
-import key_row from "@ps/nlp/api/data.words/promise/key"
-import abbreviations from "@ps/nlp/data/words/samisaurus/abbr"
+import { data_word_get_parsed, data_word_put } from "@api/data.words/pgdb"
+import key_row from "@api/data.words/promise/key"
+import abbreviations from "@techytools/constants/data/words/samisaurus/abbr"
 global.exit = function () {
   process.exit()
 }

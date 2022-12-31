@@ -1,8 +1,8 @@
 // import { sleep } from 'pauls-pure-functions/functions/promises.js';
 import "../../global.js" // contains secret keys ~ never push to GIT!
-import { data_get_words, data_word_put } from "@ps/nlp/api/data.words/pgdb"
+import { data_get_words, data_word_put } from "@api/data.words/pgdb"
 import consolee from "cconsole"
-import key_row from "@ps/nlp/api/data.words/promise/key"
+import key_row from "@api/data.words/promise/key"
 
 /*
  *
