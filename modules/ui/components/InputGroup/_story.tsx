@@ -3,11 +3,12 @@ import InputGroup from '@techytools/ui/components/InputGroup';
 import Input from '@techytools/ui/components/Input';
 import InputMui from '@techytools/ui/components/InputMui';
 import Button from '@techytools/ui/components/Button';
+import Select, { Option } from '@techytools/ui/components/Select';
+import Tooltip from 'antd/es/tooltip';
+
 import CanvasContainer from '@techytools/ui/.storybook/components/CanvasContainer';
 import CanvasStoryPadding from '@techytools/ui/.storybook/components/CanvasStoryPadding';
 import { CopyOutlined } from '@ant-design/icons';
-import Tooltip from 'antd/es/tooltip';
-import Select, { Option } from '../Select';
 import useShowStorybookCode from '@techytools/ui/hooks/useShowStorybookCode';
 import { SelectStory } from '../SelectMui/_story';
 
@@ -63,8 +64,8 @@ const InputStory = (props) => {
           </Select>
           <Button
             {...childprops}
-            style={{ paddingRight: '1.5rem' }}
             type="submit"
+            ss=".Button--text { padding-right: 2rem !important; }"
           >
             Go
           </Button>
@@ -92,12 +93,7 @@ const InputStory = (props) => {
               maxWidth: '15rem',
             }}
           />
-          <Button
-            {...childprops}
-            variant="outlined"
-            style={{ paddingRight: '1.5rem' }}
-            type="submit"
-          >
+          <Button {...childprops} variant="outlined" type="submit">
             Go
           </Button>
         </InputGroup>

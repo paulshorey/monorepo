@@ -1,14 +1,18 @@
 a {
   color: inherit;
 }
+:root {
+  --color-cta: #4c98e4;
+}
+
 /*
  * Default:
  * To set a different default, move `:root,` to another block. But then write alternatives for light mode instead of for dark mode as it is done now.
  */
 :root,
 [data-bgcolor='coolrainbow'] {
-  --color-fg: #f5f5f5;
-  --color-fg-gradient: linear-gradient(
+  --color-text: #f5f5f5;
+  --color-text-gradient: linear-gradient(
     111deg,
     hsl(275deg 35% 30%),
     hsl(200deg 40% 35%),
@@ -24,13 +28,37 @@ a {
 }
 
 [data-bgcolor='transparentCard'] {
-  --color-fg: #fff;
+  --color-text: #fff;
   --color-bg: hsla(0, 0%, 100%, 0.5);
 }
 
+[data-bgcolor='light'] {
+  --color-bg: hsla(0, 0%, 100%, 1);
+  --color-bg-gradient: linear-gradient(
+    111deg,
+    hsla(0, 0%, 90%, 1),
+    hsla(0, 0%, 60%, 1)
+  );
+}
+
+[data-bgcolor='cool'] {
+  --color-bg: #4c98e4;
+  --color-bg-gradient: linear-gradient(135deg, #4c98e4 10%, #856b98);
+}
+
+[data-textcolor='coolrainbow'] {
+  --color-text: hsl(200deg 40% 35%);
+  --color-text-gradient: linear-gradient(
+    111deg,
+    hsl(275deg 35% 30%),
+    hsl(200deg 40% 35%),
+    hsl(150deg 45% 35%)
+  );
+}
+
 [data-textcolor='rainbow'] {
-  --color-fg: #fff;
-  --color-fg-gradient: linear-gradient(
+  --color-text: #fff;
+  --color-text-gradient: linear-gradient(
     75deg,
     hsl(5, 95%, 65%),
     hsl(50, 90%, 60%),
@@ -42,7 +70,7 @@ hsl(36, 100%, 50%),
 hsl(53, 100%, 69%),
 hsl(70, 82%, 57%),
 hsl(197, 50%, 65%) */
-/* --color-fg-gradient: linear-gradient(
+/* --color-text-gradient: linear-gradient(
   75deg,
   rgb(285, 139, 101),
   rgb(245, 139, 101),
@@ -61,17 +89,17 @@ hsl(197, 50%, 65%) */
   background-color: var(--color-bg);
 }
 [data-textcolor] {
-  color: var(--color-fg);
+  color: var(--color-text);
 }
 [data-bggradient] {
-  color: var(--color-fg);
+  color: var(--color-text);
   background: var(--color-bg);
   background-image: var(--color-bg-gradient);
 }
 [data-textgradient] {
   background: initial;
-  background-color: var(--color-fg);
-  background-image: var(--color-fg-gradient);
+  background-color: var(--color-text);
+  background-image: var(--color-text-gradient);
   background-size: 100%;
   background-clip: text;
   -webkit-background-clip: text;

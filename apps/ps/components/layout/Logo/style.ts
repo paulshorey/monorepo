@@ -21,7 +21,7 @@ export default ({ theme }) => css`
   }
 
   a {
-    color: var(--color-fg) !important;
+    color: var(--color-text) !important;
     text-decoration: none;
     &:hover {
       text-decoration: underline;

@@ -16,7 +16,7 @@ const ui = create(
        * Color schemes
        */
       colorSchemes: ['coolrainbow', 'light', 'dark'],
-      colorSchemeIndex: 1,
+      colorSchemeIndex: 0,
       colorSchemeIndexToggle: () => {
         const state = get() as uiStateType;
         // convert to 1-based index, math remainder, then back to 0-based index
@@ -34,7 +34,7 @@ const ui = create(
       },
     }),
     {
-      name: 'ui-cache',
+      name: 'ui-cache2',
     }
   )
 );

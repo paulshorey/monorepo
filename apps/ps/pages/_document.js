@@ -5,7 +5,7 @@ export default function Document() {
   return (
     <Html>
       <Head />
-      <body data-bgcolor="dark" data-textcolor="light" data-bggradient>
+      <body data-bgcolor="coolrainbow" data-textcolor="light" data-bggradient>
         <Main />
         <NextScript />
         {/* Contact form */}

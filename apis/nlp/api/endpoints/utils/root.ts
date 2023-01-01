@@ -2,9 +2,10 @@ export default [
   {
     method: "get",
     path: "/",
-    response: () => {
+    response: ({ req }) => {
+      global.cconsole.log("req", req)
       return {
-        test: "2",
+        test: "4",
         documentation: "https://documenter.getpostman.com/view/23360867/2s8YzXtewC",
         greetings: [
           "hi",

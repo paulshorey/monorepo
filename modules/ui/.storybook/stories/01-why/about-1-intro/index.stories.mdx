@@ -49,9 +49,6 @@ import { withButton } from '@techytools/ui/components/Button';
 const Button = withButton({
   size: 'sm',
   icon: <FA icon={faUser} />,
-  style: {
-    margin: '0 0.875rem 0.875rem 0;'
-  }
   onClick: () => alert('clicked!'),
 });
   
@@ -65,7 +62,8 @@ const Button = withButton({
 <Button variant="text">
   Text
 </Button>
-<Button round style={{ marginRight: '0' }} />`} />
+<Button round ss="margin-right: 0" />
+// ☝️ Optional ss prop to quickly add inline styles, override defaults from the markup. Full SCSS support`} />
 
 Use media query <span className="noWrap">mixins such as</span> `props.theme.mq.tinyPhone` in any template literal.
 

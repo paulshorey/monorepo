@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import Block from '../../components/Block';
 import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub';
+import { css } from '@emotion/react';
 
 const Wrapper = ({ children, ss, ...props }) => {
   /**
@@ -31,14 +32,14 @@ const Wrapper = ({ children, ss, ...props }) => {
    }
 `;
 
-  const containerCSS = (props) => `
+  const containerCSS = (props) => css`
 
   position:absolute;
   top:0;
   left:0;
   width:100%;
   min-height: calc(100vh - 125px);
-  max-height: 1500px;
+  // max-height: 1500px;
   padding: 3.1rem 5vw 100px;
 
   &,

@@ -5,3 +5,7 @@ describe("global", () => {
     await initGlobal({ NO_ASYNC: true })
   })
 })
+
+describe("Google invisible captcha", () => {
+  it("call to Google to get recaptcha handshake", async () => {})
+})

@@ -2,6 +2,8 @@ import get_domains_suggestions from "@ps/nlp/lib/suggestions/index"
 import chunk_string from "@ps/nlp/lib/words/chunk_string"
 import aggregate_req_body_query from "@techytools/fn/io/req/aggregate_req_body_query_params"
 
+const DEBUG1 = false
+
 export default [
   {
     path: "/v1/suggestions-mock",
@@ -84,7 +86,7 @@ export default [
         query.tlds_ignore || [],
         chunks.bing_alts || []
       )
-      global.cconsole.log("results", results)
+      if (DEBUG1) global.cconsole.log("results keys", Object.keys(results))
       /*
        * RESPONSE
        */

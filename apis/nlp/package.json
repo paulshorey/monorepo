@@ -9,11 +9,11 @@
   "scripts": {
     "dev": "bash _bash/_start_dev.sh",
     "pm2": "bash _bash/_start_dev_pm2.sh",
-    "start": "echo 'Run _bash/_start_remote.sh. Read bottom of README.md first.'",
+    "production": "echo 'Run _bash/_start_remote.sh. Read bottom of README.md first.'",
     "stop": "bash _bash/_stop.sh",
-    "build": "tsc",
-    "test:node": "npx ts-node-test ./api/**/**/*.test.ts --esm --experimental-specifier-resolution=node -r tsconfig-paths/register",
-    "test": "NODE_OPTIONS=--experimental-vm-modules jest ./api/**/**/test.ts"
+    "build": "tsc && echo \"tsc is only for testing types/imports. To start the app, see README.md\"",
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest",
+    "test:dev": "NODE_OPTIONS=--experimental-vm-modules jest --detectOpenHandles --watch"
   },
   "dependencies": {
     "@airbrake/node": "^1.0.7",
@@ -48,6 +48,7 @@
     "typescript": "^4.8.4"
   },
   "jest": {
+    "testRegex": ".*test.ts?$",
     "transform": {
       "^.+\\.ts?$": "babel-jest"
     },

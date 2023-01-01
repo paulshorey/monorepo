@@ -14,12 +14,9 @@ This is part of a monorepo github.com/paulshorey/harmony, but this is not import
 
 ### First of all...
 
-This depends on a submodule `./secrets` which is a private git repo that contains some API keys for this server. This package will not build or serve without that folder. **So,**
+This depends on a submodule `./secrets` which is a private git repo. It contains API keys and DB passwords.
 
-1. Run `bash _bash/reset-secrets.sh` to add `./secrets/constants.ts` and remove the git submodule references.
-2. Update the variables in the newly created `./secrets/constants.ts` to match your environment.
-
-However, it still won't work because this codebase relies on a database with specific schema. This readme and secret submodule is really just a starter for future projects.
+This project is open sourced just so I could get a code review and feedback on the setup and architecture.
 
 ### Start development server
 
@@ -31,14 +28,4 @@ Run `yarn dev` or `bash _bash/_start_dev.sh`. This will simply start the node se
 
 Be careful if testing it on the development computer. **⚠️ `_bash/_start_production.sh` will GIT force update the entire codebase to remote origin/HEAD, losing all local changes. ⚠️** Then the script will start or restart the PM2 Node manager. The script is called by `/etc/crontab` on server reboot.
 
-Essentially this setup acts as a docker container - with the added benefits of having a database on the same machine, plus filesystem access and much faster deploy times. But yes, this does not have the containerization benefits of scaling to a distributed cloud. So a dev-ops refactor is in order if this service becomes popular. However, the Microsoft spellcheck API that this service relies on is not globally distributed either.
-
-## Todo
-
-Leverage the `dotenv-expand` extension to use ENV variable expansion inside your .env files.
-
-```
-IP=127.0.0.1
-PORT=1234
-APP_URL=http://${IP}:${PORT}
-```
+Essentially this setup acts as a docker container - with the added benefits of having a database on the same machine, plus fs access and much faster deploy times. But yes, this lacks the scaling benefits of containers.

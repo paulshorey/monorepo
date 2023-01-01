@@ -21,6 +21,11 @@ export default {
     .ant-select-selector {
       ${borderRadius(props)};
     }
+    
+    &:hover,
+    &:focus {
+      outline: solid 2px var(--color-cta);
+    }
 
     overflow: visible;
     position: relative;

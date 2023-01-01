@@ -35,9 +35,10 @@ const is_auth_ip_current = function (ip) {
  */
 const CAPTCHA_SECRET_V2 = "6LeQt-MUAAAAAIDXJwNF1QhyzHkeNdDiLT0y1Jhq"
 const CAPTCHA_SECRET_V3 = "6Lf9YmEeAAAAABMVLy-FiLOZ_6WhDX2TZ62vJXJx"
+const CF_TURNSTILE_KEY = ""
 
 /**
- * Helper function: check captcha verification
+ * Check captcha verification
  // * @param req {object} - req param from Node Express API block
  * @returns {object} - error message
  */

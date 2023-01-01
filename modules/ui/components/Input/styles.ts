@@ -44,6 +44,11 @@ export default {
       box-shadow: 0 0 0 2px var(--color-cta);
     }
 
+    &:hover,
+    &:focus {
+      outline: solid 2px var(--color-cta);
+    }
+
     /*
      * Just the input by itself, without prefix/suffix before/after
      */
