@@ -16,7 +16,7 @@ export default async function (doms_arr, { DEBUG_TIME = false }: any = {}) {
   let time_start = Date.now()
   let time_debug = function (message: string | number = "") {
     if (DEBUG_TIME) {
-      console.log(
+      global.cconsole.log(
         "DEBUG_TIME (cli_whois) MANY (" + doms_arr.length + ")",
         ((Date.now() - time_start) / 1000).toFixed(3),
         message

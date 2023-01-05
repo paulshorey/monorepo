@@ -1,4 +1,4 @@
-import str_row from "@ps/nlp/lib/words/promise/str_row"
+import str_row from "@ps/nlp/lib/data.words/promise/str_row"
 
 /**
  * Break string into words (check rows from DB for every character)

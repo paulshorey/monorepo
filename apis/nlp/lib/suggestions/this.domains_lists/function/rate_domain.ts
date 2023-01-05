@@ -275,7 +275,7 @@ export default function (domain, tlds_ratings) {
   // apply alliteration bonus
   if (total_alliteration_bonus) {
     rating += Math.min(total_alliteration_bonus, 1000)
-    if (DEBUG3) console.log([domain.string, total_alliteration_bonus])
+    if (DEBUG3) global.cconsole.log([domain.string, total_alliteration_bonus])
   }
 
   /*

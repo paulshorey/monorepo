@@ -91,19 +91,19 @@ export default function (pos1, pos2, chunks_keys) {
   if (DEBUG1) {
     global.cconsole.log(pos1, pos2)
     if (pos1_before && pos1_before.length) {
-      console.log("pos1_before", pos1_before)
+      global.cconsole.log("pos1_before", pos1_before)
     }
     if (pos1_list && pos1_list.length) {
-      console.log("pos1_list", pos1_list)
+      global.cconsole.log("pos1_list", pos1_list)
     }
     if (pos2_list && pos2_list.length) {
-      console.log("pos2_list", pos2_list)
+      global.cconsole.log("pos2_list", pos2_list)
     }
     if (pos2_before && pos2_before.length) {
-      console.log("pos2_before", pos2_before)
+      global.cconsole.log("pos2_before", pos2_before)
     }
     if (pos2_after && pos2_after.length) {
-      console.log("pos2_after", pos2_after)
+      global.cconsole.log("pos2_after", pos2_after)
     }
   }
 

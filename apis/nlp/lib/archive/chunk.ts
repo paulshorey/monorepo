@@ -1,4 +1,4 @@
-import str_row from "@ps/nlp/lib/words/promise/str_row"
+import str_row from "@ps/nlp/lib/data.words/promise/str_row"
 import wordbreak from "@ps/nlp/lib/words/wordbreak"
 import str_insert from "@techytools/fn/io/str/str_insert"
 import spellcheck from "@ps/nlp/lib/words/spellcheck"

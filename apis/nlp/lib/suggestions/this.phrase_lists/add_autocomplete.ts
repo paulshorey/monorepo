@@ -19,12 +19,12 @@ export default function () {
     if (DEBUG1) global.cconsole.log("use_autocomplete bing_alts:", bing_alts)
     for (let alt_str of bing_alts) {
       if (alt_str.length > 30) continue
-      if (DEBUG1) console.log([alt_str])
+      if (DEBUG1) global.cconsole.log([alt_str])
 
       let last_word_i = alt_str.lastIndexOf(" ")
       if (last_word_i === -1) continue
       let last_word = alt_str.substr(last_word_i + 1).trim()
-      if (DEBUG1) console.log(last_word)
+      if (DEBUG1) global.cconsole.log(last_word)
       if (last_word && stopwords[last_word]) continue
 
       to_add.push(alt_str.split(" "))

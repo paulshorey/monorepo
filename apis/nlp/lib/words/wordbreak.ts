@@ -14,14 +14,14 @@ import wordcost from "@techytools/constants/data/words/wordbreak_cost"
 // }
 let maxword_length = 15 //findLongestWord(wordlist)
 
-const DEBUG1 = true
+const DEBUG1 = false
 
 /**
  * Break string of characters into an array of words
  * @param {string} string - string of characters
  * @returns {array}
  */
-export default function (string) {
+export default async function (string) {
   if (DEBUG1) global.cconsole.log("chunk string in", string)
   /*
    * Prepare string

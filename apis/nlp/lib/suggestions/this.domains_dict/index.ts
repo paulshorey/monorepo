@@ -84,7 +84,7 @@ export default function () {
   // debug
   if (DEBUG1) {
     for (let domstr in this.domains_dict) {
-      console.log(domstr)
+      global.cconsole.log(domstr)
     }
   }
 }

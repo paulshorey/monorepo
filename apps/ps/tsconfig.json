@@ -38,7 +38,9 @@
     "outDir": "esm",
     "jsxImportSource": "@emotion/react",
     "baseUrl": ".",
-    "paths": {},
+    "paths": {
+      "@ps/ps/*": ["./*"]
+    },
     "noEmit": true,
     "incremental": true,
     "noImplicitAny": false,

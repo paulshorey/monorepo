@@ -1,7 +1,7 @@
 // import fws from "@techytools/constants/data/words/fw/fw"
 // import sort_preferences from "@techytools/constants/data/domains/sort_preferences"
 // import { sort_strings_by_rating_and_position } from "@techytools/fn/io/sort_strings"
-import str_row from "@ps/nlp/lib/words/promise/str_row"
+import str_row from "@ps/nlp/lib/data.words/promise/str_row"
 import tlds_all from "@techytools/constants/data/domains/all"
 
 /**

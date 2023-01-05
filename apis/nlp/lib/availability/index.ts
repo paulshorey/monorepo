@@ -134,8 +134,7 @@ const availability = async function ({ domains = [], options }: any) {
         subject: "secretlyclearcache.com",
         email: "paul@besta.domains",
         name: "availability",
-        text:
-          "clear cache availability() IP: " + global["hostname"] + " " + (global["DEVELOPMENT"] ? "DEVELOPMENT" : ""),
+        text: "clear cache availability() IP: " + global.HOSTNAME + " " + (global["DEVELOPMENT"] ? "DEVELOPMENT" : ""),
         date: new Date()
       }
     }

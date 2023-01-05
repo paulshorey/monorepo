@@ -122,8 +122,8 @@ export default function (this: any) {
   // this.domains_lists["com"] = sort_strings_by_length_and_position(this.domains_lists["com"], 2)
 
   if (DEBUG2) {
-    console.log("name ___BEFORE___ SORTING")
-    console.log(this.domains_lists["name"])
+    global.cconsole.log("name ___BEFORE___ SORTING")
+    global.cconsole.log(this.domains_lists["name"])
   }
 
   /*
@@ -176,8 +176,8 @@ export default function (this: any) {
 
   // debug
   if (DEBUG2) {
-    console.log("name AFTER SORTING")
-    console.log(this.domains_lists["name"])
+    global.cconsole.log("name AFTER SORTING")
+    global.cconsole.log(this.domains_lists["name"])
   }
 
   /*

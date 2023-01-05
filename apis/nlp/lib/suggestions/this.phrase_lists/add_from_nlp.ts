@@ -13,7 +13,7 @@ const DEBUG1 = false
 export default function make_lists() {
   let { chunks_dict, chunks_keys } = this
   if (DEBUG1) {
-    console.log(
+    global.cconsole.log(
       "chunks_keys",
       chunks_keys.map((str) => {
         return [

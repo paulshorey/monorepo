@@ -1,5 +1,5 @@
 {
-  "name": "ps",
+  "name": "@ps/ps",
   "private": true,
   "version": "0.0.1",
   "scripts": {
@@ -18,6 +18,7 @@
     "@fortawesome/pro-regular-svg-icons": "^6.2.0",
     "@fortawesome/pro-solid-svg-icons": "^6.2.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@logdna/logger": "^2.6.6",
     "@techytools/cc": "*",
     "@techytools/constants": "*",
     "@techytools/fn": "*",
@@ -25,8 +26,7 @@
     "luminous-lightbox": "^2.4.0",
     "sass": "^1.55.0",
     "typeface-quicksand": "^1.1.13",
-    "zustand": "^4.1.3",
-    "@logdna/logger": "^2.6.6"
+    "zustand": "^4.1.3"
   },
   "devDependencies": {
     "@babel/core": "^7.16.7",
@@ -34,6 +34,7 @@
     "babel-plugin-macros": "^3.1.0",
     "babel-plugin-styled-components": "^2.0.7",
     "next-build-id": "^3.0.0",
+    "react-turnstile": "^1.0.6",
     "sass": "^1.55.0"
   }
 }

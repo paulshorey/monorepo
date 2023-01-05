@@ -51,7 +51,7 @@
 //   if (row_ver.key) {
 //     key_ver = row_ver.key
 //   }
-//   if (DEBUG1) console.log("verb the noun - ", key_ver, row_nou.key)
+//   if (DEBUG1) global.cconsole.log("verb the noun - ", key_ver, row_nou.key)
 //   if (key_ver && row_nou.key) {
 //     /*
 //      * (self)the(noun)

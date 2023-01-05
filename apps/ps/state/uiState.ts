@@ -20,8 +20,9 @@ const ui = create(
       colorSchemeIndexToggle: () => {
         const state = get() as uiStateType;
         // convert to 1-based index, math remainder, then back to 0-based index
-        state.colorSchemeIndex = ((state.colorSchemeIndex + 1) % 3) - 1;
-        return set({ ...state });
+        return set({
+          colorSchemeIndex: ((state.colorSchemeIndex + 1) % 3) - 1,
+        });
       },
       /*
        * Count product usage before displaying paywall/CTA
@@ -29,12 +30,11 @@ const ui = create(
       clicks: 3,
       clicksIncrement: () => {
         const state = get() as uiStateType;
-        state.clicks++;
-        return set({ ...state });
+        return set({ clicks: state.clicks + 1 });
       },
     }),
     {
-      name: 'ui-cache2',
+      name: 'ui-cache',
     }
   )
 );

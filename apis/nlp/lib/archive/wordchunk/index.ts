@@ -1,6 +1,6 @@
 import chunk_word_forward from "./chunk_word_forward"
 import chunk_word_backward from "./chunk_word_backward"
-import str_row from "@ps/nlp/lib/words/promise/str_row"
+import str_row from "@ps/nlp/lib/data.words/promise/str_row"
 
 /**
  * Break string into words (check rows from DB for every character)
@@ -257,7 +257,7 @@ const thisModule = async function (string, super_options: any = {}) {
     //   }
     // }
     // if (DEBUG1) global.cconsole.log([key_first, key_middle, key_last])
-    // if (DEBUG1) console.log([(row_first || {}).list_count, (row_middle || {}).list_count, (row_last || {}).list_count])
+    // if (DEBUG1) global.cconsole.log([(row_first || {}).list_count, (row_middle || {}).list_count, (row_last || {}).list_count])
     //
     // //
     // // put it together

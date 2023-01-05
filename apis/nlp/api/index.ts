@@ -1,5 +1,5 @@
 import initGlobal from "@ps/nlp/lib/global" // also used by unit tests
-import initApp from "./app" // also used by unit tests
+import initApp from "./initApp" // also used by unit tests
 import * as fs from "fs"
 import * as http from "http"
 import * as https from "https"

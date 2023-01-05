@@ -1,4 +1,5 @@
 // import React from 'react';
+import TurnstileWidget from '@ps/ps/components/form/TurnstileWidget';
 import InputGroup from '@techytools/ui/components/InputGroup';
 import Input from '@techytools/ui/components/Input';
 import Button from '@techytools/ui/components/Button';
@@ -21,7 +22,7 @@ export default function Home() {
 
   return (
     <CenterChildrenY ss="height:100vh;" bggradient="cool">
-      <CenterChildrenX>Search bar goes here</CenterChildrenX>
+      <p>Testing my UI library + CloudFlare's new turnstile</p>
       <p>
         <InputGroup {...propsGroup}>
           <Input {...propsInput} prefix="http://" placeholder="mysite" />
@@ -64,6 +65,9 @@ export default function Home() {
             Go
           </Button>
         </InputGroup>
+      </p>
+      <p>
+        <TurnstileWidget />
       </p>
     </CenterChildrenY>
   );

@@ -1,7 +1,7 @@
 import wordbreak from "@ps/nlp/lib/words/wordbreak"
 import spellcheck from "@ps/nlp/lib/words/spellcheck"
 import wordchunk from "@ps/nlp/lib/words/wordchunk"
-import row_model from "@ps/nlp/lib/words/function/row_model"
+import row_model from "@ps/nlp/lib/data.words/function/row_model"
 import spellcheck_wordbreak_wordchunk from "@ps/nlp/lib/words/spellcheck-wordbreak-wordchunk"
 
 /**

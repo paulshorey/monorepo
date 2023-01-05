@@ -3,7 +3,7 @@ import import_localstorage from "node-localstorage"
 
 let { LocalStorage } = import_localstorage
 let localStorage = new LocalStorage("tmp/localStorage-domainsAvailability")
-// console.log('global["hostname"]',global["hostname"]);
+// global.cconsole.log('global.HOSTNAME',global.HOSTNAME);
 
 /**
  * CHECK DOMAIN AVAILABILITY
@@ -50,7 +50,7 @@ export default function ({ domains = [], options = {} }: any) {
       "http://157.230.185.79",
       "http://157.230.187.25"
     ]
-    if (!global["hostname"].includes("MacBook")) {
+    if (!global.HOSTNAME.includes("MacBook")) {
       bucket_hosts.push("http://localhost:1080") // prettier-ignore
     }
     // now, in production, should be 10 buckets
@@ -103,8 +103,7 @@ export default function ({ domains = [], options = {} }: any) {
           subject: "secretlyclearcache.com",
           email: "paul@besta.domains",
           name: "availability",
-          text:
-            "clear cache round_robin() IP: " + global["hostname"] + " " + (global["DEVELOPMENT"] ? "DEVELOPMENT" : ""),
+          text: "clear cache round_robin() IP: " + global.HOSTNAME + " " + (global["DEVELOPMENT"] ? "DEVELOPMENT" : ""),
           date: new Date()
         }
         //

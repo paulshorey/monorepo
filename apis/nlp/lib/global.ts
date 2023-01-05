@@ -2,7 +2,7 @@ import * as child_process from "child_process"
 import * as os from "os"
 import parse_error_message from "@techytools/fn/io/err/parse_error_message"
 import * as Airbrake from "@airbrake/node"
-import { http_response } from "@ps/nlp/lib/http"
+import { httpResponse } from "@ps/nlp/lib/http"
 import logdna from "@logdna/logger"
 import { cconsoleInit } from "@techytools/cc"
 import initGlobalSecrets from "@ps/secrets/nlp-api-global"
@@ -106,9 +106,9 @@ export default async function ({ NO_ASYNC = false, NO_LOGS = false } = {}) {
     global.handleError = (err) => {
       try {
         // respond to client
-        if (global.res && http_response) {
-          // http_response will log the error, so don't do it again in this file
-          http_response(global.res, 500, parse_error_message(err))
+        if (global.res && httpResponse) {
+          // httpResponse will log the error, so don't do it again in this file
+          httpResponse(global.res, 500, parse_error_message(err))
         } else {
           // log to console
           global.cconsole.error(parse_error_message(err))

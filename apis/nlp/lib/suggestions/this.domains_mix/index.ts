@@ -13,7 +13,7 @@ export default function (this: any) {
     // domstr = domstr.replace(/\s/g, '')
     domains_strings.push(domstr)
   }
-  // if (DEBUG1) console.log('this.dom_ratings',this.dom_ratings)
+  // if (DEBUG1) global.cconsole.log('this.dom_ratings',this.dom_ratings)
 
   domains_strings = strings_shuffle_first_last_strict(domains_strings)
   domains_strings = sort_strings_by_rating_and_position(domains_strings, this.dom_ratings, 0.001)
@@ -32,7 +32,7 @@ export default function (this: any) {
     if (w < 100) {
       this.domains_lists.mix.push(dom)
     }
-    if (DEBUG1) console.log([dom, this.dom_ratings[dom]])
+    if (DEBUG1) global.cconsole.log([dom, this.dom_ratings[dom]])
     w++
   }
   this.domains_lists.com = coms.slice(0, 30)

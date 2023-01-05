@@ -1,4 +1,4 @@
-import { data_word_get_parsed } from "@ps/nlp/lib/pgdb/data.words"
+import { data_word_get_parsed } from "@ps/nlp/lib/data.words/promises/pgdb"
 
 /**
  * @param {array} word_arr

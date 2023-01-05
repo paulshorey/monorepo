@@ -21,10 +21,10 @@ export default function (domstr, options: any = {}) {
     /*
      * get whois
      */
-    if (DEBUG2) console.log("whois execute...")
+    if (DEBUG2) global.cconsole.log("whois execute...")
     global.execute("whois " + domstr, (whois) => {
       whois = whois.toLowerCase()
-      if (DEBUG2) console.log("whois results: ", domstr, whois)
+      if (DEBUG2) global.cconsole.log("whois results: ", domstr, whois)
       let output: any = { dom: domstr, code: 0 }
       let cre_yr = undefined
       let cha_yr = undefined
@@ -41,10 +41,10 @@ export default function (domstr, options: any = {}) {
           let matches = whois.match(/.*?creat.*?([0-9]{4})(.*)\s/g)
           if (matches) {
             for (let line of matches) {
-              if (DEBUG1) console.log("createds", line)
+              if (DEBUG1) global.cconsole.log("createds", line)
               let matched = line.match(/.*?creat.*?([0-9]{4})(.*)/)
               if (matched) {
-                if (DEBUG1) console.log("created", matched)
+                if (DEBUG1) global.cconsole.log("created", matched)
                 cre_yr = Number(matched[1])
               }
             }
@@ -81,10 +81,10 @@ export default function (domstr, options: any = {}) {
           let matches = whois.match(/.*?hange.*?([0-9]{4})(.*)\s/g)
           if (matches) {
             for (let line of matches) {
-              if (DEBUG1) console.log("changeds", line)
+              if (DEBUG1) global.cconsole.log("changeds", line)
               let matched = line.match(/.*?change.*?([0-9]{4})(.*)/)
               if (matched) {
-                if (DEBUG1) console.log("changed", matched)
+                if (DEBUG1) global.cconsole.log("changed", matched)
                 cha_yr = Number(matched[1])
               }
             }
@@ -94,10 +94,10 @@ export default function (domstr, options: any = {}) {
           let matches = whois.match(/.*?xpir.*?([0-9]{4})(.*)\s/g)
           if (matches) {
             for (let line of matches) {
-              if (DEBUG1) console.log("expiress", line)
+              if (DEBUG1) global.cconsole.log("expiress", line)
               let matched = line.match(/.*?expir.*?([0-9]{4})(.*)/)
               if (matched) {
-                if (DEBUG1) console.log("expires", matched)
+                if (DEBUG1) global.cconsole.log("expires", matched)
                 exp_yr = Number(matched[1])
                 if (exp_yr && matched[2]) {
                   // chop of time, leave only date
@@ -126,10 +126,10 @@ export default function (domstr, options: any = {}) {
           let matches = whois.match(/.*?(ns:|name server|nameserver|nserver).*? \w+\.(.+)(\s|\n)/g)
           if (matches) {
             for (let line of matches) {
-              if (DEBUG1) console.log("nss", line)
+              if (DEBUG1) global.cconsole.log("nss", line)
               let matched = line.match(/.*?(ns:|name server|nameserver).*? \w+\.(.+)(\s|\n)/)
               if (matched) {
-                if (DEBUG1) console.log("ns", matched)
+                if (DEBUG1) global.cconsole.log("ns", matched)
                 if (matched && matched[2] && matched[2].length < 75) {
                   output.ns = matched[2]
                   break

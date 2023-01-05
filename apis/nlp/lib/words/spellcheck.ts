@@ -1,11 +1,11 @@
-import bing_spellcheck from "@ps/nlp/api/endpoints/3rdparty/promise/bing_spellcheck"
+import bing_spellcheck from "@ps/nlp/lib/promise/bing_spellcheck"
 // import google_autocomplete from "@ps/nlp/api/3rdparty/promise/google_autocomplete"
 // import bing_autosuggest from "@ps/nlp/api/3rdparty/promise/bing_autosuggest"
 import stopwords_dict from "@techytools/constants/data/words/stopwords"
 import sort_objects_by_property from "@techytools/fn/io/sort_objects/sort_objects_by_property"
 
 let DEBUG1 = false
-const mymodule = async function (string) {
+export default async function (string) {
   let output: any = { string: string, spellchecked: string, suggestions: [] }
   let string_spaces_count = string.split(" ").length
   let alts = []
@@ -160,5 +160,3 @@ const mymodule = async function (string) {
   output.time = Date.now() - time_start
   return output
 }
-
-export default mymodule
