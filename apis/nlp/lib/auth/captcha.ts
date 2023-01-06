@@ -8,14 +8,18 @@ const TURNSTILE_KEY = "0x4AAAAAAABozldcmsxI0Cbc-0Fp7kW8PW0"
  * Success: return expiration time
  * Failure: return Error
  */
-export default async function (req: reqType, {}: optionsType = {}): Promise<number | Error> {
-  return Date.now() + 1000000
+export default async function (req: reqType, {}: optionsType = {}): Promise<number> {
+  // Server is hosted on localhost/macbook - skip captcha
+  if (global.hosttype === "Darwin" || global.hostname.substr(-4) === ".lan") {
+    return Date.now() + 1000000
+  }
+  // Staging/Production - verify captcha
   let turnstile_token =
     (req.body && req.body.turnstile_token) ||
     (req.query.turnstile_token ? decodeURIComponent(req.query.turnstile_token) : "") ||
     ""
   if (!turnstile_token) {
-    return new Error("turnstile token is required")
+    throw new Error("turnstile captcha token is required")
   } else {
     /*
      * validate user token
@@ -43,7 +47,7 @@ export default async function (req: reqType, {}: optionsType = {}): Promise<numb
        * captcha failed
        */
       if (DEBUG1) global.cconsole.warn("!(captcha_result.success)", req.client_ip)
-      return new Error("Captcha verification failed. Please refresh the page or try again.")
+      throw new Error("Captcha verification failed. Please refresh the page or try again.")
     }
   }
 }

@@ -50,33 +50,25 @@ export default async function ({ req, authFunctions }: propsType): Promise<userT
     user.id = req.body.user.id
   }
   user.ip = req.client_ip
-  user.expires = 0
-  user.authenticated = false
+
+  // User session still valid?
+  user.expires = 0 // get_user_session_expiration(user)
+  user.authenticated = user.expires > Date.now()
+  if (user.authenticated) {
+    return user
+  }
 
   // No authentication needed
   if (!authFunctions) {
     return user
   }
 
-  // User session still valid
-  {
-    let expires = get_user_session_expiration(user)
-    if (expires > Date.now()) {
-      user.authenticated = true
-      return user
-    }
-  }
-
-  // Create new user session
+  // Authenticate new user session
   if (authFunctions?.includes("captcha")) {
     const expiration = await authCaptcha(req)
-    if (expiration instanceof Error) {
-      return expiration
-    } else {
-      set_user_session_expiration(user, expiration)
-      user.expires = expiration
-      user.authenticated = true
-    }
+    set_user_session_expiration(user, expiration)
+    user.expires = expiration
+    user.authenticated = true
   }
 
   return user

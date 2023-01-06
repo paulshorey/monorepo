@@ -3,10 +3,10 @@ import import_expressApp from "express/index"
 import cors from "cors"
 import * as RequestIp from "@supercharge/request-ip"
 import { endpointHandler } from "@ps/nlp/lib/http"
-import api_dataedits from "./data"
-import api_utilities from "./utils"
+import api_data from "./data"
+import api_root from "./root"
 import api_v1 from "./v1"
-const api_endpoints = [...api_dataedits, ...api_v1, ...api_utilities]
+const api_endpoints = [...api_v1, ...api_data, ...api_root]
 
 export default function () {
   const { getClientIp } = RequestIp
@@ -42,6 +42,11 @@ export default function () {
   // Error logs
   // expressApp.use(airbrakeExpress.makeMiddleware(global["airbrake"]))
   // expressApp.use(airbrakeExpress.makeErrorHandler(global["airbrake"]))
+
+  // Error handler
+  expressApp.use((err, req, res, next) => {
+    res.status(500).send({ error: err.message })
+  })
 
   // // Modify output
   // const responseInterceptor = function (req, res, next) {

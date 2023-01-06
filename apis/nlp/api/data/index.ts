@@ -1,4 +1,3 @@
-import domain_extensions from "./domain_extensions"
 import domain_syns_of_syns from "./domain_syns_of_syns"
 import domain from "./domain"
 import domains from "./domains"
@@ -10,7 +9,6 @@ import word_sentiment_of_synonym from "./word_sentiment_of_synonyms"
 import word from "./word"
 
 export default [
-  ...domain_extensions,
   ...domain_syns_of_syns,
   ...domain,
   ...domains,
