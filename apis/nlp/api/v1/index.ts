@@ -1,10 +1,10 @@
 import crawl from "./crawl"
-import domain_availability from "./domain_availability"
-import domain_extensions from "./domain_extensions"
-import domain_suggestions from "./domain_suggestions"
-import whois from "./whois"
+import domain_availability from "./domain/availability"
+import domain_extensions from "./domain/extensions"
+import domain_suggestions from "./domain/suggestions"
+import domain_whois from "./domain/whois"
 import word from "./word"
-import words from "./words"
+import string from "./string"
 
 // Combine all arrays into one flat list.
 // All endpoints are stored as unnamed array items
@@ -14,7 +14,7 @@ export default [
   ...domain_availability,
   ...domain_extensions,
   ...domain_suggestions,
-  ...whois,
+  ...domain_whois,
   ...word,
-  ...words
+  ...string
 ]

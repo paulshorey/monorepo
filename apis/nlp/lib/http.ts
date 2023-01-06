@@ -39,12 +39,11 @@ export const respondWithError = function ({ req, res, err, data }) {
     ...data,
     user_id,
     message,
-    debug,
-    stack
+    debug
   }
   httpResponse(res, 500, error)
   // if (global.DEBUG_PATHS)
-  //   global.cconsole?.error(`${meta.method.toUpperCase()} ${meta.path} ${debug}`, req.query, req.body)
+  global.cconsole?.error(`${data.method.toUpperCase()} ${data.path} ${debug} ${stack}`, req.query, req.body)
 }
 
 export const respondWithData = function ({ res, data, meta }) {
@@ -55,7 +54,6 @@ export const httpResponse = function (res, res_status_code = 200, data = {}, met
   res.setHeader("Content-Type", "application/json")
   res.writeHead(Number(res_status_code) || 200)
   let output = {
-    documentation: "https://documenter.getpostman.com/view/23360867/2s8YzXtewC",
     status:
       res_status_code === 200
         ? "success"
@@ -63,11 +61,12 @@ export const httpResponse = function (res, res_status_code = 200, data = {}, met
         ? "error"
         : "fail",
     code: res_status_code,
-    dev: !!global.DEVELOPMENT,
+    data,
+    ...meta,
     hostname: global.hostname,
     hosttype: global.hosttype,
-    ...meta,
-    data
+    dev: !!global.DEVELOPMENT,
+    documentation: "https://documenter.getpostman.com/view/23360867/2s8YzXtewC"
   }
   res.write(JSON.stringify(output, null, "\t"))
   res.end()

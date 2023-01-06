@@ -9,9 +9,9 @@ beforeAll(function () {
   server = initApp()
 })
 
-describe("api/v1/domain_suggestions/_test", () => {
+describe("api/v1/domain/suggestions/_test", () => {
   {
-    const path = "/v1/domain_suggestions?str=hello.world"
+    const path = "/v1/domain/suggestions?str=hello.world"
     it("GET " + path, async () => {
       const response = await request(server).get(path)
       // global.cconsole.log("response.body", response.body)

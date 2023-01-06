@@ -66,7 +66,7 @@ const availability = async function ({ domains = [], options }: any) {
     if (domname.length < 5) continue
     let domlen = domname.indexOf(".")
     if (domlen === -1) {
-      throw new Error("wtf domlen===-1")
+      throw new Error("no extension specified for domain name: " + domname)
     }
     let domext = domname.substr(domname.indexOf(".") + 1)
     let domsld = domname.substring(0, domname.indexOf("."))
@@ -140,7 +140,7 @@ const availability = async function ({ domains = [], options }: any) {
     }
     // too short, invalid
     else if (domlen < 3) {
-      output.status[domname] = 1
+      output.status[domname] = 7
       output.note[domname] = "invalid"
     }
     // fill moi

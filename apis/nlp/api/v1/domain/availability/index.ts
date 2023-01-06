@@ -3,7 +3,7 @@ import aggregate_req_body_query from "@techytools/fn/io/req/aggregate_req_body_q
 
 export default [
   {
-    path: "/v1/domain_availability",
+    path: "/v1/domain/availability",
     method: "all",
     authFunctions: ["captcha"],
     response: async function ({ req }) {

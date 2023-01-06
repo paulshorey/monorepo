@@ -14,7 +14,7 @@ export default [
   //   }
   // },
   {
-    path: "/v1/domain_suggestions",
+    path: "/v1/domain/suggestions",
     method: "all",
     authFunctions: ["captcha"],
     response: async function ({ res, req }) {

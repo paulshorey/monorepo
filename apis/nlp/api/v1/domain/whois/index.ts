@@ -2,7 +2,7 @@ import cli_whois from "@ps/nlp/lib/availability/promise_one/cli_whois"
 
 export default [
   {
-    path: "/v1/whois",
+    path: "/v1/domain/whois",
     method: "get",
     authFunctions: ["captcha"],
     response: async function ({ req }) {

@@ -6,7 +6,7 @@ import wordchunk_tokenize from "@ps/nlp/lib/words/wordchunk-tokenize"
 
 export default [
   {
-    path: "/v1/spellcheck",
+    path: "/v1/string/spellcheck",
     method: "get",
     authFunctions: ["captcha"],
     response: async function ({ req }) {
@@ -14,7 +14,7 @@ export default [
     }
   },
   {
-    path: "/v1/wordbreak",
+    path: "/v1/string/break",
     method: "get",
     authFunctions: ["captcha"],
     response: async function ({ req }) {
@@ -22,7 +22,7 @@ export default [
     }
   },
   {
-    path: "/v1/spellcheck-wordbreak",
+    path: "/v1/string/spellcheck-break",
     method: "get",
     authFunctions: ["captcha"],
     response: async function ({ req }) {
@@ -30,7 +30,7 @@ export default [
     }
   },
   {
-    path: "/v1/spellcheck-wordbreak-wordchunk",
+    path: "/v1/string/spellcheck-break-chunk",
     method: "get",
     authFunctions: ["captcha"],
     response: async function ({ req }) {
@@ -38,7 +38,7 @@ export default [
     }
   },
   {
-    path: "/v1/wordbreak-wordchunk",
+    path: "/v1/string/break-chunk",
     method: "get",
     authFunctions: ["captcha"],
     response: async function ({ req }) {
@@ -46,7 +46,7 @@ export default [
     }
   },
   {
-    path: "/v1/tokenize",
+    path: "/v1/string/tokenize",
     method: "get",
     authFunctions: ["captcha"],
     response: async function ({ req }) {
@@ -56,7 +56,7 @@ export default [
     }
   },
   {
-    path: "/v1/spellcheck-tokenize",
+    path: "/v1/string/spellcheck-tokenize",
     method: "get",
     authFunctions: ["captcha"],
     response: async function ({ req }) {

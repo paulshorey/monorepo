@@ -9,9 +9,9 @@ beforeAll(function () {
   server = initApp()
 })
 
-describe("api/v1/domain_extensions/_test", () => {
+describe("api/v1/domain/extensions/_test", () => {
   {
-    const path = "/v1/domain_extensions/tech"
+    const path = "/v1/domain/extensions/tech"
     it("GET " + path, async () => {
       const response = await request(server).get(path)
       // global.cconsole.log("response.body.data", response.body.data)

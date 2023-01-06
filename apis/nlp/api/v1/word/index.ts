@@ -7,7 +7,7 @@ let DEBUG1 = false
 
 export default [
   {
-    path: "/v1/word/:str?",
+    path: "/v1/word",
     method: "get",
     authFunctions: ["captcha"],
     response: async function ({ req }) {
@@ -19,7 +19,7 @@ export default [
     }
   },
   {
-    path: "/v1/word/synonyms/:str?",
+    path: "/v1/word/synonyms",
     method: "get",
     authFunctions: ["captcha"],
     response: async function ({ req }) {
@@ -31,7 +31,7 @@ export default [
     }
   },
   {
-    path: "/v1/word/info/:str?",
+    path: "/v1/word/info",
     method: "get",
     authFunctions: ["captcha"],
     response: async function ({ req }) {
@@ -46,7 +46,7 @@ export default [
     }
   },
   {
-    path: "/v1/word/definitions/:key",
+    path: "/v1/word/definitions",
     method: "get",
     authFunctions: ["captcha"],
     response: async function ({ req }) {
