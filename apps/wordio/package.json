@@ -1,0 +1,48 @@
+{
+  "name": "wordio",
+  "version": "0.2.0",
+  "private": true,
+  "scripts": {
+    "export": "next export",
+    "serve": "next start",
+    "build": "next build",
+    "analyze": "ANALYZE=true next build && npm run serve",
+    "analyze:server": "BUNDLE_ANALYZE=server next build",
+    "analyze:browser": "BUNDLE_ANALYZE=browser next build",
+    "dev": "NEXT_PUBLIC_HOST=wordio.co next dev -p 3000"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@fortawesome/fontawesome-pro": "^6.2.0",
+    "@fortawesome/fontawesome-svg-core": "^6.2.0",
+    "@fortawesome/free-brands-svg-icons": "^6.2.0",
+    "@fortawesome/pro-light-svg-icons": "^6.2.0",
+    "@fortawesome/pro-regular-svg-icons": "^6.2.0",
+    "@fortawesome/pro-solid-svg-icons": "^6.2.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "@redux-devtools/extension": "^3.2.3",
+    "@techytools/cc": "*",
+    "@techytools/fn": "*",
+    "@techytools/ui": "*",
+    "antd": "^5.1.2",
+    "axios": "^1.2.2",
+    "luminous-lightbox": "^2.4.0",
+    "react-json-view": "https://github.com/paulshorey/rjv.git",
+    "react-recaptcha-v3": "^2.0.1",
+    "react-redux": "^8.0.5",
+    "react-turnstile": "^1.0.6",
+    "redux": "^4.2.0",
+    "redux-thunk": "^2.4.2",
+    "typeface-quicksand": "^1.1.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.7",
+    "@redux-devtools/core": "^3.13.1",
+    "babel-loader": "^8.2.3",
+    "babel-plugin-macros": "^3.1.0",
+    "babel-plugin-styled-components": "^2.0.7",
+    "sass": "^1.55.0"
+  },
+  "mode": "production"
+}

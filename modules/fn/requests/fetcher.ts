@@ -18,3 +18,12 @@ export const post = async function (url: string, options: Record<string, any> = 
     return { error: data };
   }
 };
+
+export const put = async function (url: string, options: Record<string, any> = {}): Promise<any> {
+  let data = await axios.put(url, options);
+  if (data && data.data) {
+    return data.data;
+  } else {
+    return { error: data };
+  }
+};

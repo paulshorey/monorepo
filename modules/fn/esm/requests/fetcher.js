@@ -31,3 +31,14 @@ export const post = function (url, options = {}) {
         }
     });
 };
+export const put = function (url, options = {}) {
+    return __awaiter(this, void 0, void 0, function* () {
+        let data = yield axios.put(url, options);
+        if (data && data.data) {
+            return data.data;
+        }
+        else {
+            return { error: data };
+        }
+    });
+};

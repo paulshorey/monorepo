@@ -28,7 +28,7 @@ let DEBUG1 = false // reminder of how this works, what happens when
 let DEBUG2 = false // something broken, find the spot
 let DEBUG_TIME = false
 let USE_CACHE = true
-const availability = async function ({ domains = [], options }: any) {
+const availability = async function (domains: string[] = [], options: any) {
   if (!options) options = {}
   // debug time
   let time_start = Date.now()
@@ -75,14 +75,7 @@ const availability = async function ({ domains = [], options }: any) {
     /*
      * MAGIC
      */
-    if (
-      domname === "vaccineword.com" ||
-      domname === "bestdomain.name" ||
-      domname === "besta.domains" ||
-      domname === "besta.name" ||
-      domname === "besta.app" ||
-      domname === "besta.tech"
-    ) {
+    if (domname === "besta.domains" || domname === "besta.name") {
       output.status[domname] = 1
       output.note[domname] = "owned by besta.domains"
       continue

@@ -1,5 +1,5 @@
 import crawl from "./crawl"
-import domain_availability from "./domain/availability"
+import domain_availability from "./domains/availability"
 import domain_extensions from "./domain/extensions"
 import domain_suggestions from "./domain/suggestions"
 import domain_whois from "./domain/whois"

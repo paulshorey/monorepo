@@ -12,9 +12,10 @@ export default [
     authFunctions: ["captcha"],
     response: async function ({ req }) {
       let query = aggregate_req_body_query(req)
-      const row = await str_row(query.str)
-      if (!row) throw `!row key="${query.str}"`
-      fix_row(row)
+      let query_word = query.word || query.str
+      const row = await str_row(query_word)
+      if (!row) throw `!row key="${query_word}"`
+      fix_output(row)
       return row
     }
   },
@@ -24,9 +25,10 @@ export default [
     authFunctions: ["captcha"],
     response: async function ({ req }) {
       let query = aggregate_req_body_query(req)
-      const row = await data_word_get_parsed(query.str, "key, str, pos1, pos2, pos3, dict")
-      if (!row) throw new Error(`!row key="${query.str}"`)
-      fix_row(row)
+      let query_word = query.word || query.str
+      const row = await data_word_get_parsed(query_word, "key, str, pos1, pos2, pos3, dict")
+      if (!row) throw new Error(`!row key="${query_word}"`)
+      fix_output(row)
       return row
     }
   },
@@ -36,12 +38,13 @@ export default [
     authFunctions: ["captcha"],
     response: async function ({ req }) {
       let query = aggregate_req_body_query(req)
+      let query_word = query.word || query.str
       const row = await data_word_get_parsed(
-        query.str,
+        query_word,
         "key, str, root, proper, singular, plural, abbreviation, acronym, ctr, pos1, pos2, pos3, pos4, pos5, sentiment, name, brand, food, stop, aux, prefix, list_count, word_count, char_count, syl_count"
       )
-      if (!row) throw new Error(`!row key="${query.str}"`)
-      fix_row(row)
+      if (!row) throw new Error(`!row key="${query_word}"`)
+      fix_output(row)
       return row
     }
   },
@@ -50,7 +53,7 @@ export default [
     method: "get",
     authFunctions: ["captcha"],
     response: async function ({ req }) {
-      const results = await oxford_definitions(req.params.key)
+      const results = await oxford_definitions(req.query.word || req.query.str)
       return results
     }
   }
@@ -59,7 +62,7 @@ export default [
 /*
  * HELPERS
  */
-function fix_row(row) {
+function fix_output(row) {
   if ("sentiment" in row) {
     row.sentiment = Math.min(row.sentiment + 1, 1) // -1,0,1 -> 0,1
   }

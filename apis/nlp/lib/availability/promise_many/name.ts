@@ -33,7 +33,7 @@ export default function (doms_arr, { DEBUG_TIME = false }: any = {}) {
       doms_arr = doms_arr.slice(0, MAX_DOMS)
     }
     // request
-    let url = "https://pshorey:2866070afd7b73fcebc0d8fb3f712b548e12924a@api.name.com/v4/domains:checkAvailability"
+    let url = `https://${global.secrets.NAMECOM_HOST_AUTH}/v4/domains:checkAvailability`
     let data: any = { domainNames: doms_arr }
     axios
       .post(url, data)

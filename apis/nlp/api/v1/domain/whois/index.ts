@@ -6,7 +6,7 @@ export default [
     method: "get",
     authFunctions: ["captcha"],
     response: async function ({ req }) {
-      let results: any = { domain: req.query.domain, expiry: "", whois: "not found" }
+      let results: any = { domain: req.query.domain || req.query.str, expiry: "", whois: "not found" }
       let doms_dict: any = await cli_whois(req.query.domain, { whois: true })
       if (doms_dict) {
         let data = doms_dict[results.domain]

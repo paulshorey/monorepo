@@ -1,5 +1,6 @@
 /**
  * Parse and combine POST data and URL params into JavaScript object
+ *    ALSO, decodeURIComponent() and JSON.parse() all query strings.
  * @param req {object} - IMPORTANT: does not have to be real api request. Can be simple object.
  * @param req.body {object} - key/value pairs, already parsed and ready to use (ex: {options:{}})
  * @param req.query {object} - object of key/value pairs from URL query string (ex: ?str=wordio&tld=co)

@@ -31,13 +31,13 @@ export default function (doms_arr, { DEBUG_TIME = false }: any = {}) {
     /*
      * get availability
      */
-    let url = "https://domainr.p.rapidapi.com/v2/status"
+    let url = `https://${global.secrets.RAPIDAPI_DOMAINR_HOST}/v2/status`
     let data: any = {
       domain: doms_arr.join(",")
     }
     let headers: any = {
-      "x-rapidapi-host": "domainr.p.rapidapi.com",
-      "x-rapidapi-key": "11dc13858emshc2393c506bb7d52p12d7e3jsnc48d54772625"
+      "x-rapidapi-host": global.secrets.RAPIDAPI_DOMAINR_HOST,
+      "x-rapidapi-key": global.secrets.RAPIDAPI_DOMAINR_KEY
       // "x-rapidapi-key": "f642886f28mshe23b0f8b9df08b4p120d73jsnfaa9d35389db"
     }
 

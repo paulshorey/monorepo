@@ -1,6 +1,7 @@
 import json_parse from "../json/json_parse";
 /**
  * Parse and combine POST data and URL params into JavaScript object
+ *    ALSO, decodeURIComponent() and JSON.parse() all query strings.
  * @param req {object} - IMPORTANT: does not have to be real api request. Can be simple object.
  * @param req.body {object} - key/value pairs, already parsed and ready to use (ex: {options:{}})
  * @param req.query {object} - object of key/value pairs from URL query string (ex: ?str=wordio&tld=co)
@@ -10,18 +11,18 @@ import json_parse from "../json/json_parse";
  * @returns {{}} - combined keys/values. Original request object will NOT be modified.
  */
 export default function aggregate_req_body_query_params(req) {
-    /*
-     * 1. prepare output
-     */
     let output = {};
-    // req.body is least important, will be overridden by query/params
+    /*
+     * 1. POST/PUT data
+     * (req.body is least important, will be overridden by query/params)
+     */
     if (req.body) {
         output = req.body;
     }
     /*
-     * 2. aggregate inputs
+     * 2. Query strings
+     * (req.query is more important. Will be prioritized over req.body)
      */
-    // req.query is more important than req.body
     let inputs = {};
     if (req.query) {
         inputs = req.query;
@@ -35,9 +36,6 @@ export default function aggregate_req_body_query_params(req) {
             }
         }
     }
-    /*
-     * 3. process inputs
-     */
     if (inputs) {
         for (let key in inputs) {
             let val = inputs[key];

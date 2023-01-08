@@ -10,7 +10,7 @@ export default [
     method: "get",
     authFunctions: ["captcha"],
     response: async function ({ req }) {
-      return await spellcheck(req.query.str)
+      return await spellcheck(req.query.string || req.query.str)
     }
   },
   {
@@ -18,7 +18,7 @@ export default [
     method: "get",
     authFunctions: ["captcha"],
     response: async function ({ req }) {
-      return await wordbreak(req.query.str)
+      return await wordbreak(req.query.string || req.query.str)
     }
   },
   {
@@ -26,7 +26,7 @@ export default [
     method: "get",
     authFunctions: ["captcha"],
     response: async function ({ req }) {
-      return await spellcheck_wordbreak(req.query.str)
+      return await spellcheck_wordbreak(req.query.string || req.query.str)
     }
   },
   {
@@ -34,7 +34,7 @@ export default [
     method: "get",
     authFunctions: ["captcha"],
     response: async function ({ req }) {
-      return await spellcheck_wordbreak_wordchunk(req.query.str)
+      return await spellcheck_wordbreak_wordchunk(req.query.string || req.query.str)
     }
   },
   {
@@ -42,7 +42,7 @@ export default [
     method: "get",
     authFunctions: ["captcha"],
     response: async function ({ req }) {
-      return await spellcheck_wordbreak_wordchunk(req.query.str, { spellcheck: false })
+      return await spellcheck_wordbreak_wordchunk(req.query.string || req.query.str, { spellcheck: false })
     }
   },
   {
@@ -50,7 +50,7 @@ export default [
     method: "get",
     authFunctions: ["captcha"],
     response: async function ({ req }) {
-      let output: any = await spellcheck_wordbreak_wordchunk(req.query.str, { spellcheck: false })
+      let output: any = await spellcheck_wordbreak_wordchunk(req.query.string || req.query.str, { spellcheck: false })
       output = await wordchunk_tokenize(output)
       return output
     }
@@ -60,7 +60,7 @@ export default [
     method: "get",
     authFunctions: ["captcha"],
     response: async function ({ req }) {
-      let output: any = await spellcheck_wordbreak_wordchunk(req.query.str)
+      let output: any = await spellcheck_wordbreak_wordchunk(req.query.string || req.query.str)
       output = await wordchunk_tokenize(output)
       return output
     }

@@ -1,0 +1,144 @@
+.ui_button {
+  position: relative;
+  display: inline-block;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  &:hover {
+    text-decoration: underline;
+    color: white;
+  }
+  &.shadow {
+    box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.23);
+  }
+  &.small {
+    height: 1.5rem;
+    line-height: 1.5rem;
+    font-size: 1rem;
+    padding: 0 0.625rem;
+  }
+  &.medium {
+    height: 2rem;
+    line-height: 2rem;
+    font-size: 1.067rem;
+    padding: 0 0.875rem;
+  }
+  &.large {
+    height: 2.5rem;
+    font-size: 1.125rem;
+    padding: 0 1.125rem;
+    line-height: 2.5rem;
+  }
+  &.round {
+    border-radius: 1.125rem;
+  }
+  &.accent {
+    &.small {
+      background: var(--color-accent);
+    }
+    &.large {
+      background: linear-gradient(-45deg, var(--color-accent), var(--color-accent-light), var(--color-accent));
+    }
+    &:hover {
+      background: var(--color-accent-light);
+    }
+  }
+  &.link {
+    &:not(.outline) {
+      &.small {
+        background: var(--color-link);
+      }
+
+      &.large {
+        background: linear-gradient(-45deg, var(--color-link), var(--color-link-light), var(--color-link));
+      }
+
+      &:hover {
+        background: var(--color-link-light);
+      }
+    }
+    &.outline {
+      background: white;
+      color: var(--color-link);
+      border: solid 1px var(--color-link);
+    }
+  }
+}
+.ui_p {
+  &.with_button {
+    line-height: 2.5rem;
+    margin-top: 1.75rem;
+  }
+}
+.ui_text {
+  position: relative;
+  display: inline-block;
+  &.accent {
+    color: var(--color-accent);
+    &.gradient {
+      background-color: var(--color-accent);
+      background-image: linear-gradient(
+        162deg,
+        var(--color-accent-dark),
+        var(--color-accent-light),
+        var(--color-accent-dark)
+      );
+      background-size: 100%;
+      background-repeat: repeat;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      &.subtle {
+        background-image: linear-gradient(162deg, var(--color-accent), var(--color-accent-light), var(--color-accent));
+        text-shadow: 0 0 0.5px rgba(0, 0, 0, 0.05);
+      }
+      &.shadow {
+        text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.05);
+      }
+    }
+  }
+}
+.ui_fieldset {
+  margin: 0;
+  padding: 0;
+  border: none;
+  position: relative;
+  display: flex;
+  > *:first-child {
+    flex-grow: 1;
+  }
+  &.round {
+    > *:first-child {
+      border-top-left-radius: 1rem;
+      border-bottom-left-radius: 1rem;
+    }
+    > *:last-child {
+      border-top-right-radius: 1rem;
+      border-bottom-right-radius: 1rem;
+    }
+  }
+}
+.ui_input {
+  border: solid 1px #ccc;
+  &.small {
+    height: 1.5rem;
+    font-size: 1rem;
+    padding: 0 0.625rem 0.125rem;
+  }
+  &.medium {
+    height: 2rem;
+    font-size: 1.25rem;
+    padding: 0 0.875rem 0.25rem;
+  }
+  &.large {
+    height: 2.5rem;
+    font-size: 1.5rem;
+    padding: 0 1.125rem 0.375rem;
+  }
+  &.shadow {
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25) inset;
+  }
+}
+.ui_button {
+}

@@ -3,9 +3,9 @@ import domain from "./domain"
 import domains from "./domains"
 import word_add_poswords from "./word_add_poswords"
 import word_add_to_others from "./word_add_to_others"
-import word_proper_of_synonym from "./word_proper_of_synonyms"
+import word_proper_of_synonym from "./word_proper_of_synonym"
 import word_remove_words from "./word_remove_words"
-import word_sentiment_of_synonym from "./word_sentiment_of_synonyms"
+import word_sentiment_of_synonym from "./word_sentiment_of_synonym"
 import word from "./word"
 
 export default [

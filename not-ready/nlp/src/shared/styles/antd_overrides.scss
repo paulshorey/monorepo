@@ -1,0 +1,328 @@
+/*
+ * ANT DESIGN - RESET / FIX
+ */
+
+.ant-message,
+.ant-message-success,
+.ant-message-error,
+.ant-message-info,
+.ant-message-warning {
+  font-size: 1rem;
+}
+
+/* why you do this to me ant design??? */
+.ant-menu-item:active,
+.ant-menu-submenu-title:active {
+  background: none;
+}
+
+/* make checkbox check slightly bigger inside checkbox box */
+.ant-checkbox-checked .ant-checkbox-inner::after {
+  transform: rotate(45deg) scale(1.125) translate(-50%, -50%);
+}
+
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+  background: none;
+}
+
+/* make dropdown list more beautiful */
+.ant-dropdown {
+  background: #fff;
+}
+.ant-dropdown ul,
+.ant-menu-root.ant-menu-vertical,
+.ant-menu-root.ant-menu-vertical-left,
+.ant-menu-root.ant-menu-vertical-right,
+.ant-menu-root.ant-menu-inline {
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  overflow: auto;
+}
+
+/* select input dropdown (add .tld) in domain suggestions page */
+.ant-select-dropdown-menu {
+  max-height: calc(100vh - 17.5rem);
+}
+
+/* special case for components/ViewWord/PosWord.js, but must go into global stylesheet: */
+.ant-dropdown ul.antd-word-definitions-dropdown-menu {
+  margin: 0;
+  padding: 0.5rem 0;
+  max-width: 50vw;
+
+  .ant-menu-item {
+    text-overflow: initial;
+    overflow: visible;
+    display: block;
+    white-space: normal;
+    line-height: 1.5 !important;
+    padding: 0.5rem 0 !important;
+  }
+
+  a {
+    pointer-events: all;
+  }
+
+  li {
+    pointer-events: none;
+
+    line-height: 1rem !important;
+    height: auto !important;
+    margin: 0 1rem !important;
+    padding: 0.75rem 0 !important;
+    box-sizing: content-box !important;
+    border-bottom: solid 1px #ccc !important;
+
+    &:last-child {
+      border-bottom: none !important;
+    }
+  }
+}
+
+/* special case for components/EditWord/PosWord.js, but must go into global stylesheet: */
+.ant-dropdown ul.antd-edit-posword-dropdown-menu {
+  position: relative;
+  left: -0.125rem;
+  top: -0.5rem;
+
+  li {
+    margin: 0.75rem 0;
+
+    &:first-child {
+      margin-top: 0.5rem;
+    }
+
+    &:last-child {
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+
+.ant-dropdown-menu-item > a,
+.ant-dropdown-menu-submenu-title > a {
+  color: var(--color-link);
+}
+
+.ant-input,
+.ant-select-selection {
+  border-color: var(--color-input-border);
+}
+
+.ant-select-selection-selected-value {
+  color: var(--color-input-color);
+}
+
+.ant-input {
+  font-size: 1.1rem;
+  padding: 0.33rem 0.8rem;
+  color: var(--color-input-color);
+
+  &::placeholder {
+    color: #999;
+  }
+
+  &.antd-height-auto {
+    line-height: 1;
+    height: auto;
+  }
+}
+
+.ant-btn {
+  font-size: 1.1rem;
+
+  &.antd-height-auto {
+    line-height: 1;
+    height: auto;
+  }
+}
+
+.ant-select-dropdown {
+  width: auto !important;
+  min-width: 10rem;
+
+  ul {
+    margin: 0;
+    padding: 0.5rem;
+
+    li {
+      margin: 0;
+      padding: 0.5rem 1rem;
+
+      /*
+	   * Note: when using ant select, use first <Option> as a "label"
+	   */
+      &:first-child {
+        display: none;
+      }
+    }
+  }
+}
+
+.ant-message-notice-content {
+  padding: 0;
+
+  > div {
+    padding: 0.75rem 1rem;
+    border-radius: 0.25rem;
+
+    &.ant-message-error {
+      border: solid 2px var(--color-bad);
+    }
+  }
+}
+
+.ant-checkbox {
+  top: -0.19em;
+}
+
+//
+//.ant-dropdown.ant-dropdown-placement-bottomRight::before {
+//  content: ' ';
+//  position: fixed;
+//  left: -5000px;
+//  width: 10000px;
+//  height: 4000px;
+//  background: rgba(0, 0, 0, 0.5);
+//  top: 0;
+//  bottom: auto;
+//  right: auto;
+//  opacity: 1;
+//  pointer-events: none;
+//  z-index: 1000;
+//}
+
+/*
+ * Hide borders - make radio buttons more seamless with preceding label
+ */
+.ant-radio-group-small {
+  vertical-align: middle;
+  margin-bottom: 0.125rem;
+}
+
+.ant-radio-button-wrapper {
+  user-select: none;
+  border-color: var(--color-link) !important;
+  color: var(--color-link);
+
+  * {
+    border-color: var(--color-link) !important;
+  }
+
+  &:first-child {
+    border-top-left-radius: 0.678rem;
+    border-bottom-left-radius: 0.678rem;
+  }
+
+  &:last-child {
+    border-top-right-radius: 0.678rem;
+    border-bottom-right-radius: 0.678rem;
+  }
+
+  &:not(.ant-radio-button-wrapper-checked) {
+    border-color: var(--color-subtle);
+  }
+}
+
+// always, keep font weight consistent
+.ant-radio-button-wrapper {
+  //font-weight: 600;
+}
+
+// reset when hover on container
+.ant-radio-group:hover .ant-radio-button-wrapper-checked {
+  color: var(--color-link);
+  background: #fff;
+}
+
+// hover on child
+.ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
+  color: #fff;
+  background: var(--color-link);
+}
+
+.ant-radio-button-wrapper:hover {
+  color: #fff !important;
+  background: var(--color-link) !important;
+}
+
+/*
+ * Slider
+ */
+.inline-slider {
+  display: inline-block;
+  height: 1.75rem;
+  margin: 0 2rem;
+  width: 300px;
+
+  .ant-slider-mark-text {
+    white-space: nowrap;
+  }
+}
+
+/*
+ * MIGRATE v3 -> v4 ----
+ * Fix breaking changes!
+ */
+.ant-input {
+  height: 1.95rem;
+  line-height: 1.25rem;
+  padding-top: 0.35rem;
+  padding-bottom: 0.35rem;
+  border-radius: 4px;
+}
+
+.ant-btn {
+  height: 1.95rem;
+  line-height: 1.25rem;
+  padding-top: 0.35rem;
+  padding-bottom: 0.35rem;
+  border-radius: 4px;
+}
+
+/*
+ * message
+ */
+.ant-message-notice-content {
+  border-radius: 4.5px;
+  font-weight: 500;
+  color: var(--color-dark);
+}
+
+/*
+ * checkbox - standard, solid, but sizes slightly tweaked
+ */
+.ant-checkbox-wrapper {
+  color: currentColor !important;
+  margin-right: 0.41rem;
+  height: 1.125rem;
+
+  .ant-checkbox {
+    color: currentColor !important;
+    top: 1px;
+
+    .ant-checkbox-inner {
+      border-radius: 2px;
+      width: 18px;
+      height: 18px;
+    }
+
+    .ant-checkbox-input + .ant-checkbox-inner,
+    .ant-checkbox-input:hover + .ant-checkbox-inner,
+    .ant-checkbox-input:focus + .ant-checkbox-inner {
+      border-color: currentColor;
+    }
+  }
+
+  .ant-checkbox.ant-checkbox-checked {
+    .ant-checkbox-inner {
+      background-color: currentColor;
+
+      &::after {
+        width: 6px;
+        height: 11px;
+        top: 8.5px;
+        left: 3.5px;
+      }
+    }
+  }
+}
