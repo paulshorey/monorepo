@@ -5,6 +5,6 @@ set -e
 
 echo -e "\n\033[0;33mHusky pre-commit hook\033[0m" "HUSKY_GIT_PARAMS" $HUSKY_GIT_PARAMS $0 $1 $2 $3 $4 $5 $m
 
-npm run build || exit 1
+yarn run build-all || exit 1
 
 bash ./_bin/commit-all-submodules.sh . "auto commit-all-submodules projects pre-commit monorepo"

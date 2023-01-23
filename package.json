@@ -8,10 +8,14 @@
     "modules/*"
   ],
   "scripts": {
-    "release": "bash .husky/post-push",
-    "build": "turbo run build && turbo run test",
-    "build-lerna": "lerna run build && lerna run test",
-    "dev": "turbo run dev --parallel"
+    "release-all": "bash .husky/post-push",
+    "build-all": "turbo run build && turbo run test",
+    "dev-all": "turbo run dev --parallel",
+    "install-ui": "yarn install --scope=@techytools/ui",
+    "install-ps": "yarn install --scope=@ps/ps",
+    "install-cc": "yarn install --scope=@techytools/cc",
+    "install-fn": "yarn install --scope=@techytools/fn",
+    "install-rd": "yarn install --scope=responsive-dev"
   },
   "dependencies": {
     "@techytools/ui": "*",
