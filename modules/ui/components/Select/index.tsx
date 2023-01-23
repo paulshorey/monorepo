@@ -44,7 +44,7 @@ export const withSelect = (props: Props) =>
  * For convenience, export Option, so user doesn't have to import from antd.
  * Unfortunately, Ant Design options can not be styled. So, styleProps can not be added.
  */
-export const Option = AntSelect.Option;
+export const Option: typeof AntSelect.Option = AntSelect.Option;
 export type OptionProps = AntOptionProps;
 // export const OptionGroup = AntSelect.OptGroup;
 // export type OptionGroupProps = typeof AntSelect.OptGroup;

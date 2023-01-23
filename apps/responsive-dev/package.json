@@ -56,7 +56,6 @@
     "next-build-id": "^3.0.0",
     "sass": "^1.55.0",
     "serve": "^13.0.2",
-    "storybook-addon-next": "*",
     "storybook-addon-sass-postcss": "^0.1.3",
     "storybook-css-modules": "^1.0.8"
   },

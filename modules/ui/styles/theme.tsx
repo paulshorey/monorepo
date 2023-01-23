@@ -8,6 +8,9 @@ export type Theme = {
 const theme: Theme = {
   // colors: {}, // use "css properties" in colors.css instead
   RouterLink: null,
+  header: {
+    height: '50px',
+  },
   mq,
   sizes: {
     card: {

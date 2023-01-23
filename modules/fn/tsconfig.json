@@ -22,7 +22,7 @@
     "target": "es6",
     "baseUrl": ".",
     "paths": {},
-    "lib": ["DOM"],
+    "lib": ["esnext", "dom"],
     "types": ["node", "jest"]
   }
 }

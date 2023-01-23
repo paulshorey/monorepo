@@ -28,7 +28,8 @@
     "incremental": true,
     "noImplicitAny": false,
     "jsx": "preserve",
-    "allowJs": true
+    "allowJs": true,
+    "lib": ["esnext", "dom"]
   },
   "typeRoots": ["node_modules/@types", "./types/typings.d.ts"],
   "files": ["./types/typings.d.ts"]

@@ -13,6 +13,7 @@
     "lint-app": "next lint"
   },
   "dependencies": {
+    "@techytools/cc": "*",
     "@ant-design/icons": "^4.7.0",
     "@babel/core": "^7.16.7",
     "@emotion/core": "^11.0.0",
@@ -28,6 +29,7 @@
     "@storybook/addon-actions": "^6.5.12",
     "@storybook/addon-essentials": "^6.5.12",
     "@storybook/addon-links": "^6.5.12",
+    "@storybook/builder-webpack5": "^6.5.12",
     "@storybook/react": "^6.5.15",
     "@testing-library/jest-dom": "^5.16.5",
     "antd": "^5.0.0-alpha.34",
@@ -78,5 +80,8 @@
   "bugs": {
     "url": "https://github.com/techytools/ui/issues"
   },
-  "gitHead": "24a371b0b8a50732ea3ea99bb741a7b5b6974aec"
+  "gitHead": "24a371b0b8a50732ea3ea99bb741a7b5b6974aec",
+  "devDependencies": {
+    "@storybook/manager-webpack5": "^6.5.12"
+  }
 }
