@@ -5,11 +5,10 @@ import domain_suggestions from "./domain/suggestions"
 import domain_whois from "./domain/whois"
 import word from "./word"
 import string from "./string"
+import { endpointHandler } from "@ps/nlp/lib/http"
+import { Express } from "express-serve-static-core"
 
-// Combine all arrays into one flat list.
-// All endpoints are stored as unnamed array items
-// so we wont have to deal with naming conventions and conflicts.
-export default [
+const api_endpoints = [
   ...crawl,
   ...domain_availability,
   ...domain_extensions,
@@ -18,3 +17,17 @@ export default [
   ...word,
   ...string
 ]
+
+export default function (expressApp: Express) {
+  // Handle each API endpoint with expressApp
+  for (let endpoint of api_endpoints) {
+    const { path, method, authFunctions = [], response }: any = endpoint
+    endpointHandler({
+      expressApp,
+      path,
+      method,
+      authFunctions,
+      response
+    })
+  }
+}

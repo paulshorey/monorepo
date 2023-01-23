@@ -24,6 +24,21 @@ export default {
       }
     }
 
+    // add extra padding for last button in group
+    > .Button:last-child:not(:first-child) {
+      .Button--text {
+        ${
+          // ! circle icon button
+          !(props.round && props.icon && !props.children) &&
+          // ! has icon on right side
+          !props.suffix &&
+          `
+        padding-right: 1rem;
+        `
+        }
+      }
+    }
+
     /*
     * MUI
     */

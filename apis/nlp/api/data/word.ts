@@ -1,4 +1,4 @@
-import { data_word_delete, data_word_put, data_word_get_parsed } from "@ps/nlp/lib/data.words/promises/pgdb"
+import { data_word_delete, data_word_put, data_word_get_parsed } from "@ps/nlp/lib/pgdb/word"
 
 export default [
   {

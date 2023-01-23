@@ -1,4 +1,4 @@
-import { data_word_add_poswords } from "@ps/nlp/lib/data.words/promises/pgdb"
+import { data_word_add_poswords } from "@ps/nlp/lib/pgdb/word"
 
 export default [
   {

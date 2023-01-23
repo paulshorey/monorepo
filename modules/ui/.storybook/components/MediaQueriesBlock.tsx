@@ -43,7 +43,7 @@ const Mq = withBlock({
 const MediaQueriesDemo = () => (
   <Container>
     <Border>
-    <code>{`<Block `}</code>
+    <code>{`<Component `}</code>
     <Mq>
       ss <b>all sizes</b>
     </Mq>
@@ -89,7 +89,7 @@ const MediaQueriesDemo = () => (
     <Mq>
       ssLandscape <b>width &gt; height</b>
     </Mq>
-    <code>&gt;</code>
+    <code>/&gt;</code>
     </Border>
 
 <p>Each <code>ss</code> prop one corresponds to a <code>theme.mq</code> property:</p>

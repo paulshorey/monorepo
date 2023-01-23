@@ -34,7 +34,7 @@ const ui = create(
       },
     }),
     {
-      name: 'ui-cache',
+      name: 'ui-cache2',
     }
   )
 );

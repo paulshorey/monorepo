@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import HorizontalCarousel from '@techytools/ui/components/HorizontalCarousel';
+import CarouselHorizontal from '@techytools/ui/components/CarouselHorizontal';
 import { css } from '@emotion/react';
 import FeatureSlide from './FeatureSlide';
 
@@ -103,11 +103,11 @@ const slides = [
 const LatestProjectsCarousel = () => {
   return (
     <Fragment>
-      <HorizontalCarousel ss={style}>
+      <CarouselHorizontal ss={style}>
         {slides.map((slide, i) => (
           <FeatureSlide slide={slide} key={i} />
         ))}
-      </HorizontalCarousel>
+      </CarouselHorizontal>
     </Fragment>
   );
 };

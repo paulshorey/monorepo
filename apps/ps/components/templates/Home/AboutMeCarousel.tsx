@@ -1,8 +1,11 @@
-import HCarousel from '@techytools/ui/components/HorizontalCarousel';
+import HCarousel from '@techytools/ui/components/CarouselHorizontal';
 import { css } from '@emotion/react';
 
 const style = css`
   margin: 2rem 0 3rem;
+  @media (max-height: 700px) {
+    margin-bottom: 1.5rem;
+  }
   img {
     height: 15rem;
   }
@@ -20,15 +23,18 @@ const style = css`
 
 function Home(props) {
   return (
-    <HCarousel ss={style} {...props}>
+    <HCarousel {...props} ss={style}>
       <span data-href="https://res.cloudinary.com/paulshorey/image/upload/g_auto,c_fill,h_900/ps/photos/profile/wndr-color-wall.jpg">
         <img src="https://res.cloudinary.com/paulshorey/image/upload/g_auto,c_fill,h_510/ps/photos/profile/wndr-color-wall.webp" />
       </span>
-      <span data-href="https://res.cloudinary.com/paulshorey/image/upload/g_auto,c_fill,h_900/ps/photos/aboutus/aboutus.jpg">
-        <img src="https://res.cloudinary.com/paulshorey/image/upload/g_auto,c_fill,h_510/ps/photos/aboutus/aboutus.webp" />
+      <span data-href="https://res.cloudinary.com/paulshorey/image/upload/e_auto_saturation,e_auto_contrast,g_auto,c_fill,h_900/ps/photos/me/my-home-office.jpg">
+        <img src="https://res.cloudinary.com/paulshorey/image/upload/e_auto_saturation,e_auto_contrast,g_auto,c_fill,h_510/ps/photos/me/my-home-office.webp" />
       </span>
       <span data-href="https://res.cloudinary.com/paulshorey/image/upload/g_auto,c_fill,h_900/ps/photos/me/via-ferrata.jpg">
         <img src="https://res.cloudinary.com/paulshorey/image/upload/g_auto,c_fill,h_510/ps/photos/me/via-ferrata.webp" />
+      </span>
+      <span data-href="https://res.cloudinary.com/paulshorey/image/upload/g_auto,c_fill,h_900/ps/photos/aboutus/aboutus.jpg">
+        <img src="https://res.cloudinary.com/paulshorey/image/upload/g_auto,c_fill,h_510/ps/photos/aboutus/aboutus.webp" />
       </span>
       <span data-href="https://res.cloudinary.com/paulshorey/image/upload/g_auto,c_fill,h_900/ps/photos/me/hg-crestline.jpg">
         <img src="https://res.cloudinary.com/paulshorey/image/upload/g_auto,c_fill,h_510/ps/photos/me/hg-crestline.webp" />

@@ -9,7 +9,7 @@ import row_tlds from "./row_tlds"
 import row_poss from "./row_poss"
 import row_pos_short from "../function/row_pos_short"
 import row_food from "../function/row_food"
-import { data_word_get_parsed } from "../promises/pgdb"
+import { data_word_get_parsed } from "../../pgdb/word"
 import { performance } from "perf_hooks"
 
 /**

@@ -111,7 +111,7 @@ export const Component = (props: Props, ref: any) => {
   const ChildrenWithRipple = withRipple({ children: Children });
   return (
     <button
-      tabIndex={0}
+      tabIndex={-1} // 0 conflicts with anchor tag if button is inside anchor tag - pass prop manually
       {...props}
       ref={ref}
       onClick={(e) => {

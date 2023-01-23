@@ -36,21 +36,6 @@ export default {
     min-width: 0;
     padding: 0;
 
-    // add extra padding for last button in group
-    &:last-child:not(:first-child) {
-      .Button--text {
-        ${
-          // ! circle icon button
-          !(props.round && props.icon && !props.children) &&
-          // ! has icon on right side
-          !props.suffix &&
-          `
-        padding-right: 1rem;
-        `
-        }
-      }
-    }
-
     &:hover,
     &:focus {
       outline: solid 2px var(--color-cta);

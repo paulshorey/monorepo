@@ -1,5 +1,5 @@
 import str_row from "@ps/nlp/lib/data.words/promise/str_row"
-import { data_word_get_parsed } from "@ps/nlp/lib/data.words/promises/pgdb"
+import { data_word_get_parsed } from "@ps/nlp/lib/pgdb/word"
 import aggregate_req_body_query from "@techytools/fn/io/req/aggregate_req_body_query_params"
 import oxford_definitions from "@ps/nlp/lib/promise/oxford_definitions"
 

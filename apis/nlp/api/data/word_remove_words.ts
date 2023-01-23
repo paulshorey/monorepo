@@ -1,4 +1,4 @@
-import { data_word_remove_words } from "@ps/nlp/lib/data.words/promises/pgdb"
+import { data_word_remove_words } from "@ps/nlp/lib/pgdb/word"
 export default [
   {
     path: "/v1/word_remove_words",

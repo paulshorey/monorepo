@@ -12,7 +12,7 @@ const MyApp = ({ Component, pageProps }: AppProps): any => {
   return (
     <AppProvider>
       <Head>
-        <title>Web Software Development by Paul Shorey</title>
+        <title>UI/UX Software Development by Paul Shorey</title>
         <link rel="icon" href="/favicon.ico" />
         <meta charSet="utf-8" />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />

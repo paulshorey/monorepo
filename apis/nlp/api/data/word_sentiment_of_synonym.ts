@@ -1,4 +1,4 @@
-import { data_word_sentiment_of_synonym } from "@ps/nlp/lib/data.words/promises/pgdb"
+import { data_word_sentiment_of_synonym } from "@ps/nlp/lib/pgdb/word"
 
 export default [
   {

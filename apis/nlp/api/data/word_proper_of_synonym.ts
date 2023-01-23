@@ -1,4 +1,4 @@
-import { data_word_proper_of_synonym } from "@ps/nlp/lib/data.words/promises/pgdb"
+import { data_word_proper_of_synonym } from "@ps/nlp/lib/pgdb/word"
 export default [
   {
     path: "/v1/word_proper_of_synonym/:key/:synonym",

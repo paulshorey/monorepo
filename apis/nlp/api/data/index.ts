@@ -7,8 +7,10 @@ import word_proper_of_synonym from "./word_proper_of_synonym"
 import word_remove_words from "./word_remove_words"
 import word_sentiment_of_synonym from "./word_sentiment_of_synonym"
 import word from "./word"
+import { endpointHandler } from "@ps/nlp/lib/http"
+import { Express } from "express-serve-static-core"
 
-export default [
+const api_endpoints = [
   ...domain_syns_of_syns,
   ...domain,
   ...domains,
@@ -19,3 +21,17 @@ export default [
   ...word_sentiment_of_synonym,
   ...word
 ]
+
+export default function (expressApp: Express) {
+  // Handle each API endpoint with expressApp
+  for (let endpoint of api_endpoints) {
+    const { path, method, authFunctions = [], response }: any = endpoint
+    endpointHandler({
+      expressApp,
+      path,
+      method,
+      authFunctions,
+      response
+    })
+  }
+}

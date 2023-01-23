@@ -6,7 +6,7 @@ import 'luminous-lightbox/dist/luminous-basic.css';
 import Wordio from 'components/templates/WorkExperience/Wordio';
 import dynamic from 'next/dynamic';
 import Block from '@techytools/ui/components/Block';
-import HCarousel from '@techytools/ui/components/HorizontalCarousel';
+import HCarousel from '@techytools/ui/components/CarouselHorizontal';
 
 const OpenSource = dynamic(
   () => import('components/templates/WorkExperience/OpenSource'),
@@ -54,7 +54,7 @@ const PageTemplate = () => {
       // const els = Array.from(document.querySelectorAll('.horizontal_carousel')); // <-- lazy method! Can also use array of React refs
       // if (els) {
       //   for (const el of els) {
-      //     carousels.push(new HorizontalCarousel(el));
+      //     carousels.push(new CarouselHorizontal(el));
       //   }
       // }
     }, 1000);

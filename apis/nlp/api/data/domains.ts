@@ -1,4 +1,4 @@
-import { data_domains_get_all } from "@ps/nlp/lib/data.domains/promises/pgdb"
+import { data_domains_get_all } from "@ps/nlp/lib/pgdb/domain"
 export default [
   {
     path: "/v1/domains",

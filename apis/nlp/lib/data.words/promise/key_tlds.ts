@@ -2,7 +2,7 @@
  * Dependencies
  */
 import all_domains from "@techytools/constants/data/domains/all"
-import { data_domain_syns1, data_domain_syns2, data_domain_syns3 } from "@ps/nlp/lib/data.domains/promises/pgdb"
+import { data_domain_syns1, data_domain_syns2, data_domain_syns3 } from "@ps/nlp/lib/pgdb/domain"
 
 /**
  * Get list of domains for a given query keyword

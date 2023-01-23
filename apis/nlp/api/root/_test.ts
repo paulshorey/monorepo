@@ -1,6 +1,6 @@
 import request from "supertest"
 import { Express } from "express-serve-static-core"
-import initApp from "@ps/nlp/api/initApp"
+import initApp from "@ps/nlp/api/express"
 import initGlobal from "@ps/nlp/lib/global"
 
 initGlobal({ NO_ASYNC: true, NO_LOGS: true })

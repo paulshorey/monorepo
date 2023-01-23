@@ -4,7 +4,7 @@ import Nav from 'components/layout/Nav';
 import Logo from 'components/layout/Logo';
 
 const style = () => css`
-  position: relative;
+  position: fixed;
   display: flex;
   justify-content: space-between;
   width: 100%;
