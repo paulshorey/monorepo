@@ -1,5 +1,7 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
+  "buildCommand": "echo \"nothing to build - build output is stored in git repo\"",
+  "installCommand": "echo \"nothing to install - build output is stored in git repo\"",
   "outputDirectory": "./_docs"
 }

@@ -3,6 +3,6 @@
   "framework": null,
   "buildCommand": "yarn build",
   "devCommand": "yarn dev",
-  "installCommand": "cd ../.. && yarn install",
+  "installCommand": "cd ../.. && yarn install --scope=responsive-dev",
   "outputDirectory": "./next"
 }
