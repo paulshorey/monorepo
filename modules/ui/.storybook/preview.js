@@ -24,7 +24,7 @@ export const decorators = [
     display:none !important;
   }
   .sidebar-header:before {
-    content: 'Harmony UI';
+    content: 'UI development';
     color: white;
     font-size: 1.01rem;
     font-weight: bold;

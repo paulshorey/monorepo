@@ -10,31 +10,33 @@ import Wrapper from '@techytools/ui/.storybook/components/Wrapper';
 
 <ThemeProvider>
 
-<Wrapper ssAll="a { color: white; }">
+<Wrapper bgcolor="dark" ssAll="a { color: white; }">
 
 <Block as="h1" textgradient="rainbow">
 This is a development kit
 </Block>
 
-for bootstrapping and maintaining a <Inline as="b" textgradient="rainbow"> custom branded component library</Inline>. 
+for bootstrapping and maintaining a <Inline as="b" textgradient="purple"> custom branded component library</Inline>. 
 
 <Block ss="margin-bottom:0.75rem;line-height:1.33rem;">
-<Inline as="h2" textgradient="accent">1.</Inline> <Inline textcolor="accent" ss="font-size:1.125rem;">mono-repo configuration files</Inline> <Inline ss="font-size:1rem;"> - Typescript, testing, prettier, eslint, and babel presets shared by interdependent apps</Inline>
+<Inline as="h2" textgradient="purple">1.</Inline> <Inline textcolor="purple" ss="font-size:1.125rem;">mono-repo configuration files</Inline> <Inline ss="font-size:1rem;"> - Typescript, testing, prettier, eslint, and babel presets shared by interdependent apps</Inline>
 </Block>
 
 <Block ss="margin-bottom:0.75rem;line-height:1.33rem;">
-<Inline as="h2" textgradient="accent">2.</Inline> <Inline textcolor="accent" ss="font-size:1.125rem;">responsive styling system to make branding easier</Inline> - prototyping and long-term maintenance for different devices
+<Inline as="h2" textgradient="purple">2.</Inline> <Inline textcolor="purple" ss="font-size:1.125rem;">responsive styling system to make branding easier</Inline> - prototyping and long-term maintenance for different devices
 </Block>
 
 <Block ss="margin-bottom:0.75rem;line-height:1.33rem;">
-<Inline as="h2" textgradient="accent">3.</Inline> <Inline textcolor="accent" ss="font-size:1.125rem;">and a few components to get started</Inline> - this isn't a finished library, but a system for maintaining custom components
+<Inline as="h2" textgradient="purple">3.</Inline> <Inline textcolor="purple" ss="font-size:1.125rem;">and a few components to get started</Inline> - this isn't a finished library, but a system for maintaining custom components
 </Block>
 
 <br />
 
 ---
 
-<Block as="h2" ss="margin-top:2rem;" textgradient="rainbow">
+<br />
+
+<Block as="h2" ss="margin-top:0;" textgradient="rainbow">
 For better DX and UX
 </Block>
 
@@ -65,6 +67,12 @@ const Button = withButton({
 <Button round ss="margin-right: 0" />
 // ☝️ Optional ss prop to quickly add inline styles, override defaults from the markup. Full SCSS support`} />
 
+<br />
+
+---
+
+<br />
+
 Use media query <span className="noWrap">mixins such as</span> `props.theme.mq.tinyPhone` in any template literal.
 
 Pass a function that accepts the component props and returns a string of SCSS. Your site theme will be available as a prop. This is very similar to the normal StyledComponents functionality. [Read more](/docs/get-started-styling-how-to-style--page)
@@ -74,21 +82,29 @@ Pass a function that accepts the component props and returns a string of SCSS. Y
   code={`<Block ss={(props) => css\` padding: 1rem \${props.theme.sizes.card.paddingX}; \`}>`} />
 
 
+<br />
+
+---
+
+<br />
+
 <p>
-  <a href="/docs/get-started-media-queries--page">Media query shortcuts</a> let you{' '}
+  Media query shortcuts let you{' '}
   <Inline as="b" textgradient="rainbow">
     painlessly style for multiple devices!
-  </Inline>{' '}
+  </Inline>
+</p>
+<p>
   You're not limited to just{' '}
-  <CodeInline variant="text" color="purple">
+  <code>
     xs,sm,md,lg
-  </CodeInline>. Not limited to{' '}
-  <CodeInline variant="text" code={`min-width`} /> either. Instead, use semantic
-  prop names like <CodeInline variant="text" code={`ssTablet`} /> (or{' '}
-  <CodeInline variant="text" code={`theme.mq.tablet`} />) to style tablets
+  </code>. Not limited to{' '}
+  <code>min-width</code> either. Instead, use semantic
+  prop names like <code>ssTablet</code> (or{' '}
+  <code>theme.mq.tablet</code>) to style tablets
   (between 601-1024px). Each media query prop can accept a{' '}
-  <CodeInline variant="text" code={`string`} />,{' '}
-  <CodeInline variant="text" code={`(props)=>string`} /> function, or any
+  <code>string</code>,{' '}
+  <code>(props)=>string</code> function, or any
   EmotionCSS type.
 </p>
 
@@ -120,7 +136,11 @@ There are also hooks to target specific devices and browsers.
 <br />
 <br />
 
-<Block as="h2" ss="margin-top:2rem;">
+---
+
+<br />
+
+<Block as="h2">
   <Block as="span" textgradient="rainbow">
     CSS-in-JS is no longer tedious!
   </Block>
@@ -129,7 +149,7 @@ There are also hooks to target specific devices and browsers.
 <p>
   <Inline ssPhone="display:none;">👈 </Inline>
   <Inline ssNotPhone="display:none;">👇 </Inline>
-  <Inline textcolor="accent">&nbsp;Go ahead and explore the sidebar.&nbsp;</Inline>
+  &nbsp;Go ahead and explore the sidebar.&nbsp;
   Below each component's story is a documentation of all the props it accepts.
 </p>
 

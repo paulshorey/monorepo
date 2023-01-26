@@ -25,6 +25,10 @@ const Mq = withBlock({
   as: 'code',
   ss: `
   text-indent: 1rem;
+  opacity: 1 !important;
+  span {
+    color: var(--color-accent);
+  }
   b {
     padding-left: 1rem;
     color: white;
@@ -45,49 +49,49 @@ const MediaQueriesDemo = () => (
     <Border>
     <code>{`<Component `}</code>
     <Mq>
-      ss <b>all sizes</b>
+      <span>ss</span> <b>all sizes</b>
     </Mq>
     <Mq>
-      ssLg <b>min-width 931px </b>
+      <span>ssLg</span> <b>min-width 931px </b>
     </Mq>
     <Mq>
-      ssSm <b>max-width 930px</b>
+      <span>ssSm</span> <b>max-width 930px</b>
     </Mq>
     <Mq>
-      ssDesktop <b>min-width 1025px</b>
+      <span>ssDesktop</span> <b>min-width 1025px</b>
     </Mq>
     <Mq>
-      ssMobile <b>max-width 1024px</b>
+      <span>ssMobile</span> <b>max-width 1024px</b>
     </Mq>
     <Mq>
-      ssLargeTablet <b>min-width 768px and max-width 1024px</b>
+      <span>ssLargeTablet</span> <b>min-width 768px and max-width 1024px</b>
     </Mq>
     <Mq>
-      ssTablet <b>min-width 601px and max-width 1024px</b>
+      <span>ssTablet</span> <b>min-width 601px and max-width 1024px</b>
     </Mq>
     <Mq>
-      ssNotPhone <b>min-width 601px</b>
+      <span>ssNotPhone</span> <b>min-width 601px</b>
     </Mq>
     <Mq>
-      ssPhone <b>max-width 600px</b>
+      <span>ssPhone</span> <b>max-width 600px</b>
     </Mq>
     <Mq>
-      ssSmallPhone <b>max-width 400px</b>
+      <span>ssSmallPhone</span> <b>max-width 400px</b>
     </Mq>
     <Mq>
-      ssTinyPhone <b>max-width 360px</b>
+      <span>ssTinyPhone</span> <b>max-width 360px</b>
     </Mq>
     <Mq>
-      ssLargeDesktop <b>min-width 1440px</b>
+      <span>ssLargeDesktop</span> <b>min-width 1440px</b>
     </Mq>
     <Mq>
-      ssVeryLargeDesktop <b>min-width 1920px</b>
+      <span>ssVeryLargeDesktop</span> <b>min-width 1920px</b>
     </Mq>
     <Mq>
-      ssPortrait <b>height &gt; width</b>
+      <span>ssPortrait</span> <b>height &gt; width</b>
     </Mq>
     <Mq>
-      ssLandscape <b>width &gt; height</b>
+      <span>ssLandscape</span> <b>width &gt; height</b>
     </Mq>
     <code>/&gt;</code>
     </Border>
@@ -96,46 +100,46 @@ const MediaQueriesDemo = () => (
 
 <Border>
   <Mq>
-    theme.mq.lg <b>min-width 931px </b>
+    <span>theme.mq.lg</span> <b>min-width 931px </b>
   </Mq>
   <Mq>
-    theme.mq.sm <b>max-width 930px</b>
+    <span>theme.mq.sm</span> <b>max-width 930px</b>
   </Mq>
   <Mq>
-    theme.mq.desktop <b>min-width 1025px</b>
+    <span>theme.mq.desktop</span> <b>min-width 1025px</b>
   </Mq>
   <Mq>
-    theme.mq.mobile <b>max-width 1024px</b>
+    <span>theme.mq.mobile</span> <b>max-width 1024px</b>
   </Mq>
   <Mq>
-    theme.mq.largeTablet <b>min-width 768px and max-width 1024px</b>
+    <span>theme.mq.largeTablet</span> <b>min-width 768px and max-width 1024px</b>
   </Mq>
   <Mq>
-    theme.mq.tablet <b>min-width 601px and max-width 1024px</b>
+    <span>theme.mq.tablet</span> <b>min-width 601px and max-width 1024px</b>
   </Mq>
   <Mq>
-    theme.mq.notPhone <b>min-width 601px</b>
+    <span>theme.mq.notPhone</span> <b>min-width 601px</b>
   </Mq>
   <Mq>
-    theme.mq.phone <b>max-width 600px</b>
+    <span>theme.mq.phone</span> <b>max-width 600px</b>
   </Mq>
   <Mq>
-    theme.mq.smallPhone <b>max-width 400px</b>
+    <span>theme.mq.smallPhone</span> <b>max-width 400px</b>
   </Mq>
   <Mq>
-    theme.mq.tinyPhone <b>max-width 360px</b>
+    <span>theme.mq.tinyPhone</span> <b>max-width 360px</b>
   </Mq>
   <Mq>
-    theme.mq.largeDesktop <b>min-width 1440px</b>
+    <span>theme.mq.largeDesktop</span> <b>min-width 1440px</b>
   </Mq>
   <Mq>
-    theme.mq.veryLargeDesktop <b>min-width 1920px</b>
+    <span>theme.mq.veryLargeDesktop</span> <b>min-width 1920px</b>
   </Mq>
   <Mq>
-    theme.mq.portrait <b>height &gt; width</b>
+    <span>theme.mq.portrait</span> <b>height &gt; width</b>
   </Mq>
   <Mq>
-    theme.mq.landscape <b>width &gt; height</b>
+    <span>theme.mq.landscape</span> <b>width &gt; height</b>
   </Mq>
   </Border>
 

@@ -96,7 +96,7 @@ const theme = {
   fontCode: typography.fonts.mono,
 
   base: 'dark',
-  brandTitle: 'Harmony UI',
+  brandTitle: 'UI development',
   brandUrl: '/',
   // brandImage: 'https://place-hold.it/350x150',
   brandTarget: '_top',

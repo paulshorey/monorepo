@@ -18,13 +18,9 @@ import Code from '@techytools/ui/components/Code';
 <Meta title="Get started/Styling/How to style" />
 
 <ThemeProvider>
-<Wrapper>
+<Wrapper bgcolor="dark">
 
-# There are multiple ways to style these components:
-
-<br />
-
-<Block as="h2" ss="margin-top: 1rem;">1. The default export is ready to use</Block>
+<Block as="h2" ss="margin-top: 1rem;" textgradient="accent">1. The default export is ready to use</Block>
 
 All components in this library accept `props.ss`, which accepts a string of SCSS or a function that takes props and returns a string.   
 
@@ -49,11 +45,11 @@ import Button from "@techytools/ui/components/content/Button";
 </Button>`}
 />
 
-<Block as="h2" ss="margin-top: 5rem;">2. Optionally use the provided HOC like Styled Components</Block>
+<Block as="h2" ss="margin-top: 5rem;" textgradient="accent">2. Alternatively, use the provided styled function</Block>
 
 Just like <CodeInline code={`styled.button\`\``}/> or <CodeInline code={`styled.div\`\``}/>, you can use <CodeInline code={`withButton()`}/> or <CodeInline code={`withDiv()`}/>  
 
-**An added feature** — pre-define <CodeInline textcolor="accent">props</CodeInline> as well as styles. It's a great way to keep your code clean. Separate markup from styles, data-generated props from manually added ones.
+🚀 **An added feature** — pre-define <CodeInline textcolor="accent">props</CodeInline> as well as styles. It's a great way to keep your code clean. Separate markup from styles, data-generated props from manually added ones.
 
 <Code
   ss="font-size: 0.85rem;"
@@ -95,7 +91,9 @@ export const MyButton = withButton({
 
 🤓 The old and new props will be combined. Style strings and classNames will be added. Other props will be replaced.   
 
-<Block as="h2" ss="margin-top: 5rem;">3. Normal Styled Components</Block>
+<Block as="h2" ss="margin-top: 5rem;" textgradient="accent">3. Or whatever you prefer</Block>
+
+Standard `style` attribute, Styled Components, or the `css` prop from `@emotion/react`.
 
 This library uses `@emotion/styled` instead of `styled-components`. It's the same thing but with extra features. Both are great. Behind the scenes it simply adds a className to the component, then writes the CSS to a global stylesheet.
 

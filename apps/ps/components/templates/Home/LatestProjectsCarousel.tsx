@@ -39,17 +39,17 @@ const style = ({ theme }) => css`
 `;
 const slides = [
   {
-    title: 'Harmony UI',
+    title: 'UI library',
     subtitle: (
       <Fragment>
-        Component library and styling system{' '}
+        React components and styling system{' '}
         <span className="noWrap">for mono-repo front ends</span>
       </Fragment>
     ),
     href: 'https://ui.paulshorey.com',
   },
   {
-    title: 'Harmony Fn',
+    title: 'Functional library',
     subtitle: (
       <Fragment>
         Universal (NodeJS and browser){' '}

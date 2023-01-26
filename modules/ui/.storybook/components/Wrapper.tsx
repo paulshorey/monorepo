@@ -17,7 +17,7 @@ const Wrapper = ({ children, ss, ...props }) => {
   display:none !important;
 }
 .sidebar-header:before {
-  content: 'Harmony UI';
+  content: 'UI development';
   font-size: 0.99rem;
   font-weight: bold;
   white-space: nowrap !important;
@@ -100,19 +100,22 @@ const Wrapper = ({ children, ss, ...props }) => {
 
   code {
     font-family: var(--font-family-code);
-    color: var(--color-accent);
+    color: currentColor;
     margin: 0;
-    opacity: 1;
+    opacity: 0.67;
     font-size: 0.9em;
     line-height: 125%;
     font-weight: 700;
     background:none;
-    border:none;
     padding:0;
   }
 
   li {
     font-size: inherit;
+  }
+
+  a {
+    color: currentColor;
   }
 `;
 
@@ -143,7 +146,7 @@ const Wrapper = ({ children, ss, ...props }) => {
 
   return (
     <Block bgcolor="purple" textcolor="light" ss={[containerCSS, ss]} {...props}>
-      <a href="/?path=/docs/get-started-setup-theme--page" style={{color: 'var(--color-light)',}}>
+      <a href="https://github.com/paulshorey/monorepo" target="_blank" style={{color: 'var(--color-light)',}}>
       <FA icon={faGithub} style={{
         position: 'absolute',
         top: '1.5rem',

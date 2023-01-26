@@ -27,7 +27,7 @@
   --color-notice: #c336e5;
 
   --color-cta: hsl(176deg 54% 50%);
-  --color-accent: #fece5c;
+  --color-accent: hsl(42, 99%, 68%);
   --color-glow: hsla(0deg, 0%, 100%, 0.125);
 }
 :root,
@@ -45,6 +45,9 @@
   );
 }
 
+[data-bgcolor='purple'] {
+  --color-accent: hsl(36, 99%, 68%);
+}
 /*
  * 
  * ⬆ ABOVE IS REQUIRED (but feel free to edit any of the values, or add your own)
@@ -81,11 +84,20 @@
  * Purple
  */
 [data-textcolor='purple'] {
-  --color-text: hsl(250, 40%, 45%); /* hsl(250, 60%, 60%);*/
+  --color-text: hsl(245, 65%, 75%); /* hsl(250, 60%, 60%);*/
   --color-text-gradient: linear-gradient(
     333deg,
-    hsl(270 50% 50%),
-    hsl(245, 75%, 67%)
+    hsl(260 55% 65%),
+    hsl(245, 75%, 80%)
+  );
+}
+[data-bgcolor='light'] [data-textcolor='purple'],
+[data-bgcolor='light'][data-textcolor='purple'] {
+  --color-text: hsl(250, 45%, 53%); /* hsl(250, 60%, 60%);*/
+  --color-text-gradient: linear-gradient(
+    333deg,
+    hsl(270 45% 51%),
+    hsl(245, 70%, 67%)
   );
 }
 [data-bgcolor='purple'] {
@@ -103,6 +115,34 @@
 [data-textcolor='accent'] {
   --color-text: var(--color-accent);
   --color-text-gradient: linear-gradient(#fece5c, #ffa500);
+}
+
+/*
+ * Cool
+ */
+[data-textcolor='cool'] {
+  --color-text: hsl(190, 65%, 70%);
+  --color-text-gradient: linear-gradient(
+    hsl(170, 65%, 80%),
+    hsl(200, 65%, 60%)
+  );
+}
+[data-bgcolor='light'] [data-textcolor='cool'] {
+  /* darker and brighter more saturation version of data-bgcolor='cool' colors: */
+  --color-text: hsl(194, 89%, 47%);
+  --color-text-gradient: linear-gradient(
+    hsl(182, 62%, 52%),
+    hsl(212, 52%, 52%)
+  );
+}
+[data-bgcolor='cool'] {
+  --color-bg: hsl(194, 69%, 67%);
+  --color-bg-gradient: linear-gradient(hsl(167, 37%, 59%), hsl(220, 90%, 75%));
+}
+[data-bgcolor='light'] [data-bgcolor='cool'] {
+  /* darker and brighter more saturation version of data-bgcolor='cool' colors: */
+  --color-bg: hsl(194, 89%, 37%);
+  --color-bg-gradient: linear-gradient(hsl(167, 57%, 29%), hsl(220, 100%, 45%));
 }
 
 /*

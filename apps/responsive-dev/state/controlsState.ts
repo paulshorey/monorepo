@@ -1,5 +1,5 @@
 import { persist } from 'zustand/middleware';
-import create from 'zustand';
+import { create } from 'zustand';
 
 /*
  * TODO: maybe refactor this? host/path use redundant logic
@@ -59,7 +59,7 @@ const controls = create(
           ],
         ],
       },
-      sizePresetKey: 'typical sizes',
+      sizePresetKey: 'desktop devices',
       set_size: (key) => {
         set({ sizePresetKey: key });
       },

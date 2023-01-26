@@ -17,7 +17,7 @@ export default function Home() {
       <Block as="main" bgcolor="dark" textcolor="light">
         <H1>
           This is a very very simple Next.js website that includes only a couple
-          of Harmony UI components.
+          of custom UI components.
         </H1>
         <Block as="p">
           The purpose for this is to (1) test that the library is working

@@ -11,8 +11,8 @@
     "pm2": "bash _bash/_start_dev_pm2.sh",
     "production": "echo 'Run _bash/_start_remote.sh. Read bottom of README.md first.'",
     "stop": "bash _bash/_stop.sh",
-    "Xbuild": "tsc && echo \"tsc is only for testing types/imports. To start the app, see README.md\"",
-    "Xtest": "NODE_OPTIONS=--experimental-vm-modules jest",
+    "buildx": "tsc && echo \"tsc is only for testing types/imports. To start the app, see README.md\"",
+    "testx": "NODE_OPTIONS=--experimental-vm-modules jest",
     "test:dev": "NODE_OPTIONS=--experimental-vm-modules jest --detectOpenHandles --watch"
   },
   "dependencies": {

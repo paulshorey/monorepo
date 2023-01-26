@@ -1,4 +1,5 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import Link from '@techytools/ui/components/Link';
 import Block from '@techytools/ui/components/Block';
 import Inline from '@techytools/ui/components/Inline';
 import CodeInline from '@techytools/ui/components/CodeInline';
@@ -20,12 +21,12 @@ import Code from '@techytools/ui/components/Code';
 <ThemeProvider>
 <Wrapper>
 
-<Block as="h1" ss="padding-bottom:1rem;margin-top:0;">This is a work in progress</Block> 
+<Block as="h1" ss="margin-top: 0;" textgradient="accent">This is a work in progress</Block> 
 
 Couple of the things mentioned in this documentation may be broken or not finished. Sorry about that. This is just a start.
 
 
-<Block as="h2" ss="padding:4rem 0 1rem;margin-top:0;">Goals of this project</Block>   
+<Block as="h2" ss="padding:4rem 0 1rem;margin-top:0;" textgradient="accent">Goals of this project</Block>   
     
   
 
@@ -38,11 +39,20 @@ This is meant to be used with a compiler/bundler like Webpack or NextJS's new Ru
 ### 3. Mono repo  
 This is not meant to be a complete collection like Mui.com or Ant.design. Instead this is meant as an ever-growing collection that you maintain alongside your apps. Add or edit a component whenever you need to make a new feature. If you need to add a unique feature just for the one app, keep it in your app. But if you're making a new feature or adjustment that could be used by other apps in the future, add it to this library.
 
-<br />
-<br />
 
-**More documentation coming soon...**
+<Block as="h2" ss="padding:4rem 0 1rem;margin-top:0;" textgradient="accent">Future plans</Block>
 
+Currently exploring new frameworks like `Astro`, `Qwik`, `Remix`, `Solid`, and others, which do not require the client to download ALL THE HEAVY JS files before the page becomes interactive. That is the future.
+
+Also exploring the new <Link href="https://mitosis.builder.io">mitosis.builder.io</Link>, <Link href="https://lit.dev">lit.dev</Link>, and <Link href="https://shoelace.style">shoelace.style</Link> projects that make it possible to write interactive web components that can be used in any framework. That is the future.
+
+I was going to call this library "Harmony UI". But it's just not harmonious enough yet. The general goals are to: 
+
+- use JS and CSS in harmony with each other, instead of brute forcing web app styling with "JS-only" libraries (✅ done, using `colors.css` CSS properties together with @emotion CSS-in-JS files)
+- import these library components from any app in a monorepo (✅ done, but only for React apps)
+- import these library components from any web app (💡 to do)
+
+~ Paul Shorey (<Link href="https://paulshorey.com">paulshorey.com</Link>)
 
 </Wrapper>
 </ThemeProvider>

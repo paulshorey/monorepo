@@ -12,14 +12,14 @@ import Wrapper from '@techytools/ui/.storybook/components/Wrapper';
 <ThemeProvider>
   <Wrapper bgcolor="dark">
 
-## Here are 2 blocks with different color schemes:
+<Block as="h2" ss="margin-top: 0;" textgradient="accent">Here are 2 blocks with different color schemes:</Block>
 
 Below buttons are wrapped in a `<Block textcolor="light" bgcolor="purple">` and a `<Block textcolor="purple" bgcolor="light">`. All children components can read the colors of their ancestors. You don't have to apply unique rules to each element. Elements can inherit the light/dark or any other color scheme from its grandparent.
 
 
 Colors are managed in `colors.css`. So, they can cascade. All other variables are managed in `theme.ts`.   
 
-Set colors on any component or HTML element by passing <Inline textcolor="cta">textcolor</Inline> or <Inline bgcolor="cta">bgcolor</Inline> attributes. Make it a gradient by passing <Inline textgradient="rainbow">textgradient</Inline> or <Inline bggradient="rainbow">bggradient</Inline>. Pass these attributes to any parent. It will be read by all children and grandchildren.  
+Set colors on any component or HTML element by passing <Inline textcolor="cool">textcolor</Inline> or <Inline bgcolor="cool" textcolor="dark">bgcolor</Inline> attributes. Make it a gradient by passing <Inline textgradient="rainbow">textgradient</Inline> or <Inline bggradient="rainbow" textcolor="dark">bggradient</Inline>. Pass these attributes to any parent. It will be read by all children and grandchildren.  
 
 
 <br />
@@ -27,7 +27,7 @@ Set colors on any component or HTML element by passing <Inline textcolor="cta">t
 <Block textcolor="light" bggradient="purple" ss="padding: 1rem;">
   <Block variant="articleX" ss="padding-top:1.25rem;">
     <Buttons />
-    <Button size="sm" textcolor="rainbow" ss="margin: 0 0.875rem 0.875rem 0;">
+    <Button size="sm" textcolor="cool" ss="margin: 0 0.875rem 0.875rem 0;">
       Different color
     </Button>
     <Code
@@ -53,7 +53,7 @@ import Button from '@techytools/ui/components/Button';
   />
   
   {/* Specify a different textcolor. It will remember the bgcolor from its parents. */}
-  <Button textcolor="rainbow">
+  <Button textcolor="cool">
     Different color
   </Button>
   
@@ -66,15 +66,13 @@ import Button from '@techytools/ui/components/Button';
   <Block variant="articleX">
     <Block as="h3">Different color scheme:</Block>
     <Buttons />
-    <Button size="sm" textcolor="cta" ss="margin: 0 0.875rem 0.875rem 0;">
+    <Button size="sm" textcolor="cool" ss="margin: 0 0.875rem 0.875rem 0;">
       Different color
     </Button>
     <Code
-      collapsed={true}
       code={`// Exactly same code for buttons. Just change the wrapper colors:
 <Block textcolor="purple" bgcolor="light">
   ...
-  <Button textcolor="cta">Different color</Button>
 </Block>`}
     />
   </Block>
@@ -82,18 +80,14 @@ import Button from '@techytools/ui/components/Button';
 
 <br />
 
-Other styling systems only support setting a light/dark scheme once on the entire web page. But what if your app has a dark sidebar with light text while the main content is light background with dark text? What if you have several different sections like this? You'd have to style each individual element. This library allows styling sections with different color schemes more easily. Not just light/dark, but any background/text color combinations.  
-
+☝️ <Inline textcolor="accent">Notice</Inline> how the "cool" alternative color is different on light vs dark background. It knows what background it's on and adjusts automatically. This is optional. You can set the variants as standard CSS properties in `colors.css`. 
 
 <br />
 
 <Block as="h2" textgradient="rainbow">Putting the "C" back into "CSS-in-JS"...</Block>
 
-The child elements will be able to see what color background and text the parent/grandparent elements have. This is not possible with CSS-in-JS. A stylesheet (colors.css) sets CSS properties based on the dataset attributes. It works the same way as using classNames. CSS colors are managed in a CSS stylesheet, not in a JS theme object. Because CSS naturally cascades, all children elements are able to use the set CSS variables to apply text color, background, border, gradient, etc.
+🎨 Other styling systems only support setting a color scheme once on the entire web page. But what if your app has a dark sidebar with light text while the main content is light background with dark text? What if you have several different sections like this? You'd have to style each individual element. This library allows styling sections with different color schemes more easily. Not just light/dark, but any background/text color combinations.  
 
-<br />
-<br />
-
-More examples coming soon...
+🌊 All CSS properties (like colors) cascade down from parent to child. The child elements will be able to see what color background and text the parent/grandparent elements have. This is not possible with CSS-in-JS. Here, instead, a stylesheet (colors.css) sets CSS properties based on the dataset attributes. It works the same way as using classNames. CSS colors are managed in a CSS stylesheet, not in a JS theme object. Because CSS naturally cascades, all children elements are able to use the set CSS variables to apply text color, background, border, gradient, etc.
 </Wrapper>
 </ThemeProvider>
