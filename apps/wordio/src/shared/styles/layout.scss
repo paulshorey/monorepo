@@ -1,0 +1,81 @@
+.content {
+  &.right {
+    text-align: right;
+  }
+  &.center {
+    text-align: center;
+  }
+
+  .absolute-right {
+    position: absolute;
+    right: 0;
+  }
+
+  @media (max-width: 699px) {
+    margin-right: 1rem;
+    margin-left: 2rem;
+  }
+
+  @media (max-width: 599px) {
+    margin-right: 0.75rem;
+    //margin-left: 1.5rem;
+    margin-left: 1.75rem;
+  }
+
+  position: relative;
+  margin-right: 8vw;
+  margin-left: 8vw;
+
+  @media (min-width: 1299px) {
+    margin-right: 11vw;
+    margin-left: 11vw;
+  }
+
+  @media (min-width: 1699px) {
+    margin-right: 15vw;
+    margin-left: 15vw;
+  }
+
+  &.fullwidth {
+    margin-right: 0;
+    margin-left: 0;
+  }
+  &.widewidth {
+    @media (min-width: 700px) {
+      margin-right: 1.25rem;
+      margin-left: 2rem;
+    }
+  }
+  &.verywide {
+    @media (min-width: 700px) {
+      margin-right: 0.8rem;
+      margin-left: 0.8rem;
+    }
+  }
+  &.page {
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+  }
+}
+
+//.fixedBottomRightContent {
+//  position: fixed;
+//  bottom: 0;
+//  right: 8vw;
+//
+//  @media (max-height: 799px) {
+//	border-bottom-left-radius: 0;
+//	border-bottom-right-radius: 0;
+//	bottom: 0;
+//  }
+//
+//  @media (max-width: 699px) {
+//	right: 2.5rem;
+//  }
+//
+//  @media (max-width: 599px) {
+//	right: 1.5rem;
+//	bottom: 0;
+//  }
+//}
+//

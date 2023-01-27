@@ -5,6 +5,7 @@ import variants from './styles';
 import blur from '@techytools/ui/helpers/blur';
 import withStyles from '@techytools/ui/hooks/withStyles';
 import styleProps from '@techytools/ui/types/styles';
+import { styledTags } from '@techytools/ui/types/styles';
 
 export type Props = {
   /**
@@ -31,33 +32,43 @@ export type Props = {
    * Align the dropdown to the bottom edge of the children
    */
   bottom?: boolean;
-
+  /**
+   * The tabIndex of the dropdown menu. Defaults to undefined
+   */
+  tabIndex?: number;
+  /**
+   * HTML element tag name to render. Styles and functionality will not be changed, but the HTML tag will affect the default styles.
+   */
+  as?: styledTags;
   children?: any;
 } & styleProps;
 
 /**
- * IMPORTANT: This component does NOT add tabIndex to any elements. You can add `tabIndex: 0` yourself to the target and/or to menu items to make them keyboard accessible.
+ * IMPORTANT: This component does NOT add tabIndex to any elements, unless you pass props.tabIndex.
+ * You can add `tabIndex: 0` yourself to the target and/or to menu items to make them keyboard accessible.
  */
 export const Component = (props: Props, ref: any) => {
-  const { menu, children, ...rest } = props;
+  const { as, menu, children, tabIndex = undefined, ...rest } = props;
   const handleClick = () => {
     setTimeout(blur, 300);
   };
+  const Tag = `${as || 'div'}`;
   return (
-    <div {...rest} ref={ref}>
+    // @ts-ignore - Tag is a div or other valid html element
+    <Tag {...rest} ref={ref}>
       {children}
       {!props.left && !props.right ? (
         <CenterChildrenX
           className="Dropdown__menuContainer"
           onClick={handleClick}
         >
-          <div tabIndex={0} className="Dropdown__menu" role="menu">
+          <div tabIndex={tabIndex} className="Dropdown__menu" role="menu">
             {menu}
           </div>
         </CenterChildrenX>
       ) : (
         <div
-          tabIndex={0}
+          tabIndex={tabIndex}
           className="Dropdown__menu Dropdown__menuContainer"
           role="menu"
           onClick={handleClick}
@@ -65,7 +76,7 @@ export const Component = (props: Props, ref: any) => {
           {menu}
         </div>
       )}
-    </div>
+    </Tag>
   );
 };
 

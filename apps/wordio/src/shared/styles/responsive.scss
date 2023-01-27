@@ -1,0 +1,95 @@
+/*
+ * 1rem =
+ */
+html {
+  font-size: 20px; /* 4K */
+  //@media (max-aspect-ratio: 3/2) {
+  @media (max-width: 2400px) {
+    font-size: 18.75px;
+  }
+  @media (max-width: 2200px) {
+    font-size: 17.75px;
+  }
+  @media (max-width: 1800px) {
+    font-size: 17.25px;
+  }
+  @media (max-width: 1650px) {
+    font-size: 17px;
+  }
+  @media (max-width: 1500px) {
+    font-size: 16.75px;
+  }
+  @media (max-width: 1350px) {
+    font-size: 16.5px;
+  }
+  @media (max-width: 1200px) {
+    font-size: 16.25px;
+  }
+  @media (max-width: 900px) {
+    font-size: 16px;
+  }
+  @media (max-width: 700px) {
+    font-size: 15.75px;
+  }
+  @media (max-width: 400px) {
+    font-size: 15.5px;
+  }
+  //}
+}
+
+body#body {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/*
+ * Classes / Shortcuts
+ */
+.invisible-small {
+  @media (max-width: 629px) {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+/*
+ * breakpoint "small" < 600
+ */
+.inline-small {
+  @media (max-width: 629px) {
+    display: inline;
+  }
+}
+.inline-medium {
+  @media (max-width: 950px) {
+    display: inline;
+  }
+}
+.hide-small {
+  @media (max-width: 629px) {
+    display: none !important;
+  }
+}
+.show-small {
+  @media (min-width: 630px) {
+    display: none !important;
+  }
+}
+/*
+ * breakpoint "large" > 950
+ */
+.div-large {
+  @media (min-width: 950px) {
+    display: block;
+  }
+}
+.hide-large {
+  @media (min-width: 950px) {
+    display: none !important;
+  }
+}
+.show-large {
+  @media (max-width: 949px) {
+    display: none !important;
+  }
+}

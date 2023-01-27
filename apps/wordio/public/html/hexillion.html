@@ -1,0 +1,28 @@
+<html>
+<body>
+  <hr />
+  <input type="text" placeholder="whoisxmlapi.com" onBlur="check(this.value)" />
+  <button type="submit">hexillion whois</button>
+  <hr />
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+
+    const check = function(domainName) {
+      console.log('domainName', domainName)
+      const apiKey = 'at_FyjIk4njtGf8NdmeSWzBMqnDvQIQp'
+      $.ajax({
+        url: 'https://www.whoisxmlapi.com/whoisserver/WhoisService?',
+        dataType: 'json',
+        data: {
+          domainName: domainName,
+          apiKey: apiKey,
+          outputFormat: 'JSON',
+        },
+        complete: function(data) {
+          $('body').append('<pre>' + JSON.stringify(data.responseJSON, '&nbsp;', 2) + '</pre>')
+        },
+      })
+    }
+</script>
+</body>
+</html>
