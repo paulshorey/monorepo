@@ -1,0 +1,7 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "nextjs",
+  "buildCommand": "yarn build",
+  "devCommand": "yarn dev",
+  "installCommand": "cd ../.. && find apps apis -type d -maxdepth 1 -mindepth 1 -print | grep -v \"wordio\" | xargs rm -rf && yarn"
+}
