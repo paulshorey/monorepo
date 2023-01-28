@@ -66,16 +66,12 @@ ufw allow 443/tcp
 #
 # domainAvailability
 echo "Reset cache files"
-rm -rf $rootdir/tmp/localStorage-domainsAvailability
-sleep 2
+rm -rf $rootdir/tmp
+mkdir $rootdir/tmp
+#
+sleep 4
 mkdir $rootdir/tmp/localStorage-domainsAvailability
-# ?
-rm -rf $rootdir/tmp/localStorage-trustClientIPs
-sleep 2
 mkdir $rootdir/tmp/localStorage-trustClientIPs
-# whois
-rm -rf $rootdir/tmp/localStorage-whois6
-sleep 2
 mkdir $rootdir/tmp/localStorage-whois6
 
 #
