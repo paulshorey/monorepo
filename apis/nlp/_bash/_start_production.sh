@@ -2,8 +2,8 @@
 ##/etc/init.d/logdna-agent start
 echo "_start_production.sh"
 cwd=$( cd "$(dirname "$0")" ; pwd -P )
-rootdir=$cwd/../
-monodir=$rootdir/../../
+rootdir=$cwd/..
+monodir=$rootdir/../..
 cd $monodir
 echo "\$cwd = $cwd"
 echo "\$rootdir = $rootdir"
