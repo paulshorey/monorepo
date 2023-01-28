@@ -69,5 +69,6 @@ export const httpResponse = function (res, res_status_code = 200, data = {}, met
     documentation: "https://documenter.getpostman.com/view/23360867/2s8YzXtewC"
   }
   res.write(JSON.stringify(output, null, "\t"))
+  console.log("res.end()")
   res.end()
 }

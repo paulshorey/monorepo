@@ -107,7 +107,7 @@ export default function (this: boundContext): void {
           addColor = "\x1b[46m\x1b[30m%s\x1b[0m";
           break;
         case "log":
-          addColor = "\x1b[47m\x1b[30m%s\x1b[0m";
+          addColor = "\x1b[45m\x1b[30m%s\x1b[0m";
           break;
         case "debug":
           addColor = "\x1b[45m\x1b[30m%s\x1b[0m";
