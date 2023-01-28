@@ -5,6 +5,8 @@ cwd=$( cd "$(dirname "$0")" ; pwd -P )
 rootdir=$cwd/../
 monodir=$rootdir/../../
 cd $monodir
+echo "\$cwd = $cwd"
+echo "\$rootdir = $rootdir"
 
 # 
 # This script is run by /etc/crontab
@@ -84,3 +86,5 @@ pm2 stop all || true
 pm2 delete all || true
 pm2 start ts-node-esm -f -- --transpile-only --esm --experimental-specifier-resolution=node -r tsconfig-paths/register $rootdir/api;
 pm2 monit;
+
+# ts-node-esm --transpile-only --esm --experimental-specifier-resolution=node -r tsconfig-paths/register api
