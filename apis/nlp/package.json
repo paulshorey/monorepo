@@ -18,10 +18,10 @@
   "dependencies": {
     "@airbrake/node": "^1.0.7",
     "@logdna/logger": "^2.6.6",
-    "@supercharge/request-ip": "^1.1.2",
     "@ps/secrets": "*",
-    "@techytools/constants": "*",
+    "@supercharge/request-ip": "^1.1.2",
     "@techytools/cc": "*",
+    "@techytools/constants": "*",
     "@techytools/fn": "*",
     "@types/cors": "^2.8.12",
     "axios": "^0.19.0",
@@ -32,7 +32,8 @@
     "logdna": "^3.5.3",
     "node-localstorage": "^2.1.6",
     "pg": "^8.7.3",
-    "pg-pool": "^3.5.1"
+    "pg-pool": "^3.5.1",
+    "tsconfig-paths": "^4.1.2"
   },
   "devDependencies": {
     "@babel/core": "^7.20.7",

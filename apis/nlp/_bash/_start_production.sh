@@ -43,6 +43,7 @@ echo "Remove unused packages"
 rm -rf $rootdir/apps
 rm -rf $rootdir/modules/ui
 find $rootdir/apis -type d -maxdepth 1 -mindepth 1 -print | grep -v "nlp" | xargs rm -rf
+# find .. -type d -maxdepth 1 -mindepth 1 -print | grep -v "nlp" | xargs echo
 
 #
 # Reset Install all monorepo dependencies
