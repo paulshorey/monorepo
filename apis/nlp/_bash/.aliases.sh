@@ -1,4 +1,10 @@
 #!/usr/bin/env bash
+alias sublime='open -a /Applications/Sublime\ Text.app/Contents/MacOS/Sublime\ Text';
+alias vscode='open -a /Applications/Visual\ Studio\ Code.app/Contents/MacOS/Electron';
+alias vs='open -a /Applications/Visual\ Studio\ Code.app/Contents/MacOS/Electron';
+alias webstorm='open -a /Applications/WebStorm.app/Contents/MacOS/webstorm';
+alias ws='open -a /Applications/WebStorm.app/Contents/MacOS/webstorm';
+
 eval "$(ssh-agent -s)"; 
 ssh-add ~/.ssh/2022;
 ssh-add ~/.ssh/newssh;
@@ -19,9 +25,24 @@ ssh-add ~/.ssh/newssh;
 # VARIOUS UTILITIES
 #############################################################
 
-## Opens a new iTerm tab:
+## Opens a new iTerm tab
+## cd into current directory + relative directory specified by the first argument:
 function newtab() {
-  open $1 -a iterm
+  PWD=$(pwd)
+  echo "opening new tab to directory $PWD$1"
+
+  osascript -e 'tell application "iTerm2"
+    tell current window
+        create tab with default profile
+    end tell
+  end tell'
+
+  osascript -e "tell application \"iTerm2\"
+    tell current session of current window
+        write text \"cd $PWD/$1\"
+        write text \"echo $PWD/$1 = $(pwd)\"
+    end tell
+  end tell"
 }
 
 ## Gives permission to the current user to modify the current directory and all its files:
@@ -39,7 +60,7 @@ alias chmodme='sudo chmod -R u+w .';
 function yclean() {
   npm cache clean --force && 
   find . \( -name "out" -o -name ".next" -o -name "node_modules" \) -type d -prune -exec rm -rf '{}' +
-  find . \( -name "package-lock.json" -o -name "yarn.lock" -o -name "yarn-error.log" \) -type f -prune -exec rm -rf '{}' +
+  find . \( -name "pnpm-lock.yaml" -o -name "package-lock.json" -o -name "yarn.lock" -o -name "yarn-error.log" \) -type f -prune -exec rm -rf '{}' +
 }
 
 function yi() {
@@ -55,9 +76,48 @@ function yu() {
 function yr() {
   yarn run "$@"
 }
-alias ydev='rm -rf .next && yarn run dev || $(echo -e "\e[1;41m\n\ndev COMMAND NOT FOUND - TRYING yarn run build && yarn run start ...\n\n\033[0m" && yarn run build && yarn run start)'
+alias ydev='rm -rf .next && yarn run dev'
 alias ybuild='yarn run build'
 alias yname='git remote get-url origin'
+
+# This doesn't do anything. Just a template for future functions. Still need to figure out how to add auto-completion
+function example12() {
+    FILTER1=""
+    FILTER2=""
+
+    while [[ $# -gt 0 ]]
+    do
+        key="$1"
+        case $key in
+            -f|--filter|-f1|--filter1)
+                FILTER1="$2"
+                shift # past argument
+                shift # past value
+                ;;
+            -f=*|--filter=*|-f1=*|--filter1=*)
+                FILTER1="${key#*=}"
+                shift # past argument=value
+                ;;
+            -f2|--filter2)
+                FILTER2="$2"
+                shift # past argument
+                shift # past value
+                ;;
+            -f2=*|--filter2=*)
+                FILTER2="${key#*=}"
+                shift # past argument=value
+                ;;
+            *)
+                # unknown option
+                echo "Error: Unexpected argument: $key"
+                return 1
+                ;;
+        esac
+    done
+
+    echo "Filter1 value: $FILTER1"
+    echo "Filter2 value: $FILTER2"
+}
 
 #############################################################
 # GIT 

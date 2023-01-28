@@ -32,6 +32,7 @@ branch=$(git symbolic-ref --short HEAD);
 git reset --hard HEAD # clear local changes
 git reset --hard origin/$branch # reset to remote
 git pull
+source $rootdir/_bash/.aliases.sh
 
 #
 # Remove unused packages, to not waste time/space installing their dependencies
