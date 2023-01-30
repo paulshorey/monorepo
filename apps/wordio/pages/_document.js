@@ -1,6 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 
-const HOST = process.env.NEXT_PUBLIC_HOST;
 const MIXPANEL_ID = "26c4e58776d95d6b5cd410d29874cba5";
 
 export default class MyDocument extends Document {
@@ -15,7 +14,7 @@ export default class MyDocument extends Document {
             content="Find the best available domain name. Our AI analyzes 2000 TLDs, and 10000000 synonyms, then generates 100s of available domain names."
           />
           <meta property="og:image" content="/gfx/square/avatar-og.png" />
-          {HOST === "wordio.co" ? (
+          {process.env.NEXT_PUBLIC_HOST === "wordio.co" ? (
             <>
               <link rel="apple-touch-icon" sizes="180x180" href="/logo/favicon_w/apple-touch-icon.png" />
               <link rel="icon" type="image/png" sizes="32x32" href="/logo/favicon_w/favicon-32x32.png" />
@@ -50,7 +49,7 @@ export default class MyDocument extends Document {
             <input type="hidden" name="tld" value=".app" />
             <button type="submit">Search</button>
           </form>
-          <script src="/scripts/onLoad.js" data-host={HOST} />
+          <script src="/scripts/onLoad.js" data-host={process.env.NEXT_PUBLIC_HOST} />
 
           {/* RECAPTCHA */}
           <script src="https://www.google.com/recaptcha/api.js?render=6LfSN-MUAAAAAOxMUojSlBxkicjSeX1YLW8ds8C1" />

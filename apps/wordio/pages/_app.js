@@ -1,4 +1,3 @@
-import Head from "next/head";
 import "typeface-quicksand";
 
 import "src/shared/styles/variables.scss";
@@ -50,6 +49,7 @@ export default function App({ Component, pageProps }) {
      */
     analytics_track_page({
       name: newName,
+      path: newUrl,
     });
   };
   const router = useRouter();
@@ -68,7 +68,6 @@ export default function App({ Component, pageProps }) {
   return (
     <Provider store={store}>
       <ThemeProvider>
-        <Head />
         <Component {...pageProps} />
       </ThemeProvider>
     </Provider>

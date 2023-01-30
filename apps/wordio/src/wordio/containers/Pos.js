@@ -1,77 +1,77 @@
-import React from "react"
-import Hint from "src/shared/components/Hint"
-import PosWord from "./PosWord"
-import pos_expand from "src/shared/data/words/function/pos_expand"
+import React from "react";
+import Hint from "src/admin/components/Hint";
+import PosWord from "./PosWord";
+import pos_expand from "src/shared/data/words/function/pos_expand";
 
 export default class extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      advanced: props.expand || false
-    }
+      advanced: props.expand || false,
+    };
   }
 
   render() {
-    let { pos, row, api_actions } = this.props
+    let { pos, row, api_actions } = this.props;
     /*
      * validate
      */
     if (!pos) {
-      return null
+      return null;
     }
     /*
      * slice of row.synonyms,
      * with before/after
      */
-    let sdict_n = 0
-    let sdict = {}
+    let sdict_n = 0;
+    let sdict = {};
     for (let syn of row.synonyms) {
-      let word = syn[0]
+      let word = syn[0];
       if (pos === syn[4]) {
         /*
          * Create tuple of 3 numbers:
          * [ 0-1 (sentiment bad - ok), 0-1 (lowercase - proper), 0-1 (sentiment known - unknown) ]
          */
-        sdict[word] = syn.slice(1, 4)
-        sdict_n++
+        sdict[word] = syn.slice(1, 4);
+        sdict_n++;
       }
     }
     if (!sdict_n) {
-      return null
+      return null;
     }
-    let slist = Object.entries(sdict)
+    let slist = Object.entries(sdict);
     let ListOk = slist
       .map((tuple) => {
-        let [word, info] = tuple
+        let [word, info] = tuple;
         if (info[0] === 1 && info[1] === 0) {
-          return <PosWord api_actions={api_actions} key={word} word={word} />
+          return <PosWord api_actions={api_actions} key={word} word={word} />;
         }
       })
-      .filter((val) => !!val)
+      .filter((val) => !!val);
     let ListBad = slist
       .map((tuple) => {
-        let [word, info] = tuple
+        let [word, info] = tuple;
         if (info[0] === 0 && info[1] === 0) {
-          return <PosWord api_actions={api_actions} key={word} word={word} />
+          return <PosWord api_actions={api_actions} key={word} word={word} />;
         }
       })
-      .filter((val) => !!val)
+      .filter((val) => !!val);
     let ListProper = slist
       .map((tuple) => {
-        let [word, info] = tuple
+        let [word, info] = tuple;
         if (info[1] === 1) {
-          return <PosWord api_actions={api_actions} key={word} word={word} />
+          return <PosWord api_actions={api_actions} key={word} word={word} />;
         }
       })
-      .filter((val) => !!val)
+      .filter((val) => !!val);
     let ListUnknown = slist
       .map((tuple) => {
-        let [word, info] = tuple
+        let [word, info] = tuple;
         if (info[2] === 1) {
-          return <PosWord api_actions={api_actions} key={word} word={word} />
+          return <PosWord api_actions={api_actions} key={word} word={word} />;
         }
       })
-      .filter((val) => !!val)
+      .filter((val) => !!val);
 
     /*
      *
@@ -79,7 +79,7 @@ export default class extends React.Component {
      *
      */
     if (!ListOk.length && !ListBad.length && !ListProper.length && !ListUnknown.length) {
-      return null
+      return null;
     }
     return (
       <div className={"ui-form-section advanced"}>
@@ -134,6 +134,6 @@ export default class extends React.Component {
         {/*  <FA icon={faAngleUp} className="faAngleUp" />*/}
         {/*</p>*/}
       </div>
-    )
+    );
   }
 }

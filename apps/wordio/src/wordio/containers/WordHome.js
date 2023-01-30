@@ -3,8 +3,13 @@ import Head from "next/head";
 import Search from "src/shared/components/Search";
 import { StyledHome } from "./WordHome.styled";
 import ApiExplorer from "src/wordio/components/ApiExplorer";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import * as ui_actions from "src/shared/redux/actions/ui";
+import api_actions from "src/shared/redux/actions/api";
+import * as io_actions from "src/shared/redux/actions/io";
 
-export default function (props) {
+const WordHome = function (props) {
   return (
     <StyledHome>
       <Head>
@@ -33,4 +38,23 @@ export default function (props) {
       <ApiExplorer />
     </StyledHome>
   );
-}
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    ui_actions: bindActionCreators(ui_actions, dispatch),
+    api_actions: bindActionCreators(api_actions, dispatch),
+    io_actions: bindActionCreators(io_actions, dispatch),
+  };
+};
+
+const mapStateToProps = function (state) {
+  return {
+    ui: state.ui,
+    word_input: state.input.str,
+    word_chunks: state.output.chunks,
+    search_now: state.input.search_now,
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(WordHome);

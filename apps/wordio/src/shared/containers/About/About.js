@@ -5,7 +5,7 @@ import { AboutUs, ContactUsButton } from "./About.styled";
 import { FontAwesomeIcon as FA } from "@fortawesome/react-fontawesome";
 import { faCommentDots } from "@fortawesome/pro-solid-svg-icons";
 import { faCalendarStar } from "@fortawesome/pro-regular-svg-icons";
-import ImgCarousel from "src/shared/components/Carousels/AboutUs";
+import ImgCarousel from "src/shared/components/CarouselAbout";
 import { withRouter } from "next/router";
 
 const _ = () => <span style={{ width: "5px" }} />;

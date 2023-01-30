@@ -14,6 +14,14 @@ export const analytics_track_page = function (
     experiments?: any; // experiments in the page
   } & Record<string, any>
 ): void {
+  if (!options.name) {
+    console.error("analytics_track_page: missing options.name");
+    return;
+  }
+  if (!options.path) {
+    console.error("analytics_track_page: missing options.path");
+    return;
+  }
   // remove trailing slash
   options.path = options.path.replace(/[\/]+$/, "");
   // keep lash if root

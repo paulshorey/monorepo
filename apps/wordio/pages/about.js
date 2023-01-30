@@ -1,7 +1,7 @@
-import React from "react"
-import App from "src/shared/components/App"
-import Footer from "src/shared/components/Footer"
-import About from "src/shared/containers/About"
+import React from "react";
+import App from "src/shared/components/Layout";
+import Footer from "src/shared/components/Footer";
+import About from "src/shared/containers/About";
 
 class RootIndex extends React.Component {
   render() {
@@ -10,8 +10,8 @@ class RootIndex extends React.Component {
         <About />
         <Footer />
       </App>
-    )
+    );
   }
 }
 
-export default RootIndex
+export default RootIndex;

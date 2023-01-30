@@ -1,5 +1,5 @@
 import React from "react";
-import App from "src/shared/components/App";
+import App from "src/shared/components/Layout";
 import Header from "src/wordio/components/Header";
 import { withRouter } from "next/router";
 const HOST = process.env.NEXT_PUBLIC_HOST;

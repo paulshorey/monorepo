@@ -1,10 +1,10 @@
-import App from "../src/shared/components/App";
-import Word from "src/wordio/containers/Word";
+import App from "../src/shared/components/Layout";
+import WordHome from "src/wordio/containers/WordHome";
 
 export default function Home() {
   return (
     <App>
-      <Word />
+      <WordHome />
     </App>
   );
 }

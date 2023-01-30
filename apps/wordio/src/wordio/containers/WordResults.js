@@ -9,8 +9,13 @@ import { FontAwesomeIcon as FA } from "@fortawesome/react-fontawesome";
 import PosWord from "./PosWord";
 import Search from "src/shared/components/Search";
 import Head from "next/head";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import * as ui_actions from "src/shared/redux/actions/ui";
+import api_actions from "src/shared/redux/actions/api";
+import * as io_actions from "src/shared/redux/actions/io";
 
-export default function (props) {
+const WordResults = function (props) {
   /*
    * Search
    */
@@ -45,11 +50,11 @@ export default function (props) {
     </>
   );
   /*
-   * Variables
+   * Data
    */
-  // for content
   let { word_input, word_chunks, api_actions, ui } = props;
-  if (word_input && !word_chunks[word_input]) {
+  let row = word_chunks[word_input];
+  if (!row || (word_input && !word_chunks[word_input])) {
     if (ui.loading) {
       return (
         <>
@@ -77,7 +82,6 @@ export default function (props) {
       </>
     );
   }
-  let row = word_chunks[word_input];
   let domains = [...new Set((row.tlds || []).flat())];
   let best_of = (row.pos_short || {}).all || [];
 
@@ -181,4 +185,23 @@ export default function (props) {
       </StyledResults>
     </>
   );
-}
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    ui_actions: bindActionCreators(ui_actions, dispatch),
+    api_actions: bindActionCreators(api_actions, dispatch),
+    io_actions: bindActionCreators(io_actions, dispatch),
+  };
+};
+
+const mapStateToProps = function (state) {
+  return {
+    ui: state.ui,
+    word_input: state.input.str,
+    word_chunks: state.output.chunks,
+    search_now: state.input.search_now,
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(WordResults);
