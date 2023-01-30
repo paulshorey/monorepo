@@ -247,6 +247,21 @@ export default {
     text-shadow: none !important;
     box-shadow: none;
   `,
+  link: (props) => css`
+    // inverse parent bg color
+    color: var(--color-text);
+    .withRipple {
+      background-color: var(--color-text);
+    }
+    // all other styles
+    background: none;
+    text-shadow: none !important;
+    box-shadow: none;
+    &:hover {
+      text-decoration: underline;
+      box-shadow: none !important;
+    }
+  `,
   spinning: css`
     svg {
       animation: spin-linear 2s infinite linear;

@@ -24,36 +24,24 @@ import { withRouter } from "next/router";
 // import { faAngleDown } from "@fortawesome/pro-solid-svg-icons"
 // import cconsole from "colorful-console-logger"
 import ContextUrlParams from "src/shared/context/UrlParams";
-
-/*
- * CAPTCHA:
- *
- * in production, wait for captcha success, or abort fetching data
- * in development, query data immediately
- */
-// import RecaptchaV2 from "react-google-invisible-recaptcha";
-// const CAPTCHA2_KEY = "6LeQt-MUAAAAAFHZGwmJnd58aStK2xF-6f8MBtm3";
-// v3 (invisible)
-import { loadReCaptcha as loadRecaptchaV3, ReCaptcha as RecaptchaV3 } from "react-recaptcha-v3";
-// use only in staging/production
-const USE_CAPTCHA = process.env.NODE_ENV !== "development";
-const CAPTCHA3_KEY = "6Lf9YmEeAAAAAKrgIQojjy-d8QeYBGIcpFI2HJxB";
-console.log("process.env.NODE_ENV", process.env.NODE_ENV);
+import TurnstileWidget from "src/shared/components/TurnstileWidget";
 /*
  * LIFECYCLE:
  *
  * constructor() --- page loaded, parse state from url or redux initial state
  * componentDidMount() --- :focus input field, fetch data
  * componentDidUpdate() --- respond to URL change (back button, navigate to home)
- * s ave_state()
+ * persist_state()
  * --- validates 2 arguments (word, tld), sets default, parses tld from word,
- * --- in production, calls captcha_challenge(), waits for captcha success
+ * --- in production, calls persist_state(), waits for captcha success
  * --- syncs local state to global/url
  */
 class Search extends React.Component {
   static contextType = ContextUrlParams;
   constructor(props) {
     super(props);
+    this.Input_ref = createRef();
+    this.Submit_ref = createRef();
     /*
      * default values
      */
@@ -61,31 +49,13 @@ class Search extends React.Component {
     this.state = {
       str: (url_obj.str || props.input_str || "").trim(),
       tld: url_obj.tld || props.input_tld || Object.keys(props.tlds_user)[0] || Object.keys(props.tlds_checked)[0] || "",
-      captcha2_token: "", // to compare old/new
-      captcha3_token: "", // will be setState first, then used on click
-      // placeholder: "...",
-      // placeholder_n: 1
     };
-    /*
-     * dom manipulation
-     */
-    this.Input_ref = createRef();
-    this.Search_ref = createRef();
   }
 
   focusInput() {
     if (this.Input_ref.current && typeof window === "object" && window.innerWidth > 700) {
       this.Input_ref.current.focus();
     }
-  }
-  blurInput() {
-    if (this.Input_ref.current) {
-      this.Input_ref.current.blur();
-    }
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.placeholderInterval);
   }
 
   componentDidMount() {
@@ -100,14 +70,10 @@ class Search extends React.Component {
           tld: urlParams.tld || "",
         },
         () => {
-          this.captcha_challenge();
+          this.persist_state();
         }
       );
     }
-    /*
-     * Must pre-load for RecaptchaV3
-     */
-    loadRecaptchaV3(CAPTCHA3_KEY);
     /*
      * :focus this input field from outside this componentpm
      */
@@ -129,12 +95,6 @@ class Search extends React.Component {
       this.setState({ str: (url_obj.str || "").trim(), tld: url_obj.tld || "" }, this.persist_state);
     }
     /*
-     * remember last captcha
-     */
-    if (this.props.captcha !== prevProps.captcha) {
-      this.setState({ captcha: this.props.captcha });
-    }
-    /*
      * sync tld
      */
     if (this.props.input_tld !== prevProps.input_tld && this.props.input_tld !== this.state.tld) {
@@ -148,44 +108,9 @@ class Search extends React.Component {
     }
   }
 
-  captcha_challenge = () => {
-    this.blurInput();
-    /*
-     * verify
-     */
-    if (USE_CAPTCHA) {
-      /*
-       * verify
-       */
-      this.verifyReCaptchaV3();
-    } else {
-      /*
-       * prevent duplicate captcha (if everything the same)
-       * skip captcha in DEVELOPMENT environment
-       */
-      this.persist_state();
-    }
-  };
-
-  verifyReCaptchaV3 = () => {
-    /*
-     * verify captcha response
-     */
-    if (typeof window === "object" && typeof window.grecaptcha !== "undefined" && typeof window.grecaptcha.ready === "function") {
-      window.grecaptcha.ready(() => {
-        console.log("window.grecaptcha is ready. Sending...");
-        window.grecaptcha.execute(CAPTCHA3_KEY, { action: "fetchData" }).then((captcha_response) => {
-          // console.warn("EXECUTED CAPTCHA V3 TOKEN =", captcha_response)
-          window.recaptcha3_token = captcha_response;
-          this.persist_state(captcha_response, 3);
-        });
-      });
-    }
-  };
-
   /*
-   * This is the only place, the single source of truth,
-   *    which calls RX__set_inputs()
+   * This is the only place in the app that calls RX__set_inputs()
+   * So, all public user searches pass through this function.
    */
   persist_state = (captcha_response, captcha_version) => {
     // props from URL, on-load
@@ -240,7 +165,7 @@ class Search extends React.Component {
   };
 
   render() {
-    let { home, loading, location = {}, title, title_nav, placeholder, cue, cue_nav, hideInput, className = "", autofocus, domains, ...props } = this.props;
+    let { home, loading, location = {}, title, title_nav, placeholder, cue, cue_nav, hideInput, className = "", autofocus, domains } = this.props;
 
     if (!cue) {
       className += " nocue";
@@ -269,7 +194,7 @@ class Search extends React.Component {
               this.focusInput();
             }
           }}
-          ref={this.Search_ref}
+          ref={this.Submit_ref}
         >
           {/*
            * Demo/Mockup
@@ -298,7 +223,7 @@ class Search extends React.Component {
                   }}
                   onKeyPress={(event) => {
                     if (event.key === "Enter") {
-                      this.captcha_challenge();
+                      this.persist_state();
                     }
                   }}
                   onBlur={() => {
@@ -312,6 +237,7 @@ class Search extends React.Component {
               ) : (
                 <span className="input-padding" />
               )}
+
               {!!domains && (
                 <InputTld
                   value={this.state.tld || "com"}
@@ -321,15 +247,16 @@ class Search extends React.Component {
                       {
                         tld: value.toLowerCase(),
                       },
-                      this.captcha_challenge
+                      this.persist_state
                     );
                   }}
                 />
               )}
+
               <Button
                 className="Button"
                 onClick={() => {
-                  this.captcha_challenge();
+                  this.persist_state();
                 }}
               >
                 <span className="searchText">search </span>
@@ -349,6 +276,7 @@ class Search extends React.Component {
             {!!cue && <>{!!cue && <div className="cue">{cue}</div>}</>}
           </section>
         </Styled>
+        <TurnstileWidget />
       </>
     );
   }

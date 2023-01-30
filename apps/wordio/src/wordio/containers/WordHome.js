@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import Search from "src/shared/components/Search";
+import Search from "src/wordio/components/Search";
 import { StyledHome } from "./WordHome.styled";
 import ApiExplorer from "src/wordio/components/ApiExplorer";
 import { bindActionCreators } from "redux";

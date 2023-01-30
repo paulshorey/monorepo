@@ -48,7 +48,15 @@ export type Props = {
  * You can add `tabIndex: 0` yourself to the target and/or to menu items to make them keyboard accessible.
  */
 export const Component = (props: Props, ref: any) => {
-  const { as, menu, children, tabIndex = undefined, ...rest } = props;
+  const {
+    as,
+    left,
+    right,
+    menu,
+    children,
+    tabIndex = undefined,
+    ...rest
+  } = props;
   const handleClick = () => {
     setTimeout(blur, 300);
   };
@@ -57,7 +65,7 @@ export const Component = (props: Props, ref: any) => {
     // @ts-ignore - Tag is a div or other valid html element
     <Tag {...rest} ref={ref}>
       {children}
-      {!props.left && !props.right ? (
+      {!left && !right ? (
         <CenterChildrenX
           className="Dropdown__menuContainer"
           onClick={handleClick}

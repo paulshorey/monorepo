@@ -114,7 +114,7 @@ const ToggleMenu = withBlock({
 
 <Dropdown
   textcolor="accent"
-  right // shortcut: React will automatically pass {true}
+  right
   menu={
     <ToggleMenu>
       <div>

@@ -7,7 +7,7 @@ import { StyledResults } from "./WordResults.styled";
 import { faEdit } from "@fortawesome/pro-solid-svg-icons/faEdit";
 import { FontAwesomeIcon as FA } from "@fortawesome/react-fontawesome";
 import PosWord from "./PosWord";
-import Search from "src/shared/components/Search";
+import Search from "src/wordio/components/Search";
 import Head from "next/head";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";

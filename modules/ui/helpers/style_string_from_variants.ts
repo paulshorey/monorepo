@@ -1,5 +1,5 @@
 import style_to_string from '@techytools/ui/helpers/style_to_string';
-import { styleProps, ssProp } from '@techytools/ui/types/styles';
+import { styleProps, styleProp } from '@techytools/ui/types/styles';
 
 type Props = {
   /**
@@ -10,8 +10,8 @@ type Props = {
    * The "stylesheet" written in JS. It must have at least a "default" key, which returns a string or function that accepts props as first parameter and returns a string.
    */
   variants: {
-    default: ssProp;
-    [key: string]: ssProp;
+    default: styleProp;
+    [key: string]: styleProp;
   };
 };
 

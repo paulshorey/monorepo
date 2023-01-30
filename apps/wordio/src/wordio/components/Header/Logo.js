@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@techytools/ui/components/Link";
 import { StyledLogoLink } from "./index.styled";
 const _ = () => <span style={{ width: "5px" }} />;
 
@@ -14,28 +14,26 @@ const Logo = ({ home }) => {
             }, 300);
           }}
         >
-          <a>
-            <span className="color-accent">wordio</span>
-            <span className="color-white">
-              .<_ />
-              co
-            </span>
-            <span className="beta">beta</span>
-          </a>
-        </Link>
-      </StyledLogoLink>
-    );
-  } else {
-    return (
-      <StyledLogoLink>
-        <a href="/">
           <span className="color-accent">wordio</span>
           <span className="color-white">
             .<_ />
             co
           </span>
           <span className="beta">beta</span>
-        </a>
+        </Link>
+      </StyledLogoLink>
+    );
+  } else {
+    return (
+      <StyledLogoLink>
+        <Link href="/">
+          <span className="color-accent">wordio</span>
+          <span className="color-white">
+            .<_ />
+            co
+          </span>
+          <span className="beta">beta</span>
+        </Link>
       </StyledLogoLink>
     );
   }

@@ -1,5 +1,5 @@
 import obj_has_key from '@techytools/ui/helpers/io/obj_has_key';
-import { ssProp } from '@techytools/ui/types/styles';
+import { styleProp } from '@techytools/ui/types/styles';
 
 /**
  * Accepts SCSS string, function that accepts props and returns string, or an array of either.
@@ -9,7 +9,7 @@ export default function style_to_string(
   /**
    * EmotionJS css prop type. Will be converted to string. Or string. Or array of strings.
    */
-  style: ssProp,
+  style: styleProp,
   /**
    * props, just like in a @emotion/styled function
    */
