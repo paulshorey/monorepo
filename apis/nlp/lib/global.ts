@@ -115,7 +115,7 @@ export default async function ({ NO_ASYNC = false, NO_LOGS = false } = {}) {
         }
       } catch (e) {
         // fatal misconfiguration - redeploy codebase
-        global.execute(`bash ${global.__root}/_bash/_start_production.sh`)
+        // global.execute(`bash ${global.__root}/_bash/_start_production.sh`)
       }
     }
     process.on("uncaughtException", global.handleError)

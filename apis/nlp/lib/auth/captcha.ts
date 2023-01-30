@@ -1,7 +1,7 @@
 import { type reqType, type optionsType } from "./"
 
 const DEBUG1 = false
-const TURNSTILE_KEY = "0x4AAAAAAABozldcmsxI0Cbc-0Fp7kW8PW0"
+const TURNSTILE_KEY = "0x4AAAAAAACMf05oiTuErAFryIM_aGT8aiI"
 
 /**
  * VERIFY CAPTCHA RESPONSE 🔒
@@ -10,9 +10,9 @@ const TURNSTILE_KEY = "0x4AAAAAAABozldcmsxI0Cbc-0Fp7kW8PW0"
  */
 export default async function (req: reqType, {}: optionsType = {}): Promise<number> {
   // Server is hosted on localhost/macbook - skip captcha
-  if (global.hosttype === "Darwin" || global.hostname.substr(-4) === ".lan") {
-    return Date.now() + 1000000
-  }
+  // if (global.hosttype === "Darwin" || global.hostname.substr(-4) === ".lan") {
+  //   return Date.now() + 1000000
+  // }
   // Staging/Production - verify captcha
   let turnstile_token =
     (req.body && req.body.turnstile_token) ||
@@ -24,7 +24,7 @@ export default async function (req: reqType, {}: optionsType = {}): Promise<numb
     /*
      * validate user token
      */
-    let formData = new FormData()
+    let formData = new URLSearchParams()
     formData.append("secret", TURNSTILE_KEY)
     formData.append("response", turnstile_token)
     formData.append("remoteip", req.client_ip)
@@ -35,13 +35,14 @@ export default async function (req: reqType, {}: optionsType = {}): Promise<numb
       method: "POST"
     })
     const captcha_result = await result.json()
-
+    global.cconsole.info("captcha request", turnstile_token)
+    global.cconsole.info("captcha_result", captcha_result)
     if (captcha_result.success) {
       /*
        * captcha success
        */
       if (DEBUG1) global.cconsole.success("captcha success", req.client_ip)
-      return Date.now() + 300000 // expires in 5 minutes
+      return Date.now() + 3600000 // expires in 5 minutes
     } else {
       /*
        * captcha failed

@@ -21,11 +21,11 @@ export default function TurnstileWidget() {
       sitekey={process.env.NEXT_PUBLIC_TURNSTILE_CLIENT_KEY}
       autoResetOnExpire={true}
       onVerify={(token) => {
-        console.log("turnstile onVerify token", token);
+        console.log(token);
         turnstileToken.set(token);
       }}
       onExpire={() => {
-        console.log("turnstile onExpire");
+        console.warn("turnstile token expired");
         turnstileToken.set("");
       }}
       size="compact"
