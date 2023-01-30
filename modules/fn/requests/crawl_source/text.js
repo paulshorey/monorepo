@@ -1,22 +1,15 @@
 /**
  * This uses Fetch API to scrape the text content a website (only source code, no JavaScript execution)
- * @param {object} options
- * @param {string} options.url - URL to scrape
- * @param {string} options.selector - CSS selector to scrape
- * @param {string} options.attr - Alternative to options.selector
- * @param {boolean} options.spacer - Adds spaces between tags (default is one space)
+ * @param {string} options.url - URL to scrape (required, include protocol)
+ * @param {string} options.selector - CSS selector to scrape (default is "body")
  * @returns {Promise<string>} - text content from website body source code
  */
-export default async function ({ url, selector, attr, spacer = " " }) {
+export default async function ({ url, selector }) {
   if (!selector) {
     selector = "body";
   }
   const response = await fetchResponse(url);
-  if (!attr) {
-    return await getText({ response, selector, spacer });
-  } else {
-    return await getAttribute({ response, selector, attr });
-  }
+  return await getText({ response, selector });
 }
 
 /*
@@ -40,20 +33,17 @@ const fetchResponse = async function (url) {
   return response;
 };
 
-const getText = async function ({ response, selector, spacer }) {
+const getText = async function ({ response, selector }) {
   const rewriter = new HTMLRewriter();
-  const matches = {};
+  const readTexts = [];
   global.cconsole.warn("selector", selector);
-  const selectors = new Set(selector.split(",").map((s) => s.trim()));
 
-  selectors.forEach((selector) => {
-    matches[selector] = [];
-
+  {
     let nextText = "";
 
     rewriter.on(selector, {
       element() {
-        matches[selector].push(true);
+        readTexts.push(true);
         nextText = "";
       },
 
@@ -61,52 +51,32 @@ const getText = async function ({ response, selector, spacer }) {
         nextText += text.text;
 
         if (text.lastInTextNode) {
-          nextText += spacer || "";
-          matches[selector].push(nextText);
+          nextText += " ";
+          readTexts.push(nextText);
           nextText = "";
         }
       }
     });
-  });
-
+  }
   const transformed = rewriter.transform(response);
 
   await transformed.arrayBuffer();
 
-  selectors.forEach((selector) => {
-    const nodeCompleteTexts = [];
+  const nodeCompleteTexts = [];
+  let nextText = "";
 
-    let nextText = "";
-
-    matches[selector].forEach((text) => {
-      if (text === true) {
-        if (nextText.trim() !== "") {
-          nodeCompleteTexts.push(cleanText(nextText));
-          nextText = "";
-        }
-      } else {
-        nextText += text;
+  readTexts.forEach((text) => {
+    if (text === true) {
+      if (nextText.trim() !== "") {
+        nodeCompleteTexts.push(cleanText(nextText));
+        nextText = "";
       }
-    });
-
-    const lastText = cleanText(nextText);
-    if (lastText !== "") nodeCompleteTexts.push(lastText);
-    matches[selector] = nodeCompleteTexts;
-  });
-
-  return selectors.length === 1 ? matches[selectors[0]] : matches;
-};
-
-const getAttribute = async function ({ response, selector, attr }) {
-  class AttributeScraper {
-    element(element) {
-      if (this.value) return;
-      this.value = element.getAttribute(attr);
+    } else {
+      nextText += text;
     }
-  }
-  const scraper = new AttributeScraper(attr);
+  });
+  const lastText = cleanText(nextText);
+  if (lastText !== "") nodeCompleteTexts.push(lastText);
 
-  await new HTMLRewriter().on(selector, scraper).transform(response).arrayBuffer();
-
-  return scraper.value || "";
+  return nodeCompleteTexts;
 };
