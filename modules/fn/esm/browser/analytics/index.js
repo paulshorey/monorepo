@@ -4,6 +4,14 @@ const DEBUG1 = false; // log
  * Track page view (when a new route is written to browser history)
  */
 export const analytics_track_page = function (options) {
+    if (!options.name) {
+        console.error("analytics_track_page: missing options.name");
+        return;
+    }
+    if (!options.path) {
+        console.error("analytics_track_page: missing options.path");
+        return;
+    }
     // remove trailing slash
     options.path = options.path.replace(/[\/]+$/, "");
     // keep lash if root
