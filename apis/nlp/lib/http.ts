@@ -8,24 +8,23 @@ export const endpointHandler = function ({ expressApp, method, path, response, a
     global.res = res
     if (global.DEBUG_PATHS) global.cconsole?.info(`${method.toUpperCase()} ${path}`, req.query, req.body)
     // authenticate
-    let user
+    const meta = {
+      user: {},
+      responseTime: Date.now() - timeStart,
+      host: req.headers.host
+    }
     try {
-      user = await auth({ req, authFunctions })
+      meta.user = await auth({ req, authFunctions })
     } catch (err) {
-      respondWithError({ req, res, err, data: { type: "authentication", method, path } })
+      return respondWithError({ req, res, err, data: { type: "authentication", method, path } })
     }
     // fetch data
-    let data
+    let data: any
     try {
       data = await response({ req, res })
-      let meta = {
-        user,
-        responseTime: Date.now() - timeStart,
-        host: req.headers.host
-      }
-      respondWithData({ res, data, meta })
+      return respondWithData({ res, data, meta })
     } catch (err) {
-      respondWithError({ req, res, err, data: { type: "response data", method, path } })
+      return respondWithError({ req, res, err, data: { type: "response data", method, path } })
     }
   })
 }
@@ -41,13 +40,12 @@ export const respondWithError = function ({ req, res, err, data }) {
     message,
     debug
   }
-  httpResponse(res, 500, error)
-  // if (global.DEBUG_PATHS)
-  global.cconsole?.error(`${data.method.toUpperCase()} ${data.path} ${debug} ${stack}`, req.query, req.body)
+  global.cconsole?.warn(`${data.method.toUpperCase()} ${data.path} ${debug} ${stack}`, req.query, req.body)
+  return httpResponse(res, 500, error)
 }
 
 export const respondWithData = function ({ res, data, meta }) {
-  httpResponse(res, 200, data, meta)
+  return httpResponse(res, 200, data, meta)
 }
 
 export const httpResponse = function (res, res_status_code = 200, data = {}, meta = {}) {

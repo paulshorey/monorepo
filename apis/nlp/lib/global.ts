@@ -47,6 +47,7 @@ export default async function ({ NO_ASYNC = false, NO_LOGS = false } = {}) {
   global.hostname = os.hostname()
   global.hosttype = os.type()
   global.DEVELOPMENT = global.hosttype.toLowerCase().includes("darwin")
+  global.PRODUCTION = global.hosttype.toLowerCase().includes("ubuntu")
 
   //
   // Error reporting
@@ -103,23 +104,35 @@ export default async function ({ NO_ASYNC = false, NO_LOGS = false } = {}) {
    * Error handling
    */
   if (!global.handleError) {
-    global.handleError = (err) => {
-      try {
-        // respond to client
-        if (global.res && httpResponse) {
-          // httpResponse will log the error, so don't do it again in this file
-          httpResponse(global.res, 500, parse_error_message(err))
-        } else {
-          // log to console
-          global.cconsole.error(parse_error_message(err))
-        }
-      } catch (e) {
-        // fatal misconfiguration - redeploy codebase
-        // global.execute(`bash ${global.__root}/_bash/_start_production.sh`)
+    global.handleError = function (err: any) {
+      // respond to client
+      if (global.res && httpResponse) {
+        // httpResponse will log the error, so don't do it again in this file
+        httpResponse(global.res, 500, parse_error_message(err))
+        return
+      } else {
+        // log to console
+        global.cconsole.error(parse_error_message(err))
+        return
       }
     }
-    process.on("uncaughtException", global.handleError)
-    process.on("unhandledRejection", global.handleError)
+    process.on("uncaughtException", (err) => {
+      try {
+        global.handleError(err)
+      } catch (e) {
+        global.cconsole.error("uncaughtException", e)
+      }
+    })
+    process.on("unhandledRejection", (err) => {
+      try {
+        global.handleError(err)
+      } catch (e) {
+        global.cconsole.error("unhandledRejection", e)
+      }
+    })
+    process.on("SIGINT", () => {
+      global.execute("pm2 restart all")
+    })
   }
 
   /*
