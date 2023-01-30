@@ -37,6 +37,7 @@ const cconsole = cconsoleInit({
     },
   },
 });
+global.cconsole = cconsole;
 
 const router = Router();
 

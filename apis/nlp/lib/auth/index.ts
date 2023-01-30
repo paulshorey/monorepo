@@ -29,11 +29,13 @@ export const ip_expirations = {}
 
 export const set_user_session_expiration = function (user: userType, expireTime: number): number {
   ip_expirations[user.id || user.ip] = expireTime
+  // global.cconsole.success("set_user_session_expiration", user.id || user.ip, expireTime)
   return ip_expirations[user.id || user.ip]
 }
 
 export const get_user_session_expiration = function (user: userType): number {
   let expires = ip_expirations[user.id || user.ip]
+  // global.cconsole.success("get_user_session_expiration", user.id || user.ip, expires)
   return Number(expires) || 0
 }
 
@@ -52,7 +54,7 @@ export default async function ({ req, authFunctions }: propsType): Promise<userT
   user.ip = req.client_ip
 
   // User session still valid?
-  user.expires = 0 // get_user_session_expiration(user)
+  user.expires = get_user_session_expiration(user)
   user.authenticated = user.expires > Date.now()
   if (user.authenticated) {
     return user

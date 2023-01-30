@@ -9,12 +9,12 @@ export default async function (request) {
   let url = searchParams.get("url");
   if (url && !url.match(/^[a-zA-Z]+:\/\//)) url = "http://" + url;
 
-  const selector = searchParams.get("selector");
+  const selector = searchParams.get("selector") || "";
   const attr = searchParams.get("attr");
   const spaced = searchParams.get("spaced"); // Adds spaces between tags
   const pretty = searchParams.get("pretty");
 
-  if (!url || !selector) {
+  if (!url) {
     return handleSiteRequest(request);
   }
 

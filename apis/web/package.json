@@ -2,9 +2,9 @@
   "private": true,
   "name": "web-scraper",
   "version": "1.0.0",
-  "description": "Web scraper built with Cloudflare Workers utilizing HTMLRewriter.",
+  "description": "Starter API using CloudFlare Workers",
   "main": "index.js",
-  "author": "Adam Schwartz <adam.flynn.schwartz@gmail.com>",
+  "author": "Paul Shorey <hello@paulshorey.com>",
   "license": "MIT",
   "dependencies": {
     "@airbrake/node": "^1.0.7",
