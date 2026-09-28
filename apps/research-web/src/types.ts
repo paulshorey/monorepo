@@ -3,9 +3,9 @@ export interface Dataset {
   label: string;
   asset: "crypto" | "future";
   downloaded: boolean;
-  source_commit: string;
-  files: { date: string }[];
-  sample_only: boolean;
+  provider: string;
+  schema: string;
+  files: { path: string }[];
 }
 export interface Config {
   strategy: string;

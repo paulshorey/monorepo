@@ -1,5 +1,5 @@
 from dataclasses import replace
-import io
+import hashlib
 import json
 from pathlib import Path
 import tempfile
@@ -8,12 +8,11 @@ import unittest
 from unittest.mock import patch
 from urllib.error import HTTPError
 from urllib.request import Request, urlopen
-from zipfile import ZipFile
 from http.server import ThreadingHTTPServer
 from strategy_core import Bar, Config, Instrument, Replay, run_backtest
 from strategy_core.order_flow import book_imbalance, divergence, infer_side
 from strategy_core.strategies import RsiReversion
-from backtest_runner.data import parse_zip, quality, validate_id
+from backtest_runner.data import parse_csv, quality, validate_id
 from backtest_runner.server import Handler
 from backtest_runner import service, data
 
@@ -22,29 +21,58 @@ def bars(prices):
     return [Bar(i * 60, p, p + 1, p - 1, p, 10) for i, p in enumerate(prices)]
 
 
-def zipped(entries):
-    target = io.BytesIO()
-    with ZipFile(target, 'w') as archive:
-        for name, content in entries.items():
-            archive.writestr(name, content)
-    return target.getvalue()
+HEADER = 'ts_event,ts_recv,instrument_id,symbol,action,side,price,size,bid_px_00,ask_px_00,bid_sz_00,ask_sz_00\n'
+
+
+def trade(time, price, size=1, symbol='MGCZ6'):
+    return f'{time},{time},123,{symbol},T,B,{price},{size},100,101,2,3\n'
 
 
 class DataTests(unittest.TestCase):
-    def test_future_contract_selected_without_price_scaling(self):
-        body = zipped({'20131007_es_minute_trade_201312.csv': '0,1676.5,1677,1676,1676.75,9\n',
-                       '20131007_es_minute_trade_201403.csv': '0,999,999,999,999,1\n'})
-        result = parse_zip(body, '20131007', 'ES', '201312')
-        self.assertEqual(result[0].time, 1381104000)
-        self.assertEqual(result[0].close, 1676.75)
-        self.assertEqual(len(result), 1)
+    def test_manifest_loads_verified_tbbo_export(self):
+        content = (HEADER + trade('2026-09-25T00:00:01.000000001+00:00', '100.1', 2)).encode()
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            cache = root / 'databento'
+            manifests = root / 'manifests'
+            cache.mkdir()
+            manifests.mkdir()
+            (cache / 'ticks.csv').write_bytes(content)
+            metadata = {'id': 'fixture', 'provider': 'databento', 'dataset': 'GLBX.MDP3',
+                        'schema': 'tbbo', 'encoding': 'csv', 'price_format': 'decimal',
+                        'timestamp_format': 'iso8601_utc', 'asset': 'future', 'symbol': 'MGCZ6',
+                        'contract': 'MGCZ6', 'multiplier': 10, 'tick_size': .1,
+                        'files': [{'path': 'ticks.csv', 'sha256': hashlib.sha256(content).hexdigest()}]}
+            (manifests / 'fixture.json').write_text(json.dumps(metadata))
+            with patch.object(data, 'CACHE', cache), patch.object(data, 'MANIFESTS', manifests):
+                loaded, result = data.load('fixture')
+        self.assertEqual(loaded['dataset'], 'GLBX.MDP3')
+        self.assertEqual((len(result), result[0].volume), (1, 2))
 
-    def test_reject_duplicate_unordered_invalid_and_nonfinite_bars(self):
-        valid = '60000,10,12,9,11,1\n'
-        for content in [valid + valid, valid + '0,10,12,9,11,1\n', '0,10,8,9,11,1\n',
-                        '0,NaN,12,9,11,1\n', '60001,10,12,9,11,1\n', '0,10,12,9,11,-1\n']:
-            with self.subTest(content=content), self.assertRaises(ValueError):
-                parse_zip(zipped({'20180405_btcusd_minute_trade.csv': content}), '20180405', 'BTCUSD', None)
+    def test_tbbo_trades_aggregate_observed_minutes(self):
+        content = HEADER + trade('2026-09-25T00:00:01+00:00', '100.1', 2) + trade('2026-09-25T00:00:02+00:00', '99.9', 3) + trade('2026-09-25T00:02:00+00:00', '100.2', 1)
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp, 'ticks.csv')
+            path.write_text(content)
+            result = parse_csv(path, 'MGCZ6')
+        self.assertEqual(len(result), 2)
+        self.assertEqual((result[0].open, result[0].high, result[0].low, result[0].close, result[0].volume),
+                         (100.1, 100.1, 99.9, 99.9, 5))
+        self.assertEqual(result[1].time - result[0].time, 120)
+
+    def test_reject_wrong_symbol_nonfinite_and_out_of_order_trades(self):
+        first = trade('2026-09-25T00:00:02+00:00', '100')
+        bad = [first + trade('2026-09-25T00:00:01+00:00', '101'),
+               trade('2026-09-25T00:00:01+00:00', 'NaN'),
+               trade('2026-09-25T00:00:01+00:00', '100', symbol='ESZ6'),
+               trade('2026-09-25T00:00:01+00:00', '100', size=0),
+               trade('2026-09-25T00:00:00.000000002+00:00', '100') + trade('2026-09-25T00:00:00.000000001+00:00', '101')]
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp, 'ticks.csv')
+            for content in bad:
+                with self.subTest(content=content), self.assertRaises(ValueError):
+                    path.write_text(HEADER + content)
+                    parse_csv(path, 'MGCZ6')
 
     def test_gaps_preserved(self):
         source = bars([10, 11, 12])
@@ -55,9 +83,9 @@ class DataTests(unittest.TestCase):
 
     def test_checksum_mismatch_is_rejected(self):
         with tempfile.TemporaryDirectory() as tmp, patch.object(data, "CACHE", Path(tmp)):
-            Path(tmp, "data.zip").write_bytes(b"altered")
+            Path(tmp, "data.csv").write_bytes(b"altered")
             with self.assertRaisesRegex(ValueError, "Checksum mismatch"):
-                data.verified_bytes({"path": "data.zip", "sha256": "0" * 64})
+                data.verified_path({"path": "data.csv", "sha256": "0" * 64})
 
     def test_path_traversal_rejected(self):
         for value in ['../x', '/tmp/x', 'a/b', '', None]:

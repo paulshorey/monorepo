@@ -1,16 +1,16 @@
 import argparse
 import json
-from .data import analyze, catalog, download
+from .data import analyze, catalog
 from .service import execute
 from .server import serve
 
 
 def main():
-    parser = argparse.ArgumentParser(description="LEAN sample data research runner")
+    parser = argparse.ArgumentParser(description="Local Databento research runner")
     sub = parser.add_subparsers(dest="command", required=True)
-    for command in ("download", "analyze", "run"):
+    for command in ("analyze", "run"):
         p = sub.add_parser(command)
-        p.add_argument("--dataset", default="btc-usd-sample")
+        p.add_argument("--dataset", required=True)
         if command == "run":
             p.add_argument("--config", help="Path to a JSON Config object")
     sub.add_parser("catalog")
@@ -23,8 +23,6 @@ def main():
             return
         if args.command == "catalog":
             result = catalog()
-        elif args.command == "download":
-            result = download(args.dataset)
         elif args.command == "analyze":
             result = analyze(args.dataset)
         else:

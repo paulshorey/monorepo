@@ -10,13 +10,11 @@
     "test": "turbo run test",
     "dev": "turbo run dev",
     "deps:install": "pnpm install --frozen-lockfile",
-    "data:download": "python3 scripts/research.py download --dataset btc-usd-sample && python3 scripts/research.py download --dataset es-dec2013-sample",
     "data:analyze": "python3 scripts/research.py analyze",
     "backtest": "python3 scripts/research.py run",
     "api": "python3 scripts/research.py serve",
     "cloud:install": "pnpm install --frozen-lockfile",
-    "cloud:start": "python3 --version",
-    "data:report": "python3 scripts/report-samples.py"
+    "cloud:start": "python3 --version"
   },
   "devDependencies": {
     "prettier": "3.6.2",

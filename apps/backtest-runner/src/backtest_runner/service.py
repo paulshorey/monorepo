@@ -34,12 +34,12 @@ def execute(dataset: str, options: dict) -> dict:
     result.update({"id": hashlib.sha256(json.dumps(identity, sort_keys=True).encode()).hexdigest()[:24],
                    "schema_version": 1, "created_at": datetime.now(timezone.utc).isoformat(), "provenance": identity,
                    "quality": quality(metadata, bars), "bars": [asdict(b) for b in bars],
-                   "assumptions": ["Research simulator; LEAN data, not LEAN execution.",
+                   "assumptions": ["Databento TBBO trades aggregated into observed minute bars; trade-time BBO is not yet used by this simulator.",
                      "Decisions at bar close; market fills at next observed nonzero-volume bar open with adverse tick rounding.",
                      "Full collateral, fixed size, fees and slippage; no margin, funding, borrowing, depth, partial fills, or contract rolls.",
                      "Gaps are preserved; windows count observed bars. No calendar or automatic daily liquidation.",
                      "Final position is marked to market, not liquidated. Drawdown halt exits on next available fill.",
-                     "Public sample data validates the pipeline, not strategy profitability."]})
+                     "No claim of strategy profitability follows from an integration run."]})
     RUNS.mkdir(parents=True, exist_ok=True)
     with tempfile.NamedTemporaryFile(mode="w", dir=RUNS, suffix=".tmp", delete=False) as out:
         json.dump(result, out, allow_nan=False)

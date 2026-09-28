@@ -1,20 +1,19 @@
-"""Pinned LEAN minute TradeBar ingestion. No rescaling, forward fill, or contract splicing."""
+"""Local Databento TBBO CSV ingestion and observed trade-minute aggregation."""
 import csv
-from dataclasses import asdict
 from datetime import datetime, timezone
+from decimal import Decimal, InvalidOperation
 import hashlib
-import io
 import json
 from pathlib import Path
 import re
-from urllib.request import urlopen
-from zipfile import ZipFile
 from strategy_core import Bar, Instrument
 
 ROOT = Path(__file__).resolve().parents[4]
 MANIFESTS = ROOT / "data/manifests"
-CACHE = ROOT / "data/lean"
+CACHE = ROOT / "data/databento"
 ID = re.compile(r"[a-z0-9][a-z0-9_-]{0,79}\Z")
+REQUIRED = {"ts_event", "ts_recv", "instrument_id", "symbol", "action", "side", "price", "size",
+            "bid_px_00", "ask_px_00", "bid_sz_00", "ask_sz_00"}
 
 
 def validate_id(value: str) -> str:
@@ -34,73 +33,88 @@ def local_path(file: dict) -> Path:
     return path
 
 
-def verified_bytes(file: dict) -> bytes:
+def verified_path(file: dict) -> Path:
     path = local_path(file)
-    if not path.exists():
-        raise ValueError("Data is not downloaded. Run pnpm data:download first.")
-    body = path.read_bytes()
-    if hashlib.sha256(body).hexdigest() != file["sha256"]:
+    if not path.is_file():
+        raise ValueError(f"Data file is missing: {file['path']}")
+    digest = hashlib.sha256()
+    with path.open("rb") as source:
+        for block in iter(lambda: source.read(1024 * 1024), b""):
+            digest.update(block)
+    if digest.hexdigest() != file["sha256"]:
         raise ValueError(f"Checksum mismatch: {file['path']}")
-    return body
+    return path
 
 
-def download(dataset: str) -> dict:
-    m = manifest(dataset)
-    for f in m["files"]:
-        path = local_path(f)
-        if path.exists():
-            verified_bytes(f)
-            continue
-        # Only fetch this pinned public repository. Paid/vendor download is deliberately separate.
-        if not f["url"].startswith("https://raw.githubusercontent.com/QuantConnect/Lean/"):
-            raise ValueError("Unsupported download source; import licensed files locally")
-        with urlopen(f["url"], timeout=60) as response:
-            body = response.read(25_000_001)
-        if len(body) > 25_000_000 or hashlib.sha256(body).hexdigest() != f["sha256"]:
-            raise ValueError("Download size or checksum mismatch")
-        path.parent.mkdir(parents=True, exist_ok=True)
-        temp = path.with_suffix(".tmp")
-        temp.write_bytes(body)
-        temp.replace(path)
-    return analyze(dataset)
+def _timestamp_ns(value: str, field: str) -> int:
+    if not isinstance(value, str):
+        raise ValueError(f"Invalid {field} timestamp")
+    fractional = re.search(r"\.(\d+)(?:Z|\+00:00)\Z", value)
+    if fractional and len(fractional.group(1)) > 9:
+        raise ValueError(f"{field} exceeds nanosecond precision")
+    try:
+        stamp = datetime.fromisoformat(value.replace("Z", "+00:00"))
+    except ValueError as error:
+        raise ValueError(f"Invalid {field} timestamp") from error
+    if stamp.tzinfo is None or stamp.utcoffset().total_seconds() != 0:
+        raise ValueError(f"{field} must be UTC ISO 8601")
+    fraction_ns = int(fractional.group(1).ljust(9, "0")) if fractional else 0
+    return int(stamp.replace(microsecond=0).timestamp()) * 1_000_000_000 + fraction_ns
 
 
-def parse_zip(body: bytes, day: str, symbol: str, contract: str | None) -> list[Bar]:
-    midnight = datetime.strptime(day, "%Y%m%d").replace(tzinfo=timezone.utc)
-    name = f"{day}_{symbol.lower()}_minute_trade" + (f"_{contract}" if contract else "") + ".csv"
-    bars = []
-    with ZipFile(io.BytesIO(body)) as archive:
-        info = archive.getinfo(name)  # Explicit contract: never merge contracts in the same ZIP.
-        if info.file_size > 100_000_000:
-            raise ValueError("CSV exceeds the local importer size limit")
-        with archive.open(name) as source:
-            for index, row in enumerate(csv.reader(io.TextIOWrapper(source, encoding="utf-8-sig")), 1):
-                if len(row) != 6:
-                    raise ValueError(f"{name}:{index}: expected six TradeBar fields")
-                try:
-                    milliseconds = int(row[0])
-                    if milliseconds < 0 or milliseconds >= 86400000 or milliseconds % 60000:
-                        raise ValueError("Expected minute offsets within the UTC file date")
-                    bar = Bar(int(midnight.timestamp()) + milliseconds // 1000, *map(float, row[1:]))
-                    if bars and bar.time <= bars[-1].time:
-                        raise ValueError("Duplicate or unordered source rows")
-                    bars.append(bar)
-                except ValueError as error:
-                    raise ValueError(f"{name}:{index}: {error}") from error
+def parse_csv(path: Path, symbol: str) -> list[Bar]:
+    """Read a pretty_ts/pretty_px, symbol-mapped TBBO export for one raw contract."""
+    bars: list[Bar] = []
+    previous: int | None = None
+    with path.open(newline="", encoding="utf-8-sig") as source:
+        reader = csv.DictReader(source)
+        if reader.fieldnames is None or not REQUIRED.issubset(reader.fieldnames):
+            raise ValueError(f"{path.name}: missing TBBO fields: {sorted(REQUIRED - set(reader.fieldnames or []))}")
+        for line, row in enumerate(reader, 2):
+            try:
+                if None in row or row["symbol"] != symbol or row["action"] != "T":
+                    raise ValueError("Expected a trade for the manifest's raw contract symbol")
+                event = _timestamp_ns(row["ts_event"], "ts_event")
+                _timestamp_ns(row["ts_recv"], "ts_recv")
+                if previous is not None and event < previous:
+                    raise ValueError("Trade events are out of order")
+                previous = event
+                if not row["instrument_id"].isdigit():
+                    raise ValueError("Invalid instrument_id")
+                price = Decimal(row["price"])
+                size = int(row["size"])
+                if not price.is_finite() or price <= 0 or size <= 0:
+                    raise ValueError("Invalid trade price or size")
+                minute = event // 60_000_000_000 * 60
+                px = float(price)
+                if bars and bars[-1].time == minute:
+                    old = bars[-1]
+                    bars[-1] = Bar(minute, old.open, max(old.high, px), min(old.low, px), px, old.volume + size)
+                else:
+                    bars.append(Bar(minute, px, px, px, px, size))
+            except (ValueError, InvalidOperation, TypeError) as error:
+                raise ValueError(f"{path.name}:{line}: {error}") from error
     return bars
 
 
 def load(dataset: str) -> tuple[dict, list[Bar]]:
     m = manifest(dataset)
-    if m["resolution"] != "minute" or m["data_timezone"] != "UTC" or m["price_scale"] != 1:
-        raise ValueError("Only UTC, unscaled minute crypto/futures TradeBars are supported")
-    if m["asset"] == "future" and not m.get("contract"):
-        raise ValueError("Futures require an explicit contract month")
-    bars = []
-    for file in sorted(m["files"], key=lambda f: f["date"]):
-        bars.extend(parse_zip(verified_bytes(file), file["date"], m["symbol"], m.get("contract")))
-    if not bars or any(b.time <= a.time for a, b in zip(bars, bars[1:])):
-        raise ValueError("Empty, overlapping, duplicate, or out-of-order dataset")
+    if m.get("provider") != "databento" or m.get("schema") != "tbbo" or m.get("encoding") != "csv":
+        raise ValueError("Expected a Databento TBBO CSV manifest")
+    if m.get("price_format") != "decimal" or m.get("timestamp_format") != "iso8601_utc":
+        raise ValueError("Export CSV with decimal prices and UTC ISO 8601 timestamps")
+    if m.get("asset") == "future" and not m.get("contract"):
+        raise ValueError("Futures require an explicit raw contract symbol")
+    if not m.get("files"):
+        raise ValueError("Manifest has no data files")
+    bars: list[Bar] = []
+    for file in m["files"]:
+        chunk = parse_csv(verified_path(file), m["symbol"])
+        if bars and chunk and chunk[0].time <= bars[-1].time:
+            raise ValueError("Data files overlap or are out of order")
+        bars.extend(chunk)
+    if not bars:
+        raise ValueError("No trade events in dataset")
     return m, bars
 
 
@@ -112,7 +126,7 @@ def quality(m: dict, bars: list[Bar]) -> dict:
             "zero_volume_bars": sum(b.volume == 0 for b in bars), "gap_count": len(gaps),
             "unobserved_minutes": sum((b.time - a.time) // 60 - 1 for a, b in gaps),
             "largest_gap_minutes": max(((b.time - a.time) // 60 - 1 for a, b in gaps), default=0),
-            "note": "Gaps may be closures or absent trades, not necessarily bad data. No bars are fabricated. No session calendar is applied."}
+            "note": "Gaps may be closures or absent trades. No bars are fabricated or session calendar applied."}
 
 
 def analyze(dataset: str) -> dict:
@@ -123,9 +137,9 @@ def catalog() -> list[dict]:
     result = []
     for path in sorted(MANIFESTS.glob("*.json")):
         m = json.loads(path.read_text())
-        result.append({**m, "downloaded": all(local_path(f).exists() for f in m["files"])})
+        result.append({**m, "downloaded": all(local_path(f).is_file() for f in m["files"])})
     return result
 
 
 def instrument(m: dict) -> Instrument:
-    return Instrument(m["symbol"] + ("-" + m["contract"] if m.get("contract") else ""), m["asset"], m["multiplier"], m["tick_size"])
+    return Instrument(m["symbol"], m["asset"], m["multiplier"], m["tick_size"])

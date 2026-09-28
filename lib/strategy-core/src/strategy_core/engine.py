@@ -1,4 +1,4 @@
-"""Small research simulator, NOT the LEAN execution engine or a brokerage adapter."""
+"""Small research simulator, separate from a brokerage execution adapter."""
 from dataclasses import asdict, dataclass
 from math import ceil, floor, isfinite
 from .models import Bar, Instrument

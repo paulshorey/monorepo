@@ -43,13 +43,14 @@ yarn-error.log*
 *.pem
 
 # Research data and generated outputs; manifests/reports stay in git
-/data/lean/
+/data/databento/
+/data/sample/
 /data/runs/
 __pycache__/
 *.py[cod]
 .venv/
 *.egg-info/
 .pytest_cache/
-# Local LEAN credentials/workspace files
-lean.json
+# Local credentials
 credentials
+.secrets.sh

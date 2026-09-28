@@ -33,7 +33,7 @@ async function api<T>(path: string, options?: RequestInit): Promise<T> {
 }
 function App() {
   const [datasets, setDatasets] = useState<Dataset[]>([]);
-  const [dataset, setDataset] = useState("btc-usd-sample");
+  const [dataset, setDataset] = useState("");
   const [config, setConfig] = useState<Config>(initial);
   const [runs, setRuns] = useState<RunSummary[]>([]);
   const [run, setRun] = useState<Run | null>(null);
@@ -44,6 +44,7 @@ function App() {
     Promise.all([api<Dataset[]>("datasets"), api<RunSummary[]>("runs")])
       .then(([data, history]) => {
         setDatasets(data);
+        if (data.length) setDataset(data[0].id);
         setRuns(history);
         setOnline(true);
       })
@@ -147,7 +148,7 @@ function App() {
             Explore a hypothesis. Replay the market. Inspect every decision.
           </p>
         </div>
-        <span className="tag">LEAN DATA · PYTHON REPLAY</span>
+        <span className="tag">DATABENTO TBBO · PYTHON REPLAY</span>
       </div>
       {error && (
         <div className="error" role="alert">
@@ -157,7 +158,7 @@ function App() {
       <main>
         <aside>
           <form onSubmit={execute}>
-            <fieldset disabled={busy}>
+            <fieldset disabled={busy || datasets.length === 0}>
               <div className="panel-title">
                 <h2>Experiment setup</h2>
                 <span>01</span>
@@ -168,6 +169,7 @@ function App() {
                   value={dataset}
                   onChange={(e) => selectDataset(e.target.value)}
                 >
+                  {datasets.length === 0 && <option value="">No datasets registered</option>}
                   {datasets.map((d) => (
                     <option key={d.id} value={d.id}>
                       {d.label}
@@ -176,15 +178,13 @@ function App() {
                 </select>
               </label>
               <p className="hint">
-                {selected?.files[0]?.date} → {selected?.files.at(-1)?.date}
-                <br />
-                {selected?.sample_only
-                  ? "Public LEAN sample · minute bars"
-                  : "Imported minute bars"}
+                {selected
+                  ? `${selected.provider} ${selected.schema.toUpperCase()} · trade-derived minute bars`
+                  : "Add a local TBBO manifest and export to begin."}
               </p>
               {selected && !selected.downloaded && (
                 <p className="error">
-                  Data not downloaded. Run pnpm data:download.
+                  Export file missing. See docs/project/data.md.
                 </p>
               )}
               <label>

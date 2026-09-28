@@ -5,7 +5,7 @@ experiments, and saving reproducible results. Future work adds custom feature/mo
 pipelines and more detailed execution models.
 
 Run `python3 scripts/research.py` from the repository root. Commands:
-`catalog`, `download --dataset ID`, `analyze --dataset ID`,
+`catalog`, `analyze --dataset ID`,
 `run --dataset ID --config PATH`, and `serve --port 8000`.
 See [example configurations](examples/) and the [data workflow](../../docs/project/data.md).
 
@@ -14,6 +14,7 @@ The local API exposes GET `/api/health`, `/api/datasets`, `/api/quality/:dataset
 Runs execute synchronously and save data provenance, parameters, decisions, fills,
 costs, and equity as JSON.
 
+The importer derives observed minute bars from local Databento TBBO CSV trades.
 The current simulator uses completed minute bars, next observed bar fills, fixed
 position sizes, full collateral, fees/slippage, and a drawdown halt. Final positions
 are marked to market. Margin, funding, session close-out, contract rolls, ML training,

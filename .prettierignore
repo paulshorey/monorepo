@@ -1,6 +1,6 @@
 archive/
 node_modules/
-data/lean/
+data/databento/
 data/runs/
 **/dist/
 pnpm-lock.yaml

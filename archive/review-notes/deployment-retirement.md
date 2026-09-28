@@ -1,6 +1,6 @@
 # Legacy deployment retirement
 
-Repository retirement is complete: all old apps moved to `archive/legacy/apps`,
+Repository retirement is complete: all old apps moved to `archive/apps`,
 all previous libraries/scripts/plans preserved, active workspace paths include only
 new packages, provider config filenames are disabled, the legacy database workflow
 is archived, and old root startup/secrets-hydration shortcuts are removed.
