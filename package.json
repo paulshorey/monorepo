@@ -14,7 +14,10 @@
     "backtest": "python3 scripts/research.py run",
     "api": "python3 scripts/research.py serve",
     "cloud:install": "pnpm install --frozen-lockfile",
-    "cloud:start": "python3 --version"
+    "cloud:start": "python3 --version",
+    "dev:tailscale": "node scripts/tailscale-dev.mjs start",
+    "dev:tailscale:status": "node scripts/tailscale-dev.mjs status",
+    "dev:tailscale:stop": "node scripts/tailscale-dev.mjs stop"
   },
   "devDependencies": {
     "prettier": "3.6.2",

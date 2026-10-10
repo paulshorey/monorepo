@@ -6,7 +6,7 @@ pipelines and more detailed execution models.
 
 Run `python3 scripts/research.py` from the repository root. Commands:
 `catalog`, `analyze --dataset ID`,
-`run --dataset ID --config PATH`, and `serve --port 8000`.
+`run --dataset ID --config PATH`, and `serve --port 8001`.
 See [example configurations](examples/) and the [data workflow](../../docs/project/data.md).
 
 The local API exposes GET `/api/health`, `/api/datasets`, `/api/quality/:dataset`,

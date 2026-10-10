@@ -3,13 +3,13 @@ import { fileURLToPath, URL } from "node:url";
 export default defineConfig({
   resolve: { alias: { "@": fileURLToPath(new URL("./src", import.meta.url)) } },
   server: {
-    port: 5173,
+    port: 4400,
     strictPort: true,
-    proxy: { "/api": "http://127.0.0.1:8000" },
+    proxy: { "/api": "http://127.0.0.1:8001" },
   },
   preview: {
-    port: 5173,
+    port: 4400,
     strictPort: true,
-    proxy: { "/api": "http://127.0.0.1:8000" },
+    proxy: { "/api": "http://127.0.0.1:8001" },
   },
 });

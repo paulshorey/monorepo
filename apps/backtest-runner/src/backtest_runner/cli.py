@@ -15,7 +15,7 @@ def main():
             p.add_argument("--config", help="Path to a JSON Config object")
     sub.add_parser("catalog")
     p = sub.add_parser("serve")
-    p.add_argument("--port", type=int, default=8000)
+    p.add_argument("--port", type=int, default=8001)
     args = parser.parse_args()
     try:
         if args.command == "serve":

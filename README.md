@@ -33,8 +33,8 @@ pnpm install --frozen-lockfile
 pnpm dev
 ```
 
-Open [the local UI](http://127.0.0.1:5173/). Its `/api` requests are proxied to the
-Python API on port 8000. The current Python baseline uses the standard library.
+Open [the local UI](http://127.0.0.1:4400/). Its `/api` requests are proxied to the
+Python API on port 8001. The current Python baseline uses the standard library.
 
 ```sh
 python3 scripts/research.py catalog
@@ -55,3 +55,10 @@ metrics, models, algorithms, apps, and services. See the [data workflow](docs/pr
 [roadmap](docs/project/roadmap.md). The [metric explorer architecture](docs/project/metric-explorer.md)
 defines the next app, including [sliding-window candles](docs/sliding-windows/README.md)
 and a [proposed storage design](lib/db-research/README.md).
+
+## Private phone access through Tailscale
+
+Run `pnpm dev:tailscale --background` from the repository root.
+Use `pnpm dev:tailscale:status` and `pnpm dev:tailscale:stop` to manage it.
+The shared tool lives in `~/git/tailscale-dev`; this project's setup and address
+are in [the local Tailscale guide](docs/local-development-tailscale.md).

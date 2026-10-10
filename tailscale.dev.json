@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "name": "trading",
+  "services": [
+    {
+      "name": "api",
+      "kind": "command",
+      "port": 8001,
+      "probe": "/api/health",
+      "command": [
+        "python3",
+        "scripts/research.py",
+        "serve",
+        "--port",
+        "{port}"
+      ]
+    },
+    {
+      "name": "web",
+      "kind": "vite",
+      "app": "apps/research-web",
+      "port": 4400,
+      "httpsPort": 4400,
+      "proxies": [
+        {
+          "prefix": "/api",
+          "target": "http://127.0.0.1:8001",
+          "normalizeTrustedOrigin": true
+        }
+      ]
+    }
+  ]
+}
