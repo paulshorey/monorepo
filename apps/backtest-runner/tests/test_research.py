@@ -243,9 +243,27 @@ class ApiTests(unittest.TestCase):
             self.assertEqual(len(json.load(response)), 1)
 
     def test_bad_config_and_cross_origin_rejected(self):
-        for config, origin in [({'quantity': 'bad'}, 'http://localhost:5173'), ({}, 'https://example.com')]:
+        for config, origin in [({'quantity': 'bad'}, 'http://localhost:4400'), ({}, 'https://example.com')]:
             request = Request(self.base + '/api/runs', data=json.dumps({'dataset': 'fixture', 'config': config}).encode(), headers={'Content-Type': 'application/json', 'Origin': origin})
             with self.assertRaises(HTTPError) as error:
                 urlopen(request)
             self.assertEqual(error.exception.code, 400)
             error.exception.close()
+
+    def test_local_ui_origins_match_web_port(self):
+        for origin in ('http://localhost:4400', 'http://127.0.0.1:4400',
+                       'http://localhost:5173', 'https://example.com'):
+            with self.subTest(origin=origin), patch('backtest_runner.server.execute', return_value={'id': 'fixture'}) as execute:
+                request = Request(self.base + '/api/runs', data=b'{"dataset":"fixture"}',
+                                  headers={'Content-Type': 'application/json', 'Origin': origin})
+                if origin in ('http://localhost:4400', 'http://127.0.0.1:4400'):
+                    with urlopen(request) as response:
+                        self.assertEqual(response.status, 200)
+                    execute.assert_called_once_with('fixture', {})
+                else:
+                    with self.assertRaises(HTTPError) as error:
+                        urlopen(request)
+                    self.assertEqual(error.exception.code, 400)
+                    self.assertEqual(json.load(error.exception)['error'], 'Untrusted browser origin')
+                    error.exception.close()
+                    execute.assert_not_called()

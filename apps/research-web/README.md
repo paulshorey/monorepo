@@ -8,4 +8,4 @@ Next, extend the UI to explore custom metrics and ML outputs, compare experiment
 and monitor and control continuous trading strategies.
 
 Run `pnpm dev` from the repository root to start both apps. Vite proxies `/api` to
-the local Python server on port 8000. See the [root README](../../README.md) for setup.
+the local Python server on port 8001. See the [root README](../../README.md) for setup.

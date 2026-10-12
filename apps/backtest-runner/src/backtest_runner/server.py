@@ -34,7 +34,7 @@ class Handler(BaseHTTPRequestHandler):
             if self.headers.get_content_type() != "application/json":
                 raise ValueError("Expected application/json")
             origin = self.headers.get("Origin")
-            if origin and origin not in ("http://localhost:5173", "http://127.0.0.1:5173"):
+            if origin and origin not in ("http://localhost:4400", "http://127.0.0.1:4400"):
                 raise ValueError("Untrusted browser origin")
             size = int(self.headers.get("Content-Length", 0))
             if not 0 < size <= 16384:
